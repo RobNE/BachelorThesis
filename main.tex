@@ -1,0 +1,132 @@
+\documentclass[a4paper,10pt,twoside]{report}
+
+%ifdef PDF
+%\usepackage[pdftex,colorlinks]{hyperref}
+%endif
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+%\usepackage[english]{babel}
+\usepackage{ngerman,graphicx,float,latexsym,textcomp,longtable,verbatim,dsfont}
+
+\setlength{\oddsidemargin}{1cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{15cm}
+
+\pagestyle{headings}
+
+%
+%
+% Includes
+%
+%%%%%%%%%%%
+%\includeonly{title, intro, glossary}
+%\includeonly{title, gisdb, app_gisdb, glossary}
+%\includeonly{title, spatial, glossary}
+%\includeonly{title, webservice, app_webservice, glossary}
+%\includeonly{title, compreh, glossary}
+%\includeonly{title, gisdb, webservice, app_gisdb, glossary}
+%\includeonly{title, intro, gisdb, webservice, app_gisdb, app_webservice, glossary}
+
+% Neue Umgebungen und Definitionen
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Hilfsdefinitionen
+%%%%%%%%%%%%%%%%%%%
+% der Betreuer soll den Abschnitt durchlesen
+\newenvironment{lesen}%
+{\vspace{5mm}\begin{sloppypar}
+  \noindent\hrulefill\, BEGINN \,\hrulefill
+  \end{sloppypar}
+}%
+{\begin{sloppypar}
+  \noindent\hrulefill\, ENDE   \,\hrulefill
+  \end{sloppypar}\vspace{5mm}
+}
+
+% der Betreuer soll den Abschnitt unter der Frage #1 durchlesen und
+% kommentieren
+\newenvironment{kommentar}[1]%
+{\vspace{5mm}
+  \begin{sloppypar}\noindent\hrulefill\, BEGINN Kommentar \,\hrulefill
+
+  {\noindent\it #1}
+  \end{sloppypar}
+}%
+{\begin{sloppypar}
+  \noindent\hrulefill\, ENDE Kommentar   \,\hrulefill
+  \end{sloppypar}\vspace{5mm}
+}
+
+% Frage an den Betreuer
+\newcommand{\frage}[1]{\vspace{10mm}
+\begin{sloppypar}{\bf Frage:} #1\end{sloppypar}
+\vspace{10mm}}
+
+% Bemerkung für den Betreuer
+\newcommand{\bemerkung}[1]{\vspace{5mm}
+\begin{sloppypar}{\bf Bemerkung:} #1\end{sloppypar}
+\vspace{5mm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% notwendige Definitionen
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{beispiel}{Beispiel}[chapter]
+
+% Beweis-Umgebung
+\newenvironment{beweis}{\noindent {\bf Beweis:}}{\hfill$\Box$\smallskip}
+
+% Numerierung von enumerate beginnt auf dem ersten Level mit Buchstaben
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+% Abkürzungen
+\newcommand{\lt}{$<$}
+\newcommand{\gt}{$>$}
+\newcommand{\ul}{\underline}
+\newcommand{\ol}{\overline}
+\newcommand{\zB}{z.\,B.\ }
+
+% Trademarks
+\newcommand{\multinet}{MultiNet{\small\texttrademark} }
+\newcommand{\esri}{ESRI\raisebox{1ex}{\tiny\textregistered} }
+\newcommand{\ibm}{IBM\raisebox{1ex}{\tiny\textregistered} }
+\newcommand{\dbZ}{DB2\raisebox{1ex}{\tiny\textregistered} }
+
+% Titel der Arbeit
+\newcommand{\titel}{Tolle Teile Tauchen Tief}
+%
+% Beginn
+%
+%%%%%%%%%
+\begin{document}
+
+\include{title}
+
+\thispagestyle{empty} % Seite hinter dem Titelblatt hat keine Seitennummer
+\cleardoublepage
+
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\cleardoublepage
+
+\include{intro}
+\include{inhalt}
+
+\include{appendix}
+
+\bibliography{Bibliography}
+\bibliographystyle{alpha}
+
+\cleardoublepage
+\include{statement}
+
+\end{document}
