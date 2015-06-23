@@ -172,18 +172,6 @@
   Url                      = {http://dx.doi.org/10.1145/1536616.1536632}
 }
 
-@Book{Martelli2006,
-  Title                    = {Python in a Nutshell. A Desktop Quick Reference},
-  Author                   = {Alex Martelli},
-  Editor                   = {Mary T. O'Brien},
-  Publisher                = {O'Reilly},
-  Year                     = {2006},
-  Edition                  = {Second Edition},
-
-  Owner                    = {rellerkmann},
-  Timestamp                = {2015.06.23}
-}
-
 @TechReport{BigDataAnalytics,
   Title                    = {Big Data Analytics},
   Author                   = {Philip Russom},
