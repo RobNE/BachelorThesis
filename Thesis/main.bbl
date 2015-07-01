@@ -1,4 +1,27 @@
-\begin{thebibliography}{Mar06}
+\begin{thebibliography}{EMC14}
+
+\bibitem[DG08]{Dean2008}
+Jeffrey Dean and Sanjay Ghemawat.
+\newblock Mapreduce.
+\newblock {\em Communications of the ACM}, 51(1):107, Jan 2008.
+
+\bibitem[EMC14]{EMC2014}
+EMC².
+\newblock The digital universe of opportunities.
+\newblock Technical report, EMC², 2014.
+
+\bibitem[Foua]{HadoopWebsite}
+Apache~Software Foundation.
+\newblock Hadoop website.
+
+\bibitem[Foub]{FlinkWebsite}
+The Apache~Software Foundation.
+\newblock Flink website.
+
+\bibitem[Jac09]{Jacobs2009}
+Adam Jacobs.
+\newblock The pathologies of big data.
+\newblock {\em Communications of the ACM}, 52(8):36, August 2009.
 
 \bibitem[Mar06]{Martelli2006}
 Alex Martelli.

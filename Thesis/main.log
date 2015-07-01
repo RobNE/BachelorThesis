@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  23 JUN 2015 19:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  1 JUL 2015 21:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -519,7 +519,7 @@ Package color Info: Driver file: pdftex.def on input line 137.
 \c@definition=\count98
 \c@beispiel=\count99
 
-(./main.aux)
+(./main.aux (./title.aux) (./inhalt.aux) (./statement.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
@@ -537,7 +537,8 @@ LaTeX Font Info:    ... okay on input line 107.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 107.
 
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 107.
@@ -644,110 +645,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--52
 re/husiegel.pdf>]) [2
 
 
-] (./main.toc)
+] (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
  [1
 
 ]
-\openout2 = `intro.aux'.
-
- (./intro.tex
-Kapitel 1.
-<picture/tradeoff.pdf, id=25, 192.72pt x 125.46875pt>
-File: picture/tradeoff.pdf Graphic file (type pdf)
-
-<use picture/tradeoff.pdf>
-Package pdftex.def Info: picture/tradeoff.pdf used on input line 23.
-(pdftex.def)             Requested size: 192.71951pt x 125.46843pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 28.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-
-LaTeX Warning: Reference `app:c1:s1' on page 1 undefined on input line 28.
-
-
-LaTeX Warning: Reference `fig:tradeoff' on page 1 undefined on input line 28.
-
-
-LaTeX Warning: Citation `Herschel2003' on page 1 undefined on input line 30.
-
-) [1
-
-
- <./picture/tradeoff.pdf>]
 \openout2 = `inhalt.aux'.
 
  (./inhalt.tex
-Kapitel 2.
-
-LaTeX Warning: Citation `Martelli2006' on page 2 undefined on input line 8.
-
+Kapitel 1.
 [2
 
 
-
 ]
-Kapitel 3.
+Kapitel 2.
 [3
 
 ]
+Kapitel 3.
+[4
+
+]
 Kapitel 4.
-) [4
+) [5
 
-] (./main.bbl) [5
+] (./main.bbl) [6
 
-
-] [6
 
 ]
 \openout2 = `statement.aux'.
 
- (./statement.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 17.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 17.
-) [7
+ (./statement.tex) [7
+
 
 ] (./main.aux (./title.aux)
-(./intro.aux) (./inhalt.aux) (./statement.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(./inhalt.aux) (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 3393 strings out of 493117
- 45690 string characters out of 6135434
- 105205 words of memory out of 5000000
- 6742 multiletter control sequences out of 15000+600000
- 18006 words of font info for 44 fonts, out of 8000000 for 9000
+ 3371 strings out of 493117
+ 44979 string characters out of 6135434
+ 106318 words of memory out of 5000000
+ 6724 multiletter control sequences out of 15000+600000
+ 17209 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,23p,1066b,249s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on main.pdf (10 pages, 236221 bytes).
+ 38i,6n,23p,1029b,249s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/en
+c/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
+dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
+c/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
+cm-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm
+-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
+/sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
+fti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfx
+c1200.pfb>
+Output written on main.pdf (9 pages, 208058 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

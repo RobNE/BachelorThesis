@@ -1,12 +1,21 @@
+\chapter{Einleitung}
+Seit einigen Jahren ist ein massiver \textcolor{blue}{Anstieg} an \textcolor{blue}{Datenaufkommen} zu beobachten \cite{EMC2014}. Diese Entwicklung erfordert neue Technologien und Prozesse, zum Beispiel bei der Speicherung und der Verarbeitung der Daten. Denn traditionelle Datenbanksysteme können große Datenmengen nicht immer in akzeptabler Form und Verarbeitungszeit verarbeiten \cite{Jacobs2009}. Ein zum Zweck der Verarbeitung großer Datenmengen entwickeltes Programmiermodell ist das Map-Reduce Paradigma, das 2004 erstmals publiziert wurde \cite{Dean2008}. Dieses Paradigma sieht eine massiv parallelisierte Verarbeitung von Daten vor und wird von Datenverarbeitungssystemen wie Hadoop \cite{HadoopWebsite} und Flink \cite{FlinkWebsite} implementiert.
+\newline
+Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv parallelisierbarer Ansatz bei der Verarbeitung von großen Datenmengen untersucht werden. Der Vergleich beider Ansätze wird am Beispiel eines Algorithmus zur Approximierung einer Pixelzeitreihe durchgeführt. Dieser wird im Rahmen des Projekts GeoMultiSens %GfZ Quelle einfügen
+ zur Analyse der Veränderung der Flora in einer geographischen Region genutzt. An die Analyse anschließend werden mithilfe des Algorithmus auf Basis der approximierten Werte Prognosen zur weiteren Entwicklung der Flora der untersuchten Region gestellt.
+\newline
+Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch.
+
 \chapter{Grundlagen}
 Das sind die Grundlagen
+%Big Data + Eigenschaften,
 
 \section{GeoMultiSens}
 Beschreibung von GeoMultiSens, GfZ, 
+%Einbringen: Koordinaten. Definition, numerische Darstellung, Umgang mit Koordinaten (evtl. in ch. Flink)
 
 \section{Python}
-Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variabeln, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine schlechte Skalierbarkeit \textcolor{red}{(bessere Formulierung)}, sobald Daten, deren Größe die Arbeitsspeichergröße der verarbeitenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}.
-
+Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variabeln, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
 \section{Java}
 
 \section{Flink}
