@@ -10,13 +10,17 @@ EMC².
 \newblock The digital universe of opportunities.
 \newblock Technical report, EMC², 2014.
 
-\bibitem[Foua]{HadoopWebsite}
+\bibitem[Foua]{FlinkWebsite}
+Apache~Software Foundation.
+\newblock Flink website.
+
+\bibitem[Foub]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
 
-\bibitem[Foub]{FlinkWebsite}
-The Apache~Software Foundation.
-\newblock Flink website.
+\bibitem[GP]{GeoMultiSensWebsite}
+GfZ-Potsdam.
+\newblock Geomultisens.
 
 \bibitem[Jac09]{Jacobs2009}
 Adam Jacobs.

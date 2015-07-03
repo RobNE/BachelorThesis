@@ -1,8 +1,8 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{ii}
 \contentsline {chapter}{\numberline {2}Grundlagen}{iii}
-\contentsline {section}{\numberline {2.1}GeoMultiSens}{iii}
+\contentsline {section}{\numberline {2.1}Algorithmus}{iii}
 \contentsline {section}{\numberline {2.2}Python}{iii}
-\contentsline {section}{\numberline {2.3}Java}{iii}
-\contentsline {section}{\numberline {2.4}Flink}{iii}
-\contentsline {chapter}{\numberline {3}Evaluation}{iv}
-\contentsline {chapter}{\numberline {4}Fazit}{v}
+\contentsline {section}{\numberline {2.3}Java}{iv}
+\contentsline {section}{\numberline {2.4}Flink}{iv}
+\contentsline {chapter}{\numberline {3}Evaluation}{v}
+\contentsline {chapter}{\numberline {4}Fazit}{vi}

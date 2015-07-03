@@ -1,7 +1,7 @@
 \chapter{Einleitung}
 Seit einigen Jahren ist ein massiver \textcolor{blue}{Anstieg} an \textcolor{blue}{Datenaufkommen} zu beobachten \cite{EMC2014}. Diese Entwicklung erfordert neue Technologien und Prozesse, zum Beispiel bei der Speicherung und der Verarbeitung der Daten. Denn traditionelle Datenbanksysteme können große Datenmengen nicht immer in akzeptabler Form und Verarbeitungszeit verarbeiten \cite{Jacobs2009}. Ein zum Zweck der Verarbeitung großer Datenmengen entwickeltes Programmiermodell ist das Map-Reduce Paradigma, das 2004 erstmals publiziert wurde \cite{Dean2008}. Dieses Paradigma sieht eine massiv parallelisierte Verarbeitung von Daten vor und wird von Datenverarbeitungssystemen wie Hadoop \cite{HadoopWebsite} und Flink \cite{FlinkWebsite} implementiert.
 \newline
-Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv parallelisierbarer Ansatz bei der Verarbeitung von großen Datenmengen untersucht werden. Der Vergleich beider Ansätze wird am Beispiel eines Algorithmus zur Approximierung einer Pixelzeitreihe durchgeführt. Dieser wird im Rahmen des Projekts GeoMultiSens %GfZ Quelle einfügen
+Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv parallelisierbarer Ansatz bei der Verarbeitung von großen Datenmengen untersucht werden. Der Vergleich beider Ansätze wird am Beispiel eines Algorithmus zur Approximierung einer Pixelzeitreihe durchgeführt. Dieser wird im Rahmen des Projekts GeoMultiSens \cite{GeoMultiSensWebsite}
  zur Analyse der Veränderung der Flora in einer geographischen Region genutzt. An die Analyse anschließend werden mithilfe des Algorithmus auf Basis der approximierten Werte Prognosen zur weiteren Entwicklung der Flora der untersuchten Region gestellt.
 \newline
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung von Variante zwei wird Flinks Java-Schnittstelle genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Ausgehend von den Tests und den ermittelten Ergebnissen wird eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden.
@@ -10,9 +10,46 @@ Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, di
 Das sind die Grundlagen
 %Big Data + Eigenschaften,
 
-\section{GeoMultiSens}
-Beschreibung von GeoMultiSens, GfZ, 
+\section{Algorithmus}
+Beschreibung des Algorithmus, GeoMultiSens, GfZ, 
+\newline
 %Einbringen: Koordinaten. Definition, numerische Darstellung, Umgang mit Koordinaten (evtl. in ch. Flink)
+
+\begin{tikzpicture}[>=latex']
+        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
+        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
+        input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        minimum width=2cm,
+        align=center,
+        minimum height=1cm
+    },
+        }
+        \node [rblock]  (start) {Start};
+        \node [block, right =1cm of start] (getdata) {Zugriff auf \\Inputdaten};
+        \node [block, right =1cm of getdata] (extraction) {Extraktion der \\Pixelzeitreihen};
+        \node [block, right =1cm of extraction] (filter) {Nicht valide \\Pixel filtern};
+        \node [block, below right =2cm and -0.5cm of start] (approx) {Approximierung \\fehlender Pixel};
+        \node [block, right =1cm of approx] (future) {Prognose};
+        \node [block, right =1cm of future] (write) {Daten speichern};
+        \node [block, right =1cm of write] (end) {Ende};
+        \node [coordinate, below right =1cm and 1cm of filter] (right) {};  %% Coordinate on right and middle
+        \node [coordinate,above left =1cm and 1cm of approx] (left) {};
+
+%% paths
+        \path[draw,->] (start) edge (getdata)
+                    (getdata) edge (extraction)
+                    (extraction) edge (filter)
+                    (filter.east) -| (right) -- (left) |- (approx)
+                    (approx) edge (future)
+                    (future) edge (write)
+                    (write) edge (end)
+                    ;
+\end{tikzpicture}
+
 
 \section{Python}
 Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variabeln, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
