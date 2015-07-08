@@ -36,8 +36,8 @@
 @Electronic{FlinkWebsite,
   Title                    = {Flink Website},
   Author                   = {Apache Software Foundation},
+  HowPublished             = {https://flink.apache.org/},
   Organization             = {Apache Software Foundation},
-  Url                      = {https://flink.apache.org/},
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.04.21}
@@ -46,12 +46,23 @@
 @Electronic{HadoopWebsite,
   Title                    = {Hadoop Website},
   Author                   = {Apache Software Foundation},
+  HowPublished             = {https://hadoop.apache.org/},
   Language                 = {English},
   Organization             = {Apache Software Foundation},
   Url                      = {https://hadoop.apache.org/},
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.07.01}
+}
+
+@Electronic{GeoMultiSensWebsite,
+  Title                    = {GeoMultiSens Website},
+  Author                   = {GfZ-Potsdam},
+  HowPublished             = {http://www.geomultisens.gfz-potsdam.de/},
+  Url                      = {http://www.geomultisens.gfz-potsdam.de/},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.04.20}
 }
 
 @Article{Jacobs2009,
@@ -73,6 +84,19 @@
   Url                      = {http://dx.doi.org/10.1145/1536616.1536632}
 }
 
+@Article{Laney2001,
+  Title                    = {3D Data Management: Controlling Data Volume, Velocity and Variety},
+  Author                   = {Laney, Doug},
+  Journal                  = {Application Delivery Strategies published by META Group Inc.},
+  Year                     = {2001},
+
+  Month                    = {Feb},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.07.08},
+  Url                      = {http://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf}
+}
+
 @Book{Martelli2006,
   Title                    = {Python in a Nutshell. A Desktop Quick Reference},
   Author                   = {Alex Martelli},
@@ -84,10 +108,33 @@
   Timestamp                = {2015.06.23}
 }
 
+@Article{McAfee2012,
+  Title                    = {Big Data: The Management Revolution},
+  Author                   = {Andrew McAfee and Erik Brynjolfsson},
+  Journal                  = {Harvard Business Review},
+  Year                     = {2012},
+
+  Month                    = {Oct},
+  Pages                    = {60-69},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.07.07},
+  Url                      = {http://ai.arizona.edu/mis510/other/Big%20Data%20-%20The%20Management%20Revolution.pdf}
+}
+
+@Book{9780071808170,
+  Title                    = {Harness the Power of Big Data The IBM Big Data Platform},
+  Author                   = {Paul Zikopoulos and Dirk deRoos and Krishnan Parasuraman and Thomas Deutsch and James Giles and David Corrigan},
+  Publisher                = {McGraw-Hill Osborne Media},
+  Year                     = {2012},
+
+  ISBN                     = {0071808175},
+  Url                      = {http://www.amazon.com/Harness-Power-Big-Data-Platform/dp/0071808175%3FSubscriptionId%3D0JYN1NVW651KCA56C102%26tag%3Dtechkie-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0071808175}
+}
+
 @Electronic{PythonAbout,
   Language                 = {English},
   Organization             = {Python Software Foundation},
-  Url                      = {https://docs.python.org/2/faq/general.html#what-is-python},
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.06.23}

@@ -7,7 +7,9 @@ Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv 
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung von Variante zwei wird Flinks Java-Schnittstelle genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Ausgehend von den Tests und den ermittelten Ergebnissen wird eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden.
 
 \chapter{Grundlagen}
-Das sind die Grundlagen
+Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komplexer Rohdaten, \textcolor{green}{die nahezu in Echtzeit verfügbar sind}. Aufgrund dieser Charakteristika handelt es sich bei dieser Analyse um ein \textcolor{blue}{Big-Data Problem}. Nach \cite{Laney2001} zeichnet sich eine \textcolor{blue}{Big-Data Anwendung} durch drei Eigenschaften aus. Diese drei Eigenschaften sind die Größe (engl. Volume), die Komplexität (eng. Variety) und die echtzeitnahe Verfügbarkeit sowie schnelle Verarbeitung (engl. Velocity) der Daten. Eine weiteres Merkmal ist die nicht garantierte Zuverlässigkeit und Einheitlichkeit der Daten (engl. veracity) \cite{Zikopoulos2012}. 
+\newline
+Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße, Datenkomplexität und schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
 %Big Data + Eigenschaften,
 
 \section{Algorithmus}
@@ -15,6 +17,7 @@ Beschreibung des Algorithmus, GeoMultiSens, GfZ,
 \newline
 %Einbringen: Koordinaten. Definition, numerische Darstellung, Umgang mit Koordinaten (evtl. in ch. Flink)
 
+%Datenstromdiagramm
 \begin{tikzpicture}[>=latex']
         \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
         rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
@@ -52,8 +55,7 @@ Beschreibung des Algorithmus, GeoMultiSens, GfZ,
 
 
 \section{Python}
-Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variabeln, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
-\section{Java}
+Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
 
 \section{Flink}
 

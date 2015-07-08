@@ -1,4 +1,5 @@
-\begin{thebibliography}{EMC14}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{ZdP{\etalchar{+}}12}
 
 \bibitem[DG08]{Dean2008}
 Jeffrey Dean and Sanjay Ghemawat.
@@ -13,23 +14,38 @@ EMC².
 \bibitem[Foua]{FlinkWebsite}
 Apache~Software Foundation.
 \newblock Flink website.
+\newblock https://flink.apache.org/.
 
 \bibitem[Foub]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
+\newblock https://hadoop.apache.org/.
 
 \bibitem[GP]{GeoMultiSensWebsite}
 GfZ-Potsdam.
-\newblock Geomultisens.
+\newblock Geomultisens website.
+\newblock http://www.geomultisens.gfz-potsdam.de/.
 
 \bibitem[Jac09]{Jacobs2009}
 Adam Jacobs.
 \newblock The pathologies of big data.
 \newblock {\em Communications of the ACM}, 52(8):36, August 2009.
 
+\bibitem[Lan01]{Laney2001}
+Doug Laney.
+\newblock 3d data management: Controlling data volume, velocity and variety.
+\newblock {\em Application Delivery Strategies published by META Group Inc.},
+  Feb 2001.
+
 \bibitem[Mar06]{Martelli2006}
 Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
+
+\bibitem[ZdP{\etalchar{+}}12]{Zikopoulos2012}
+Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James
+  Giles, and David Corrigan.
+\newblock {\em Harness the Power of Big Data The IBM Big Data Platform}.
+\newblock McGraw-Hill Osborne Media, 2012.
 
 \end{thebibliography}
