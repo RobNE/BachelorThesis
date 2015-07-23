@@ -8,26 +8,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{ngerman,graphicx,float,latexsym,textcomp,longtable,verbatim,dsfont, color, tikz}
-\usetikzlibrary{arrows,positioning,shapes.geometric}
+\usetikzlibrary{arrows,positioning,shapes.geometric, fit, automata, backgrounds}
 
 \setlength{\oddsidemargin}{1cm}
 \setlength{\evensidemargin}{0cm}
 \setlength{\textwidth}{15cm}
 
 \pagestyle{headings}
-
-%
-%
-% Includes
-%
-%%%%%%%%%%%
-%\includeonly{title, intro, glossary}
-%\includeonly{title, gisdb, app_gisdb, glossary}
-%\includeonly{title, spatial, glossary}
-%\includeonly{title, webservice, app_webservice, glossary}
-%\includeonly{title, compreh, glossary}
-%\includeonly{title, gisdb, webservice, app_gisdb, glossary}
-%\includeonly{title, intro, gisdb, webservice, app_gisdb, app_webservice, glossary}
 
 % Neue Umgebungen und Definitionen
 %
@@ -111,12 +98,13 @@
 \thispagestyle{empty} % Seite hinter dem Titelblatt hat keine Seitennummer
 \cleardoublepage
 
-\pagenumbering{roman}
+\pagenumbering{Roman}
 \tableofcontents
 %\listoffigures
 %\listoftables
 
 %\cleardoublepage
+
 
 %\include{intro}
 \include{inhalt}

@@ -1,3 +1,4 @@
+\pagenumbering{arabic}
 \chapter{Einleitung}
 Seit einigen Jahren ist ein massiver \textcolor{blue}{Anstieg} an \textcolor{blue}{Datenaufkommen} zu beobachten \cite{EMC2014}. Diese Entwicklung erfordert neue Technologien und Prozesse, zum Beispiel bei der Speicherung und der Verarbeitung der Daten. Denn traditionelle Datenbanksysteme können große Datenmengen nicht immer in akzeptabler Form und Verarbeitungszeit verarbeiten \cite{Jacobs2009}. Ein zum Zweck der Verarbeitung großer Datenmengen entwickeltes Programmiermodell ist das Map-Reduce Paradigma, das 2004 erstmals publiziert wurde \cite{Dean2008}. Dieses Paradigma sieht eine massiv parallelisierte Verarbeitung von Daten vor und wird von Datenverarbeitungssystemen wie Hadoop \cite{HadoopWebsite} und Flink \cite{FlinkWebsite} implementiert.
 \newline
@@ -7,15 +8,24 @@ Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv 
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung von Variante zwei wird Flinks Java-Schnittstelle genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Ausgehend von den Tests und den ermittelten Ergebnissen wird eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden.
 
 \chapter{Grundlagen}
+\section{Grundlagen der Satellitenbildanalyse}
+\subsection{Geographische Definitionen}
+%Einführung von geo. Dingen (Koordinaten(Definition, numerische Darstellung, Umgang mit Koordinaten), Aufbereitung von Bildern (Transformieren von Bildern zur Entzerrung.), Fernerkundung etc.)
+\subsection{Beschreibung des Algorithmus}
+%Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR)
+
+\section{Technische Grundlagen}
+%Flink, Python
+\subsection{Flink}
+\subsection{Python}
+Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
+
+\chapter{Technische Umsetzung des Algorithmus}
+%Einordnung als Big-Data Problem (Einordnung am GfZ bei GeoMultiSens)
 Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komplexer Rohdaten, \textcolor{green}{die nahezu in Echtzeit verfügbar sind}. Aufgrund dieser Charakteristika handelt es sich bei dieser Analyse um ein \textcolor{blue}{Big-Data Problem}. Nach \cite{Laney2001} zeichnet sich eine \textcolor{blue}{Big-Data Anwendung} durch drei Eigenschaften aus. Diese drei Eigenschaften sind die Größe (engl. Volume), die Komplexität (eng. Variety) und die echtzeitnahe Verfügbarkeit sowie schnelle Verarbeitung (engl. Velocity) der Daten. Eine weiteres Merkmal ist die nicht garantierte Zuverlässigkeit und Einheitlichkeit der Daten (engl. veracity) \cite{Zikopoulos2012}. 
 \newline
 Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße, Datenkomplexität und schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
 %Big Data + Eigenschaften,
-
-\section{Algorithmus}
-Beschreibung des Algorithmus, GeoMultiSens, GfZ, 
-\newline
-%Einbringen: Koordinaten. Definition, numerische Darstellung, Umgang mit Koordinaten (evtl. in ch. Flink)
 
 %Datenstromdiagramm
 \begin{tikzpicture}[>=latex']
@@ -53,13 +63,63 @@ Beschreibung des Algorithmus, GeoMultiSens, GfZ,
                     ;
 \end{tikzpicture}
 
+\begin{tikzpicture}[>=latex']
+        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
+        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
+        input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        minimum width=1cm,
+        align=center,
+        minimum height=1cm
+    },
+        }
+        \node [rblock]  (start) {Input data};
+        %Group the data
+        \node [block, below =1cm of start, label={[name=l] Group the data}, draw] (groupDataInner) {groupBy('geographic position')};
+        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
+        %Filter the data
+        \node [block, below =1cm of groupDataOuter, label={[name=l] Filter the grouped data}, draw] (filterDataInner) {filter('valid')};
+        \node [fit=(filterDataInner) (l), draw] (filterDataOuter) {};
+        %Sort every grouped dataSet
+        \node [block, below =1cm of filterDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
+        \node [fit=(sortDataInner) (l), draw] (sortDataOuter) {};
+        %Approx the missing data
+        \node [block, below = 1cm of sortDataOuter, label={[name=l] Approx. the missing data}, draw] (approximateDataInner) {groupReduce()};
+        \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
+        %Predict the future data
+        \node [block, below = 1cm of approximateDataOuter, label={[name=l] Predict the future data}, draw] (predictDataInner) {groupReduce()};
+        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
+        %Sink the data
+        \node [rblock, below = 1cm of predictDataOuter, draw] (end) {Sink};
 
-\section{Python}
-Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
+        \node [coordinate, below right =1cm and 1cm of filter] (right) {};  %% Coordinate on right and middle
+        \node [coordinate,above left =1cm and 1cm of approx] (left) {};
 
-\section{Flink}
+%% paths
+        \path[draw,->] (start) edge (groupDataOuter)
+                    (groupDataOuter) edge (filterDataOuter)
+                    (filterDataOuter) edge (sortDataOuter)
+                    (sortDataOuter) edge (approximateDataOuter)
+                    (approximateDataOuter) edge (predictDataOuter)
+                    (predictDataOuter) edge (end)
+                    ;
+\end{tikzpicture}
 
-\chapter{Evaluation}
+%Minimal diagram example
+%\begin{tikzpicture}[nodes=draw]
+%    \node [label=label1,draw] (node1) {Node1};
+%\end{tikzpicture}
+
+Kurzer Kommentar:
+Alternativ kann ich mir vorstellen mit groupedDataSets zu arbeiten. Dabei wäre eine Pixelzeitreihe durch den key 'geographische Position' einem groupedDataSet zugeordnet und die nachfolgenden Filter- und Mapfunktionen würden auf jedes GroupedDataSet angewendet. Ich werde mich dahingehend noch weiter informieren. 
+
+\chapter{Tests}
+\section{Versuchsbeschreibung}
+Beschreibung + Begründung für meine Versuchsbedingungen
+\section{Auswertung}
 Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen
 
 \chapter{Fazit}

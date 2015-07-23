@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  8 JUL 2015 20:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  23 JUL 2015 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -825,6 +825,49 @@ File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 shapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
 ))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.5)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.0 (rcs-revision 1.3)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.0 (rcs-revision 1.2)
+\pgfnodepartlowerbox=\box43
+\pgfnodeparttwobox=\box44
+\pgfnodepartthreebox=\box45
+\pgfnodepartfourbox=\box46
+\pgfnodeparttwentybox=\box47
+\pgfnodepartnineteenbox=\box48
+\pgfnodeparteighteenbox=\box49
+\pgfnodepartseventeenbox=\box50
+\pgfnodepartsixteenbox=\box51
+\pgfnodepartfifteenbox=\box52
+\pgfnodepartfourteenbox=\box53
+\pgfnodepartthirteenbox=\box54
+\pgfnodeparttwelvebox=\box55
+\pgfnodepartelevenbox=\box56
+\pgfnodeparttenbox=\box57
+\pgfnodepartninebox=\box58
+\pgfnodeparteightbox=\box59
+\pgfnodepartsevenbox=\box60
+\pgfnodepartsixbox=\box61
+\pgfnodepartfivebox=\box62
+)))
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.3)
+\pgf@layerbox@background=\box63
+\pgf@layerboxsaved@background=\box64
+)
 \c@theorem=\count115
 \c@lemma=\count116
 \c@definition=\count117
@@ -833,30 +876,29 @@ File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.0 (rcs-revision 1.1)
 (./statement.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 107.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 94.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    ... okay on input line 94.
  (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
 \scratchdimen=\dimen155
-\scratchbox=\box43
+\scratchbox=\box65
 \nofMPsegments=\count120
 \nofMParguments=\count121
 \everyMPshowfont=\toks34
@@ -969,34 +1011,37 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  (./inhalt.tex
 Kapitel 1.
 
-Overfull \hbox (31.95834pt too wide) in paragraph at lines 2--8
+Overfull \hbox (31.95834pt too wide) in paragraph at lines 3--9
 \T1/cmr/m/n/10.95 tisch. Als Ba-sis wird die be-reits im-ple-men-tier-te und in
  der Pra-xis ge-nutz-te Python-Implementation
  []
 
-[2
+[1
 
 
 ]
 Kapitel 2.
+[2
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--19
+]
+Kapitel 3.
 
- []
-
-
-Overfull \hbox (2.42247pt too wide) in paragraph at lines 54--55
+Overfull \hbox (2.42247pt too wide) in paragraph at lines 64--65
 [][] 
  []
 
-[3
 
-] [4]
-Kapitel 3.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3
+
+]
+[4]
+Kapitel 4.
 [5
 
 ]
-Kapitel 4.
+Kapitel 5.
 ) [6
 
 ] (./main.bbl
@@ -1018,16 +1063,16 @@ tisens.gfz-
 ] (./main.aux (./title.aux) (./inhalt.aux)
 (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 14271 strings out of 493117
- 283510 string characters out of 6135434
- 322550 words of memory out of 5000000
- 17401 multiletter control sequences out of 15000+600000
+ 15023 strings out of 493117
+ 308997 string characters out of 6135434
+ 357922 words of memory out of 5000000
+ 18138 multiletter control sequences out of 15000+600000
  18761 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,60p,1029b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,6n,70p,1029b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-supe
-r/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/
-cm-super-ts1.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
+r/cm-super-ts1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super
+/cm-super-t1.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
 fbx1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfb
 x1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1
@@ -1040,10 +1085,10 @@ usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on main.pdf (11 pages, 247822 bytes).
+Output written on main.pdf (12 pages, 259102 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
