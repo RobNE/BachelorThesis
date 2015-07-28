@@ -6,51 +6,44 @@ A level-1 auxiliary file: inhalt.aux
 The style file: alpha.bst
 A level-1 auxiliary file: statement.aux
 Database file #1: Bibliography.bib
-Warning--entry type for "FlinkWebsite" isn't style-file defined
---line 36 of file Bibliography.bib
-Warning--entry type for "HadoopWebsite" isn't style-file defined
---line 46 of file Bibliography.bib
-Warning--entry type for "GeoMultiSensWebsite" isn't style-file defined
---line 58 of file Bibliography.bib
-You've used 9 entries,
+You've used 11 entries,
             2543 wiz_defined-function locations,
-            617 strings with 5466 characters,
-and the built_in function-call counts, 2738 in all, are:
-= -- 255
-> -- 115
-< -- 7
-+ -- 38
-- -- 35
-* -- 165
-:= -- 471
-add.period$ -- 27
-call.type$ -- 9
-change.case$ -- 51
-chr.to.int$ -- 8
-cite$ -- 9
-duplicate$ -- 119
-empty$ -- 215
-format.name$ -- 49
-if$ -- 548
+            631 strings with 6041 characters,
+and the built_in function-call counts, 3720 in all, are:
+= -- 341
+> -- 188
+< -- 8
++ -- 67
+- -- 62
+* -- 253
+:= -- 641
+add.period$ -- 33
+call.type$ -- 11
+change.case$ -- 71
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 144
+empty$ -- 272
+format.name$ -- 78
+if$ -- 735
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 7
-newline$ -- 49
-num.names$ -- 27
-pop$ -- 68
+missing$ -- 8
+newline$ -- 59
+num.names$ -- 33
+pop$ -- 89
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 82
 quote$ -- 0
-skip$ -- 94
+skip$ -- 115
 stack$ -- 0
-substring$ -- 80
-swap$ -- 8
-text.length$ -- 7
-text.prefix$ -- 6
+substring$ -- 123
+swap$ -- 10
+text.length$ -- 8
+text.prefix$ -- 7
 top$ -- 0
-type$ -- 64
+type$ -- 80
 warning$ -- 0
-while$ -- 22
-width$ -- 10
-write$ -- 112
-(There were 3 warnings)
+while$ -- 28
+width$ -- 13
+write$ -- 137

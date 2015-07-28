@@ -1,13 +1,14 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{1}
 \contentsline {chapter}{\numberline {2}Grundlagen}{2}
-\contentsline {section}{\numberline {2.1}Grundlagen der Satellitenbildanalyse}{2}
-\contentsline {subsection}{\numberline {2.1.1}Geographische Definitionen}{2}
+\contentsline {section}{\numberline {2.1}Grundlagen zur Satellitenbildanalyse}{2}
+\contentsline {subsection}{\numberline {2.1.1}Geographische Definitionen zur Satellitenbildanalyse}{2}
 \contentsline {subsection}{\numberline {2.1.2}Beschreibung des Algorithmus}{2}
 \contentsline {section}{\numberline {2.2}Technische Grundlagen}{2}
-\contentsline {subsection}{\numberline {2.2.1}Flink}{2}
-\contentsline {subsection}{\numberline {2.2.2}Python}{2}
-\contentsline {chapter}{\numberline {3}Technische Umsetzung des Algorithmus}{3}
-\contentsline {chapter}{\numberline {4}Tests}{5}
-\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{5}
-\contentsline {section}{\numberline {4.2}Auswertung}{5}
-\contentsline {chapter}{\numberline {5}Fazit}{6}
+\contentsline {subsection}{\numberline {2.2.1}Parallelisierte Systeme}{2}
+\contentsline {subsection}{\numberline {2.2.2}Apache Flink}{2}
+\contentsline {subsection}{\numberline {2.2.3}Python}{3}
+\contentsline {chapter}{\numberline {3}Implementation des Algorithmus}{4}
+\contentsline {chapter}{\numberline {4}Tests}{6}
+\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{6}
+\contentsline {section}{\numberline {4.2}Auswertung}{6}
+\contentsline {chapter}{\numberline {5}Fazit}{7}

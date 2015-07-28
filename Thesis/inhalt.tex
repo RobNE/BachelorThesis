@@ -8,23 +8,32 @@ Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv 
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung von Variante zwei wird Flinks Java-Schnittstelle genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Ausgehend von den Tests und den ermittelten Ergebnissen wird eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden.
 
 \chapter{Grundlagen}
-\section{Grundlagen der Satellitenbildanalyse}
-\subsection{Geographische Definitionen}
-%Einführung von geo. Dingen (Koordinaten(Definition, numerische Darstellung, Umgang mit Koordinaten), Aufbereitung von Bildern (Transformieren von Bildern zur Entzerrung.), Fernerkundung etc.)
-\subsection{Beschreibung des Algorithmus}
-%Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR)
+\section[Grundlagen zur Satellitenbildanalyse]{Grundlagen der Satellitenbildanalyse}
+\subsection{Geographische Definitionen zur Satellitenbildanalyse}
+Einführung von geo. Dingen (Koordinaten(Definition, numerische Darstellung, Umgang mit Koordinaten), Aufbereitung von Bildern (Transformieren von Bildern zur Entzerrung.), Fernerkundung etc.)
+\subsection[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Satellitenbildern}
+Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR), Ziel der Analyse, Entwicklungsgeschichte der Analysetechnik
 
 \section{Technische Grundlagen}
-%Flink, Python
-\subsection{Flink}
-\subsection{Python}
-Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte \textcolor{blue}{Struktur}. Daraus folgt eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen)}. 
+%Flink, Python, Parallel computing
+\subsection{Parallelisierte Systeme}
+Eigenschaften von: Big Data, DBMS, Grundlagen für Flink, Erwähnung MapReduce Prinzip
+\subsection{Apache Flink}
+Eigenschaften + Operatoren in Flink
+\newline
+Apache Flink ist ein System[Framework], das auf eine massiv parallelisierte Verarbeitung \textcolor{green}{Vorher einführen, 2.2.1} von großen Datenmengen spezialisiert ist. Es ging \textcolor{green}{2014} [Quelle] aus Stratosphere hervor, das seit 2010[Quelle] kooperativ von Forschern verschiedener Universitäten entwickelt wurde \cite{Alexandrov2014}. Seit Januar 2015 ist Flink ein Top-Level Projekt der Apache Software Foundation \cite{ApacheFlinkBlogEntry}. 
 
-\chapter{Technische Umsetzung des Algorithmus}
+Die Hauptkomponenten des Systems sind die Flink-Laufzeitumgebung und der Flink-Optimierer. Der Flink-Optimierer erhält einen azyklischen Graphen von Operatoren als Eingabe. Dieser wird mithilfe von Techniken der traditionellen Optimierung von relationalen Anfragen optimiert. [Weitere Details aus Stratosphere Paper?, unter welchen Gesichtspunkten wird DAG optimiert?]. Der optimierte Datenflussgraph, auch Jobgraph genannt, besteht aus mehreren, unabhängig voneinander zu verarbeitenden Arbeitsschritten. Diese können teilweise parallel bearbeitet werden [MapReduce erwähnen?]. Dieser optimierte Datenflussgraph wird an die Flink-Laufzeitumgebung weitergegeben. 
+
+Flink erweitert das Map-Reduce Paradigma um weitere Operatoren. [Operatoren beschreiben]
+\subsection{Python}
+Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte Architektur. Daraus resultiert eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen). Bez. der Eignung zur Lösung solcher Probleme}. 
+
+\chapter{Implementation des Algorithmus}
 %Einordnung als Big-Data Problem (Einordnung am GfZ bei GeoMultiSens)
 Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komplexer Rohdaten, \textcolor{green}{die nahezu in Echtzeit verfügbar sind}. Aufgrund dieser Charakteristika handelt es sich bei dieser Analyse um ein \textcolor{blue}{Big-Data Problem}. Nach \cite{Laney2001} zeichnet sich eine \textcolor{blue}{Big-Data Anwendung} durch drei Eigenschaften aus. Diese drei Eigenschaften sind die Größe (engl. Volume), die Komplexität (eng. Variety) und die echtzeitnahe Verfügbarkeit sowie schnelle Verarbeitung (engl. Velocity) der Daten. Eine weiteres Merkmal ist die nicht garantierte Zuverlässigkeit und Einheitlichkeit der Daten (engl. veracity) \cite{Zikopoulos2012}. 
 \newline
-Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße, Datenkomplexität und schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
+Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
 %Big Data + Eigenschaften,
 
 %Datenstromdiagramm
@@ -63,6 +72,7 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße, Datenkompl
                     ;
 \end{tikzpicture}
 
+%Datenstrom mit Flink Operatoren
 \begin{tikzpicture}[>=latex']
         \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
         rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
@@ -113,9 +123,6 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße, Datenkompl
 %    \node [label=label1,draw] (node1) {Node1};
 %\end{tikzpicture}
 
-Kurzer Kommentar:
-Alternativ kann ich mir vorstellen mit groupedDataSets zu arbeiten. Dabei wäre eine Pixelzeitreihe durch den key 'geographische Position' einem groupedDataSet zugeordnet und die nachfolgenden Filter- und Mapfunktionen würden auf jedes GroupedDataSet angewendet. Ich werde mich dahingehend noch weiter informieren. 
-
 \chapter{Tests}
 \section{Versuchsbeschreibung}
 Beschreibung + Begründung für meine Versuchsbedingungen
@@ -124,4 +131,5 @@ Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen
 
 \chapter{Fazit}
 Fazit und Ausblick
+z.b. Vergleich mit anderen Untersuchungen
 

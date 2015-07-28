@@ -1,5 +1,12 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{ZdP{\etalchar{+}}12}
+\begin{thebibliography}{ABE{\etalchar{+}}14}
+
+\bibitem[ABE{\etalchar{+}}14]{Alexandrov2014}
+Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
+  Fabian Hueske, Arvid Heise, Odej Kao, Marcus Leich, Ulf Leser, Volker Markl,
+  and et~al.
+\newblock The stratosphere platform for big data analytics.
+\newblock {\em The VLDB Journal}, 23(6):939‚964, May 2014.
 
 \bibitem[DG08]{Dean2008}
 Jeffrey Dean and Sanjay Ghemawat.
@@ -14,17 +21,25 @@ EMC².
 \bibitem[Foua]{FlinkWebsite}
 Apache~Software Foundation.
 \newblock Flink website.
-\newblock https://flink.apache.org/.
+\newblock \url{https://flink.apache.org/}.
 
 \bibitem[Foub]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
-\newblock https://hadoop.apache.org/.
+\newblock \url{https://hadoop.apache.org/}.
+
+\bibitem[Fou15]{ApacheFlinkBlogEntry}
+Apache~Software Foundation.
+\newblock The apache software foundation announces apache™ flink™ as a
+  top-level project.
+\newblock
+  \url{https://blogs.apache.org/foundation/entry/the\_apache\_software\_foundation\_announces69},
+  January 2015.
 
 \bibitem[GP]{GeoMultiSensWebsite}
 GfZ-Potsdam.
 \newblock Geomultisens website.
-\newblock http://www.geomultisens.gfz-potsdam.de/.
+\newblock \url{http://www.geomultisens.gfz-potsdam.de/}.
 
 \bibitem[Jac09]{Jacobs2009}
 Adam Jacobs.
