@@ -57,6 +57,12 @@ Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
 
+\bibitem[MSWI04]{Markham2004}
+B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
+\newblock Landsat sensor performance: history and current status.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  42(12):2691‚2694, Dec 2004.
+
 \bibitem[ZdP{\etalchar{+}}12]{Zikopoulos2012}
 Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James
   Giles, and David Corrigan.

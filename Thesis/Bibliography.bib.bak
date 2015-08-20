@@ -12,14 +12,32 @@
   Number                   = {6},
   Pages                    = {939‚964},
   Volume                   = {23},
-
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1007/s00778-014-0357-y},
   ISSN                     = {0949-877X},
   Owner                    = {rellerkmann},
   Publisher                = {Springer Science + Business Media},
   Timestamp                = {2015.07.27},
   Url                      = {http://dx.doi.org/10.1007/s00778-014-0357-y}
+}
+
+@Article{Alsubaiee2012,
+  Title                    = {ASTERIX},
+  Author                   = {Alsubaiee, Sattam and Kim, Young-Seok and Li, Chen and Onose, Nicola and Pirzadeh, Pouria and Vernica, Rares and Wen, Jian and Altowim, Yasser and Altwaijry, Hotham and Behm, Alexander and et al.},
+  Journal                  = {Proceedings of the VLDB Endowment},
+  Year                     = {2012},
+
+  Month                    = {Aug},
+  Number                   = {12},
+  Pages                    = {1898‚1901},
+  Volume                   = {5},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.14778/2367502.2367532},
+  ISSN                     = {2150-8097},
+  Owner                    = {rellerkmann},
+  Publisher                = {VLDB Endowment},
+  Timestamp                = {2015.08.12},
+  Url                      = {http://dx.doi.org/10.14778/2367502.2367532}
 }
 
 @Article{Dean2008,
@@ -32,8 +50,6 @@
   Number                   = {1},
   Pages                    = {107},
   Volume                   = {51},
-
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.1145/1327452.1327492},
   ISSN                     = {0001-0782},
   Owner                    = {rellerkmann},
@@ -138,6 +154,21 @@
   Owner                    = {rellerkmann},
   Timestamp                = {2015.07.07},
   Url                      = {http://ai.arizona.edu/mis510/other/Big%20Data%20-%20The%20Management%20Revolution.pdf}
+}
+
+@Article{Vavilapalli2013,
+  Title                    = {Apache Hadoop YARN},
+  Author                   = {Vavilapalli, Vinod Kumar and Seth, Siddharth and Saha, Bikas and Curino, Carlo and O‚ÄôMalley, Owen and Radia, Sanjay and Reed, Benjamin and Baldeschwieler, Eric and Murthy, Arun C. and Douglas, Chris and et al.},
+  Journal                  = {Proceedings of the 4th annual Symposium on Cloud Computing - SOCC ‚13},
+  Year                     = {2013},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1145/2523616.2523633},
+  ISBN                     = {http://id.crossref.org/isbn/9781450324281},
+  Owner                    = {rellerkmann},
+  Publisher                = {Association for Computing Machinery (ACM)},
+  Timestamp                = {2015.08.12},
+  Url                      = {http://dx.doi.org/10.1145/2523616.2523633}
 }
 
 @Book{Zikopoulos2012,

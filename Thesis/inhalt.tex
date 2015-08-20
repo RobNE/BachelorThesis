@@ -7,16 +7,19 @@ Im Rahmen dieser Bachelorarbeit sollen ein traditioneller Ansatz und ein massiv 
 \newline
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung von Variante zwei wird Flinks Java-Schnittstelle genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Ausgehend von den Tests und den ermittelten Ergebnissen wird eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden.
 
-\chapter{Grundlagen}
-\section[Grundlagen zur Satellitenbildanalyse]{Grundlagen der Satellitenbildanalyse}
-\subsection{Geographische Definitionen zur Satellitenbildanalyse}
-Einführung von geo. Dingen (Koordinaten(Definition, numerische Darstellung, Umgang mit Koordinaten), Aufbereitung von Bildern (Transformieren von Bildern zur Entzerrung.), Fernerkundung etc.)
-\subsection[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Satellitenbildern}
-Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR), Ziel der Analyse, Entwicklungsgeschichte der Analysetechnik
+%----------------------------------------------------------------------------------
 
-\section{Maschinelle Grundlagen}
-%Flink, Python, Parallel computing
-\subsection{Parallelisierte Systeme und Big Data}
+\chapter{Grundlagen}
+\section{Grundlagen der Satellitenbildanalyse}
+Einführung von geo. Dingen (Koordinaten(Definition, numerische Darstellung, Umgang mit Koordinaten), Aufbereitung von Bildern (Transformieren von Bildern zur Entzerrung.), Fernerkundung etc.)
+
+Satellitenbilder sind definiert als eine Momentaufnahme eines bestimmten geographischen Gebiets der Erde. (Detailliertere Beschreibung der Fernerkundung gemäß [DIN 18716/3]) Fernerkundungssatelliten zeichnen Satellitenbilder mithilfe verschiedener Aufnahmesysteme auf. Dies geschieht meist mutlisensoral, da dieselbe geographische Region mithilfe verschiedener Aufnahme-Systemen aufgezeichnet wird. Die Art und Qualität der Aufnahmesensoren ist dabei abhängig vom Typ des Satelliten. Die Ausgangsdaten für die Untersuchungen in dieser Bachelorarbeit wurden von Satelliten des Landsat-Satellitensystems aufgenommen. Diese nutzen in der aktuellen Generation als Abtast-Systeme Operational Land Imager (OLI) \cite{Markham2004} sowie Thermal Infrared Sensors (TIRS) \cite{Chaudhary2011}. Dabei verfügen aktuelle Landsat-Satelliten über acht Spektralkanäle, zwei Thermalkanäle und einen Panchromatischen Kanal. Spektralkanäle bezeichnen Ausschnitte aus dem elektromagnetischen Strahlungsspektrum. Die bedeutensten Spektralbereiche bei der Fernerkundung sind die des sichtbaren Lichts, des Nahen Infrarots (780 nm bis 3 µm) und des Mittleren Infrarots (3µm - 50µm). Zusätzlich nutzen Landsat-Satelliten der 8. Generation ein weiteres Infrarotband (1,36 µm - 1,38 µm), um Cirrus-Wolken zu erfassen, zwei Thermalbänder sowie ein panchromatisches Band. Dieses panchromatische Band erfasst elektromagnetische Emissionen in einem ähnlichen Bereich wie das menschliche Auge. Aufgrund des im Vergleich zu den einzelnen Farbbändern großen Spektralbereichs ermöglicht es eine höhere Auflösung als die anderen Bänder der Landsat-Satelliten.
+
+Die von Landsat-Satelliten aufgezeichneten und übermittelten Bilder müssen jedoch vor der Nutzung für Analysen aufbereitet werden, um beispielsweise durch die Erdkrümmung hervorgerufene Einflüsse zu korrigieren. (Aufbereitung detailliert beschreiben).
+ 
+Durch die zunehmend bessere Qualität von Satellitenbildern, die durch Fernerkundungsatelliten aufgezeichnet werden \cite{Markham2004}, können detailliertere Analysen getätigt werden. Dabei werden die aufbereiteten Satellitenaufnahmen als Ausgangspunkt genutzt. Im Fall der im Rahmen dieser Bachelorarbeit genutzten Analyse der Veränderung der Flora in einer geographischen Region werden die Ausgangsdaten mithilfe eines 
+
+\section{Parallele Datenverarbeitungssysteme}
 Um die seit mehreren Jahren massiv ansteigenden Datenmengen \cite{EMC2014} zu verarbeiten wird zunehmend eine verteilte Verarbeitung dieser Daten populär. Dazu werden mehrere Maschinen zu einem Netzwerk, einem sogenannten Cluster, zusammengeschlossen. Diese Computer wären als einzelne Maschine nicht in der Lage ein großes beziehungsweise komplexes Problem in akzeptabler Zeit zu lösen. Die Leistungsfähigkeit des Netzwerks wird jedoch nicht über die Leistung einer einzelnen Maschine sondern primär über die Menge der zusammengeschlossenen Computer gesteuert. Dies hat mehrere Vorteile gegenüber der Verarbeitung mithilfe einzelner, besonders leistungsstarker Maschinen. Die wichtigsten Vorteile parallelisierter Systeme sind ihre Skalierbarkeit sowie die Fehlertoleranz. Falls mehr Rechenleistung benötigt wird oder wenn Teile des Netzwerks nicht funktionsfähig sind lassen sich neue Maschinen kurzfristig, meist auch im laufenden Betrieb, in das bestehende Netzwerk integrieren. Bei einzelnen, sehr leistungsstarken Computern gestaltet sich beides aufgrund der abgeschlossenen Beschaffenheit der Maschine schwierig. [Quelle]
 
 Eine \textcolor{blue}{Big-Data Anwendung} zeichnet sich durch drei Eigenschaften aus. Diese drei Charakteristika sind die Größe (engl. Volume), die Komplexität (eng. Variety) und die echtzeitnahe Verfügbarkeit sowie schnelle Verarbeitung (engl. Velocity) der Daten \cite{Laney2001}. Eine weiteres Merkmal ist die nicht garantierte Zuverlässigkeit und Einheitlichkeit der Daten (engl. veracity) \cite{Zikopoulos2012}. 
@@ -25,6 +28,9 @@ Wenn eine Anwendung eine Datenmenge verarbeitet, die mindestens einige der vier 
 
 
 Eigenschaften von: Big Data, DBMS, Grundlagen für Flink, Erwähnung MapReduce Prinzip
+
+\section{Programmierabstraktionen}
+%Flink, Python, Parallel computing
 \subsection{Apache Flink}
 Eigenschaften + Operatoren in Flink
 
@@ -36,7 +42,11 @@ Flink erweitert das Map-Reduce Paradigma um weitere Operatoren. [Operatoren besc
 \subsection{Python}
 Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte Architektur. Daraus resultiert eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. \textcolor{green}{(Auf weiter oben genannten Punkt der Großen Datenmengen eingehen). Bez. der Eignung zur Lösung solcher Probleme}. 
 
-\chapter{Implementation des Algorithmus}
+%----------------------------------------------------------------------------------
+
+\chapter[Algorithmus zur Analyse von Pixelzeitreihen]{Beschreibung und Umsetzung des Algorithmus zur Analyse von Pixelzeitreihen}
+\section[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Pixelzeitreihen}
+Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR), Ziel der Analyse, Entwicklungsgeschichte der Analysetechnik
 \section{Umsetzung des Algorithmus mit Apache Flink}
 \subsection{Nutzung der Java-Programmierschnittstelle}
 \subsection{Nutzung der Python-Programmierschnittstelle}
@@ -47,41 +57,7 @@ Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komp
 Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
 %Big Data + Eigenschaften,
 
-%Datenstromdiagramm
-\begin{tikzpicture}[>=latex']
-        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
-        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
-        input/.style={ % requires library shapes.geometric
-        draw,
-        trapezium,
-        trapezium left angle=60,
-        trapezium right angle=120,
-        minimum width=2cm,
-        align=center,
-        minimum height=1cm
-    },
-        }
-        \node [rblock]  (start) {Start};
-        \node [block, right =1cm of start] (getdata) {Zugriff auf \\Inputdaten};
-        \node [block, right =1cm of getdata] (extraction) {Extraktion der \\Pixelzeitreihen};
-        \node [block, right =1cm of extraction] (filter) {Nicht valide \\Pixel filtern};
-        \node [block, below right =2cm and -0.5cm of start] (approx) {Approximierung \\fehlender Pixel};
-        \node [block, right =1cm of approx] (future) {Prognose};
-        \node [block, right =1cm of future] (write) {Daten speichern};
-        \node [block, right =1cm of write] (end) {Ende};
-        \node [coordinate, below right =1cm and 1cm of filter] (right) {};  %% Coordinate on right and middle
-        \node [coordinate,above left =1cm and 1cm of approx] (left) {};
 
-%% paths
-        \path[draw,->] (start) edge (getdata)
-                    (getdata) edge (extraction)
-                    (extraction) edge (filter)
-                    (filter.east) -| (right) -- (left) |- (approx)
-                    (approx) edge (future)
-                    (future) edge (write)
-                    (write) edge (end)
-                    ;
-\end{tikzpicture}
 
 %Datenstrom mit Flink Operatoren
 \begin{tikzpicture}[>=latex']
@@ -98,14 +74,14 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenko
     },
         }
         \node [rblock]  (start) {Input data};
-        %Group the data
-        \node [block, below =1cm of start, label={[name=l] Group the data}, draw] (groupDataInner) {groupBy('geographic position')};
-        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
         %Filter the data
-        \node [block, below =1cm of groupDataOuter, label={[name=l] Filter the grouped data}, draw] (filterDataInner) {filter('valid')};
+        \node [block, below =1cm of start, label={[name=l] Filter the data}, draw] (filterDataInner) {filter('valid')};
         \node [fit=(filterDataInner) (l), draw] (filterDataOuter) {};
+        %Group the data
+        \node [block, below =1cm of filterDataOuter, label={[name=l] Group the filtered data}, draw] (groupDataInner) {groupBy('geographic position(maybe as a tile)')};
+        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
         %Sort every grouped dataSet
-        \node [block, below =1cm of filterDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
+        \node [block, below =1cm of groupDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
         \node [fit=(sortDataInner) (l), draw] (sortDataOuter) {};
         %Approx the missing data
         \node [block, below = 1cm of sortDataOuter, label={[name=l] Approx. the missing data}, draw] (approximateDataInner) {groupReduce()};
@@ -116,13 +92,13 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenko
         %Sink the data
         \node [rblock, below = 1cm of predictDataOuter, draw] (end) {Sink};
 
-        \node [coordinate, below right =1cm and 1cm of filter] (right) {};  %% Coordinate on right and middle
-        \node [coordinate,above left =1cm and 1cm of approx] (left) {};
+        \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
+        \node [coordinate,above left =1cm and 1cm of start] (left) {};
 
 %% paths
-        \path[draw,->] (start) edge (groupDataOuter)
-                    (groupDataOuter) edge (filterDataOuter)
-                    (filterDataOuter) edge (sortDataOuter)
+        \path[draw,->] (start) edge (filterDataOuter)
+                    (filterDataOuter) edge (groupDataOuter)
+                    (groupDataOuter) edge (sortDataOuter)
                     (sortDataOuter) edge (approximateDataOuter)
                     (approximateDataOuter) edge (predictDataOuter)
                     (predictDataOuter) edge (end)
@@ -134,7 +110,10 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenko
 %    \node [label=label1,draw] (node1) {Node1};
 %\end{tikzpicture}
 
-\chapter{Tests}
+%----------------------------------------------------------------------------------
+
+\chapter{Evaluierung}
+%Korrektheit, Performant, welche Impl. anderen überlegen [bei welchen Gesichtspunkten]
 \section{Versuchsbeschreibung}
 Beschreibung + Begründung für meine Versuchsbedingungen
 \section{Auswertung}

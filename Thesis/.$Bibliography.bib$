@@ -38,6 +38,23 @@
   Url                      = {http://dx.doi.org/10.14778/2367502.2367532}
 }
 
+@Article{Chaudhary2011,
+  Title                    = {Thermal Infrared Sensors},
+  Author                   = {Chaudhary, Anju},
+  Journal                  = {Encyclopedia of Snow, Ice and Glaciers},
+  Year                     = {2011},
+  Pages                    = {1156},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1007/978-90-481-2642-2_573},
+  ISBN                     = {http://id.crossref.org/isbn/978-90-481-2642-2},
+  ISSN                     = {1871-756X},
+  Owner                    = {rellerkmann},
+  Publisher                = {Springer Science + Business Media},
+  Timestamp                = {2015.08.20},
+  Url                      = {http://dx.doi.org/10.1007/978-90-481-2642-2_573}
+}
+
 @Article{Dean2008,
   Title                    = {MapReduce},
   Author                   = {Dean, Jeffrey and Ghemawat, Sanjay},
@@ -97,6 +114,25 @@
   HowPublished             = {\url{http://www.geomultisens.gfz-potsdam.de/}}
 }
 
+@Article{Irons2012,
+  Title                    = {The next Landsat satellite: The Landsat Data Continuity Mission},
+  Author                   = {Irons, James R. and Dwyer, John L. and Barsi, Julia A.},
+  Journal                  = {Remote Sensing of Environment},
+  Year                     = {2012},
+
+  Month                    = {Jul},
+  Pages                    = {11‚Äì21},
+  Volume                   = {122},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.1016/j.rse.2011.08.026},
+  ISSN                     = {0034-4257},
+  Owner                    = {rellerkmann},
+  Publisher                = {Elsevier BV},
+  Timestamp                = {2015.08.12},
+  Url                      = {http://dx.doi.org/10.1016/j.rse.2011.08.026}
+}
+
 @Article{Jacobs2009,
   Title                    = {The pathologies of big data},
   Author                   = {Jacobs, Adam},
@@ -139,8 +175,6 @@
   Number                   = {12},
   Pages                    = {2691‚2694},
   Volume                   = {42},
-
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1109/tgrs.2004.840720},
   ISSN                     = {0196-2892},
   Owner                    = {rellerkmann},
@@ -179,8 +213,6 @@
   Author                   = {Vavilapalli, Vinod Kumar and Seth, Siddharth and Saha, Bikas and Curino, Carlo and O‚ÄôMalley, Owen and Radia, Sanjay and Reed, Benjamin and Baldeschwieler, Eric and Murthy, Arun C. and Douglas, Chris and et al.},
   Journal                  = {Proceedings of the 4th annual Symposium on Cloud Computing - SOCC ‚13},
   Year                     = {2013},
-
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.1145/2523616.2523633},
   ISBN                     = {http://id.crossref.org/isbn/9781450324281},
   Owner                    = {rellerkmann},
