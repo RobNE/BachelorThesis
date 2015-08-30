@@ -1,17 +1,19 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{1}
 \contentsline {chapter}{\numberline {2}Grundlagen}{2}
 \contentsline {section}{\numberline {2.1}Grundlagen der Satellitenbildanalyse}{2}
-\contentsline {section}{\numberline {2.2}Parallele Datenverarbeitungssysteme}{3}
-\contentsline {section}{\numberline {2.3}Programmierabstraktionen}{4}
-\contentsline {subsection}{\numberline {2.3.1}Apache Flink}{4}
-\contentsline {subsection}{\numberline {2.3.2}Python}{4}
-\contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{5}
-\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{5}
-\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{5}
-\contentsline {subsection}{\numberline {3.2.1}Nutzung der Java-Programmierschnittstelle}{5}
-\contentsline {subsection}{\numberline {3.2.2}Nutzung der Python-Programmierschnittstelle}{5}
-\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{5}
-\contentsline {chapter}{\numberline {4}Evaluierung}{7}
-\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{7}
-\contentsline {section}{\numberline {4.2}Auswertung}{7}
-\contentsline {chapter}{\numberline {5}Fazit}{8}
+\contentsline {subsection}{\numberline {2.1.1}Fernerkundung mithilfe des Landsat-Satellitensystems}{2}
+\contentsline {subsection}{\numberline {2.1.2}Aufbereitung und Analyse von Satellitenbildern}{3}
+\contentsline {section}{\numberline {2.2}Parallele Datenverarbeitungssysteme}{4}
+\contentsline {section}{\numberline {2.3}Programmierabstraktionen}{5}
+\contentsline {subsection}{\numberline {2.3.1}Apache Flink}{5}
+\contentsline {subsection}{\numberline {2.3.2}Python}{5}
+\contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{6}
+\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{6}
+\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{6}
+\contentsline {subsection}{\numberline {3.2.1}Nutzung der Java-Programmierschnittstelle}{6}
+\contentsline {subsection}{\numberline {3.2.2}Nutzung der Python-Programmierschnittstelle}{6}
+\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{6}
+\contentsline {chapter}{\numberline {4}Evaluierung}{8}
+\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{8}
+\contentsline {section}{\numberline {4.2}Auswertung}{8}
+\contentsline {chapter}{\numberline {5}Fazit}{9}

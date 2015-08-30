@@ -8,6 +8,16 @@ Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
 \newblock The stratosphere platform for big data analytics.
 \newblock {\em The VLDB Journal}, 23(6):939‚964, May 2014.
 
+\bibitem[Cha11]{Chaudhary2011}
+Anju Chaudhary.
+\newblock Thermal infrared sensors.
+\newblock {\em Encyclopedia of Snow, Ice and Glaciers}, page 1156, 2011.
+
+\bibitem[Deu12]{DIN18716}
+Deutsches Institut für Normung e.V.
+\newblock {\em Photogrammetrie und Fernerkundung - Begriffe}, 8 2012.
+\newblock Rev. 3.
+
 \bibitem[DG08]{Dean2008}
 Jeffrey Dean and Sanjay Ghemawat.
 \newblock Mapreduce.
@@ -40,6 +50,11 @@ Apache~Software Foundation.
 GfZ-Potsdam.
 \newblock Geomultisens website.
 \newblock \url{http://www.geomultisens.gfz-potsdam.de/}.
+
+\bibitem[IDB12]{Irons2012}
+James~R. Irons, John~L. Dwyer, and Julia~A. Barsi.
+\newblock The next landsat satellite: The landsat data continuity mission.
+\newblock {\em Remote Sensing of Environment}, 122:11‚21, Jul 2012.
 
 \bibitem[Jac09]{Jacobs2009}
 Adam Jacobs.
