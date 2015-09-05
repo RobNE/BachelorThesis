@@ -1,5 +1,14 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{ABE{\etalchar{+}}14}
+\begin{thebibliography}{YAJEA{\etalchar{+}}00}
+
+\bibitem[AAP{\etalchar{+}}15]{Alam2015}
+Shadab Alam, Franco~D. Albareti, Carlos~Allende Prieto, F.~Anders, Scott~F.
+  Anderson, Timothy Anderton, Brett~H. Andrews, Eric Armengaud, Ãric Aubourg,
+  Stephen Bailey, and et~al.
+\newblock The eleventh {AND} twelfth data releases of the sloan digital sky
+  survey: Final data from sdss-iii.
+\newblock {\em The Astrophysical Journal Supplement Series}, 219(1):12, Jul
+  2015.
 
 \bibitem[ABE{\etalchar{+}}14]{Alexandrov2014}
 Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
@@ -7,6 +16,11 @@ Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
   and et~al.
 \newblock The stratosphere platform for big data analytics.
 \newblock {\em The VLDB Journal}, 23(6):939‚964, May 2014.
+
+\bibitem[Bak10]{Baker2010}
+Monya Baker.
+\newblock Next-generation sequencing: adjusting to data overload.
+\newblock {\em Nat Meth}, 7(7):495‚Äì499, Jul 2010.
 
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
@@ -77,6 +91,42 @@ B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock Landsat sensor performance: history and current status.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
+
+\bibitem[YAJEA{\etalchar{+}}00]{York2000}
+Donald~G. York, J.~Adelman, Jr. John E.~Anderson, Scott~F. Anderson, James
+  Annis, Neta~A. Bahcall, J.~A. Bakken, Robert Barkhouser, Steven Bastian,
+  Eileen Berman, William~N. Boroski, Steve Bracker, Charlie Briegel, John~W.
+  Briggs, J.~Brinkmann, Robert Brunner, Scott Burles, Larry Carey, Michael~A.
+  Carr, Francisco~J. Castander, Bing Chen, Patrick~L. Colestock, A.~J.
+  Connolly, J.~H. Crocker, Istvan Csabai, Paul~C. Czarapata, John~Eric Davis,
+  Mamoru Doi, Tom Dombeck, Daniel Eisenstein, Nancy Ellman, Brian~R. Elms,
+  Michael~L. Evans, Xiaohui Fan, Glenn~R. Federwitz, Larry Fiscelli, Scott
+  Friedman, Joshua~A. Frieman, Masataka Fukugita, Bruce Gillespie, James~E.
+  Gunn, Vijay~K. Gurbani, Ernst de~Haas, Merle Haldeman, Frederick~H. Harris,
+  J.~Hayes, Timothy~M. Heckman, G.~S. Hennessy, Robert~B. Hindsley, Scott Holm,
+  Donald~J. Holmgren, Chi hao Huang, Charles Hull, Don Husby, Shin-Ichi
+  Ichikawa, Takashi Ichikawa, Zeljko Iveziƒá, Stephen Kent, Rita S.~J. Kim,
+  E.~Kinney, Mark Klaene, A.~N. Kleinman, S.~Kleinman, G.~R. Knapp, John
+  Korienek, Richard~G. Kron, Peter~Z. Kunszt, D.~Q. Lamb, B.~Lee, R.~French
+  Leger, Siriluk Limmongkol, Carl Lindenmeyer, Daniel~C. Long, Craig Loomis,
+  Jon Loveday, Rich Lucinio, Robert~H. Lupton, Bryan MacKinnon, Edward~J.
+  Mannery, P.~M. Mantsch, Bruce Margon, Peregrine McGehee, Timothy~A. McKay,
+  Avery Meiksin, Aronne Merelli, David~G. Monet, Jeffrey~A. Munn, Vijay~K.
+  Narayanan, Thomas Nash, Eric Neilsen, Rich Neswold, Heidi~Jo Newberg, R.~C.
+  Nichol, Tom Nicinski, Mario Nonino, Norio Okada, Sadanori Okamura,
+  Jeremiah~P. Ostriker, Russell Owen, A.~George Pauls, John Peoples, R.~L.
+  Peterson, Donald Petravick, Jeffrey~R. Pier, Adrian Pope, Ruth Pordes, Angela
+  Prosapio, Ron Rechenmacher, Thomas~R. Quinn, Gordon~T. Richards, Michael~W.
+  Richmond, Claudio~H. Rivetta, Constance~M. Rockosi, Kurt Ruthmansdorfer, Dale
+  Sandford, David~J. Schlegel, Donald~P. Schneider, Maki Sekiguchi, Gary
+  Sergey, Kazuhiro Shimasaku, Walter~A. Siegmund, Stephen Smee, J.~Allyn Smith,
+  S.~Snedden, R.~Stone, Chris Stoughton, Michael~A. Strauss, Christopher
+  Stubbs, Mark SubbaRao, Alexander~S. Szalay, Istvan Szapudi, Gyula~P. Szokoly,
+  Anirudda~R. Thakar, Christy Tremonti, Douglas~L. Tucker, Alan Uomoto,
+  Dan~Vanden Berk, Michael~S. Vogeley, Patrick Waddell, Shu i~Wang, Masaru
+  Watanabe, David~H. Weinberg, Brian Yanny, and Naoki Yasuda.
+\newblock The sloan digital sky survey: Technical summary.
+\newblock {\em The Astronomical Journal}, 120(3):1579, 2000.
 
 \bibitem[ZdP{\etalchar{+}}12]{Zikopoulos2012}
 Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James

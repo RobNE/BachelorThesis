@@ -2,6 +2,26 @@
 % Encoding: UTF-8
 
 
+@Article{Alam2015,
+  Title                    = {THE ELEVENTH {AND} TWELFTH DATA RELEASES OF THE SLOAN DIGITAL SKY SURVEY: FINAL DATA FROM SDSS-III},
+  Author                   = {Alam, Shadab and Albareti, Franco D. and Prieto, Carlos Allende and Anders, F. and Anderson, Scott F. and Anderton, Timothy and Andrews, Brett H. and Armengaud, Eric and Aubourg, Ãric and Bailey, Stephen and et al.},
+  Journal                  = {The Astrophysical Journal Supplement Series},
+  Year                     = {2015},
+
+  Month                    = {Jul},
+  Number                   = {1},
+  Pages                    = {12},
+  Volume                   = {219},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.1088/0067-0049/219/1/12},
+  ISSN                     = {1538-4365},
+  Owner                    = {rellerkmann},
+  Publisher                = {IOP Publishing},
+  Timestamp                = {2015.09.02},
+  Url                      = {http://dx.doi.org/10.1088/0067-0049/219/1/12}
+}
+
 @Article{Alexandrov2014,
   Title                    = {The Stratosphere platform for big data analytics},
   Author                   = {Alexandrov, Alexander and Bergmann, Rico and Ewen, Stephan and Freytag, Johann-Christoph and Hueske, Fabian and Heise, Arvid and Kao, Odej and Leich, Marcus and Leser, Ulf and Markl, Volker and et al.},
@@ -40,14 +60,32 @@
   Url                      = {http://dx.doi.org/10.14778/2367502.2367532}
 }
 
+@Article{Baker2010,
+  Title                    = {Next-generation sequencing: adjusting to data overload},
+  Author                   = {Baker, Monya},
+  Journal                  = {Nat Meth},
+  Year                     = {2010},
+
+  Month                    = {Jul},
+  Number                   = {7},
+  Pages                    = {495‚Äì499},
+  Volume                   = {7},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1038/nmeth0710-495},
+  ISSN                     = {1548-7105},
+  Owner                    = {rellerkmann},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2015.09.02},
+  Url                      = {http://dx.doi.org/10.1038/nmeth0710-495}
+}
+
 @Article{Chaudhary2011,
   Title                    = {Thermal Infrared Sensors},
   Author                   = {Chaudhary, Anju},
   Journal                  = {Encyclopedia of Snow, Ice and Glaciers},
   Year                     = {2011},
   Pages                    = {1156},
-
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1007/978-90-481-2642-2_573},
   ISBN                     = {http://id.crossref.org/isbn/978-90-481-2642-2},
   ISSN                     = {1871-756X},
@@ -124,10 +162,8 @@
   Year                     = {2012},
 
   Month                    = {Jul},
-  Pages                    = {11‚Äì21},
+  Pages                    = {11‚21},
   Volume                   = {122},
-
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.1016/j.rse.2011.08.026},
   ISSN                     = {0034-4257},
   Owner                    = {rellerkmann},
@@ -224,6 +260,43 @@
   Publisher                = {Association for Computing Machinery (ACM)},
   Timestamp                = {2015.08.12},
   Url                      = {http://dx.doi.org/10.1145/2523616.2523633}
+}
+
+@Article{York2000,
+  Title                    = {The Sloan Digital Sky Survey: Technical Summary},
+  Author                   = {Donald G. York and J. Adelman and John E. Anderson, Jr. and Scott F. Anderson and James Annis and Neta A. Bahcall and J. A.
+Bakken and Robert Barkhouser and Steven Bastian and Eileen Berman and William N. Boroski and Steve Bracker and Charlie
+Briegel and John W. Briggs and J. Brinkmann and Robert Brunner and Scott Burles and Larry Carey and Michael A.
+Carr and Francisco J. Castander and Bing Chen and Patrick L. Colestock and A. J. Connolly and J. H. Crocker and Istvan
+Csabai and Paul C. Czarapata and John Eric Davis and Mamoru Doi and Tom Dombeck and Daniel Eisenstein and Nancy Ellman and Brian
+R. Elms and Michael L. Evans and Xiaohui Fan and Glenn R. Federwitz and Larry Fiscelli and Scott Friedman and Joshua A.
+Frieman and Masataka Fukugita and Bruce Gillespie and James E. Gunn and Vijay K. Gurbani and Ernst de Haas and Merle
+Haldeman and Frederick H. Harris and J. Hayes and Timothy M. Heckman and G. S. Hennessy and Robert B. Hindsley and Scott
+Holm and Donald J. Holmgren and Chi-hao Huang and Charles Hull and Don Husby and Shin-Ichi Ichikawa and Takashi
+Ichikawa and Zeljko Iveziƒá and Stephen Kent and Rita S. J. Kim and E. Kinney and Mark Klaene and A. N. Kleinman and S.
+Kleinman and G. R. Knapp and John Korienek and Richard G. Kron and Peter Z. Kunszt and D. Q. Lamb and B. Lee and R. French
+Leger and Siriluk Limmongkol and Carl Lindenmeyer and Daniel C. Long and Craig Loomis and Jon Loveday and Rich
+Lucinio and Robert H. Lupton and Bryan MacKinnon and Edward J. Mannery and P. M. Mantsch and Bruce Margon and Peregrine
+McGehee and Timothy A. McKay and Avery Meiksin and Aronne Merelli and David G. Monet and Jeffrey A. Munn and Vijay K.
+Narayanan and Thomas Nash and Eric Neilsen and Rich Neswold and Heidi Jo Newberg and R. C. Nichol and Tom Nicinski and Mario
+Nonino and Norio Okada and Sadanori Okamura and Jeremiah P. Ostriker and Russell Owen and A. George Pauls and John
+Peoples and R. L. Peterson and Donald Petravick and Jeffrey R. Pier and Adrian Pope and Ruth Pordes and Angela Prosapio and Ron
+Rechenmacher and Thomas R. Quinn and Gordon T. Richards and Michael W. Richmond and Claudio H. Rivetta and Constance M.
+Rockosi and Kurt Ruthmansdorfer and Dale Sandford and David J. Schlegel and Donald P. Schneider and Maki Sekiguchi and Gary
+Sergey and Kazuhiro Shimasaku and Walter A. Siegmund and Stephen Smee and J. Allyn Smith and S. Snedden and R. Stone and Chris
+Stoughton and Michael A. Strauss and Christopher Stubbs and Mark SubbaRao and Alexander S. Szalay and Istvan
+Szapudi and Gyula P. Szokoly and Anirudda R. Thakar and Christy Tremonti and Douglas L. Tucker and Alan Uomoto and Dan
+Vanden Berk and Michael S. Vogeley and Patrick Waddell and Shu-i Wang and Masaru Watanabe and David H. Weinberg and Brian
+Yanny and Naoki Yasuda},
+  Journal                  = {The Astronomical Journal},
+  Year                     = {2000},
+  Number                   = {3},
+  Pages                    = {1579},
+  Volume                   = {120},
+  Abstract                 = {The Sloan Digital Sky Survey (SDSS) will provide the data to support detailed investigations of the distribution of luminous and nonluminous matter in the universe: a photometrically and astrometrically calibrated digital imaging survey of œÄ sr above about Galactic latitude 30¬∞ in five broad optical bands to a depth of g ' ~ 23 mag, and a spectroscopic survey of the approximately 10 6 brightest galaxies and 10 5 brightest quasars found in the photometric object catalog produced by the imaging survey. This paper summarizes the observational parameters and data products of the SDSS and serves as an introduction to extensive technical on-line documentation.},
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.09.02},
+  Url                      = {http://stacks.iop.org/1538-3881/120/i=3/a=1579}
 }
 
 @Book{Zikopoulos2012,
