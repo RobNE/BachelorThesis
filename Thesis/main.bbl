@@ -22,15 +22,33 @@ Monya Baker.
 \newblock Next-generation sequencing: adjusting to data overload.
 \newblock {\em Nat Meth}, 7(7):495‚Äì499, Jul 2010.
 
+\bibitem[BEH{\etalchar{+}}10]{Battre2010}
+Dominic Battr{\'e}, Stephan Ewen, Fabian Hueske, Odej Kao, Volker Markl, and
+  Daniel Warneke.
+\newblock Nephele/pacts: a programming model and execution framework for
+  web-scale analytical processing.
+\newblock In {\em Proceedings of the 1st ACM symposium on Cloud computing},
+  pages 119--130. ACM, 2010.
+
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
 \newblock Thermal infrared sensors.
 \newblock {\em Encyclopedia of Snow, Ice and Glaciers}, page 1156, 2011.
 
+\bibitem[Cod70]{Codd1970}
+E.~F. Codd.
+\newblock A relational model of data for large shared data banks.
+\newblock {\em Commun. ACM}, 13(6):377‚387, Jun 1970.
+
 \bibitem[Deu12]{DIN18716}
 Deutsches Institut für Normung e.V.
 \newblock {\em Photogrammetrie und Fernerkundung - Begriffe}, 8 2012.
 \newblock Rev. 3.
+
+\bibitem[DG04]{Dean2004}
+Jeffrey Dean and Sanjay Ghemawat.
+\newblock Mapreduce: Simplified data processing on large clusters.
+\newblock page~13, 2004.
 
 \bibitem[DG08]{Dean2008}
 Jeffrey Dean and Sanjay Ghemawat.
@@ -64,6 +82,13 @@ Apache~Software Foundation.
 GfZ-Potsdam.
 \newblock Geomultisens website.
 \newblock \url{http://www.geomultisens.gfz-potsdam.de/}.
+
+\bibitem[Hü15]{Hueske2015}
+Fabian Hüske.
+\newblock Juggling with bits and bytes.
+\newblock
+  \url{https://flink.apache.org/news/2015/05/11/Juggling-with-Bits-and-Bytes.html},
+  May 2015.
 
 \bibitem[IDB12]{Irons2012}
 James~R. Irons, John~L. Dwyer, and Julia~A. Barsi.
