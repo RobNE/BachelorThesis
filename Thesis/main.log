@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  17 SEP 2015 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  17 SEP 2015 20:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1063,7 +1063,7 @@ tumgebung und der Flink-Optimierer.
  []
 
 [5] [6]
-Overfull \hbox (23.90144pt too wide) in paragraph at lines 75--89
+Overfull \hbox (23.90144pt too wide) in paragraph at lines 80--94
 [][] 
  []
 
@@ -1095,10 +1095,10 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ] (./main.aux (./title.aux)
 (./inhalt.aux) (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 15969 strings out of 493117
- 322593 string characters out of 6135434
- 386151 words of memory out of 5000000
- 19058 multiletter control sequences out of 15000+600000
+ 15970 strings out of 493117
+ 322606 string characters out of 6135434
+ 386158 words of memory out of 5000000
+ 19059 multiletter control sequences out of 15000+600000
  18341 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,10n,70p,3500b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1119,7 +1119,7 @@ rm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsl
 00.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1000
 .pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.p
 fb>
-Output written on main.pdf (18 pages, 318963 bytes).
+Output written on main.pdf (18 pages, 320338 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream

@@ -117,6 +117,13 @@ B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
 
+\bibitem[WK09]{Warneke2009}
+Daniel Warneke and Odej Kao.
+\newblock Nephele: Efficient parallel data processing in the cloud.
+\newblock In {\em Proceedings of the 2Nd Workshop on Many-Task Computing on
+  Grids and Supercomputers}, MTAGS '09, pages 8:1--8:10, New York, NY, USA,
+  2009. ACM.
+
 \bibitem[YAJEA{\etalchar{+}}00]{York2000}
 Donald~G. York, J.~Adelman, Jr. John E.~Anderson, Scott~F. Anderson, James
   Annis, Neta~A. Bahcall, J.~A. Bakken, Robert Barkhouser, Steven Bastian,

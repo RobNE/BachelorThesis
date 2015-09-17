@@ -314,6 +314,27 @@
   Url                      = {http://dx.doi.org/10.1145/2523616.2523633}
 }
 
+@InProceedings{Warneke2009,
+  Title                    = {Nephele: Efficient Parallel Data Processing in the Cloud},
+  Author                   = {Warneke, Daniel and Kao, Odej},
+  Booktitle                = {Proceedings of the 2Nd Workshop on Many-Task Computing on Grids and Supercomputers},
+  Year                     = {2009},
+
+  Address                  = {New York, NY, USA},
+  Pages                    = {8:1--8:10},
+  Publisher                = {ACM},
+  Series                   = {MTAGS '09},
+
+  Acmid                    = {1646476},
+  Articleno                = {8},
+  Doi                      = {10.1145/1646468.1646476},
+  ISBN                     = {978-1-60558-714-1},
+  Keywords                 = {cloud computing, high-throughput computing, loosely coupled applications, many-task computing},
+  Location                 = {Portland, Oregon},
+  Numpages                 = {10},
+  Url                      = {http://doi.acm.org/10.1145/1646468.1646476}
+}
+
 @Article{York2000,
   Title                    = {The Sloan Digital Sky Survey: Technical Summary},
   Author                   = {Donald G. York and J. Adelman and John E. Anderson, Jr. and Scott F. Anderson and James Annis and Neta A. Bahcall and J. A.

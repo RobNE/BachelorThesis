@@ -7,45 +7,45 @@ The style file: alpha.bst
 A level-1 auxiliary file: statement.aux
 Database file #1: Bibliography.bib
 Warning--empty journal in Dean2004
-You've used 22 entries,
+You've used 23 entries,
             2543 wiz_defined-function locations,
-            712 strings with 10726 characters,
-and the built_in function-call counts, 12786 in all, are:
-= -- 1081
-> -- 1131
-< -- 15
-+ -- 436
-- -- 428
-* -- 1187
-:= -- 2250
-add.period$ -- 67
-call.type$ -- 22
-change.case$ -- 289
-chr.to.int$ -- 21
-cite$ -- 23
-duplicate$ -- 321
-empty$ -- 598
-format.name$ -- 455
-if$ -- 2396
+            720 strings with 10950 characters,
+and the built_in function-call counts, 13344 in all, are:
+= -- 1145
+> -- 1150
+< -- 16
++ -- 442
+- -- 434
+* -- 1222
+:= -- 2330
+add.period$ -- 71
+call.type$ -- 23
+change.case$ -- 295
+chr.to.int$ -- 22
+cite$ -- 24
+duplicate$ -- 347
+empty$ -- 641
+format.name$ -- 462
+if$ -- 2524
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 17
-newline$ -- 114
-num.names$ -- 63
-pop$ -- 298
+missing$ -- 18
+newline$ -- 119
+num.names$ -- 66
+pop$ -- 303
 preamble$ -- 1
-purify$ -- 312
+purify$ -- 319
 quote$ -- 0
-skip$ -- 265
+skip$ -- 290
 stack$ -- 0
-substring$ -- 387
-swap$ -- 44
-text.length$ -- 15
+substring$ -- 429
+swap$ -- 54
+text.length$ -- 16
 text.prefix$ -- 12
 top$ -- 0
-type$ -- 168
+type$ -- 176
 warning$ -- 1
-while$ -- 65
-width$ -- 24
-write$ -- 278
+while$ -- 71
+width$ -- 25
+write$ -- 294
 (There was 1 warning)
