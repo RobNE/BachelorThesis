@@ -30,6 +30,12 @@ Dominic Battr{\'e}, Stephan Ewen, Fabian Hueske, Odej Kao, Volker Markl, and
 \newblock In {\em Proceedings of the 1st ACM symposium on Cloud computing},
   pages 119--130. ACM, 2010.
 
+\bibitem[BH85]{Borodin1985}
+A.~Borodin and J.E. Hopcroft.
+\newblock Routing, merging, and sorting on parallel models of computation.
+\newblock {\em Journal of Computer and System Sciences}, 30(1):130‚Äì145,
+  Feb 1985.
+
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
 \newblock Thermal infrared sensors.
