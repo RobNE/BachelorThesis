@@ -2,6 +2,39 @@
 % Encoding: UTF-8
 
 
+@Article{Abadi2009,
+  Title                    = {Data Management in the Cloud: Limitations and Opportunities.},
+  Author                   = {Abadi, Daniel J},
+  Journal                  = {IEEE Data Eng. Bull.},
+  Year                     = {2009},
+  Number                   = {1},
+  Pages                    = {3--12},
+  Volume                   = {32},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
+}
+
+@Article{Abouzeid2009,
+  Title                    = {HadoopDB},
+  Author                   = {Abouzeid, Azza and Bajda-Pawlikowski, Kamil and Abadi, Daniel and Silberschatz, Avi and Rasin, Alexander},
+  Journal                  = {Proceedings of the VLDB Endowment},
+  Year                     = {2009},
+
+  Month                    = {Aug},
+  Number                   = {1},
+  Pages                    = {922‚Äì933},
+  Volume                   = {2},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.14778/1687627.1687731},
+  ISSN                     = {2150-8097},
+  Owner                    = {rellerkmann},
+  Publisher                = {VLDB Endowment},
+  Timestamp                = {2015.10.09},
+  Url                      = {http://dx.doi.org/10.14778/1687627.1687731}
+}
+
 @Article{Alam2015,
   Title                    = {THE ELEVENTH {AND} TWELFTH DATA RELEASES OF THE SLOAN DIGITAL SKY SURVEY: FINAL DATA FROM SDSS-III},
   Author                   = {Alam, Shadab and Albareti, Franco D. and Prieto, Carlos Allende and Anders, F. and Anderson, Scott F. and Anderton, Timothy and Andrews, Brett H. and Armengaud, Eric and Aubourg, Ãric and Bailey, Stephen and et al.},
@@ -12,6 +45,7 @@
   Number                   = {1},
   Pages                    = {12},
   Volume                   = {219},
+
   Doi                      = {10.1088/0067-0049/219/1/12},
   ISSN                     = {1538-4365},
   Owner                    = {rellerkmann},
@@ -69,7 +103,6 @@
   Pages                    = {495‚Äì499},
   Volume                   = {7},
 
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.1038/nmeth0710-495},
   ISSN                     = {1548-7105},
   Owner                    = {rellerkmann},
@@ -88,6 +121,70 @@
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.09.11}
+}
+
+@Article{Bell1971,
+  Title                    = {C. mmp: the CMU multiminiprocessor computer, requirements and overview of the initial design},
+  Author                   = {Bell, C Gordon},
+  Year                     = {1971},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
+}
+
+@Article{Borodin1985,
+  Title                    = {Routing, merging, and sorting on parallel models of computation},
+  Author                   = {Borodin, A. and Hopcroft, J.E.},
+  Journal                  = {Journal of Computer and System Sciences},
+  Year                     = {1985},
+
+  Month                    = {Feb},
+  Number                   = {1},
+  Pages                    = {130‚Äì145},
+  Volume                   = {30},
+  Doi                      = {10.1016/0022-0000(85)90008-x},
+  ISSN                     = {0022-0000},
+  Owner                    = {rellerkmann},
+  Publisher                = {Elsevier BV},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://dx.doi.org/10.1016/0022-0000(85)90008-X}
+}
+
+@Article{Borthakur2013,
+  Title                    = {Petabyte scale databases and storage systems at Facebook},
+  Author                   = {Borthakur, Dhruba},
+  Journal                  = {Proceedings of the 2013 international conference on Management of data - SIGMOD ‚Äô13},
+  Year                     = {2013},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1145/2463676.2463713},
+  ISBN                     = {http://id.crossref.org/isbn/9781450320375},
+  Owner                    = {rellerkmann},
+  Publisher                = {Association for Computing Machinery (ACM)},
+  Timestamp                = {2015.10.11},
+  Url                      = {http://dx.doi.org/10.1145/2463676.2463713}
+}
+
+@Unpublished{Brewer2000,
+  Title                    = {Towards robust distributed systems},
+  Author                   = {Brewer, Eric},
+
+  Month                    = {07},
+  Year                     = {2000},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11},
+  Url                      = {http://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf}
+}
+
+@Misc{CernWebsite,
+  Title                    = {Computing at CERN - Overview},
+
+  Author                   = {CERN},
+  HowPublished             = {\url{http://home.web.cern.ch/about/computing}},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.09}
 }
 
 @Article{Chaudhary2011,
@@ -116,8 +213,6 @@
   Number                   = {6},
   Pages                    = {377‚387},
   Volume                   = {13},
-
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1145/362384.362685},
   ISSN                     = {0001-0782},
   Owner                    = {rellerkmann},
@@ -177,6 +272,26 @@
   HowPublished             = {\url{https://hadoop.apache.org/}}
 }
 
+@Misc{SparkWebsite,
+  Title                    = {Apache Spark Website},
+
+  Author                   = {Apache Software Foundation},
+  HowPublished             = {\url{https://spark.apache.org/}},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.14}
+}
+
+@Misc{StormWebsite,
+  Title                    = {Apache Storm Website},
+
+  Author                   = {Apache Software Foundation},
+  HowPublished             = {https://storm.apache.org/},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.14}
+}
+
 @Misc{ApacheFlinkBlogEntry,
   Title                    = {The Apache Software Foundation Announces Apache™ Flink™ as a Top-Level Project},
 
@@ -193,6 +308,20 @@
   HowPublished             = {\url{http://www.geomultisens.gfz-potsdam.de/}}
 }
 
+@Article{Haerder1983,
+  Title                    = {Principles of transaction-oriented database recovery},
+  Author                   = {Haerder, Theo and Reuter, Andreas},
+  Journal                  = {ACM Computing Surveys (CSUR)},
+  Year                     = {1983},
+  Number                   = {4},
+  Pages                    = {287--317},
+  Volume                   = {15},
+
+  Owner                    = {rellerkmann},
+  Publisher                = {ACM},
+  Timestamp                = {2015.10.11}
+}
+
 @Misc{Hueske2015,
   Title                    = {Juggling with Bits and Bytes},
 
@@ -204,6 +333,16 @@
   Owner                    = {rellerkmann},
   Timestamp                = {2015.09.17},
   Url                      = {https://flink.apache.org/news/2015/05/11/Juggling-with-Bits-and-Bytes.html}
+}
+
+@Book{Hwang2013,
+  Title                    = {Distributed and cloud computing: from parallel processing to the internet of things},
+  Author                   = {Hwang, Kai and Dongarra, Jack and Fox, Geoffrey C},
+  Publisher                = {Morgan Kaufmann},
+  Year                     = {2013},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
 }
 
 @Article{Irons2012,
@@ -300,6 +439,40 @@
   Url                      = {http://ai.arizona.edu/mis510/other/Big%20Data%20-%20The%20Management%20Revolution.pdf}
 }
 
+@Article{Moniruzzaman2013,
+  Title                    = {Nosql database: New era of databases for big data analytics-classification, characteristics and comparison},
+  Author                   = {Moniruzzaman, ABM and Hossain, Syed Akhter},
+  Journal                  = {arXiv preprint arXiv:1307.0191},
+  Year                     = {2013},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
+}
+
+@Article{Seitz1985,
+  Title                    = {The cosmic cube},
+  Author                   = {Seitz, Charles L},
+  Journal                  = {Communications of the ACM},
+  Year                     = {1985},
+  Number                   = {1},
+  Pages                    = {22--33},
+  Volume                   = {28},
+
+  Owner                    = {rellerkmann},
+  Publisher                = {ACM},
+  Timestamp                = {2015.10.11}
+}
+
+@Book{Trew2012,
+  Title                    = {Past, present, parallel: a survey of available parallel computer systems},
+  Author                   = {Trew, Arthur and Wilson, Greg},
+  Publisher                = {Springer Science \& Business Media},
+  Year                     = {2012},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
+}
+
 @Article{Vavilapalli2013,
   Title                    = {Apache Hadoop YARN},
   Author                   = {Vavilapalli, Vinod Kumar and Seth, Siddharth and Saha, Bikas and Curino, Carlo and O‚ÄôMalley, Owen and Radia, Sanjay and Reed, Benjamin and Baldeschwieler, Eric and Murthy, Arun C. and Douglas, Chris and et al.},
@@ -333,6 +506,18 @@
   Location                 = {Portland, Oregon},
   Numpages                 = {10},
   Url                      = {http://doi.acm.org/10.1145/1646468.1646476}
+}
+
+@InProceedings{Wulf1972,
+  Title                    = {C. mmp: a multi-mini-processor},
+  Author                   = {Wulf, William A and Bell, C Gordon},
+  Booktitle                = {Proceedings of the December 5-7, 1972, fall joint computer conference, part II},
+  Year                     = {1972},
+  Organization             = {ACM},
+  Pages                    = {765--777},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.11}
 }
 
 @Article{York2000,

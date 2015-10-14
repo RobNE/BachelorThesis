@@ -10,6 +10,11 @@ Shadab Alam, Franco~D. Albareti, Carlos~Allende Prieto, F.~Anders, Scott~F.
 \newblock {\em The Astrophysical Journal Supplement Series}, 219(1):12, Jul
   2015.
 
+\bibitem[Aba09]{Abadi2009}
+Daniel~J Abadi.
+\newblock Data management in the cloud: Limitations and opportunities.
+\newblock {\em IEEE Data Eng. Bull.}, 32(1):3--12, 2009.
+
 \bibitem[ABE{\etalchar{+}}14]{Alexandrov2014}
 Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
   Fabian Hueske, Arvid Heise, Odej Kao, Marcus Leich, Ulf Leser, Volker Markl,
@@ -30,21 +35,27 @@ Dominic Battr{\'e}, Stephan Ewen, Fabian Hueske, Odej Kao, Volker Markl, and
 \newblock In {\em Proceedings of the 1st ACM symposium on Cloud computing},
   pages 119--130. ACM, 2010.
 
+\bibitem[Bel71]{Bell1971}
+C~Gordon Bell.
+\newblock C. mmp: the cmu multiminiprocessor computer, requirements and
+  overview of the initial design.
+\newblock 1971.
+
 \bibitem[BH85]{Borodin1985}
 A.~Borodin and J.E. Hopcroft.
 \newblock Routing, merging, and sorting on parallel models of computation.
 \newblock {\em Journal of Computer and System Sciences}, 30(1):130‚Äì145,
   Feb 1985.
 
+\bibitem[Bre00]{Brewer2000}
+Eric Brewer.
+\newblock Towards robust distributed systems.
+\newblock 07 2000.
+
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
 \newblock Thermal infrared sensors.
 \newblock {\em Encyclopedia of Snow, Ice and Glaciers}, page 1156, 2011.
-
-\bibitem[Cod70]{Codd1970}
-E.~F. Codd.
-\newblock A relational model of data for large shared data banks.
-\newblock {\em Commun. ACM}, 13(6):377‚387, Jun 1970.
 
 \bibitem[Deu12]{DIN18716}
 Deutsches Institut für Normung e.V.
@@ -89,6 +100,17 @@ GfZ-Potsdam.
 \newblock Geomultisens website.
 \newblock \url{http://www.geomultisens.gfz-potsdam.de/}.
 
+\bibitem[HDF13]{Hwang2013}
+Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
+\newblock {\em Distributed and cloud computing: from parallel processing to the
+  internet of things}.
+\newblock Morgan Kaufmann, 2013.
+
+\bibitem[HR83]{Haerder1983}
+Theo Haerder and Andreas Reuter.
+\newblock Principles of transaction-oriented database recovery.
+\newblock {\em ACM Computing Surveys (CSUR)}, 15(4):287--317, 1983.
+
 \bibitem[Hü15]{Hueske2015}
 Fabian Hüske.
 \newblock Juggling with bits and bytes.
@@ -117,11 +139,34 @@ Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
 
+\bibitem[MH13]{Moniruzzaman2013}
+ABM Moniruzzaman and Syed~Akhter Hossain.
+\newblock Nosql database: New era of databases for big data
+  analytics-classification, characteristics and comparison.
+\newblock {\em arXiv preprint arXiv:1307.0191}, 2013.
+
 \bibitem[MSWI04]{Markham2004}
 B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock Landsat sensor performance: history and current status.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
+
+\bibitem[Sei85]{Seitz1985}
+Charles~L Seitz.
+\newblock The cosmic cube.
+\newblock {\em Communications of the ACM}, 28(1):22--33, 1985.
+
+\bibitem[TW12]{Trew2012}
+Arthur Trew and Greg Wilson.
+\newblock {\em Past, present, parallel: a survey of available parallel computer
+  systems}.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem[WB72]{Wulf1972}
+William~A Wulf and C~Gordon Bell.
+\newblock C. mmp: a multi-mini-processor.
+\newblock In {\em Proceedings of the December 5-7, 1972, fall joint computer
+  conference, part II}, pages 765--777. ACM, 1972.
 
 \bibitem[WK09]{Warneke2009}
 Daniel Warneke and Odej Kao.
