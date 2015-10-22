@@ -1,0 +1,203 @@
+\pagenumbering{arabic}
+\chapter{Einleitung}
+In den vergangenen Jahren war ein massiver Zunahme des generierten Datenaufkommens zu beobachten \cite{EMC2014}. Viele Projekte, Unternehmen und Institutionen haben Zugriff auf eine gewaltige Menge an Daten. Diese wächst immer schneller an. 2004 analysierte Google circa 100 Terabyte pro Tag \cite{Dean2004}. Bis zum Jahr 2008 war die täglich zu analysierende Datenmenge bereits auf 20 Petabyte angewachsen \cite{Dean2008}. Das Sloan Digital Sky Survey, das ein Viertel des Himmels astronomisch erkundet, hat seit 1998 insgesamt 116 Terabyte an astronomischen Daten gesammelt \cite{York2000, Alam2015}. Jede Nacht kommen circa 250 Gigabyte neu hinzu \textcolor{blue}{Quelle: Herr Prof. Freytags VL, dort angegebene Quelle ist offline. Wie angeben?}. Ein weiteres Beispiel ist das 1000 Genomes Project \cite{Baker2010}, das zwischen 2008 und 2013 insgesamt 464 Terabyte Daten zum menschlichen Genom sammelte. Insgesamt werden die Datenmengen weiter stark zunehmen, für das Jahr 2020 wird eine weltweites Datenaufkommen von 44 Zettabyte prognostiziert \cite{EMC2014}. 
+Diese Entwicklung offenbart diverse neue Herausforderungen bei der Speicherung, Verarbeitung und Analyse von Daten. Dabei spielt die möglichst schnelle Verarbeitung von stetig generierten Daten eine große Rolle. Diese muss im Gegensatz zur Verarbeitung bereits gespeicherter Daten abhängig vom aktuellen Datenaufkommen skalieren. Aktuelle Datenverarbeitungssysteme wie Apache Hadoop \cite{HadoopWebsite} und Apache Flink \cite{FlinkWebsite} bieten diese Möglichkeit der Datenflussanalyse und ermöglichen eine flexible Analyse der Daten. Kern dieser Systeme ist eine Implementierung des Map-Reduce Paradigmas \cite{Dean2008} sowie die Nutzung von \textit{User Defined Functions}. Diese ermöglichen eine parallele Abarbeitung von Arbeitsschritten in einem direkten, azyklischen Graphen. Der DAG wird zuvor aus dem vom User bereitgestellten Quellcode erzeugt. Die durch diese Architektur erreichbare, massiv parallelisierbare Ausführung der Datenanalyse ermöglicht die Nutzung von Clustern. Somit wird eine skalierbare Infrastruktur genutzt, die wiederum eine skalierte Nutzung der Datenverarbeitungssysteme ermöglicht. Diese Systeme können auch die weiterhin wichtige Nutzung und Analyse von bereits konsistent gespeicherten Daten unter Nutzung des parallelen Verarbeitungsansatzes durchführen. Dies ist insbesondere deshalb notwendig, da traditionelle Datenbanksysteme große Datenmengen nicht immer in akzeptabler Form und Verarbeitungszeit verarbeiten können \cite{Jacobs2009}.
+\newline
+Das Hauptproblem bei der Verarbeitung von großen Datenmengen auf einzelnen Maschinen entsteht, wenn die zu verarbeitende Datenmenge die Hauptspeichergröße übersteigt. In diesem Fall müssen die nicht in den Hauptspeicher speicherbaren Daten zur Verarbeitungszeit nachgeladen werden, was die Verarbeitungszeit aufgrund der unterschiedlichen Beschaffenheit der verschiedenen Speicherebenen extrem verlängert. Um diese "Speicherklippe" zu umgehen, werden zunehmend parallelisierbare Ansätze der Datenverarbeitung verfolgt.
+Im Rahmen dieser Bachelorarbeit sollen demzufolge ein traditioneller und ein massiv parallelisierbarer Ansatz bei der Verarbeitung von großen Datenmengen untersucht werden. So soll eine Abschätzung der Leistungsfähigkeit, Vorteile und Nachteile beider Ansätze ermittelt werden. Der Vergleich beider Ansätze wird am Beispiel eines Algorithmus zur Approximierung von Pixelzeitreihen durchgeführt. Dieser wird im Rahmen des Projekts GeoMultiSens\cite{GeoMultiSensWebsite} zur Analyse der Veränderung der Flora in einer geographischen Region genutzt. Dabei werden durch Landsat-Satelliten Satellitenaufnahmen bereitgestellt, die nach der Aufbereitung durch vorgestellte Algorithmen ausschnittweise untersucht werden. Nach der Analyse werden anschließend mithilfe des Algorithmus auf Basis der approximierten Werte Prognosen zur weiteren Entwicklung der Flora der untersuchten Region gestellt. Dabei werden bei einer Analyse mehrere Szenenausschnitte derselben geographischen Region analysiert. Dabei müssen große Datenmengen verarbeitet werden, so dass sich die Nutzung eines aktuellen Datenverarbeitungssystems anbietet. Bei dieser Bachelorarbeit wird als Vertreter der massiv parallelisierbaren Datenverarbeitungssysteme Apache Flink genutzt.
+\newline
+Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die zugrunde liegende Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Sie sollte somit die untere Schranke der Leistungsmessungen darstellen. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung der zweiten Variante wird Java-Schnittstelle von Flink genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Dabei sollen alle Varianten sowohl auf einer leistungsfähigen Einzelmaschine als auch mit einem Cluster von Maschinen getestet werden. Ausgehend von den Untersuchungen und den ermittelten Ergebnissen soll nachfolgend eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden. Dabei sollen insbesondere die Größe der Ausgangsdatenmenge, die genutzte Hardware sowie die Größe der untersuchten Bildausschnitte in Bezug zu den Ergebnissen gesetzt werden.
+
+%----------------------------------------------------------------------------------
+
+\chapter{Grundlagen}
+
+Die Basis für die Satellitenbildanalyse mittels Apache Flink bilden zum einen Konzepte aus der Geographie, zum anderen Strukturen und Vorgehensweisen aus der Informatik. Während die geographische Komponente insbesondere bei der Aufnahme der Satellitenbilder sowie bei der inhaltlichen Konzeption der Analysen sowie der Bereinigung der Daten vertreten ist, ist die Informatik für eine technisch korrekte und effiziente Umsetzung der geographischen Konzepte verantwortlich. Nachfolgend werden zuerst die geographischen Grundlagen der Fernerkundung erläutert. Dies umfasst insbesondere die technische Spezifikation der Aufnahmegeräte der eingesetzten Satelliten sowie wichtige Verfahren zur Datenaufbereitung sowie zur Datenanalyse. Anschließend wird ein Überblick über parallele Datenverarbeitungssysteme gegeben. Dieser umfasst auch die Eigenschaften von Big Data sowie eine konzeptuelle Beschreibung der Datenanalyseplattform Apache Flink. Abschließend wird Apache Flink aus der Entwicklerperspektive betrachtet. Dabei werden insbesondere Eigenschaften der Plattform beschrieben, die bei der Entwicklung von Programmen auf Basis von Flink von Bedeutung sind. Des weiteren wird die Programmiersprache Python betrachtet.
+
+\section{Grundlagen der Satellitenbildanalyse}
+\subsection{Fernerkundung mithilfe des Landsat-Satellitensystems}
+
+Als Fernerkundung wird \textcquote{DIN18716}{die Gesamtheit der Verfahren zur Gewinnung von Informationen über die Erdoberfläche oder anderer nicht direkt zugänglicher Objekte durch Messung und Interpretation der von ihr ausgehenden (Energie-) Felder} verstanden. Fernerkundungssatelliten verfügen über verschiedene Aufnahmesysteme, die durch multispektrale Messungen von emittierter elektromagnetischer Strahlung eine berührungsfreie Beobachtung der Erdoberfläche ermöglichen. Bei der multispektralen Messung werden von Sensoren registrierte spektrale Signaturen einzelnen Bereichen des elektromagnetischen Spektrums zugeordnet. Das Resultat sind mehrere spektrumsspezifische, simultan aufgenommene Satellitenbilder, die nur das aufgefangene Licht eines spezifischen Spektralbereichs, auch Spektralband genannt, zeigen. Die Art und Qualität der Aufnahmesensoren ist dabei abhängig vom Typ des Satelliten. 
+
+Die Ausgangsdaten für die Untersuchungen in dieser Bachelorarbeit wurden von Satelliten des Landsat-Satellitensystems aufgenommen. Der erste Landsat-Satellit Landsat 1 wurde 1972 gestartet. Seitdem wurden die Sensoren und die Satelliten kontinuierlich weiterentwickelt. Aktuell sind Landsat 7 und, im Rahmen der Landsat Data Continuity Mission, Landsat 8 im Einsatz. Landsat 8 nutzt in der aktuellen Generation zwei verschiedene Instrumente zur Fernerkundung. Den Operational Land Imager (OLI) und die Thermal Infrared Sensors (TIRS). 
+
+Der OLI erfasst emittierte elektromagnetische Strahlung im Spektralbereich von 0,433 µm bis 1,390 µm unterteilt in acht Spektralkanäle sowie einen panchromatischen Kanal. Es werden mehr als 7000 Detektoren pro Spektralband genutzt, um eine bessere Bildqualität zu bieten als frühere Systeme \cite{Markham2004}. Neben den klassischen Farbspektren Blau, Grün und Rot nutzt Landsat-8 ein weiteres Band, das speziell für die Fernerkundung von Küsten genutzt wird. Außerdem verfügt Landsat-8 über drei Infrarotbänder, die nahes und mittleres Infrarotlicht registrieren, sowie ein weiteres Infrarotband, das auf die Beobachtung von Cirruswolken spezialisiert ist. Der panchromatische Kanal registriert elektromagnetische Strahlung mit Wellenlängen von 0,500 µm bis 0,680 µm. Dieser Spektralbereich entspricht etwa dem des menschlichen Auges. Aufgrund des, im Vergleich zu den einzelnen Farbfrequenzbändern, breiten abgedeckten Spektralbereichs ist eine höhere Auflösung der Bilder möglich.
+
+Die Thermal Infrared Sensors (TIRS) \cite{Chaudhary2011} umfassen zwei Thermalkanäle. Diese erfassen im Gegensatz zu den Multispektralkanälen elektromagnetische Emissionen mit Wellenlängen zwischen 10,30 µm und 12,50 µm, also langwellige Infrarotstrahlung. Dies ist insbesondere für die Beobachtung von Wolken nützlich. Die Kantenlänge der einzelnen Pixel beträgt 100 Meter. Diese kann nachträglich auf 30 Meter angeglichen werden, um eine bessere Kompatibilität mit den Aufnahmen der Multispektralbänder zu gewährleisten.
+
+Landsat 8 sendet pro Tag 400 Aufnahmen der Erdoberfläche, auch Szenen genannt, an die Bodenstation. Eine Aufnahme zeigt dabei eine geographische Region der Erde mit einer Ost-West-Ausdehnung von 185 Kilometer. Dies entspricht 100 nautischen Meilen. Die Nord-Süd-Ausdehnung einer Szene beträgt circa 174 Kilometer 
+
+Durchschnittlich wird jede Region der Erde alle \textcolor{blue}{16 (?)} Tage überflogen \cite{Irons2012}.
+
+Die von Landsat-Satelliten aufgezeichneten und übermittelten Bilder müssen jedoch vor der Durchführung von Analysen aufbereitet werden.
+
+%----------------------------------------------------------------------------------
+
+\subsection{Aufbereitung und Analyse von Satellitenbildern}
+%Szenen müssen aufbereitet werden
+Die durch die Landsat-Satelliten aufgezeichneten und an die Bodenstationen übermittelten Szenen müssen vor ihrer Nutzung aufbereitet werden. Dadurch wird im Allgemeinen die Bildqualität verbessert, da externe Störfaktoren und eventuelle interne Fehlfunktionen ausgeglichen werden können. Es wird zwischen radiometrischen und die geometrischen Aufbereitungen unterschieden. Bei der radiometrischen Aufarbeitung werden digitale Werte wie zum Beispiel die Helligkeit der Szene angepasst. 
+
+%Wie werden sie aufbereitet? Warum werden sie aufbereitet?
+Im Rahmen der geometrischen Aufbereitung sollen die Folgen einer eventuellen Fehlpositionierung des Satelliten korrigiert werden. Um die Szenen sinnvoll analysieren zu können, müssen sie korrekt und genau positioniert sein. Dies gilt insbesondere bei der Analyse einer Serie von Szenen derselben geographischen Region. Um eine normierte Positionierung der Szenen zu schaffen, werden aus jeder Szene, die einen Teil der zu analysierenden geographischen Region beinhaltet, quadratische Teile der Originalszene ausgeschnitten. Diese ausgeschnittenen Bereiche der ursprünglichen Szene werden Kacheln genannt. Dann wird jeder Pixel der Kachel auf die Zugehörigkeit zum Zielgebiet geprüft. Wenn ein Pixel relevant ist, wird er anhand seiner, aus der Position des Satelliten zum Aufnahmezeitpunkt ermittelten, Position in einem finalen Bild hinzugefügt. Dies garantiert eine einheitliche Grundlage für die Analyse der Zielregion.
+
+Zusätzlich zu Fehlpositionierungen des Satelliten und den sich daraus ergebenden Abweichungen müssen möglicherweise noch weitere Störfaktoren durch die Aufbereitung gemindert werden. Hierzu zählen zum Beispiel durch die Atmosphäre verursachte Verschlechterungen, die aus Interferenzen innerhalb der Atmosphäre zwischen Erdoberfläche und dem Satelliten resultieren. Diese sollen korrigiert werden, um ein genaueres Satellitenbild zu erhalten. Techniken um diese Verbesserung zu erreichen sind beispielsweise das Strahlungstransfermodell, die bildbasierte atmosphärische Korrektur und die Histogramm-Minimum-Methode. Es ist individuell von der Szene und den zur Verfügung stehenden Metadaten abhängig, mit welcher Methode die nützlichste Verbesserung erreicht werden kann.
+
+%Bedeutung für mich/ Ausblick auf steigende Datenmengen
+Die Aufbereitung von Satellitenbildern muss vor einer wissenschaftlichen Analyse erfolgen, damit die Szenen unabhängig von Witterungseinflüssen, Atmosphäreninterferenzen, Fehlpositionierungen und sonstiger Störfaktoren untersucht werden können. Durch die zunehmend bessere Qualität von Satellitenbildern, die durch Fernerkundungsatelliten aufgezeichnet werden \cite{Markham2004}, können detailliertere Analysen getätigt werden. Jedoch steigt mit zunehmender Größe der Bilddateien auch der Rechenaufwand, um die Szenen aufzubereiten und zu analysieren. Mit zunehmender Datenmenge wird eine massiv parallelisierbare Vorgehensweise bei der Aufbereitung und der Analyse von Satellitenbildern attraktiver. Denn verteilte Systeme lassen sich meist kostengünstiger und flexibler erweitern als einzelne Maschinen, so dass das System bei einer unerwartet großen Datenmenge schnell erweitert werden kann. Dadurch lässt sich eine schnellere Ausführung der Prozesse erreichen.
+
+%----------------------------------------------------------------------------------
+
+\section{Parallele Datenverarbeitungssysteme}
+
+Einleitung
+%Seit mehreren Jahren ist ein massiver Anstieg der global produzierten Datenmengen zu beobachten \cite{EMC2014}. Diese Menge an Daten mithilfe traditioneller Methoden der sequentiellen, stapelweisen Datenverarbeitung nicht effektiv zu verarbeiten. Aus diesem Grund wird eine verteilte Verarbeitung von Daten in vielen Bereichen zunehmend populär. Dies gilt insbesondere für Daten, die gemäß der in Sektion~\ref{sec:BigData} beschriebenen Kriterien als Big Data klassifiziert werden. Um eine parallele Verarbeitung von Big Data zu ermöglichen, wurden bestehende parallele Datenverarbeitungsmechanismen erweitert. Insbesondere das Map-Reduce Paradigma \cite{Dean2004} bewirkte eine grundlegende Veränderung bei der Vorgehensweise zur Verarbeitung großer Datenmengen. In der Folge wurde Map-Reduce erweitert und flexibler einsetzbar. Außerdem wurden auch andere Vorgehensweisen evaluiert. Diese Entwicklung wird in Sektion~\ref{sec:GrosseDatenmengen} erläutert. Eines der Systeme auf Basis von Map-Reduce ist Apache Flink \cite{FlinkWebsite}. Es ermöglicht eine massiv parallelisierbare Verarbeitung von großen Datenmengen. Die konzeptionelle Struktur von Apache Flink wird in Sektion~\ref{sec:ApacheFlink} beschrieben.
+
+%Das gehört zu 2.2.2.
+%Dazu werden mehrere Maschinen zu einem Netzwerk, einem sogenannten Cluster, zusammengeschlossen. Diese Computer wären als einzelne Maschine nicht in der Lage ein großes beziehungsweise komplexes Problem in akzeptabler Zeit zu lösen. Die Leistungsfähigkeit des Netzwerks wird jedoch nicht über die Leistung einer einzelnen Maschine sondern primär über die Menge der zusammengeschlossenen Computer erreicht. Dies hat mehrere Vorteile gegenüber der Verarbeitung mithilfe einzelner, besonders leistungsstarker Maschinen. Die wichtigsten Vorteile parallelisierter Systeme sind ihre Skalierbarkeit sowie die Fehlertoleranz. Falls mehr Rechenleistung benötigt wird oder wenn Teile des Netzwerks nicht funktionsfähig sind, lassen sich neue Maschinen kurzfristig, meist auch im laufenden Betrieb, in das bestehende Netzwerk integrieren. Bei einzelnen, sehr leistungsstarken Computern gestaltet sich beides aufgrund der abgeschlossenen Beschaffenheit der Maschine schwierig.
+
+\subsection{Bedeutung und Eigenschaften von Big Data}
+\label{sec:BigData}
+
+Einleitung - Eigenschaften von Big Data
+%Zusätzlich zu der schnell wachsenden Menge an verfügbaren Daten wächst der Bedarf diese nutzbringend zu analysieren. Insbesondere Forschungseinrichtungen sowie Unternehmen besitzen beziehungsweise produzieren eine immer umfangreichere Menge an Daten. Beispiele sind unter anderem das Sloan Digital Sky Survey, das seit 1998 insgesamt 116 Terabyte an astronomischen Daten gesammelt hat \cite{York2000, Alam2015} und das 1000 Genomes Project \cite{Baker2010}, das zwischen 2008 und 2013 insgesamt 464 Terabyte Daten zum menschlichen Genom sammelte. Weitere Beispiele sind das CERN, dessen Large Hadron Collider täglich circa 1 Petabyte Daten produziert, und Google, das bereits im Jahr 2008 rund 20 Petabyte Daten pro Tag verarbeitete \cite{Dean2008}. Diese Beispiele verdeutlichen den Trend, dass immer mehr Daten generiert und gespeichert werden, in der Hoffnung diese sinnvoll nutzen zu können. Diese Entwicklung wird sich vermutlich weiter fortsetzen, so wird im Jahr 2020 ein weltweites Datenaufkommen von 44 Zettabyte prognostiziert \cite{EMC2014}.Um jedoch einen Nutzen aus den gesammelten Daten zu generieren, müssen diese analysiert werden. Aufgrund der Menge der zu verarbeitenden Daten reichen traditionelle Methoden der Datenanalyse nicht immer aus, um die Daten auszuwerten.
+
+%Zusätzlich existieren neben der Größe einer Datenmenge noch weitere wichtige Eigenschaften, die die Verarbeitung mittels traditioneller Methoden erschweren. Insbesondere die drei Charakteristika Volumen (\textit{volume}), Komplexität (\textit{variety}) sowie die echtzeitnahe Verfügbarkeit und schnelle Verarbeitung (\textit{velocity}) von Daten, die bereits 2001 von Dick Laney beschrieben \cite{Laney2001} wurden, sind weitere wichtige Eigenschaften solcher Daten. 2004 wurde außerdem die nicht garantierte Zuverlässigkeit und Einheitlichkeit der Daten (engl. veracity) ergänzt \cite{Zikopoulos2012}. Daten, die diese Eigenschaften aufweisen werden Big Data genannt. Im folgenden werden die vier Eigenschaften kurz erläutert.
+
+%\textbf{Volumen.} Das Volumen einer Datenmenge ist das augenscheinlich prägendste der vier Attribute. Wie bereits erwähnt, zeigen viele Beispiele, dass die zu verarbeitenden Datenmengen stark ansteigen. In der Folge entstehen neue Anforderungen bei der Speicherung und Verarbeitung der Daten. Zum einen ist eine möglichst effiziente Nutzung von Speicherplatz nötig, zum anderen müssen die Strukturen zur Verarbeitung der Daten auf die aktuellen Datengrößen angepasst werden. Des weiteren ist die Größe der zu verarbeitenden Daten der Grund für die notwendige Parallelisierung des Verarbeitungsprozesses, da sequentiell arbeitende Verfahren nicht leistungsfähig genug sind, um Datenmengen in der in den Beispielen aufgezeigten Größenordnung zu verarbeiten. Des weiteren lassen sich nur parallelisierte Rechnerstrukturen flexibel skalieren.
+
+%\textbf{Komplexität.} Erhobene Daten weisen vielfältige Datenstrukturen auf. Neben Rohdaten werden auch semistrukturierte und strukturierte Daten gesammelt. Zusätzlich ist auch eine vorliegende Datenstruktur aufgrund von Inkompatibilität mit anderen Datenstrukturen möglicherweise schwierig in Bezug zu anderen Daten zu bringen. Ein Grund dafür ist der massive Anstieg an unterschiedlichen Datenquellen, deren erhobene Daten nicht immer aufeinander abgestimmt sind. Daraus können sich Herausforderungen bei der Normierung von Daten ergeben. Darüber hinaus sind möglicherweise auch Datensemantiken inkonsistent. 
+
+%\textbf{Echtzeitnahe Verarbeitung.} Anwendungsfälle, die eine echtzeitnahe Verarbeitung von großen Datenmengen fordern, werden immer zahlreicher. \textcolor{blue}{Mehr schreiben}
+
+%\textbf{Zuverlässigkeit.} Aufgrund des massiven Anstiegs an Datenquellen wird es schwieriger die Echtheit und Korrektheit von zu analysierenden Daten zu kontrollieren. Es ist jedoch essentiell für die Korrektheit jeder Analyse, dass ihre Grundlage korrekt ist. Insofern müssen Möglichkeiten gefunden werden die Korrektheit von Daten automatisiert zu prüfen. 
+
+%Um Big Data verarbeiten zu können, wurden in den letzten Jahren immer wieder neue Konzepte und Systeme entwickelt, die die spezifischen Charakteristika von Big Data berücksichtigen.
+
+\subsection{Verarbeitung großer Datenmengen - Konzepte und Systeme}
+\label{sec:GrosseDatenmengen}
+Kurze Einleitung inkl. Überleitung zu Parallelität
+%Die Verarbeitung von Big Data unterscheidet sich sowohl konzeptionell als auch in der technischen Umsetzung massiv von der Verarbeitung anderer Daten. Dies liegt vor allem darin begründet, dass traditionelle Konzepte und Techniken wie sequentiell arbeitende Algorithmen und transaktionsbasierte Datenbanksysteme nicht parallelisiert verwendet werden können. In Anbetracht des steigenden Bedarfs an Techniken, mit deren Hilfe Big Data verarbeitet werden können, wurden die Entwicklung neuer und die Weiterentwicklung bestehender Technologien und Konzepte im Bereich Big Data innerhalb der letzten Jahre massiv forciert \textcolor{blue}{Quelle}. Dazu zählen insbesondere massiv parallelisierbare Rechnerstrukturen in Verbindung mit neuartigen Datenverarbeitungssystemen, die diese Konzepte und Technologien verwenden um Big Data verarbeiten zu können.
+
+%Dabei wurden bereits vorhandene parallele Verarbeitungssysteme dahingehend erweitert, die erforderliche echtzeitnahe Verarbeitung zu ermöglichen, in dem vermehrt Netzwerke von verarbeitenden Maschinen eingesetzt wurden. 
+
+Einleitung - Parallelität
+%Die Entwicklung paralleler Rechnerstrukturen begann in den 1970er Jahren im Rahmen der Konstruktion von Computern mit mehreren kleinen Prozessoren (\textit{Computer with multiple mini-processors}) \cite{Bell1971, Wulf1972}. Die Entwicklung nutzbarer parallel arbeitender Computer begann in den 1980er Jahren \cite{Seitz1985}. Hinzu kam die Konzeption und Umsetzung parallelisiert konzipierter Algorithmen \cite{Borodin1985}. Seitdem schritt die Weiterentwicklung parallelisierter Architekturen und Konzepte mit steigendem Tempo fort \cite{Trew2012}. Während früher einzelne Maschinen mit parallel geschalteten Komponenten zur Bearbeitung aufwändiger Datenverarbeitungsaufgaben eingesetzt wurden, werden aktuell vermehrt Computercluster eingesetzt. Diese bestehen aus mehreren Maschinen, die mithilfe eines losen Netzwerks verbunden sind und so einen virtuellen Supercomputer darstellen \cite{Hwang2013}. Aufgrund der Beschaffenheit der Computercluster lässt sich die Anzahl an zusammengeschlossenen Maschinen flexibel definieren. Auf diese Weise kann die Rechenleistung eines solchen Netzwerks kontinuierlich an die Anforderungen angepasst werden. Dies schafft optimale Voraussetzungen für die Verarbeitung von Big Data. So ist beispielsweise eine echtzeitnahe Verarbeitung von Daten möglich, selbst wenn die zu verarbeitende Datenmenge plötzlich massiv ansteigt. In diesem Fall werden lediglich weitere Maschinen an das Cluster angeschlossen und auf diese Weise die Rechenleistung sprunghaft erhöht. Um diese physischen Strukturen nutzen zu können, müssen jedoch auch die der Verarbeitung zugrunde liegenden Algorithmen parallel verarbeitbar implementiert sein. Ein prägendes Konzept, das diese Implementation ermöglicht, ist das 2004 veröffentlichte Map-Reduce Paradigma \cite{Dean2004}. Es ermöglicht die nebenläufige Berechnung von sehr großen Datenmengen sowie eine selbstständige Korrektur von bei Ausfällen von Netzwerkknoten verlorenen Daten. Dabei nutzt es oben beschriebene Computercluster. Seit 2004 wurde das Map-Reduce Paradigma erweitert und bietet nun mehr Flexibilität. Aufgrund des Einsatzes von Map-Reduce in Hadoop \cite{HadoopWebsite} und anderen Systemen bleibt es aber eines der dominanten Paradigmen bei der Verarbeitung großer Datenmengen. Auch Apache Flink \cite{FlinkWebsite} nutzt eine ähnliche Grundfunktionsweise, um die parallelisierten Datenströme zu verwalten.
+
+Map Reduce - High Level Beschreibung + Funktionsweise, erklärt anhand Grafik + evtl. Beispiel.
+%Darüber hinaus müssen neue Vorgehensweisen bei der Prozessierung von Big Data angewendet werden. Insbesondere die mangelnde Parallelisierbarkeit sequentiell arbeitender Systeme macht traditionelle Systeme ungeeignet, um große Datenmengen in angemessener Zeit zu verarbeiten. Außerdem sind sie nicht flexibel genug skalierbar, um ein stark steigendendes Datenaufkommen zu verarbeiten. Ein Konzept, das eine parallelisierte Verarbeitung von Daten ermöglicht ist Map-Reduce \cite{Dean2004}. Dabei handelt es sich um ein Programmier-Paradigma, dass die zwei Methoden zweiter Ordnung \textit{map} und \textit{reduce} beinhaltet. Der Nutzer muss nun den Inhalt der beiden Funktionen durch eine \textit{User-defined function} spezifizieren, so dass in der \textit{map}-Funktion kleine Dateneinheiten eingelesen und ein Zwischenergebnis ermittelt wird. Nach einer automatisiert erfolgenden Reorganisation der Zwischenergebnisse wird auf diese die \textit{reduce}-Funktion angewendet. Der Vorteil des Systems ist die parallelisierbare Ausführung, die durch die Aufteilung des Problems in viele kleinere Probleme erreicht wird. Aufgrund der sehr genau festgelegten Programmstruktur, die zur Nutzung von Map-Reduce eingehalten werden muss, kann das Paradigma als sehr restriktiv angesehen werden. Des weiteren wird der Anwender gezwungen einen Datenverarbeitungsprozess auf mehrere aufeinanderfolgende Map-Reduce Instanzen zu verteilen, wenn dieser zu komplex ist. 
+
+Eigenschaften von Systemen (Hadoop, Spark, Storm, Asterix) -> Überleitung zu Flink
+%Innerhalb der letzten zehn Jahre wurden diverse Systeme zur Verarbeitung großer Datenmengen auf verteilten Systemen entwickelt. Dabei werden die einzelnen Maschinen des verteilten Systems als Netzwerknoten bezeichnet. Viele Systeme nutzen einige dieser Netzwerkknoten als \textit{Master-}Knoten, die anderen als \textit{Worker-}Knoten. Während die Worker-Knoten für die Verteilung einzelner parallelisierter Ausführungsschritte sowie für die Erkennung nicht mehr reagierender Netzwerkknoten. Diese sollten im Idealfall über folgende Eigenschaften verfügen, um Big Data ideal verarbeiten zu können.
+
+%\textbf{Fehlertoleranz.} Die eingesetzten Systeme sollten Fehler, die bei der Datenverarbeitung auftreten, selbstständig erkennen und den Fehler beheben bzw. isolieren. Der klassische Fehlerfall bei einem solchen System ist der Ausfall eines Netzwerkknotens. Dieser Ausfall muss vom System erkannt werden. Dann muss der Teil der Verarbeitung, der zum Zeitpunkt des Auftretens des Fehlers auf dem Knoten ausgeführt wurde, identifiziert und auf einem anderen Knoten des Netzwerks wiederholt werden. Gleichzeitig muss der fehlerhafte Knoten von allen weiteren Verarbeitungsschritten ausgenommen werden.
+
+%\textbf{Leistungsfähigkeit.} Ein weiteres entscheidendes Merkmal eines Systems ist die Leistungsfähigkeit. Diese wird durch zwei Kriterien definiert, die abhängig vom Anwendungsfall verschieden wichtig sind. Zum einen ist die Latenz des Systems wichtig, insbesondere wenn aktuelle Daten verarbeitet werden müssen. Zum anderen ist aber auch der Datendurchsatz von Bedeutung. Dieser beschreibt, wieviele Operationen das System pro Sekunde durchführen kann und bestimmt folglich darüber, wie viele Daten pro Sekunde verarbeitet werden können.
+
+%\textbf{Lauffähigkeit auf verschiedenen Laufzeitumgebungen.} Der mithilfe des Systems spezifizierte Programm soll sich auf möglichst vielen Hardwareumgebungen ausführen lassen. Dadurch lässt sich beispielsweise eine Aktualisierung der Hardware besser durchführen, da das Programm nicht auf eine Umgebung festgelegt ist. Eine populäre Laufzeitumgebung, die mehrere Systeme zur Ausführung nutzen, ist die \textit{Java Runtime Machine}, die auf vielen Hardwareumgebungen lauffähig ist.
+
+%Andere Systeme (Hadoop, Astercks, Spark etc)
+%Diese Eigenschaften werden von verschiedenen Systemen in unterschiedlichem Ausmaß implementiert. Neben den bereits erwähnten Systemen Apache Hadoop und Apache Flink existieren weitere populäre Systeme, beispielsweise Apache Spark \cite{SparkWebsite, Zaharia2010}, Apache Storm \cite{StormWebsite, Jones2013} oder Asterix \cite{AsterixWebsite, Alsubaiee2012}. Diese unterscheiden sich größtenteils bereits in ihrer Architektur. Während Apache Hadoop das Map-Reduce Paradigma sehr fixiert umsetzt und somit dem Nutzer nur eingeschränkte Mittel zur Spezifizierung seines Programmes lässt, setzen Systeme wie Apache Flink das Map-Reduce Paradigma flexibler ein.
+
+%Hadoop, z.b. bei FB verwendet für Analyse von 100 Petabyte Daten \cite{Borthakur2013}
+
+\subsection{Apache Flink}
+\label{sec:ApacheFlink}
+Flink einführen + allgemein beschreiben
+%Ein Datenverarbeitungssystem, das auf eine massiv parallelisierte Verarbeitung von großen Datenmengen spezialisiert ist, ist Apache Flink. Es ging 2014 [Quelle] aus Stratosphere hervor, das seit 2010 kooperativ von Forschern verschiedener Universitäten entwickelt wurde \cite{Battre2010, Alexandrov2014}. Seit Januar 2015 ist Apache Flink ein Top-Level Projekt der Apache Software Foundation \cite{ApacheFlinkBlogEntry}, was eine sich seitdem stark vergrößernde Nutzerschaft zur Folge hat. Flink unterscheidet dabei in zwei Arten der Dateneingabe. Zum einen ist es möglich Daten in Echtzeit einzulesen und zu verarbeiten (\textit{Stream Processing}), zum anderen können gespeicherte Daten genutzt werden (\textit{Batch Processing}). 
+
+Konzept: 2nd order functions, UDFs, Operatoren + Tabelle 
+%Flink erweitert das von Map-Reduce bekannte Schema von Funktionen zweiter Ordnung und User Defined Functions. Dabei sind die vom User spezifizierten Funktionen in den Funktionen zweiter Ordnung, bei Flink Operatoren genannt, gekapselt. Neben den aus Map-Reduce bekannten Operatoren map und reduce stellt Flink noch weitere Operatoren bereit, die eine flexiblere Transformation von Daten ermöglichen.
+
+Konzept: JobManager: Masternode <-> Workernodes. Wie funktioniert die Parallelität?
+%Ein solches Netzwerk besteht dabei aus zwei verschiedenen Klassen von Knoten. Einen Master-Knoten, auch \textit{Jobmanager} genannt, sowie eine individuell festlegbare Anzahl an Worker-Knoten. Der Jobmanager erhält den Jobgraph als initiale Eingabe. Dieser wird in einen parallel strukturierten \textit{ExecutionGraph} transformiert. Für jeden Knoten des Jobgraphs wird ein \textit{ExecutionJobVertex} erstellt. Dieser verantwortet die Ausführung des durch den Knoten repräsentierten Operators und die Weitergabe der, aus der Anwendung des Operators auf die Eingabedaten des Operators resultierenden, Zwischenergebnisse. Dabei werden \textit{n ExecutionVertices} genutzt, wobei n dem festgelegten Grad der Parallelität entspricht. Jeder ExecutionVertex übernimmt dann die Ausführung einer der parallelisierten Verarbeitungsinstanzen des Operators. Dazu wird ein Worker-Knoten genutzt. Der ExecutionJobVertex garantiert die komplette Ausführung des Operators auf der gesamten Eingabedatenmenge, indem der Status jedes ExecutionVertex verfolgt wird. Sollte einer der ExecutionVertices ausfallen wird die gerade verarbeitete Ausführungsinstanz an andere ExecutionVertices delegiert. Darüber hinaus beinhaltet der ExecutionGraph die Zwischenergebnisse, die zwischen der Anwendung verschiedener Operatoren erstellt werden. Dadurch ist jederzeit bekannt, ob die Bedingungen für die Ausführung eines weiteren Operators gegeben ist, oder ob noch nicht alle Eingabedaten in Form von Zwischenergebnissen verfügbar sind.
+
+Flink Optimierer: Eingabegraph, Jobgraph, Executiongraph
+%Systemstruktur beschreiben (Runtime, Optimizer, JVM).  Wie funktioniert die Optimierung des Eingabegraphen?
+%Die Hauptkomponenten der Plattform sind die Flink-Laufzeitumgebung (\textit{Flink Runtime} ) und der Flink-Optimierer (\textit{Flink Optimizer} ). Der Flink-Optimierer erhält einen mithilfe einer Programmierschnittstelle spezifizierten Datenflussgraph als Eingabe. Dieser ist ein gerichteter azyklischer Graph, dessen Knoten Flink-Operatoren repräsentieren. Der Datenflussgraph wird vom Flink-Optimierer in einen weiteren gerichteten azyklischen Graphen umgewandelt, den sogenannten \textit{Jobgraph}. \textcolor{blue}{Wie wird er optimiert? Wie viele Details sind nötig?}
+%Dieser optimierte Datenflussgraph besteht aus mehreren, teilweise unabhängig voneinander zu verarbeitenden Arbeitsschritten. Jeder Arbeitsschritt erhält dabei einen Datenstrom als Eingabe und produziert einen weiteren Datenstrom als Ausgabe. Die Arbeitsschritte bilden also die Knoten des Jobgraphs, während die Kanten Datenströme darstellen. Die verschiedenen Elemente des Jobgraphs können aufgrund seiner Struktur teilweise parallel bearbeitet werden. 
+%Die Flink-Runtime wurde früher unter dem Namen Nephele entwickelt \cite{Warneke2009}. Ihre Aufgabe ist die effiziente Organisation der Ausführung der einzelnen Arbeitsschritte. Sie verteilt die einzelnen Arbeitsschritte gemäß ihrer Abfolge im Jobgraph an die einzelnen Knoten des Netzwerkes, auf dem die Flink-Anwendung ausgeführt wird. 
+
+\subsection{Python}
+Geschichte + grundlegende Sprachkonzepte
+%Python ist eine quelloffene und universell einsetzbare Programmiersprache, die seit 1989 existiert und fortwährend weiter entwickelt wird. Prägende Eigenschaften der Sprache sind unter anderem eine dynamische Typisierung von Variablen, eine simpel gehaltene Syntax und die Erweiterbarkeit durch Module und Bibliotheken. Es ist auch möglich Python-Code durch C- beziehungsweise C++-Bibliotheken zu erweitern \cite{Martelli2006}. Dies ermöglicht eine verkürzte Ausführungszeit eines Programms, insbesondere bei rechenintensiven Programmabschnitten. Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte Architektur. Daraus resultiert eine unzureichende Skalierbarkeit, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. Dies ist insbesondere im Zuge der oben aufgezeigten Entwicklung hin zu größeren zu verarbeitenden Datenmengen relevant. Entwicklungen, die eine bessere Parallelisierung und damit einhergehend eine bessere Skalierbarkeit von Python Projekten zum Ziel haben, sind jedoch meist nicht universal anwendbar. Darüber hinaus wird die Funktionalität dieser Ansätze durch Module bereitgestellt und existiert somit nicht als Grundfunktion in Python sondern muss projektweise hinzugefügt werden. Dies erhöht den zu leistenden Anpassungs- und Entwicklungsaufwand im Vergleich zu anderen Systemen, die mit Rücksicht auf diese Anwendungsfälle konzipiert wurden.
+%----------------------------------------------------------------------------------
+
+\chapter[Algorithmus zur Analyse von Pixelzeitreihen]{Beschreibung und Umsetzung des Algorithmus zur Analyse von Pixelzeitreihen}
+\section[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Pixelzeitreihen}
+Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR), Ziel der Analyse, 
+\section{Umsetzung des Algorithmus mit Apache Flink}
+\subsection{Nutzung der Java-Programmierschnittstelle}
+\subsection{Nutzung der Python-Programmierschnittstelle}
+\section{Umsetzung des Algorithmus in Python}
+%Einordnung als Big-Data Problem (Einordnung am GfZ bei GeoMultiSens)
+Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komplexer Rohdaten, \textcolor{green}{die nahezu in Echtzeit verfügbar sind}. Aufgrund dieser Charakteristika handelt es sich bei dieser Analyse um ein \textcolor{blue}{Big-Data Problem}. Denn alle vier Kriterien, die ein solches charakterisieren sind erfüllt.
+\newline
+Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
+%Big Data + Eigenschaften,
+
+
+
+%Datenstrom mit Flink Operatoren
+\begin{tikzpicture}[>=latex']
+        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
+        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
+        input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        minimum width=1cm,
+        align=center,
+        minimum height=1cm
+    },
+        }
+        \node [rblock]  (start) {Input data};
+        %Filter the data
+        \node [block, below =1cm of start, label={[name=l] Filter the data}, draw] (filterDataInner) {filter('valid')};
+        \node [fit=(filterDataInner) (l), draw] (filterDataOuter) {};
+        %Group the data
+        \node [block, below =1cm of filterDataOuter, label={[name=l] Group the filtered data}, draw] (groupDataInner) {groupBy('geographic position(maybe as a tile)')};
+        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
+        %Sort every grouped dataSet
+        \node [block, below =1cm of groupDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
+        \node [fit=(sortDataInner) (l), draw] (sortDataOuter) {};
+        %Approx the missing data
+        \node [block, below = 1cm of sortDataOuter, label={[name=l] Approx. the missing data}, draw] (approximateDataInner) {groupReduce()};
+        \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
+        %Predict the future data
+        \node [block, below = 1cm of approximateDataOuter, label={[name=l] Predict the future data}, draw] (predictDataInner) {groupReduce()};
+        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
+        %Sink the data
+        \node [rblock, below = 1cm of predictDataOuter, draw] (end) {Sink};
+
+        \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
+        \node [coordinate,above left =1cm and 1cm of start] (left) {};
+
+%% paths
+        \path[draw,->] (start) edge (filterDataOuter)
+                    (filterDataOuter) edge (groupDataOuter)
+                    (groupDataOuter) edge (sortDataOuter)
+                    (sortDataOuter) edge (approximateDataOuter)
+                    (approximateDataOuter) edge (predictDataOuter)
+                    (predictDataOuter) edge (end)
+                    ;
+\end{tikzpicture}
+
+%Minimal diagram example
+%\begin{tikzpicture}[nodes=draw]
+%    \node [label=label1,draw] (node1) {Node1};
+%\end{tikzpicture}
+
+%----------------------------------------------------------------------------------
+
+\chapter{Evaluierung}
+%Korrektheit, Performant, welche Impl. anderen überlegen [bei welchen Gesichtspunkten]
+\section{Versuchsbeschreibung}
+Beschreibung + Begründung für meine Versuchsbedingungen
+\section{Auswertung}
+Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen
+
+\chapter{Fazit}
+Fazit und Ausblick
+z.b. Vergleich mit anderen Untersuchungen
+

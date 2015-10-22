@@ -6,48 +6,48 @@ A level-1 auxiliary file: inhalt.aux
 The style file: alpha.bst
 A level-1 auxiliary file: statement.aux
 Database file #1: Bibliography.bib
+Warning--to sort, need author or key in AsterixWebsite
 Warning--empty journal in Bell1971
-Warning--empty note in Brewer2000
 Warning--empty journal in Dean2004
-You've used 32 entries,
+You've used 35 entries,
             2543 wiz_defined-function locations,
-            773 strings with 12196 characters,
-and the built_in function-call counts, 16576 in all, are:
-= -- 1473
-> -- 1294
-< -- 20
-+ -- 487
-- -- 479
-* -- 1437
-:= -- 2866
-add.period$ -- 99
-call.type$ -- 32
-change.case$ -- 345
-chr.to.int$ -- 31
-cite$ -- 35
-duplicate$ -- 483
-empty$ -- 878
-format.name$ -- 519
-if$ -- 3181
-int.to.chr$ -- 2
+            788 strings with 12635 characters,
+and the built_in function-call counts, 17925 in all, are:
+= -- 1581
+> -- 1390
+< -- 23
++ -- 527
+- -- 516
+* -- 1542
+:= -- 3077
+add.period$ -- 107
+call.type$ -- 35
+change.case$ -- 373
+chr.to.int$ -- 32
+cite$ -- 39
+duplicate$ -- 527
+empty$ -- 977
+format.name$ -- 557
+if$ -- 3460
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 164
-num.names$ -- 93
-pop$ -- 354
+missing$ -- 29
+newline$ -- 178
+num.names$ -- 99
+pop$ -- 404
 preamble$ -- 1
-purify$ -- 380
+purify$ -- 411
 quote$ -- 0
-skip$ -- 407
+skip$ -- 442
 stack$ -- 0
-substring$ -- 596
-swap$ -- 71
-text.length$ -- 20
-text.prefix$ -- 15
+substring$ -- 621
+swap$ -- 82
+text.length$ -- 23
+text.prefix$ -- 16
 top$ -- 0
-type$ -- 240
+type$ -- 264
 warning$ -- 3
-while$ -- 104
-width$ -- 34
-write$ -- 405
+while$ -- 108
+width$ -- 38
+write$ -- 439
 (There were 3 warnings)

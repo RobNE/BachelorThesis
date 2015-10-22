@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  20 OCT 2015 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  15 OCT 2015 20:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**mainStruktur.tex
+(./mainStruktur.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/report.cls
@@ -961,9 +961,9 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
- (./main.aux (./title.aux) (./inhalt.aux)
-(./statement.aux))
-\openout1 = `main.aux'.
+ (./mainStruktur.aux (./title.aux)
+(./inhaltStruktur.aux) (./statement.aux))
+\openout1 = `mainStruktur.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
 LaTeX Font Info:    ... okay on input line 94.
@@ -979,11 +979,13 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
 LaTeX Font Info:    ... okay on input line 94.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 94.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 94.
- (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count127
 \scratchdimen=\dimen155
@@ -1037,126 +1039,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--52
 re/husiegel.pdf>]) [2
 
 
-] (./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
-)
+] (./mainStruktur.toc)
 \tf@toc=\write4
-\openout4 = `main.toc'.
+\openout4 = `mainStruktur.toc'.
 
  [1
 
 ]
-\openout2 = `inhalt.aux'.
-
- (./inhalt.tex
-Kapitel 1.
-[1
+\openout2 = `inhaltStruktur.aux'.
 
 
-] [2]
-Kapitel 2.
-[3
-
-] [4] [5]
-Overfull \hbox (11.07762pt too wide) in paragraph at lines 64--65
-[]\T1/cmr/bx/n/10 Variety. \T1/cmr/m/n/10 Ge-sam-mel-te Da-ten wei-sen viel-fäl
--ti-ge Da-ten-struk-tu-ren auf. Es wer-den nicht-strukturierte,
- []
-
-[6] <picture/map_reduce_system_example.png, id=54, 924.45375pt x 663.47874pt>
-File: picture/map_reduce_system_example.png Graphic file (type png)
-
-<use picture/map_reduce_system_example.png>
-Package pdftex.def Info: picture/map_reduce_system_example.png used on input li
-ne 87.
-(pdftex.def)             Requested size: 384.10959pt x 275.67262pt.
+No file inhaltStruktur.tex.
+No file mainStruktur.bbl.
+[2
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7] [8 <./picture/map_reduce_system_example.png>]
-
-LaTeX Warning: Citation `BraunWebsite' on page 9 undefined on input line 121.
-
-[9]
-<picture/flink_job_and_execution_graph.png, id=66, 864.22874pt x 544.0325pt>
-File: picture/flink_job_and_execution_graph.png Graphic file (type png)
-
-<use picture/flink_job_and_execution_graph.png>
-Package pdftex.def Info: picture/flink_job_and_execution_graph.png used on inpu
-t line 136.
-(pdftex.def)             Requested size: 384.10959pt x 241.79901pt.
- [10 <./picture/flink_job_and_execution_graph.png>]
-Overfull \hbox (23.90144pt too wide) in paragraph at lines 157--171
-[][] 
- []
-
-[11] [12]
-Kapitel 3.
-[13
-
-] [14]
-Kapitel 4.
-[15
-
-]
-Kapitel 5.
-) [16
-
-] (./main.bbl
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 29.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [17
-
-
-] [18]) [19] [20
 
 ]
 \openout2 = `statement.aux'.
 
- (./statement.tex) [21
+ (./statement.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 17.
+) [3
 
-] (./main.aux (./title.aux)
-(./inhalt.aux) (./statement.aux))
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] (./mainStruktur.aux (./title.aux)
+(./inhaltStruktur.aux) (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 16005 strings out of 493117
- 323483 string characters out of 6135434
- 384925 words of memory out of 5000000
- 19090 multiletter control sequences out of 15000+600000
- 18341 words of font info for 45 fonts, out of 8000000 for 9000
+ 15753 strings out of 493117
+ 318151 string characters out of 6135434
+ 375537 words of memory out of 5000000
+ 18852 multiletter control sequences out of 15000+600000
+ 15456 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,70p,2113b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on main.pdf (24 pages, 691207 bytes).
+ 55i,6n,70p,881b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/
+fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2014/texmf-dist/fo
+nts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/cm-super/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/cm-super/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/cm-super/sfxc1200.pfb>
+Output written on mainStruktur.pdf (5 pages, 153264 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+ 66 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

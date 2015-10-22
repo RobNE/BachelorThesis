@@ -25,8 +25,6 @@
   Number                   = {1},
   Pages                    = {922‚Äì933},
   Volume                   = {2},
-
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.14778/1687627.1687731},
   ISSN                     = {2150-8097},
   Owner                    = {rellerkmann},
@@ -92,6 +90,20 @@
   Url                      = {http://dx.doi.org/10.14778/2367502.2367532}
 }
 
+@Article{Amdahl1967,
+  Title                    = {Validity of the single processor approach to achieving large scale computing capabilities},
+  Author                   = {Amdahl, Gene M.},
+  Journal                  = {Proceedings of the April 18-20, 1967, spring joint computer conference on - AFIPS ‚Äô67 (Spring)},
+  Year                     = {1967},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.1145/1465482.1465560},
+  Owner                    = {rellerkmann},
+  Publisher                = {Association for Computing Machinery (ACM)},
+  Timestamp                = {2015.10.18},
+  Url                      = {http://dx.doi.org/10.1145/1465482.1465560}
+}
+
 @Article{Baker2010,
   Title                    = {Next-generation sequencing: adjusting to data overload},
   Author                   = {Baker, Monya},
@@ -121,6 +133,20 @@
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.09.11}
+}
+
+@Article{Behm2011,
+  Title                    = {Asterix: towards a scalable, semistructured data platform for evolving-world models},
+  Author                   = {Behm, Alexander and Borkar, Vinayak R and Carey, Michael J and Grover, Raman and Li, Chen and Onose, Nicola and Vernica, Rares and Deutsch, Alin and Papakonstantinou, Yannis and Tsotras, Vassilis J},
+  Journal                  = {Distributed and Parallel Databases},
+  Year                     = {2011},
+  Number                   = {3},
+  Pages                    = {185--216},
+  Volume                   = {29},
+
+  Owner                    = {rellerkmann},
+  Publisher                = {Springer},
+  Timestamp                = {2015.10.15}
 }
 
 @Article{Bell1971,
@@ -155,8 +181,6 @@
   Author                   = {Borthakur, Dhruba},
   Journal                  = {Proceedings of the 2013 international conference on Management of data - SIGMOD ‚Äô13},
   Year                     = {2013},
-
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1145/2463676.2463713},
   ISBN                     = {http://id.crossref.org/isbn/9781450320375},
   Owner                    = {rellerkmann},
@@ -286,7 +310,7 @@
   Title                    = {Apache Storm Website},
 
   Author                   = {Apache Software Foundation},
-  HowPublished             = {https://storm.apache.org/},
+  HowPublished             = {\url{https://storm.apache.org/}},
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.10.14}
@@ -306,6 +330,26 @@
 
   Author                   = {GfZ-Potsdam},
   HowPublished             = {\url{http://www.geomultisens.gfz-potsdam.de/}}
+}
+
+@Article{Ghemawat2003,
+  Title                    = {The Google file system},
+  Author                   = {Ghemawat, Sanjay and Gobioff, Howard and Leung, Shun-Tak},
+  Journal                  = {SIGOPS Oper. Syst. Rev.},
+  Year                     = {2003},
+
+  Month                    = {Dec},
+  Number                   = {5},
+  Pages                    = {29},
+  Volume                   = {37},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1145/1165389.945450},
+  ISSN                     = {0163-5980},
+  Owner                    = {rellerkmann},
+  Publisher                = {Association for Computing Machinery (ACM)},
+  Timestamp                = {2015.10.18},
+  Url                      = {http://dx.doi.org/10.1145/1165389.945450}
 }
 
 @Article{Haerder1983,
@@ -380,6 +424,16 @@
   Publisher                = {Association for Computing Machinery (ACM)},
   Timestamp                = {2015.04.29},
   Url                      = {http://dx.doi.org/10.1145/1536616.1536632}
+}
+
+@Article{Jones2013,
+  Title                    = {Process real-time big data with Twitter Storm},
+  Author                   = {Jones, M Tim},
+  Journal                  = {IBM Technical Library},
+  Year                     = {2013},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.15}
 }
 
 @Article{Laney2001,
@@ -558,6 +612,18 @@ Yanny and Naoki Yasuda},
   Url                      = {http://stacks.iop.org/1538-3881/120/i=3/a=1579}
 }
 
+@InProceedings{Zaharia2010,
+  Title                    = {Spark: cluster computing with working sets},
+  Author                   = {Zaharia, Matei and Chowdhury, Mosharaf and Franklin, Michael J and Shenker, Scott and Stoica, Ion},
+  Booktitle                = {Proceedings of the 2nd USENIX conference on Hot topics in cloud computing},
+  Year                     = {2010},
+  Pages                    = {10},
+  Volume                   = {10},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.15}
+}
+
 @Book{Zikopoulos2012,
   Title                    = {Harness the Power of Big Data The IBM Big Data Platform},
   Author                   = {Paul Zikopoulos and Dirk deRoos and Krishnan Parasuraman and Thomas Deutsch and James Giles and David Corrigan},
@@ -566,6 +632,14 @@ Yanny and Naoki Yasuda},
 
   ISBN                     = {0071808175},
   Url                      = {http://www.amazon.com/Harness-Power-Big-Data-Platform/dp/0071808175%3FSubscriptionId%3D0JYN1NVW651KCA56C102%26tag%3Dtechkie-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0071808175}
+}
+
+@Misc{AsterixWebsite,
+  Title                    = {AsterixDB Website},
+  HowPublished             = {\url{https://asterixdb.ics.uci.edu/}},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.15}
 }
 
 @Manual{DIN18716,

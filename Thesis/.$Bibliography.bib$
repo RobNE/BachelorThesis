@@ -158,6 +158,18 @@
   Timestamp                = {2015.10.11}
 }
 
+@MastersThesis{Bethge2009,
+  Title                    = {MapReduce},
+  Author                   = {Bethge, Stefan and Rheinländer, Astrid},
+  School                   = {Humboldt-Universität zu Berlin},
+  Year                     = {2009},
+  Type                     = {Seminararbeit},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.10.20},
+  Url                      = {http://www2.informatik.hu-berlin.de/~bethge/public/MapReduce/document.pdf}
+}
+
 @Article{Borodin1985,
   Title                    = {Routing, merging, and sorting on parallel models of computation},
   Author                   = {Borodin, A. and Hopcroft, J.E.},

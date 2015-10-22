@@ -10,17 +10,23 @@ Shadab Alam, Franco~D. Albareti, Carlos~Allende Prieto, F.~Anders, Scott~F.
 \newblock {\em The Astrophysical Journal Supplement Series}, 219(1):12, Jul
   2015.
 
-\bibitem[Aba09]{Abadi2009}
-Daniel~J Abadi.
-\newblock Data management in the cloud: Limitations and opportunities.
-\newblock {\em IEEE Data Eng. Bull.}, 32(1):3--12, 2009.
-
 \bibitem[ABE{\etalchar{+}}14]{Alexandrov2014}
 Alexander Alexandrov, Rico Bergmann, Stephan Ewen, Johann-Christoph Freytag,
   Fabian Hueske, Arvid Heise, Odej Kao, Marcus Leich, Ulf Leser, Volker Markl,
   and et~al.
 \newblock The stratosphere platform for big data analytics.
 \newblock {\em The VLDB Journal}, 23(6):939‚964, May 2014.
+
+\bibitem[AKL{\etalchar{+}}12]{Alsubaiee2012}
+Sattam Alsubaiee, Young-Seok Kim, Chen Li, Nicola Onose, Pouria Pirzadeh, Rares
+  Vernica, Jian Wen, Yasser Altowim, Hotham Altwaijry, Alexander Behm, and
+  et~al.
+\newblock Asterix.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(12):1898‚1901, Aug 2012.
+
+\bibitem[Ast]{AsterixWebsite}
+Asterixdb website.
+\newblock \url{https://asterixdb.ics.uci.edu/}.
 
 \bibitem[Bak10]{Baker2010}
 Monya Baker.
@@ -47,11 +53,6 @@ A.~Borodin and J.E. Hopcroft.
 \newblock {\em Journal of Computer and System Sciences}, 30(1):130‚Äì145,
   Feb 1985.
 
-\bibitem[Bre00]{Brewer2000}
-Eric Brewer.
-\newblock Towards robust distributed systems.
-\newblock 07 2000.
-
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
 \newblock Thermal infrared sensors.
@@ -77,12 +78,22 @@ EMC².
 \newblock The digital universe of opportunities.
 \newblock Technical report, EMC², 2014.
 
-\bibitem[Foua]{FlinkWebsite}
+\bibitem[Foua]{SparkWebsite}
+Apache~Software Foundation.
+\newblock Apache spark website.
+\newblock \url{https://spark.apache.org/}.
+
+\bibitem[Foub]{StormWebsite}
+Apache~Software Foundation.
+\newblock Apache storm website.
+\newblock \url{https://storm.apache.org/}.
+
+\bibitem[Fouc]{FlinkWebsite}
 Apache~Software Foundation.
 \newblock Flink website.
 \newblock \url{https://flink.apache.org/}.
 
-\bibitem[Foub]{HadoopWebsite}
+\bibitem[Foud]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
 \newblock \url{https://hadoop.apache.org/}.
@@ -95,6 +106,11 @@ Apache~Software Foundation.
   \url{https://blogs.apache.org/foundation/entry/the\_apache\_software\_foundation\_announces69},
   January 2015.
 
+\bibitem[GGL03]{Ghemawat2003}
+Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung.
+\newblock The google file system.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 37(5):29, Dec 2003.
+
 \bibitem[GP]{GeoMultiSensWebsite}
 GfZ-Potsdam.
 \newblock Geomultisens website.
@@ -105,11 +121,6 @@ Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
 \newblock {\em Distributed and cloud computing: from parallel processing to the
   internet of things}.
 \newblock Morgan Kaufmann, 2013.
-
-\bibitem[HR83]{Haerder1983}
-Theo Haerder and Andreas Reuter.
-\newblock Principles of transaction-oriented database recovery.
-\newblock {\em ACM Computing Surveys (CSUR)}, 15(4):287--317, 1983.
 
 \bibitem[Hü15]{Hueske2015}
 Fabian Hüske.
@@ -128,6 +139,11 @@ Adam Jacobs.
 \newblock The pathologies of big data.
 \newblock {\em Communications of the ACM}, 52(8):36, August 2009.
 
+\bibitem[Jon13]{Jones2013}
+M~Tim Jones.
+\newblock Process real-time big data with twitter storm.
+\newblock {\em IBM Technical Library}, 2013.
+
 \bibitem[Lan01]{Laney2001}
 Doug Laney.
 \newblock 3d data management: Controlling data volume, velocity and variety.
@@ -138,12 +154,6 @@ Doug Laney.
 Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
-
-\bibitem[MH13]{Moniruzzaman2013}
-ABM Moniruzzaman and Syed~Akhter Hossain.
-\newblock Nosql database: New era of databases for big data
-  analytics-classification, characteristics and comparison.
-\newblock {\em arXiv preprint arXiv:1307.0191}, 2013.
 
 \bibitem[MSWI04]{Markham2004}
 B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
@@ -210,6 +220,13 @@ Donald~G. York, J.~Adelman, Jr. John E.~Anderson, Scott~F. Anderson, James
   Watanabe, David~H. Weinberg, Brian Yanny, and Naoki Yasuda.
 \newblock The sloan digital sky survey: Technical summary.
 \newblock {\em The Astronomical Journal}, 120(3):1579, 2000.
+
+\bibitem[ZCF{\etalchar{+}}10]{Zaharia2010}
+Matei Zaharia, Mosharaf Chowdhury, Michael~J Franklin, Scott Shenker, and Ion
+  Stoica.
+\newblock Spark: cluster computing with working sets.
+\newblock In {\em Proceedings of the 2nd USENIX conference on Hot topics in
+  cloud computing}, volume~10, page~10, 2010.
 
 \bibitem[ZdP{\etalchar{+}}12]{Zikopoulos2012}
 Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James
