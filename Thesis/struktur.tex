@@ -124,69 +124,43 @@ Geschichte + grundlegende Sprachkonzepte
 
 \chapter[Algorithmus zur Analyse von Pixelzeitreihen]{Beschreibung und Umsetzung des Algorithmus zur Analyse von Pixelzeitreihen}
 \section[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Pixelzeitreihen}
-Beschreibung der Vorgehensweise bei der Analyse (Zhu, SVR), Ziel der Analyse, 
-\section{Umsetzung des Algorithmus mit Apache Flink}
-\subsection{Nutzung der Java-Programmierschnittstelle}
-\subsection{Nutzung der Python-Programmierschnittstelle}
+
+Einleitung: Kurze, grobe Beschreibung des Algorithmus, kurze Wiederholung relevante Geographische Grundlagen.
+
+Ziel der Analyse
+
+Beschreibung SVR
+
+Beschreibung Zhu
+
+Beschreibung Kombination der beiden Methoden
+
 \section{Umsetzung des Algorithmus in Python}
-%Einordnung als Big-Data Problem (Einordnung am GfZ bei GeoMultiSens)
-Die Analyse von Satellitenbildern erfordert die Verarbeitung großer Mengen komplexer Rohdaten, \textcolor{green}{die nahezu in Echtzeit verfügbar sind}. Aufgrund dieser Charakteristika handelt es sich bei dieser Analyse um ein \textcolor{blue}{Big-Data Problem}. Denn alle vier Kriterien, die ein solches charakterisieren sind erfüllt.
-\newline
-Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
-%Big Data + Eigenschaften,
 
+Wie ist der Algorithmus in Python umgesetzt
 
+Welche Charakteristika von Python haben welche Folgen für die Ausführung der Analyse bzgl. Skalierbarkeit, Leistung etc. (-> theoretische Vorteile und Nachteile aufzeigen)
 
-%Datenstrom mit Flink Operatoren
-\begin{tikzpicture}[>=latex']
-        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
-        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
-        input/.style={ % requires library shapes.geometric
-        draw,
-        trapezium,
-        trapezium left angle=60,
-        trapezium right angle=120,
-        minimum width=1cm,
-        align=center,
-        minimum height=1cm
-    },
-        }
-        \node [rblock]  (start) {Input data};
-        %Filter the data
-        \node [block, below =1cm of start, label={[name=l] Filter the data}, draw] (filterDataInner) {filter('valid')};
-        \node [fit=(filterDataInner) (l), draw] (filterDataOuter) {};
-        %Group the data
-        \node [block, below =1cm of filterDataOuter, label={[name=l] Group the filtered data}, draw] (groupDataInner) {groupBy('geographic position(maybe as a tile)')};
-        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
-        %Sort every grouped dataSet
-        \node [block, below =1cm of groupDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
-        \node [fit=(sortDataInner) (l), draw] (sortDataOuter) {};
-        %Approx the missing data
-        \node [block, below = 1cm of sortDataOuter, label={[name=l] Approx. the missing data}, draw] (approximateDataInner) {groupReduce()};
-        \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
-        %Predict the future data
-        \node [block, below = 1cm of approximateDataOuter, label={[name=l] Predict the future data}, draw] (predictDataInner) {groupReduce()};
-        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
-        %Sink the data
-        \node [rblock, below = 1cm of predictDataOuter, draw] (end) {Sink};
+\section{Umsetzung des Algorithmus mit Apache Flink}
+Kurze Einleitung: Flink als Alternative zu Python nennen.  Einführen was durch die Nutzung von Flink für Vorteile entstehen.
 
-        \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
-        \node [coordinate,above left =1cm and 1cm of start] (left) {};
+Beschreibung der Umsetzung des Algorithmus als Datenfluss
+1. Einlesen und Aufbereiten der Daten, so dass sie als Tiles vorliegen
+2. Ausschneiden des relevanten Bereiches der Tiles
+3. Schneiden des Zielbereichs in kleinere Bereiche -> smallTiles
+4. smallTiles gemäß ihrer Koordinaten gruppieren und gemäß ihres Entstehungsdatums sortieren
+5. Einzelne Pixelzeitreihen analyiseren und approximierte Daten einfügen
+6. Aktualisierte Pixelzeitreihen zur Vorhersage nutzen
+7. Datenausgabe beschreiben
 
-%% paths
-        \path[draw,->] (start) edge (filterDataOuter)
-                    (filterDataOuter) edge (groupDataOuter)
-                    (groupDataOuter) edge (sortDataOuter)
-                    (sortDataOuter) edge (approximateDataOuter)
-                    (approximateDataOuter) edge (predictDataOuter)
-                    (predictDataOuter) edge (end)
-                    ;
-\end{tikzpicture}
+Korrektheit des Algorithmus begründen (Vergleich von Beispielergebnissen der Pythonimpl. und der Flink-Impl. --> Bei Gleichheit ist der Algorithmus höchstwahrscheinlich korrekt)
 
-%Minimal diagram example
-%\begin{tikzpicture}[nodes=draw]
-%    \node [label=label1,draw] (node1) {Node1};
-%\end{tikzpicture}
+%Unterscheidung von Python-/Java-API
+
+Welche Charakteristika von Flink haben welche Folgen für die Ausführung der Analyse bzgl. Skalierbarkeit, Leistung etc. (-> theoretische Vorteile und Nachteile aufzeigen), Vergleich zu Python führen.
+
+\subsection{Unterschiede bei der Nutzung der Java- und der Python-Programmierschnittstelle}
+Nur bei Bedarf.
 
 %----------------------------------------------------------------------------------
 
@@ -195,7 +169,7 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenko
 \section{Versuchsbeschreibung}
 Beschreibung + Begründung für meine Versuchsbedingungen
 \section{Auswertung}
-Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen
+Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen: Tatsächliches Eintreten der theoretischen Vor-/Nachteile der beiden Lösungen
 
 \chapter{Fazit}
 Fazit und Ausblick

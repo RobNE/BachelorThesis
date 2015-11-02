@@ -53,6 +53,29 @@ A.~Borodin and J.E. Hopcroft.
 \newblock {\em Journal of Computer and System Sciences}, 30(1):130‚Äì145,
   Feb 1985.
 
+\bibitem[Bor13]{Borthakur2013}
+Dhruba Borthakur.
+\newblock Petabyte scale databases and storage systems at facebook.
+\newblock {\em Proceedings of the 2013 international conference on Management
+  of data - SIGMOD ‚Äô13}, 2013.
+
+\bibitem[BPP07]{Basak2007}
+Debasish Basak, Srimanta Pal, and Dipak~Chandra Patranabis.
+\newblock Support vector regression.
+\newblock {\em Neural Information Processing-Letters and Reviews},
+  11(10):203--224, 2007.
+
+\bibitem[BR09]{Bethge2009}
+Stefan Bethge and Astrid Rheinländer.
+\newblock Mapreduce.
+\newblock Seminararbeit, Humboldt-Universität zu Berlin, 2009.
+
+\bibitem[Bra]{BraunWebsite}
+Mikio Braun.
+\newblock The future of big data (according to stratosphere/flink).
+\newblock
+  \url{http://blog.mikiobraun.de/2014/06/future-big-data-flink-stratosphere.html}.
+
 \bibitem[Cha11]{Chaudhary2011}
 Anju Chaudhary.
 \newblock Thermal infrared sensors.
@@ -93,7 +116,13 @@ Apache~Software Foundation.
 \newblock Flink website.
 \newblock \url{https://flink.apache.org/}.
 
-\bibitem[Foud]{HadoopWebsite}
+\bibitem[Foud]{FlinkArchitecureImage}
+Apache~Software Foundation.
+\newblock Flink website - general architecture and process model.
+\newblock
+  \url{https://ci.apache.org/projects/flink/flink-docs-master/internals/general_arch.html}.
+
+\bibitem[Foue]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
 \newblock \url{https://hadoop.apache.org/}.
@@ -122,12 +151,11 @@ Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
   internet of things}.
 \newblock Morgan Kaufmann, 2013.
 
-\bibitem[Hü15]{Hueske2015}
-Fabian Hüske.
-\newblock Juggling with bits and bytes.
-\newblock
-  \url{https://flink.apache.org/news/2015/05/11/Juggling-with-Bits-and-Bytes.html},
-  May 2015.
+\bibitem[HPS{\etalchar{+}}12]{Hueske2012}
+Fabian Hueske, Mathias Peters, Matthias~J. Sax, Astrid Rheinländer, Rico
+  Bergmann, Aljoscha Krettek, and Kostas Tzoumas.
+\newblock Opening the black boxes in data flow optimization.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(11):1256‚1267, Jul 2012.
 
 \bibitem[IDB12]{Irons2012}
 James~R. Irons, John~L. Dwyer, and Julia~A. Barsi.
@@ -150,6 +178,12 @@ Doug Laney.
 \newblock {\em Application Delivery Strategies published by META Group Inc.},
   Feb 2001.
 
+\bibitem[MA11]{Millman2011}
+K.~Jarrod Millman and Michael Aivazis.
+\newblock Python for scientists and engineers.
+\newblock {\em Computing in Science \& Engineering}, 13(2):9‚Äì12, Mar
+  2011.
+
 \bibitem[Mar06]{Martelli2006}
 Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
@@ -160,6 +194,11 @@ B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock Landsat sensor performance: history and current status.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
+
+\bibitem[Pem15]{DispyWebsite}
+Giridhar Pemmasani.
+\newblock Dispy website.
+\newblock \url{http://dispy.sourceforge.net/}, 11 2015.
 
 \bibitem[Sei85]{Seitz1985}
 Charles~L Seitz.
@@ -172,18 +211,16 @@ Arthur Trew and Greg Wilson.
   systems}.
 \newblock Springer Science \& Business Media, 2012.
 
+\bibitem[Van15]{ParallelPythonWebsite}
+Vitalii Vanovschi.
+\newblock Parallel python website.
+\newblock \url{http://www.parallelpython.com/}, 11 2015.
+
 \bibitem[WB72]{Wulf1972}
 William~A Wulf and C~Gordon Bell.
 \newblock C. mmp: a multi-mini-processor.
 \newblock In {\em Proceedings of the December 5-7, 1972, fall joint computer
   conference, part II}, pages 765--777. ACM, 1972.
-
-\bibitem[WK09]{Warneke2009}
-Daniel Warneke and Odej Kao.
-\newblock Nephele: Efficient parallel data processing in the cloud.
-\newblock In {\em Proceedings of the 2Nd Workshop on Many-Task Computing on
-  Grids and Supercomputers}, MTAGS '09, pages 8:1--8:10, New York, NY, USA,
-  2009. ACM.
 
 \bibitem[YAJEA{\etalchar{+}}00]{York2000}
 Donald~G. York, J.~Adelman, Jr. John E.~Anderson, Scott~F. Anderson, James
@@ -233,5 +270,16 @@ Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James
   Giles, and David Corrigan.
 \newblock {\em Harness the Power of Big Data The IBM Big Data Platform}.
 \newblock McGraw-Hill Osborne Media, 2012.
+
+\bibitem[ZW12]{Zhu2012a}
+Zhe Zhu and Curtis~E. Woodcock.
+\newblock Object-based cloud and cloud shadow detection in landsat imagery.
+\newblock {\em Remote Sensing of Environment}, 118:83‚94, Mar 2012.
+
+\bibitem[ZWO12]{Zhu2012}
+Zhe Zhu, Curtis~E Woodcock, and Pontus Olofsson.
+\newblock Continuous monitoring of forest disturbance using all available
+  landsat imagery.
+\newblock {\em Remote Sensing of Environment}, 122:75--91, 2012.
 
 \end{thebibliography}
