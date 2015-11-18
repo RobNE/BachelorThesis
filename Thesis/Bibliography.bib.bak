@@ -123,6 +123,23 @@
   Url                      = {http://dx.doi.org/10.1038/nmeth0710-495}
 }
 
+@Article{Baru2013,
+  Title                    = {Setting the Direction for Big Data Benchmark Standards},
+  Author                   = {Baru, Chaitanya and Bhandarkar, Milind and Nambiar, Raghunath and Poess, Meikel and Rabl, Tilmann},
+  Journal                  = {Lecture Notes in Computer Science},
+  Year                     = {2013},
+  Pages                    = {197‚Äì208},
+
+  __markedentry            = {[rellerkmann:6]},
+  Doi                      = {10.1007/978-3-642-36727-4_14},
+  ISBN                     = {http://id.crossref.org/isbn/978-3-642-36727-4},
+  ISSN                     = {1611-3349},
+  Owner                    = {rellerkmann},
+  Publisher                = {Springer Science + Business Media},
+  Timestamp                = {2015.11.09},
+  Url                      = {http://dx.doi.org/10.1007/978-3-642-36727-4_14}
+}
+
 @Article{Basak2007,
   Title                    = {Support vector regression},
   Author                   = {Basak, Debasish and Pal, Srimanta and Patranabis, Dipak Chandra},
@@ -264,6 +281,23 @@
   Url                      = {http://dx.doi.org/10.1007/978-90-481-2642-2_573}
 }
 
+@Article{Chen2014,
+  Title                    = {From TPC-C to Big Data Benchmarks: A Functional Workload Model},
+  Author                   = {Chen, Yanpei and Raab, Francois and Katz, Randy},
+  Journal                  = {Lecture Notes in Computer Science},
+  Year                     = {2014},
+  Pages                    = {28‚Äì43},
+
+  __markedentry            = {[rellerkmann:]},
+  Doi                      = {10.1007/978-3-642-53974-9_4},
+  ISBN                     = {http://id.crossref.org/isbn/978-3-642-53974-9},
+  ISSN                     = {1611-3349},
+  Owner                    = {rellerkmann},
+  Publisher                = {Springer Science + Business Media},
+  Timestamp                = {2015.11.09},
+  Url                      = {http://dx.doi.org/10.1007/978-3-642-53974-9_4}
+}
+
 @Article{Codd1970,
   Title                    = {A relational model of data for large shared data banks},
   Author                   = {Codd, E. F.},
@@ -309,6 +343,18 @@
   Pages                    = {13}
 }
 
+@InProceedings{Drucker97,
+  Title                    = {Support Vector Regression Machines},
+  Author                   = {Harris Drucker and Chris J. C. Burges and Linda Kaufman and Alex Smola and Vladimir Vapnik},
+  Booktitle                = {ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS 9},
+  Year                     = {1997},
+  Pages                    = {155--161},
+  Publisher                = {MIT Press},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.11.17}
+}
+
 @TechReport{EMC2014,
   Title                    = {The Digital Universe of Opportunities},
   Author                   = {EMC²},
@@ -328,6 +374,16 @@
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.10.22}
+}
+
+@Misc{FlinkJobWebsite,
+  Title                    = {Apache Flink Website},
+
+  Author                   = {Apache Software Foundation},
+  HowPublished             = {\url{https://ci.apache.org/projects/flink/flink-docs-release-0.9/internals/job_scheduling.html}},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.11.12}
 }
 
 @Misc{FlinkWebsite,
@@ -399,6 +455,19 @@
   Url                      = {http://dx.doi.org/10.1145/1165389.945450}
 }
 
+@Book{Gray1992,
+  Title                    = {Benchmark Handbook: For Database and Transaction Processing Systems},
+  Author                   = {Gray, Jim},
+  Publisher                = {Morgan Kaufmann Publishers Inc.},
+  Year                     = {1992},
+
+  Address                  = {San Francisco, CA, USA},
+
+  ISBN                     = {1558601597},
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.11.09}
+}
+
 @Article{Haerder1983,
   Title                    = {Principles of transaction-oriented database recovery},
   Author                   = {Haerder, Theo and Reuter, Andreas},
@@ -424,7 +493,6 @@
   Pages                    = {1256‚1267},
   Volume                   = {5},
 
-  __markedentry            = {[rellerkmann:]},
   Doi                      = {10.14778/2350229.2350244},
   ISSN                     = {2150-8097},
   Owner                    = {rellerkmann},
@@ -558,6 +626,25 @@
   Owner                    = {rellerkmann},
   Timestamp                = {2015.07.07},
   Url                      = {http://ai.arizona.edu/mis510/other/Big%20Data%20-%20The%20Management%20Revolution.pdf}
+}
+
+@Article{Millman2011,
+  Title                    = {Python for Scientists and Engineers},
+  Author                   = {Millman, K. Jarrod and Aivazis, Michael},
+  Journal                  = {Computing in Science \& Engineering},
+  Year                     = {2011},
+
+  Month                    = {Mar},
+  Number                   = {2},
+  Pages                    = {9‚Äì12},
+  Volume                   = {13},
+
+  Doi                      = {10.1109/mcse.2011.36},
+  ISSN                     = {1521-9615},
+  Owner                    = {rellerkmann},
+  Publisher                = {Institute of Electrical \& Electronics Engineers (IEEE)},
+  Timestamp                = {2015.11.02},
+  Url                      = {http://dx.doi.org/10.1109/MCSE.2011.36}
 }
 
 @Article{Moniruzzaman2013,
@@ -737,7 +824,6 @@ Yanny and Naoki Yasuda},
   Pages                    = {83‚94},
   Volume                   = {118},
 
-  __markedentry            = {[rellerkmann:6]},
   Doi                      = {10.1016/j.rse.2011.10.028},
   ISSN                     = {0034-4257},
   Owner                    = {rellerkmann},

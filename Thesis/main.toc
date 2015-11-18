@@ -7,14 +7,15 @@
 \contentsline {subsection}{\numberline {2.2.1}Bedeutung und Eigenschaften von Big Data}{5}
 \contentsline {subsection}{\numberline {2.2.2}Systeme zur massiv parallelen Datenverarbeitung}{6}
 \contentsline {subsection}{\numberline {2.2.3}Apache Flink}{9}
-\contentsline {subsection}{\numberline {2.2.4}Python}{12}
-\contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{13}
-\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{13}
-\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{14}
-\contentsline {subsection}{\numberline {3.2.1}Nutzung der Java-Programmierschnittstelle}{14}
-\contentsline {subsection}{\numberline {3.2.2}Nutzung der Python-Programmierschnittstelle}{14}
-\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{14}
-\contentsline {chapter}{\numberline {4}Evaluierung}{16}
-\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{16}
-\contentsline {section}{\numberline {4.2}Auswertung}{16}
-\contentsline {chapter}{\numberline {5}Fazit}{17}
+\contentsline {subsection}{\numberline {2.2.4}Python}{11}
+\contentsline {subsection}{\numberline {2.2.5}Vergleichsmetriken}{13}
+\contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{14}
+\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{14}
+\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{16}
+\contentsline {subsection}{\numberline {3.2.1}Nutzung der Java-Programmierschnittstelle}{16}
+\contentsline {subsection}{\numberline {3.2.2}Nutzung der Python-Programmierschnittstelle}{16}
+\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{16}
+\contentsline {chapter}{\numberline {4}Evaluierung}{18}
+\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{18}
+\contentsline {section}{\numberline {4.2}Auswertung}{18}
+\contentsline {chapter}{\numberline {5}Fazit}{19}

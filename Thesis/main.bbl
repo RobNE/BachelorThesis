@@ -33,6 +33,12 @@ Monya Baker.
 \newblock Next-generation sequencing: adjusting to data overload.
 \newblock {\em Nat Meth}, 7(7):495‚Äì499, Jul 2010.
 
+\bibitem[BBN{\etalchar{+}}13]{Baru2013}
+Chaitanya Baru, Milind Bhandarkar, Raghunath Nambiar, Meikel Poess, and Tilmann
+  Rabl.
+\newblock Setting the direction for big data benchmark standards.
+\newblock {\em Lecture Notes in Computer Science}, page 197‚Äì208, 2013.
+
 \bibitem[BEH{\etalchar{+}}10]{Battre2010}
 Dominic Battr{\'e}, Stephan Ewen, Fabian Hueske, Odej Kao, Volker Markl, and
   Daniel Warneke.
@@ -81,6 +87,18 @@ Anju Chaudhary.
 \newblock Thermal infrared sensors.
 \newblock {\em Encyclopedia of Snow, Ice and Glaciers}, page 1156, 2011.
 
+\bibitem[CRK14]{Chen2014}
+Yanpei Chen, Francois Raab, and Randy Katz.
+\newblock From tpc-c to big data benchmarks: A functional workload model.
+\newblock {\em Lecture Notes in Computer Science}, page 28‚Äì43, 2014.
+
+\bibitem[DBK{\etalchar{+}}97]{Drucker97}
+Harris Drucker, Chris J.~C. Burges, Linda Kaufman, Alex Smola, and Vladimir
+  Vapnik.
+\newblock Support vector regression machines.
+\newblock In {\em ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS 9}, pages
+  155--161. MIT Press, 1997.
+
 \bibitem[Deu12]{DIN18716}
 Deutsches Institut für Normung e.V.
 \newblock {\em Photogrammetrie und Fernerkundung - Begriffe}, 8 2012.
@@ -101,28 +119,34 @@ EMC².
 \newblock The digital universe of opportunities.
 \newblock Technical report, EMC², 2014.
 
-\bibitem[Foua]{SparkWebsite}
+\bibitem[Foua]{FlinkJobWebsite}
+Apache~Software Foundation.
+\newblock Apache flink website.
+\newblock
+  \url{https://ci.apache.org/projects/flink/flink-docs-release-0.9/internals/job_scheduling.html}.
+
+\bibitem[Foub]{SparkWebsite}
 Apache~Software Foundation.
 \newblock Apache spark website.
 \newblock \url{https://spark.apache.org/}.
 
-\bibitem[Foub]{StormWebsite}
+\bibitem[Fouc]{StormWebsite}
 Apache~Software Foundation.
 \newblock Apache storm website.
 \newblock \url{https://storm.apache.org/}.
 
-\bibitem[Fouc]{FlinkWebsite}
+\bibitem[Foud]{FlinkWebsite}
 Apache~Software Foundation.
 \newblock Flink website.
 \newblock \url{https://flink.apache.org/}.
 
-\bibitem[Foud]{FlinkArchitecureImage}
+\bibitem[Foue]{FlinkArchitecureImage}
 Apache~Software Foundation.
 \newblock Flink website - general architecture and process model.
 \newblock
   \url{https://ci.apache.org/projects/flink/flink-docs-master/internals/general_arch.html}.
 
-\bibitem[Foue]{HadoopWebsite}
+\bibitem[Fouf]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
 \newblock \url{https://hadoop.apache.org/}.
@@ -144,6 +168,12 @@ Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung.
 GfZ-Potsdam.
 \newblock Geomultisens website.
 \newblock \url{http://www.geomultisens.gfz-potsdam.de/}.
+
+\bibitem[Gra92]{Gray1992}
+Jim Gray.
+\newblock {\em Benchmark Handbook: For Database and Transaction Processing
+  Systems}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1992.
 
 \bibitem[HDF13]{Hwang2013}
 Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
