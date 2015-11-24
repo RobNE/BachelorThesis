@@ -657,6 +657,18 @@
   Timestamp                = {2015.10.11}
 }
 
+@InCollection{Levenberg1978,
+  Title                    = {The Levenberg-Marquardt algorithm: implementation and theory},
+  Author                   = {Mor{\'e}, Jorge J},
+  Booktitle                = {Numerical analysis},
+  Publisher                = {Springer},
+  Year                     = {1978},
+  Pages                    = {105--116},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.11.18}
+}
+
 @Misc{DispyWebsite,
   Title                    = {Dispy Website},
 

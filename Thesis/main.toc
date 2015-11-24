@@ -12,10 +12,9 @@
 \contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{14}
 \contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{14}
 \contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{16}
-\contentsline {subsection}{\numberline {3.2.1}Nutzung der Java-Programmierschnittstelle}{16}
-\contentsline {subsection}{\numberline {3.2.2}Nutzung der Python-Programmierschnittstelle}{16}
+\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{16}
 \contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{16}
-\contentsline {chapter}{\numberline {4}Evaluierung}{18}
-\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{18}
-\contentsline {section}{\numberline {4.2}Auswertung}{18}
-\contentsline {chapter}{\numberline {5}Fazit}{19}
+\contentsline {chapter}{\numberline {4}Evaluierung}{19}
+\contentsline {section}{\numberline {4.1}Versuchsbeschreibung}{19}
+\contentsline {section}{\numberline {4.2}Auswertung}{19}
+\contentsline {chapter}{\numberline {5}Fazit}{20}

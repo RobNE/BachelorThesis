@@ -182,9 +182,9 @@ Bis zum aktuellen Zeitpunkt hat sich noch kein standardisierter Benchmark für B
 \chapter[Algorithmus zur Analyse von Pixelzeitreihen]{Beschreibung und Umsetzung des Algorithmus zur Analyse von Pixelzeitreihen}
 \label{cha:AlgorithmForSatellitePictureAnalysis}
 \section[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Pixelzeitreihen}
+\label{sec:DescriptionOfTheAlgorithm}
 %Einleitung: Kurze, grobe Beschreibung des Algorithmus, kurze Wiederholung relevante Geographische Grundlagen.
 Das Ziel des in dieser Bachelorarbeit implementierten und evaluierten Algorithmus ist die Analyse einer Veränderung der Flora einer geographischen Region. Auf Basis dieser Analyse sollen dann zukünftige Werte prognostiziert werden. Als Grundlage der Analyse dienen Satellitenbilder der jeweiligen Region. Diese Satellitenbilder werden bezüglich Veränderungen des Vegetationsindexes der jeweiligen Region untersucht. Die zu diesem Zweck genutzte Analyse ist eine kombinierte Anwendung von \textit{Support Vector Regression} (SVR) \cite{Basak2007} und der Methode der kleinsten Quadrate. Diese werden im Rahmen des \textit{Continuous Monitoring of Forest Disturbance Algorithm} (CMFDA) \cite{Zhu2012} genutzt.\\
-
 
 %Beschreibung SVR
 Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. Dabei wird für einen Trainingsdatensatz der Form \(\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}\), wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, eine Funktion \(f(x)\) gesucht, für die gilt, dass ihre Abweichung \(w_i\) von allen betrachteten Beobachtungswerten \(y_i\) mit \(1 \leq i \leq n\) maximal \(\epsilon\) beträgt. Es werden also nur Beobachtungswerte in das Modell mit einbezogen, die den durch \(\epsilon\) definierten Abstand zwischen \(y_i\) und \(x_i\) nicht überschreiten. Darüber hinaus gilt, dass die kumulierten Beträge der Abweichungen \(\{w_1,...,w_i,...,w_n\}\) mit \(w_i < \epsilon\) so klein wie möglich sein sollten, um eine optimale Approximierung zu erreichen. \\
@@ -195,7 +195,6 @@ Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, 
 Um die Methode der kleinsten Quadrate sinnvoll anwenden zu können müssen die Ursprungsdaten bestimmte Voraussetzungen erfüllen. Die abhängige Größe \(y\) muss dabei von einer oder mehreren Größen, in unserem Fall \(x\), abhängig sein. Diese Abhängigkeit wird durch die Funktion \(y(x) = f(x;\alpha_1,\dots,\alpha_m)\) ausgedrückt, wobei \(f\) von \(x\) sowie \(m\) Funktionsparametern \(\alpha_j\) abhängt. Die Abhängigkeitsfunktion muss dabei individuell gewählt oder mithilfe eines Modellierungsverfahrens bestimmt werden. Aufgrund der Verteilung der beobachteten Werte für den Vegetationsindex wird in diesem Fall eine trigonometrische Funktion als Ausgangsfunktion verwendet. Die Werte \(x_0, x_1,...,x_n\) entsprechen den Beobachtungszeitpunkten der ermittelten Werte \(y_0, y_1,...,y_n\) für den Vegetationsindex. Für alle \(y_0, y_1,...,y_n\) werden nun entsprechende \(\alpha_j\) ermittelt, die eine möglichst gute Approximierung der beobachteten Daten durch die Funktion \(f\) ermöglichen. Des weiteren muss \(n > m\) gelten, so dass mehr Beobachtungen als Funktionsparameter existieren. 
 
 Bei der Anwendung der Methode der kleinsten Quadrate wird versucht die Summe der quadrierten Abstände der beobachteten Werte \(y_0, y_1,...,y_n\) zu den durch \(f\) bestimmten Werten \(\hat{y}_0, \hat{y}_1,...,\hat{y}_n\) zu minimieren. Die quadrierten Abstände werden Residuen genannt. Die Minimierung ist ein Optimierungsproblem, dass abhängig von der gewählten Abhängigkeitsfunktion gelöst werden muss. Dabei wird in lineare und nicht-lineare Funktionen unterschieden. Da wir eine trigonometrische Funktion nutzen, muss die Minimierung für nicht-lineare Abhängigkeitsfunktionen angewandt werden. Diese erfolgt mithilfe des Levenberg-Marquadt-Algorithmus, der das Gauß-Newton-Verfahren zur Lösung nicht-linearer Optimierungsprobleme mit einer Regularisierungstechnik kombiniert \cite{Levenberg1978}. \textcolor{blue}{Vllt. auch nicht, ist x in sin(x) linear?} \\
-
 
 %Beschreibung Zhu
 Der \textit{Continuous Monitoring of Forest Disturbance Algorithm} wurde 2012 von Zhu et al. vorgestellt \cite{Zhu2012}. Er wurde entwickelt, um die Veränderung von Waldbeständen geographischer Regionen kontinuierlich zu überwachen und atypische Veränderungen zu entdecken. Aus den Szenen, die analysiert werden sollen, werden die Bilder der einzelnen Spektralbänder extrahiert. Jedes dieser Bilder wird in einzelne Pixel geschnitten. Diese Pixel werden gemäß des jeweiligen Spektralbands und der Pixelkoordinate gruppiert, so dass Pixelzeitreihen entstehen. Anschließend muss jede Pixelzeitreihe gemäß dem Entstehungszeitpunkt gruppiert werden. Eine Analyse mittels CMFDA umfasst acht Schritte, die im folgenden kurz beschrieben werden.
@@ -221,17 +220,13 @@ CMFDA -> Kürzer, eventuell nicht umsetzen, da zu umfangreich
 %Die Satellitenbilder, die die Ausgangsdaten der Analyse des Vegetationsindexes einer Region darstellen, werden durch Landsat-Fernerkundungssatelliten aufgenommen. Diese kreisen so um die Erde, dass alle 16 Tage dieselbe geographische Region. Um eine Entwicklung mehrerer Jahre zu aufzuzeigen benötigt der Analysealgorithmus demzufolge mehrere Dutzend Satellitenaufnahmen der betreffenden Region. Diese müssen darüberhinaus für die Analyse aufbereitet werden. Diese Aufbereitung umfasst zum einen das Beschneiden der Szenen, so dass lediglich der Zielbereich verbleibt, zum anderen die Korrektur bzw. Filterung des Bildinhaltes. Denn aufgrund von Störfaktoren wie sphärischen Reflektionen oder Wolkenbildung sind möglicherweisenicht alle in den Szenen enthaltenen Pixel durch die Analyse verwertbar. Die fehlenden Werte werden im Zuge der Analyse approximiert, so dass vollständige Pixelzeitreihen zur Vorhersage zukünftiger Werte genutzt werden können. 
 
 \section{Umsetzung des Algorithmus mit Apache Flink}
-\subsection{Nutzung der Java-Programmierschnittstelle}
-\subsection{Nutzung der Python-Programmierschnittstelle}
-\section{Umsetzung des Algorithmus in Python}
-Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der Java- bzw. der Python-Programmierschnittstelle wird eine weitere Implementierung in Python betrachtet. Diese wurde von Mitarbeitern des Geographischen Instituts der Humboldt-Universität zu Berlin umgesetzt und liegt dem Vergleich der drei Implementierungsvarianten zugrunde. Die Implementation besitzt dabei die in Sektion~\ref{sec:Python} beschriebenen Vor- und Nachteile eines Python-Programms. Zwar lässt sich der Analysealgorithmus mithilfe von effizient umgesetzten Bibliotheken so umsetzen, dass die Berechnungszeit auf sequentiell arbeitenden Maschinen gut ist. Jedoch lässt sich das Programm nicht automatisiert parallelisieren, so dass der Algorithmus bei zunehmenden Datenmengen nicht skalieren lässt. Aufgrund der Charakteristika der Problemstellung, die eine Aggregation von Satellitenbildern fordert, wobei die Anzahl der Szenen sich fortlaufend erhöht, ist dies insbesondere in unserem Fall problematisch.
-\newline
-Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
-%Big Data + Eigenschaften,
+%Kurze Einleitung - auf Ziel der Arbeit eingehen und kurz beschreiben, wie mit Flink gearbeitet wird
+Der in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebene Algorithmus wird in Apache Flink implementiert. Dazu werden die in Kapitel~\ref{sec:ApacheFlink} erwähnten Programmierschnittstellen für Java sowie Python genutzt. Grund für die Auswahl von Java sind die Stabilität und der Umfang der Java-Programmierschnittstelle von Flink. Die Motivation Python zu verwenden liegt darin begründet, dass viele Forscher Python zur Analyse von Daten nutzen und für Python effizient implementierte, für die Analyse von Daten wichtige Bibliotheken existieren. Diese können auch bei der Nutzung von Flink weiterhin genutzt werden. Grundlage für die Implementation des Algorithmus ist dabei eine vom Geographischen Institut der Humboldt-Universität zu Berlin umgesetzter Algorithmus, der in Python implementiert ist. Grund für die Umsetzung in Flink ist die mangelnde Skalierbarkeit von Python. Ziel der Arbeit ist somit der Vergleich der Laufzeit der verschiedenen Implementationen und die Beantwortung der Fragestellung, ob die Nutzung von Apache Flink zu einer Laufzeitverbesserung im Gegensatz zur bereits existierenden Implementation führt.
 
-
-
-%Datenstrom mit Flink Operatoren
+Wie bereits in Kapitel~\ref{sec:ApacheFlink} beschrieben sind Flink-Programme Datenströme, die aus Datenquellen, Datentransformationen und Datenausgaben bestehen. Insofern kann nicht einfach das bestehende Programm übernommen werden sondern muss neu konzipiert werden. Der Datenfluss, den das Flink-Programm beschreibt, ist in Abbildung~\ref{fig:dataFlowAlgorithm} gezeigt. Eine Datenquelle stellt die zu analysierenden Satellitenbilder im .bsq Format mit zugehörigen Header-Files im .hdr Format zur Verfügung. Da diese im Normalfall komplette Szenen beinhalten, müssen die Daten vor der Anwendung der in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen in kleinere Teile, sogenannte Kacheln, zerteilt werden. Darüber hinaus können die Szenen möglicherweise auch Daten zu geographischen Gebieten beinhalten, die nicht Teil des zu analysierende Gebiets sind. Um die Daten dementsprechend aufzubereiten werden die Szenen in einem ersten Verarbeitungsschritt gemäß ihrem jeweiligen Aufnahmedatum gruppiert. Diese Gruppierung erfolgt durch die Anwendung der \textit{GroupBy}-Transformation, die alle Kacheln anhand des Schlüsselwertes "Aufnahmezeitpunkt" transformiert und in Gruppen zusammenfasst. Aus allen so gruppierten Szenen werden dann mithilfe einer \textit{groupReduce}-Funktion Kacheln zurecht geschnitten, die lediglich die für den durch den Nutzer bestimmten geographischen Bereich relevanten Teilszenen beinhalten. 
+ 
+\begin{figure}
+\centering
 \begin{tikzpicture}[>=latex']
         \tikzset{block/.style= {draw, rectangle, align=center,minimum width=2cm,minimum height=1cm},
         rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=2cm,minimum height=1cm},
@@ -245,37 +240,64 @@ Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenko
         minimum height=1cm
     },
         }
-        \node [rblock]  (start) {Input data};
-        %Filter the data
-        \node [block, below =1cm of start, label={[name=l] Filter the data}, draw] (filterDataInner) {filter('valid')};
-        \node [fit=(filterDataInner) (l), draw] (filterDataOuter) {};
-        %Group the data
-        \node [block, below =1cm of filterDataOuter, label={[name=l] Group the filtered data}, draw] (groupDataInner) {groupBy('geographic position(maybe as a tile)')};
-        \node [fit=(groupDataInner) (l), draw] (groupDataOuter) {};
-        %Sort every grouped dataSet
-        \node [block, below =1cm of groupDataOuter, label={[name=l] Sort every grouped dataSet}, draw] (sortDataInner) {sortPartition('time')};
-        \node [fit=(sortDataInner) (l), draw] (sortDataOuter) {};
-        %Approx the missing data
-        \node [block, below = 1cm of sortDataOuter, label={[name=l] Approx. the missing data}, draw] (approximateDataInner) {groupReduce()};
+        \node [rblock]  (start) [preaction={fill, green}] {Eingabedaten};
+        %Sort the scenes due to the acquisition date
+        \node [block, below =1cm of start, label={[name=l] GroupBy$_{AcquisitionDate}$}, draw] (groupSceneInner)  [preaction={fill, CornflowerBlue}] {Gruppierung gemäß Aufnahmezeitpunkt};
+        \node [fit=(groupSceneInner) (l), draw] (groupSceneOuter) {};
+        %Slice the tiles so that only the relevant part is retained
+        \node [block, below =1cm of groupSceneOuter, label={[name=l] GroupReduce}, draw] (sliceSceneInner) [preaction={fill, CornflowerBlue}] {Zuschneiden des relevanten geographischen Bereichs};
+        \node [fit=(sliceSceneInner) (l), draw] (sliceSceneOuter) {};
+        %Slice the tile in smaller slicedTiles
+        \node [block, below =1cm of sliceSceneOuter, label={[name=l] FlatMap}, draw] (sliceTileInner) [preaction={fill, CornflowerBlue}] {Zerschneiden der Kachel in kleinere Bereiche};
+        \node [fit=(sliceTileInner) (l), draw] (sliceTileOuter) {};
+        %Group the slicedTiles due to their position
+        \node [block, below =1cm of sliceTileOuter, label={[name=l] GroupBy$_{GeographicalPosition}$}, draw] [preaction={fill, CornflowerBlue}] (groupSlicedTilesInner) {Gruppierung der Teilkacheln gemäß ihrer geographischen Position};
+        \node [fit=(groupSlicedTilesInner) (l), draw] (groupSlicedTilesOuter) {};
+        %Sort the slicedTiles due to their AquisitionDate
+        \node [block, below = 1cm of groupSlicedTilesOuter, label={[name=l] SortGroup$_{AcquisitionDate}$}, draw] [preaction={fill, CornflowerBlue}] (sortSlicedTilesInner) {Sortierung der Gruppen von Teilkacheln nach ihrem Aufnahmezeitpunkt};
+        \node [fit=(sortSlicedTilesInner) (l), draw] (sortSlicedTilesOuter) {};
+        %Approximate the missing data
+        \node [block, below = 1cm of sortSlicedTilesOuter, label={[name=l] reduceGroup}, draw] (approximateDataInner) [preaction={fill, CornflowerBlue}] {Approximierung der fehlenden Daten};
         \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
         %Predict the future data
-        \node [block, below = 1cm of approximateDataOuter, label={[name=l] Predict the future data}, draw] (predictDataInner) {groupReduce()};
+        \node [block, below = 1cm of approximateDataOuter, label={[name=l] reduceGroup}, draw] (predictDataInner) [preaction={fill, CornflowerBlue}] {Prognose der zukünftigen Werte};
         \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
         %Sink the data
-        \node [rblock, below = 1cm of predictDataOuter, draw] (end) {Sink};
+        \node [rblock, below = 0.4cm of predictDataOuter, draw] (end) [preaction={fill, green}]  {Ausgabedaten};
 
         \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
         \node [coordinate,above left =1cm and 1cm of start] (left) {};
 
 %% paths
-        \path[draw,->] (start) edge (filterDataOuter)
-                    (filterDataOuter) edge (groupDataOuter)
-                    (groupDataOuter) edge (sortDataOuter)
-                    (sortDataOuter) edge (approximateDataOuter)
+        \path[draw,->] (start) edge (groupSceneOuter)
+                    (groupSceneOuter) edge (sliceSceneOuter)
+                    (sliceSceneOuter) edge (sliceTileOuter)
+                    (sliceTileOuter) edge (groupSlicedTilesOuter)
+                    (groupSlicedTilesOuter) edge (sortSlicedTilesOuter)
+                    (sortSlicedTilesOuter) edge (approximateDataOuter)
                     (approximateDataOuter) edge (predictDataOuter)
                     (predictDataOuter) edge (end)
                     ;
 \end{tikzpicture}
+\caption{Visualisierung des Datenstroms der Analysealgorithmus} \label{fig:dataFlowAlgorithm}
+\end{figure}
+
+%Datenstrom mit Flink Operatoren
+
+
+%Beschreibung des DataFLows inklusive Operatoren
+\subsection{Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}
+%
+
+\section{Umsetzung des Algorithmus in Python}
+Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der Java- bzw. der Python-Programmierschnittstelle wird eine weitere Implementierung in Python betrachtet. Diese wurde von Mitarbeitern des Geographischen Instituts der Humboldt-Universität zu Berlin umgesetzt und liegt dem Vergleich der drei Implementierungsvarianten zugrunde. Die Implementation besitzt dabei die in Sektion~\ref{sec:Python} beschriebenen Vor- und Nachteile eines Python-Programms. Zwar lässt sich der Analysealgorithmus mithilfe von effizient umgesetzten Bibliotheken so umsetzen, dass die Berechnungszeit auf sequentiell arbeitenden Maschinen gut ist. Jedoch lässt sich das Programm nicht automatisiert parallelisieren, so dass der Algorithmus bei zunehmenden Datenmengen nicht skalieren lässt. Aufgrund der Charakteristika der Problemstellung, die eine Aggregation von Satellitenbildern fordert, wobei die Anzahl der Szenen sich fortlaufend erhöht, ist dies insbesondere in unserem Fall problematisch.
+\newline
+Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
+%Big Data + Eigenschaften,
+
+
+
+
 
 %Minimal diagram example
 %\begin{tikzpicture}[nodes=draw]
