@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{ngerman,graphicx,epstopdf,float,latexsym,textcomp,longtable,verbatim,dsfont, color, tikz, url, csquotes,caption,mathtools,amsfonts}
+\usepackage{ngerman,graphicx,epstopdf,float,latexsym,textcomp,longtable,verbatim,dsfont, color, tikz, url, csquotes,caption,mathtools,amsfonts, array}
 \usetikzlibrary{arrows,positioning,shapes.geometric, fit, automata, backgrounds}
 
 \setlength{\oddsidemargin}{1cm}
@@ -16,6 +16,8 @@
 \setlength{\textwidth}{15cm}
 
 \pagestyle{headings}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % Neue Umgebungen und Definitionen
 %

@@ -122,13 +122,56 @@ Ein Datenverarbeitungssystem, das auf eine massiv parallelisierte Verarbeitung v
 Die Hauptkomponenten von Apache Flink sind die Flink-Laufzeitumgebung (engl. \textit{Flink Runtime} ) und der Flink-Optimierer (engl. \textit{Flink Optimizer}). Darüber hinaus verfügt Flink über Programmierschnittstellen für die Hochsprachen Java, Python und Scala, mithilfe derer Nutzer Flink-Programme spezifizieren können. 
 
 %Konzept: 2nd order functions, UDFs, Operatoren
-Flink implementiert das vom Map-Reduce System bekannte Schema von Funktionen zweiter Ordnung und gekapselten nutzerdefinierten Funktionen erster Ordnung. Dabei beschreibt die Funktion zweiter Ordnung die Art der Datentransformation, die UDF definiert die vom Nutzer spezifizierte Verarbeitungslogik, die auf die Daten angewendet werden soll. Im Gegensatz zum Map-Reduce System verfügt Flink jedoch nicht nur über die Funktionen zweiter Ordnung Map und Reduce, sondern bietet insgesamt 15 verschiedene Datentransformationen. Diese werden als Operatoren bezeichnet. Weitere wichtige Operatoren neben Map und Reduce sind beispielsweise Cross, Match und CoGroup, die in Abbildung~\ref{graphicFlinkOperators} dargestellt sind. Jeder Operator besteht also aus jeweils einer spezifischen Transformation sowie einer eingebetteten UDF. Zusätzlich besitzen Operatoren eine Eingabe- sowie eine Ausgabedatenmenge in Form eines Datenstroms. Ein Flink-Programm wird als ein Datenfluss in Form eines direkten und azyklischen Graphen dargestellt, dessen Knoten Operatoren und dessen Kanten Datenströme darstellen. \textcolor{blue}{Ref auf Abbildung eines Beispieldatenstroms.}. Dieser wird \textit{Operator DAG} genannt. 
+Flink implementiert das vom Map-Reduce System bekannte Schema von Funktionen zweiter Ordnung und gekapselten nutzerdefinierten Funktionen erster Ordnung. Dabei beschreibt die Funktion zweiter Ordnung die Art der Datentransformation, die UDF definiert die vom Nutzer spezifizierte Verarbeitungslogik, die auf die Daten angewendet werden soll. Im Gegensatz zum Map-Reduce System verfügt Flink jedoch nicht nur über die Funktionen zweiter Ordnung Map und Reduce, sondern bietet insgesamt 15 verschiedene Datentransformationen. Diese werden als Operatoren bezeichnet. Weitere wichtige Operatoren neben Map und Reduce sind beispielsweise Cross, Match und CoGroup, die in Abbildung~\ref{graphicFlinkOperators} dargestellt, in Tabelle~\ref{tab:flinkOperatorsDefinition} formal definiert und in Tabelle~{tab:flinkOperatorsDescription} beschrieben werden. Jeder Operator besteht also aus jeweils einer spezifischen Transformation sowie einer eingebetteten UDF. Zusätzlich besitzen Operatoren eine Eingabe- sowie eine Ausgabedatenmenge in Form eines Datenstroms. Ein Flink-Programm wird als ein Datenfluss in Form eines direkten und azyklischen Graphen dargestellt, dessen Knoten Operatoren und dessen Kanten Datenströme darstellen. \textcolor{blue}{Ref auf Abbildung eines Beispieldatenstroms.}. Dieser wird \textit{Operator DAG} genannt. 
+
+\begin{table}[position specifier]
+          \centering
+          \begin{tabular}{| c | C{12cm} |}
+          	\hline
+                  Operator & Formale Definition \\
+                  \hline
+                  Map & Map: \(\mathnormal{R} \times \mathnormal{f} \rightarrow [\mathnormal{f}(r_1),...,\mathnormal{f}(r_i),..,\mathnormal{f}(r_N)] \) \\
+               
+                  \hline
+		Reduce & Reduce: \(\mathnormal{R} \times \mathnormal{f} \times \mathnormal{K} \rightarrow  [\mathnormal{f}(r_1^{k_1},..,r_{n_1}^{k_1}),...,\mathnormal{f}(r_i),..,\mathnormal{f}(r_N)] \) \newline mit \(\mathnormal{K}\) als Set von Schlüsseln \(\{k_1,...,k_l\} \) in \(\mathnormal{R}\) \\
+                  \hline
+                  Cross & Cross: \(\mathnormal{R} \times \mathnormal{S} \times \mathnormal{f} \rightarrow [\mathnormal{f}(r_1, s_1),\mathnormal{f}(r_1, s_2),..,\mathnormal{f}(r_N, s_M))] \) \\
+                  \hline
+                  Match & \(\mathnormal{R} \times \mathnormal{S} \times \mathnormal{K} \times \mathnormal{F} \times \mathnormal{f} \rightarrow [\{\mathnormal{f}(r, s)| r.K = s.F \}] \) \newline mit \(\mathnormal{K} \) und \(\mathnormal{F} \) als Schlüssel für \(\mathnormal{R} \) und \(\mathnormal{S} \). \\
+                  \hline
+                  CoGroup & \(\mathnormal{R} \times \mathnormal{S} \times \mathnormal{K} \times \mathnormal{F} \times \mathnormal{f} \rightarrow [\mathnormal{f}(r^{v_1}_1,...,r^{v_1}_{n_1},s^{v_1}_1,...,r^{v_1}_{m_1}),...,\mathnormal{f}(r^{v_l}_1,...,r^{v_l}_{n_l},s^{v_l}_1,...,r^{v_l}_{m_l})] \) \newline mit \(\{v_1,...,v_l\}\) als aktive Domain von \( \mathnormal{K}\) und \( \mathnormal{F}\) \\
+                  \hline
+          \end{tabular}
+          \caption{Formale Definition der Operatoren Map, Reduce, Cross, Match und CoGroup mit den Eingabedatenmengen \(\mathnormal{R}\) = \([r_1,...,r_i,...,r_N]\) und  \(\mathnormal{S}\) = \([s_1,...,s_i,...,s_N]\) und \(\mathnormal{f}\) als UDF für die jeweilige Transformation. \cite{Hueske2012}}
+          \label{tab:flinkOperatorsDefinition}
+\end{table}
+
+\begin{table}[position specifier]
+          \centering
+          \begin{tabular}{| c | C{12cm} |}
+          	\hline
+                  Operator & Beschreibung \\
+                  \hline
+                  Map & Der \textit{Map}-Operator erstellt für jedes Eingabeelement eine eigene Gruppe. \\
+                  \hline
+                  Reduce & Der \textit{Reduce}-Operator erstellt eine Gruppe für jeden vorhandenen Schlüsselwert und gruppiert alle Einträge mit demselben Schlüssel in dieselbe Gruppe ein. \\
+                  \hline
+                  Cross & Der \textit{Cross}-Operator erstellt für jedes Eingabepaar von Werten aus zwei Eingabemengen eine Gruppe, die das kartesische Produkt der beiden Werte darstellt.  \\
+                  \hline
+                  Match & Der \textit{Match}-Operator erstellt eine Gruppe für jedes Eingabepaar von Werten zweier Eingabemengen, falls beide Werte denselben Schlüsselwert besitzen.\\
+                  \hline
+                  CoGroup & Der \textit{CoGroup}-Operator erstellt für jeden Schlüsselwert, der in mindestens einer der beiden Eingabemengen enthalten ist, eine Gruppe und gruppiert in dieser alle Werte, die diesen Schlüsselwert aufweisen. \\
+                  \hline
+          \end{tabular}
+          \caption{Beschreibung der Operatoren Map, Reduce, Cross, Match und CoGroup. \cite{Hueske2012}}
+          \label{tab:flinkOperatorsDescription}
+\end{table}
 
 \begin{figure}[h]
 	\centering	
 	\captionsetup{justification=centering,margin=2cm}
 	\includegraphics[width=0.9\textwidth]{picture/flink_operators.png}
-	\caption{Funktionen zweiter Ordnung: (a) Map, (b) Reduce, (c) Cross, (d) Match, and (e) CoGroup \cite{Hueske2012}}
+	\caption{Funktionen zweiter Ordnung: (a) Map, (b) Reduce, (c) Cross, (d) Match und (e) CoGroup \cite{Hueske2012}}
 	\label{graphicFlinkOperators}
 \end{figure}
 
