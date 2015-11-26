@@ -181,6 +181,13 @@ Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
   internet of things}.
 \newblock Morgan Kaufmann, 2013.
 
+\bibitem[HGM{\etalchar{+}}10]{Huang2010}
+Chengquan Huang, Samuel~N. Goward, Jeffrey~G. Masek, Nancy Thomas, Zhiliang
+  Zhu, and James~E. Vogelmann.
+\newblock An automated approach for reconstructing recent forest disturbance
+  history using dense landsat time series stacks.
+\newblock {\em Remote Sensing of Environment}, 114(1):183‚Äì198, Jan 2010.
+
 \bibitem[HPS{\etalchar{+}}12]{Hueske2012}
 Fabian Hueske, Mathias Peters, Matthias~J. Sax, Astrid Rheinländer, Rico
   Bergmann, Aljoscha Krettek, and Kostas Tzoumas.
@@ -219,6 +226,24 @@ Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
 
+\bibitem[Mas06]{Masek2006}
+Jeffrey~G Masek.
+\newblock Landsat ecosystem disturbance adaptive processing system (ledaps).
+\newblock 2006.
+
+\bibitem[MHW{\etalchar{+}}08]{Masek2008}
+Jeffrey~G. Masek, Chengquan Huang, Robert Wolfe, Warren Cohen, Forrest Hall,
+  Jonathan Kutler, and Peder Nelson.
+\newblock {North America}n forest disturbance mapped from a decadal landsat
+  record.
+\newblock {\em Remote Sensing of Environment}, 112(6):2914‚Äì2926, Jun
+  2008.
+
+\bibitem[Mor78]{Levenberg1978}
+Jorge~J Mor{\'e}.
+\newblock The levenberg-marquardt algorithm: implementation and theory.
+\newblock In {\em Numerical analysis}, pages 105--116. Springer, 1978.
+
 \bibitem[MSWI04]{Markham2004}
 B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock Landsat sensor performance: history and current status.
@@ -234,6 +259,12 @@ Giridhar Pemmasani.
 Charles~L Seitz.
 \newblock The cosmic cube.
 \newblock {\em Communications of the ACM}, 28(1):22--33, 1985.
+
+\bibitem[SJM{\etalchar{+}}13]{Schmidt2013}
+Gail Schmidt, Calli Jenkerson, Jeffrey Masek, Eric Vermote, and Feng Gao.
+\newblock Landsat ecosystem disturbance adaptive processing system (ledaps)
+  algorithm description.
+\newblock Technical report, US Geological Survey, 2013.
 
 \bibitem[TW12]{Trew2012}
 Arthur Trew and Greg Wilson.

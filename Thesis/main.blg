@@ -9,45 +9,46 @@ Database file #1: Bibliography.bib
 Warning--to sort, need author or key in AsterixWebsite
 Warning--empty journal in Bell1971
 Warning--empty journal in Dean2004
-You've used 49 entries,
+Warning--empty journal in Masek2006
+You've used 54 entries,
             2543 wiz_defined-function locations,
-            866 strings with 14795 characters,
-and the built_in function-call counts, 23548 in all, are:
-= -- 2144
-> -- 1666
-< -- 31
-+ -- 624
-- -- 610
-* -- 1909
-:= -- 3977
-add.period$ -- 149
-call.type$ -- 49
-change.case$ -- 465
-chr.to.int$ -- 44
-cite$ -- 53
-duplicate$ -- 760
-empty$ -- 1363
-format.name$ -- 668
-if$ -- 4627
+            896 strings with 15758 characters,
+and the built_in function-call counts, 25941 in all, are:
+= -- 2375
+> -- 1802
+< -- 34
++ -- 675
+- -- 659
+* -- 2105
+:= -- 4376
+add.period$ -- 165
+call.type$ -- 54
+change.case$ -- 506
+chr.to.int$ -- 49
+cite$ -- 59
+duplicate$ -- 841
+empty$ -- 1519
+format.name$ -- 721
+if$ -- 5104
 int.to.chr$ -- 6
 int.to.str$ -- 0
-missing$ -- 39
-newline$ -- 248
-num.names$ -- 141
-pop$ -- 507
+missing$ -- 43
+newline$ -- 273
+num.names$ -- 156
+pop$ -- 544
 preamble$ -- 1
-purify$ -- 517
+purify$ -- 562
 quote$ -- 0
-skip$ -- 666
+skip$ -- 730
 stack$ -- 0
-substring$ -- 893
-swap$ -- 146
-text.length$ -- 31
-text.prefix$ -- 22
+substring$ -- 1046
+swap$ -- 158
+text.length$ -- 34
+text.prefix$ -- 24
 top$ -- 0
-type$ -- 372
-warning$ -- 3
-while$ -- 153
-width$ -- 53
-write$ -- 611
-(There were 3 warnings)
+type$ -- 412
+warning$ -- 4
+while$ -- 171
+width$ -- 58
+write$ -- 675
+(There were 4 warnings)
