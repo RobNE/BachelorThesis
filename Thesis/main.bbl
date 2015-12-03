@@ -24,6 +24,13 @@ Sattam Alsubaiee, Young-Seok Kim, Chen Li, Nicola Onose, Pouria Pirzadeh, Rares
 \newblock Asterix.
 \newblock {\em Proceedings of the VLDB Endowment}, 5(12):1898‚1901, Aug 2012.
 
+\bibitem[Amd67]{Amdahl1967}
+Gene~M. Amdahl.
+\newblock Validity of the single processor approach to achieving large scale
+  computing capabilities.
+\newblock {\em Proceedings of the April 18-20, 1967, spring joint computer
+  conference on - AFIPS ‚Äô67 (Spring)}, 1967.
+
 \bibitem[Ast]{AsterixWebsite}
 Asterixdb website.
 \newblock \url{https://asterixdb.ics.uci.edu/}.
