@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  3 DEC 2015 02:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  8 DEC 2015 07:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1183,74 +1183,94 @@ Kapitel 2.
 [3
 
 ] [4] [5]
-Overfull \hbox (11.0909pt too wide) in paragraph at lines 64--65
+Overfull \hbox (11.0909pt too wide) in paragraph at lines 69--70
 []\T1/cmr/bx/n/10 Variety. \T1/cmr/m/n/10 Ge-sam-mel-te Da-ten wei-sen viel-fäl
 -ti-ge Da-ten-struk-tu-ren auf. Es wer-den nicht-strukturierte,
  []
 
-[6] <picture/map_reduce_system_example.png, id=54, 924.45375pt x 663.47874pt>
+[6] [7]
+<picture/map_reduce_system_example.png, id=57, 924.45375pt x 663.47874pt>
 File: picture/map_reduce_system_example.png Graphic file (type png)
 
 <use picture/map_reduce_system_example.png>
 Package pdftex.def Info: picture/map_reduce_system_example.png used on input li
-ne 87.
+ne 92.
 (pdftex.def)             Requested size: 384.10959pt x 275.67262pt.
+ [8 <./picture/map_reduce_system_example.png>] [9] <picture/flink_operators.png
+, id=66, 831.105pt x 133.2177pt>
+File: picture/flink_operators.png Graphic file (type png)
+
+<use picture/flink_operators.png>
+Package pdftex.def Info: picture/flink_operators.png used on input line 136.
+(pdftex.def)             Requested size: 384.10959pt x 61.56952pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7] [8 <./picture/map_reduce_system_example.png>] [9]
-<picture/flink_operators.png, id=66, 831.105pt x 133.2177pt>
-File: picture/flink_operators.png Graphic file (type png)
-
-<use picture/flink_operators.png>
-Package pdftex.def Info: picture/flink_operators.png used on input line 131.
-(pdftex.def)             Requested size: 384.10959pt x 61.56952pt.
- [10 <./picture/flink_operators.png>]
-<picture/flink_job_and_execution_graph.png, id=78, 864.22874pt x 544.0325pt>
+[10]
+<picture/flink_job_and_execution_graph.png, id=71, 864.22874pt x 544.0325pt>
 File: picture/flink_job_and_execution_graph.png Graphic file (type png)
 
 <use picture/flink_job_and_execution_graph.png>
 Package pdftex.def Info: picture/flink_job_and_execution_graph.png used on inpu
-t line 163.
+t line 168.
 (pdftex.def)             Requested size: 384.10959pt x 241.79901pt.
- [11 <./picture/flink_job_and_execution_graph.png>] [12] [13] [14]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./picture/flink_operators.png>] [12 <./picture/flink_job_and_execution_gra
+ph.png>] [13] [14]
 Kapitel 3.
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
 [16]
-ngerman: "tt is now obsolete, please use ttt instead on input line 231.
+Overfull \hbox (15.29881pt too wide) in paragraph at lines 234--235
+[]\T1/cmr/m/n/10 Grundlage für bei-de Im-ple-men-ta-ti-on ist der vom Geo-gra-p
+hi-schen In-sti-tut der Humboldt-Universität
+ []
 
-LaTeX Warning: Float too large for page by 7.15215pt on input line 306.
+
+LaTeX Warning: Float too large for page by 7.15215pt on input line 314.
 
 
-Overfull \hbox (26.2311pt too wide) in paragraph at lines 312--312
+Overfull \hbox (26.2311pt too wide) in paragraph at lines 320--320
 []\T1/cmr/bx/n/12 Unterschiede zwi-schen der Nut-zung der Java-Programmierschni
 ttstelle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--318
+Underfull \hbox (badness 10000) in paragraph at lines 323--326
 
  []
 
-[17] [18] [19]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+[18] [19]
 Kapitel 4.
+
+Overfull \hbox (32.82787pt too wide) in paragraph at lines 333--335
+[]\T1/cmr/m/n/10 Definition mei-ner Eva-lu-ie-rungs-kri-te-ri-en: Ska-lier-bar-
+keit, Aus-füh-rungs-ge-schwin-dig-keit, (Preis/Leistung?) 
+ []
+
 [20
 
 ]
@@ -1264,19 +1284,20 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [22
 
 
-] [23] [24] [25]) [26]
+] [23] [24]) [25] [26
+
+]
 \openout2 = `statement.aux'.
 
  (./statement.tex) [27
 
-
 ] (./main.aux (./title.aux)
 (./inhalt.aux) (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 18436 strings out of 493117
- 362949 string characters out of 6135434
- 436750 words of memory out of 5000000
- 21466 multiletter control sequences out of 15000+600000
+ 18432 strings out of 493117
+ 362892 string characters out of 6135434
+ 437705 words of memory out of 5000000
+ 21462 multiletter control sequences out of 15000+600000
  21949 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,70p,2029b,859s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1303,7 +1324,7 @@ pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on main.pdf (30 pages, 900246 bytes).
+Output written on main.pdf (30 pages, 903425 bytes).
 PDF statistics:
  205 PDF objects out of 1000 (max. 8388607)
  142 compressed objects within 2 object streams

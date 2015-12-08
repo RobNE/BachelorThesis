@@ -4,16 +4,16 @@
 \contentsline {subsection}{\numberline {2.1.1}Fernerkundung mithilfe des Landsat-Satellitensystems}{3}
 \contentsline {subsection}{\numberline {2.1.2}Aufbereitung und Analyse von Satellitenbildern}{4}
 \contentsline {section}{\numberline {2.2}Parallele Datenverarbeitungssysteme}{5}
-\contentsline {subsection}{\numberline {2.2.1}Bedeutung und Eigenschaften von Big Data}{5}
-\contentsline {subsection}{\numberline {2.2.2}Systeme zur massiv parallelen Datenverarbeitung}{6}
-\contentsline {subsection}{\numberline {2.2.3}Apache Flink}{9}
+\contentsline {subsection}{\numberline {2.2.1}Bedeutung und Eigenschaften von Big Data}{6}
+\contentsline {subsection}{\numberline {2.2.2}Systeme zur massiv parallelen Datenverarbeitung}{7}
+\contentsline {subsection}{\numberline {2.2.3}Apache Flink}{10}
 \contentsline {subsection}{\numberline {2.2.4}Python}{12}
 \contentsline {subsection}{\numberline {2.2.5}Vergleichsmetriken}{13}
 \contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{15}
 \contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}
 \contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{17}
-\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{17}
-\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{17}
+\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{19}
+\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{19}
 \contentsline {chapter}{\numberline {4}Evaluierung}{20}
 \contentsline {section}{\numberline {4.1}Evaluierungskriterien}{20}
 \contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{20}

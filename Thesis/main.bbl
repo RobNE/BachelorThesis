@@ -147,13 +147,7 @@ Apache~Software Foundation.
 \newblock Flink website.
 \newblock \url{https://flink.apache.org/}.
 
-\bibitem[Foue]{FlinkArchitecureImage}
-Apache~Software Foundation.
-\newblock Flink website - general architecture and process model.
-\newblock
-  \url{https://ci.apache.org/projects/flink/flink-docs-master/internals/general_arch.html}.
-
-\bibitem[Fouf]{HadoopWebsite}
+\bibitem[Foue]{HadoopWebsite}
 Apache~Software Foundation.
 \newblock Hadoop website.
 \newblock \url{https://hadoop.apache.org/}.
@@ -187,13 +181,6 @@ Kai Hwang, Jack Dongarra, and Geoffrey~C Fox.
 \newblock {\em Distributed and cloud computing: from parallel processing to the
   internet of things}.
 \newblock Morgan Kaufmann, 2013.
-
-\bibitem[HGM{\etalchar{+}}10]{Huang2010}
-Chengquan Huang, Samuel~N. Goward, Jeffrey~G. Masek, Nancy Thomas, Zhiliang
-  Zhu, and James~E. Vogelmann.
-\newblock An automated approach for reconstructing recent forest disturbance
-  history using dense landsat time series stacks.
-\newblock {\em Remote Sensing of Environment}, 114(1):183‚Äì198, Jan 2010.
 
 \bibitem[HPS{\etalchar{+}}12]{Hueske2012}
 Fabian Hueske, Mathias Peters, Matthias~J. Sax, Astrid Rheinländer, Rico
@@ -233,11 +220,6 @@ Alex Martelli.
 \newblock {\em Python in a Nutshell. A Desktop Quick Reference}.
 \newblock O'Reilly, second edition edition, 2006.
 
-\bibitem[Mas06]{Masek2006}
-Jeffrey~G Masek.
-\newblock Landsat ecosystem disturbance adaptive processing system (ledaps).
-\newblock 2006.
-
 \bibitem[MHW{\etalchar{+}}08]{Masek2008}
 Jeffrey~G. Masek, Chengquan Huang, Robert Wolfe, Warren Cohen, Forrest Hall,
   Jonathan Kutler, and Peder Nelson.
@@ -257,6 +239,13 @@ B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
 
+\bibitem[Pad97]{Padge1997}
+Fabian Padge.
+\newblock Fusion von landsat-tm und spot-hrv daten zur ableitung einer
+  satellitenbildkarte von rostock und die exemplarische nutzung der daten zur
+  flächennutzungsklassifizierung.
+\newblock Master's thesis, Universität Hamburg, 1997.
+
 \bibitem[Pem15]{DispyWebsite}
 Giridhar Pemmasani.
 \newblock Dispy website.
@@ -266,12 +255,6 @@ Giridhar Pemmasani.
 Charles~L Seitz.
 \newblock The cosmic cube.
 \newblock {\em Communications of the ACM}, 28(1):22--33, 1985.
-
-\bibitem[SJM{\etalchar{+}}13]{Schmidt2013}
-Gail Schmidt, Calli Jenkerson, Jeffrey Masek, Eric Vermote, and Feng Gao.
-\newblock Landsat ecosystem disturbance adaptive processing system (ledaps)
-  algorithm description.
-\newblock Technical report, US Geological Survey, 2013.
 
 \bibitem[TW12]{Trew2012}
 Arthur Trew and Greg Wilson.
@@ -338,11 +321,6 @@ Paul Zikopoulos, Dirk deRoos, Krishnan Parasuraman, Thomas Deutsch, James
   Giles, and David Corrigan.
 \newblock {\em Harness the Power of Big Data The IBM Big Data Platform}.
 \newblock McGraw-Hill Osborne Media, 2012.
-
-\bibitem[ZW12]{Zhu2012a}
-Zhe Zhu and Curtis~E. Woodcock.
-\newblock Object-based cloud and cloud shadow detection in landsat imagery.
-\newblock {\em Remote Sensing of Environment}, 118:83‚94, Mar 2012.
 
 \bibitem[ZWO12]{Zhu2012}
 Zhe Zhu, Curtis~E Woodcock, and Pontus Olofsson.
