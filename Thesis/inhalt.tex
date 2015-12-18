@@ -115,7 +115,7 @@ Neben den bereits erwähnten Systemen Apache Hadoop und Apache Flink existieren 
 
 \textbf{Apache Storm}. Apache Storm ist ein Datenverarbeitungssystem, das speziell auf die schnelle echtzeitnahe Verarbeitung von Daten ausgelegt ist. Ein Storm-Programm hat die Form eines direkten, azyklischen Graphs, dessen Kanten Datenströme darstellen. Ein Storm-Programm kann als datentransformierende Pipeline bezeichnet werden. Ein Storm-Programm entspricht einer Implementierung eines abstrakten Map-Reduce-Jobs. Im Unterschied zu einem Map-Reduce Job läuft ein Storm-Programm, bis es beendet wird. Dies unterstreicht den Einsatzzweck für echtzeitnahe Verarbeitung von Daten, die ohne Zeitbegrenzung generiert werden.
 
-\textbf{AsterixDB}. AsterixDB ist ein \textit{Big Data Management System}, dass seit 2009 von den Universitäten Irvine, San Diego und Riverside gemeinschaftlich entwickelt wird. Das Ziel von AsterixDB ist eine effiziente parallelisierte Ausführung von datenintensive Analysen auf semistrukturierten Daten. Dabei wird versucht Datenbanktechnologie mit Big-Data-Technologie zu kombinieren.
+\textbf{AsterixDB}. AsterixDB ist ein \textit{Big Data Management System}, dass seit 2009 von den Universitäten Irvine, San Diego und Riverside gemeinschaftlich entwickelt wird. Das Ziel von AsterixDB ist eine effiziente parallelisierte Ausführung von Analysen auf semistrukturierten Daten. Dabei wird versucht Datenbanktechnologie mit Big-Data-Technologie zu kombinieren, um große Daten effizient verarbeiten zu können.
 
 %Hadoop, z.b. bei 
 \subsection{Apache Flink}
@@ -211,7 +211,43 @@ Der Algorithmus zur Analyse der Veränderung des Vegetationsindexes benötigt ei
 
 Jede Kachel des normierten Datenwürfels muss nun in eine individuell festgelegte Anzahl an Teilkacheln zerschnitten werden. Zunächst werden aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet (Dies impliziert, dass die Breite und die Höhe der Zielregion einen gemeinsamen Teiler besitzen müssen). Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Dadurch würde die Einschränkung der Abmessungen der Zielregion gelockert, so dass die einzige Voraussetzung für die Breite und die Höhe, dass die jeweiligen Werte keine Primzahlen sind. Generell gilt jedoch, dass alle Teilkacheln über identische Abmessungen verfügen müssen. Nachdem alle Kacheln in Teilkacheln geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie des betrachteten Spektralbandes gruppiert. Dadurch entstehen \(n \times b \) verschiedene Gruppen mit $n$ = \{Anzahl der Teilkacheln\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Jede Gruppe wird dann nach dem jeweiligen Aufnahmedatum der einzelnen Teilkacheln der Gruppe sortiert, so dass Pixelzeitreihen entstehen. 
 
+\begin{figure}
+\centering
+\includestandalone[width=\textwidth]{DataCubeImage}
+\caption{Datacube} 
+\label{fig:dataCube}
+\end{figure}
+
 Da einer Pixelzeitreihe aufgrund von externen Störfaktoren möglicherweise nicht für jeden Aufnahmezeitpunkt einen Vegetationswert aufweist, werden alle fehlenden Werte auf Basis der vorhandenen Werte approximiert. Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Um aus diesen beiden Mengen einzelnen Datenpunkte eine spezifische Funktion zu ermitteln, die die jeweils fehlenden Werte bestmöglich annähert, werden sowohl zur Approximierung fehlender Werte als auch zur Prognose von Werten die Regressionsverfahren SVR und OLS eingesetzt. \\
+
+%Insert Pseudocode
+\begin{algorithm}[H]
+	\KwIn{Set von Satellitenbildern im bsq-Dateiformat und zugehörigen Header Dateien \(S\), Koordinaten der Zielbereichsbegrenzungen \(c_1\) und \(c_2\), Grad der Zerschneidung der Szenen \(m_x, m_y\)}
+	\KwData{\(S\) := \(n\) Szenen \(s_i\) mit \(0 \leq i \leq n\). \(c_1\) und \(c_2\) := Tupel aus Breiten- und Längengrad. \(m_x, m_y\) als Integer, des weiteren gilt (vorerst) \(m_x = m_y\)}
+ 	\KwResult{Noch festzulegen}
+ 	Initialisierung des Clusters\;
+ 	\ForEach{Szene \(s_i\) in \(S\)}{
+		Gruppierung von \(s_i\) gemäß dem Aufnahmezeitpunkt\;
+		}
+	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt}\)}{
+		\ForEach{Szene \(s_i\) in \(g\)} {
+			Kachel \(Tile_i\) = Schnittmenge des Zielbereichs und des von \(s_i\) abgebildeten geographischen Bereichs\;
+			Zerschneidung von \(Tile_i\) in \(m_x * m_y\) quadratische Teilkacheln \(Teilkachel_{i_{m_x,m_y}}\)\;
+			}
+		}
+	\ForEach{\(Teilkachel_{i_{m_x,m_y}}\)}{
+		Gruppierung von \(Teilkachel_{i_{m_x,m_y}}\) gemäß dem Aufnahmedatum und dem Spektralband\;
+	}
+	Sortierung der Gruppen nach Aufnahmedatum\;
+	Approximierung der fehlenden Vegetationsindexwerte\;
+	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt, Band}\)}{
+		Transformation der einzelnen Teilkacheln in Pixelzeitreihen
+		Approximierung der fehlenden Werte für jede Pixelzeitreihe
+		Schätzung für zukünftige Werte jeder Pixelzeitreihe
+	}
+\caption{Allgemeiner Algorithmus zur Approximierung von Pixelzeitreihen}
+\label{alg:generalAlgorithm}
+\end{algorithm}
 
 %Beschreibung SVR
 Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. Dabei wird für einen Trainingsdatensatz der Form \(\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}\), wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, eine Funktion \(f(x)\) gesucht, für die gilt, dass ihre Abweichung \(w_i\) von allen betrachteten Beobachtungswerten \(y_i\) mit \(1 \leq i \leq n\) maximal \(\epsilon\) beträgt. Es werden also nur Beobachtungswerte in das Modell mit einbezogen, die den durch \(\epsilon\) definierten Abstand zwischen \(y_i\) und \(x_i\) nicht überschreiten. Darüber hinaus gilt, dass die kumulierten Beträge der Abweichungen \(\{w_1,...,w_i,...,w_n\}\) mit \(w_i < \epsilon\) so klein wie möglich sein sollten, um eine optimale Approximierung zu erreichen. \\
@@ -321,6 +357,7 @@ Kompl.A. für den Algorithmus
 
 \subsection{Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}
 \label{sec:DifferencesJavaPyFlink}
+%Muss enthalten: Python kann C Code, Python ist nicht typsicher -> Annotations, 
 Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die Nutzung der jeweiligen Programmierschnittstellen, die für Java und Python zur Verfügung stehen. Aufgrund der Verschiedenheit von Java und Python sind die Implementationen in ihrer inneren Struktur nicht äquivalent, auch wenn die Ergebnisse identisch sind. Dies liegt zum einen daran, dass Python andere Werkzeuge \textcolor{red}{Strukturen? Richtiges Wort finden} zur Verfügung stellt als Java. Zum anderen unterscheidet sich jedoch auch der Funktionsumfang der beiden Schnittstellen teilweise. Diese Unterschiede müssen bei der Implementation berücksichtigt werden. 
 
 Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Teile der Implementation in C statt in Python zu implementieren. Diese werden vom Python-Interpreter erkannt und direkt in C ausgeführt, was die Verarbeitungsgeschwindigkeit dieses Teils des Algorithmus steigern kann. Dementsprechend sind einige Teile der für die Regression genutzten Python-Bibliotheken NumPy und SciPy in C geschrieben und lediglich in Python eingebettet. 
