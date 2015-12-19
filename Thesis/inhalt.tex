@@ -207,42 +207,52 @@ Obgleich die beiden genannten Kriterien die Leistungsfähigkeit eines Big-Data S
 Das Ziel des in dieser Bachelorarbeit implementierten und evaluierten Algorithmus ist die Erkennung einer unerwarteten Veränderung der bewaldeten Fläche einer geographischen Region. Der Grad der Bewaldung wird dabei durch einen Vegetationsindex dargestellt. Um eine Veränderung des Vegetationsindexes zu messen, werden die durch Landsat Satelliten aufgezeichneten Szenen der Zielregion hinsichtlich des jeweiligen Vegetationsindexes untersucht. Auf Basis dieser Analyse können dann zukünftige Werte prognostiziert werden und etwaige Abweichungen der zukünftig tatsächlich gemessenen Werte automatisiert ermittelt werden. Die zu diesem Zweck eingesetzte Analyse ist eine kombinierte Anwendung von \textit{Support Vector Regression} (SVR) \cite{Basak2007} und der Methode der kleinsten Quadrate. Diese werden im Rahmen des \textit{Continuous Monitoring of Forest Disturbance Algorithm} (CMFDA) \cite{Zhu2012} genutzt. %Der \textit{Continuous Monitoring of Forest Disturbance Algorithm} wurde 2012 von Zhu et al. vorgestellt \cite{Zhu2012}. Er wurde entwickelt, um die Veränderung von Waldbeständen geographischer Regionen kontinuierlich zu überwachen und atypische Veränderungen zu entdecken. 
 
 %Beschreibung Vorbereitung: DataCubeCreation als Ausgangspunkt!, Schneiden der Szene in SlicedTiles, Gruppieren und sortieren.
-Der Algorithmus zur Analyse der Veränderung des Vegetationsindexes benötigt einen dreidimensionalen Würfel von Szenen, die mindestens einen Teil der Zielregion beinhalten, als Eingabe. Die Kanten dieses Würfels werden dabei durch die Bildbreite und -höhe der zu untersuchenden Szenen auf der x- bzw. -y-Achse sowie durch den Aufnahmezeitraum der Szenen auf der z-Achse definiert. Aus allen Szenen des Würfels muss zunächst die exakte Zielregion ausgeschnitten werden. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine originale Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird dann als Kachel bezeichnet. Wir erhalten also nach der Korrektur des Eingabedatenwürfels einen normierten Datenwürfel, der aus den ausgeschnittenen Kacheln besteht. Die x- und die y-Dimension des normierten Würfels entsprechen genau der Breite und der Höhe der Zielregion während, die z-Dimension bei beiden Würfeln identisch ist.
+Der in Algorithmus~\ref{alg:generalAlgorithm} angegebene Algorithmus zur Analyse der Veränderung des Vegetationsindexes benötigt eine Menge von Szenen, die mindestens einen Teil der Zielregion beinhalten, als Eingabe. Diese werden in Zeile~\ref{alg:groupOriginalScenes} zunächst gemäß ihres Aufnahmedatums gruppiert. Mithilfe der Schleife in Zeile~\ref{alg:cutAllTilesOfAGroup} wird aus jeder der gruppierten Szenen dann die exakte Zielregion ausgeschnitten. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine originale Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird dann als Kachel bezeichnet. Um die Eigenschaften und Ordnung der Kacheln zu verdeutlichen, wird ein Würfel mit den Dimensionen Breite der Szene, Höhe der Szene und dem Aufnahmezeitraum der Szenen modelliert. Dieser besteht aus den einzelnen sortierten Szenen, so wie in Abbildung~\ref{fig:dataCubeOriginal} abgebildet. Die x- und die y-Dimension des Würfels entsprechen genau der Breite und der Höhe der Zielregion, während die z-Dimension den Aufnahmezeitraum t beschreibt.
 
-Jede Kachel des normierten Datenwürfels muss nun in eine individuell festgelegte Anzahl an Teilkacheln zerschnitten werden. Zunächst werden aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet (Dies impliziert, dass die Breite und die Höhe der Zielregion einen gemeinsamen Teiler besitzen müssen). Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Dadurch würde die Einschränkung der Abmessungen der Zielregion gelockert, so dass die einzige Voraussetzung für die Breite und die Höhe, dass die jeweiligen Werte keine Primzahlen sind. Generell gilt jedoch, dass alle Teilkacheln über identische Abmessungen verfügen müssen. Nachdem alle Kacheln in Teilkacheln geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie des betrachteten Spektralbandes gruppiert. Dadurch entstehen \(n \times b \) verschiedene Gruppen mit $n$ = \{Anzahl der Teilkacheln\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Jede Gruppe wird dann nach dem jeweiligen Aufnahmedatum der einzelnen Teilkacheln der Gruppe sortiert, so dass Pixelzeitreihen entstehen. 
-
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includestandalone[width=\textwidth]{DataCubeImage}
-\caption{Beispielhafte Szenen derselben geographischen Region mit identischer Breite x und Höhe y sowie unterschiedlichem Aufnahmedatum t. Jede Szene ist dabei bereits in Teilszenen gleicher Größe geschnitten. Die Tupel geben dabei die Position der Teilszenen innerhalb der Szene an und werden zum Gruppieren der Teilszenen verwendet.} 
-\label{fig:dataCube}
+\includestandalone[width=12cm]{DataCubeOriginalImage}
+\caption{Beispielhafte Szenen derselben geographischen Region mit identischer Breite x und Höhe y sowie unterschiedlichem Aufnahmedatum t.} 
+\label{fig:dataCubeOriginal}
 \end{figure}
 
-Da einer Pixelzeitreihe aufgrund von externen Störfaktoren möglicherweise nicht für jeden Aufnahmezeitpunkt einen Vegetationswert aufweist, werden alle fehlenden Werte auf Basis der vorhandenen Werte approximiert. Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Um aus diesen beiden Mengen einzelnen Datenpunkte eine spezifische Funktion zu ermitteln, die die jeweils fehlenden Werte bestmöglich annähert, werden sowohl zur Approximierung fehlender Werte als auch zur Prognose von Werten die Regressionsverfahren SVR und OLS eingesetzt. \\
+Jede Kachel dieses Datenwürfels muss nun in Zeile~\ref{alg:cutAllTilesOfAGroup} in eine individuell festgelegte Anzahl an Teilkacheln zerschnitten werden. Dabei werden zunächst aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet. Dies impliziert, dass die Breite und die Höhe der Zielregion einen gemeinsamen Teiler besitzen müssen. Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Generell gilt, dass alle Teilkacheln über identische Abmessungen verfügen müssen. Nachdem alle Kacheln in Teilkacheln geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie des betrachteten Spektralbandes gruppiert. Die geographische Position ist in Abbildung~\ref{fig:dataCubeSliced} anhand der Tupel der Teilkacheln markiert. Durch die Gruppierung der Teilkacheln in Zeile~\ref{alg:groupSubscenes} entstehen \(n \times b \) verschiedene Gruppen mit $n$ = \{Anzahl der Teilkacheln\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Jede dieser Gruppen wird dann in Zeile~\ref{alg:sortSubscenes} nach dem jeweiligen Aufnahmedatum der einzelnen Teilkacheln der Gruppe sortiert. 
+
+\begin{figure}[H]
+\centering
+\includestandalone[width=12cm]{DataCubeSlicedImage}
+\caption{Die in Teilszenen gleicher Größe geschnitten Szenen \(s_i\) aus Abbildung~\ref{fig:dataCubeOriginal}. Die Tupel geben die Position der Teilszenen innerhalb der Szene an und werden als Gruppenschlüssel zum Gruppieren der Teilszenen verwendet.} 
+\label{fig:dataCubeSliced}
+\end{figure}
+
+Um die Veränderung des Vegetationsindex jedes Pixels analysieren zu können muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe gebildet werden. In dieser ist jedem Vegetationswert \(v_t\) genau ein fester Zeitpunkt \(t\) zugeordnet, zu dem der Wert durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Wert \(t\) ein Wert \(v_t\) zugeordnet, da entweder keine Szene \(s_t\) analysiert wurde oder der Pixel in der Szene \(s_t\) keinen validen Wert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse eine Funktion approximiert, die die Werte für alle \(t\) bestmöglich annähert.
+Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um in Zeile~\ref{alg:approxPixelTimeSeries} auf dieselbe Weise zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Für beide Regressionsanalysen werden die Regressionsverfahren SVR und OLS eingesetzt, die nachfolgend erklärt werden. \\
 
 %Insert Pseudocode
 \begin{algorithm}[H]
+	\LinesNumbered
 	\KwIn{Set von Satellitenbildern im bsq-Dateiformat und zugehörigen Header Dateien \(S\), Koordinaten der Zielbereichsbegrenzungen \(c_1\) und \(c_2\), Grad der Zerschneidung der Szenen \(m_x, m_y\)}
 	\KwData{\(S\) := \(n\) Szenen \(s_i\) mit \(0 \leq i \leq n\). \(c_1\) und \(c_2\) := Tupel aus Breiten- und Längengrad. \(m_x, m_y\) als Integer, des weiteren gilt (vorerst) \(m_x = m_y\)}
  	\KwResult{Noch festzulegen}
+	
  	Initialisierung des Clusters\;
- 	\ForEach{Szene \(s_i\) in \(S\)}{
+ 	\ForEach{Szene \(s_i\) in \(S\)}{ \label{alg:groupOriginalScenes}
 		Gruppierung von \(s_i\) gemäß dem Aufnahmezeitpunkt\;
 		}
-	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt}\)}{
-		\ForEach{Szene \(s_i\) in \(g\)} {
+	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt}\)}{ \label{alg:processGroups}
+		\ForEach{Szene \(s_i\) in \(g\)} { \label{alg:cutAllTilesOfAGroup}
 			Kachel \(Tile_i\) = Schnittmenge des Zielbereichs und des von \(s_i\) abgebildeten geographischen Bereichs\;
 			Zerschneidung von \(Tile_i\) in \(m_x * m_y\) quadratische Teilkacheln \(Teilkachel_{i_{m_x,m_y}}\)\;
 			}
 		}
-	\ForEach{\(Teilkachel_{i_{m_x,m_y}}\)}{
+	\ForEach{\(Teilkachel_{i_{m_x,m_y}}\)}{ \label{alg:groupSubscenes}
 		Gruppierung von \(Teilkachel_{i_{m_x,m_y}}\) gemäß dem Aufnahmedatum und dem Spektralband\;
 	}
-	Sortierung der Gruppen nach Aufnahmedatum\;
-	Approximierung der fehlenden Vegetationsindexwerte\;
-	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt, Band}\)}{
-		Transformation der einzelnen Teilkacheln in Pixelzeitreihen
-		Approximierung der fehlenden Werte für jede Pixelzeitreihe
+	Sortierung der Gruppen nach Aufnahmedatum\; \label{alg:sortSubscenes}
+	\tcp{Approximierung der fehlenden Vegetationsindexwerte}\
+	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt, Band}\)}{ \label{alg:approxVegetationIndex}
+		Transformation der einzelnen Teilkacheln in Pixelzeitreihen \label{alg:createPixelTimeSeries}
+		Approximierung der fehlenden Werte für jede Pixelzeitreihe \label{alg:approxPixelTimeSeries}
 		Schätzung für zukünftige Werte jeder Pixelzeitreihe
 	}
 \caption{Allgemeiner Algorithmus zur Approximierung von Pixelzeitreihen}
@@ -373,15 +383,23 @@ Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der 
 %----------------------------------------------------------------------------------
 
 \chapter{Evaluierung}
+Ziel der Untersuchungen in dieser Bachelorarbeit ist die Evaluierung der parallelisierten Implementationen des in Sektion~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus zur Analyse von Veränderungen des Vegetationsindex. Dabei sollen nicht nur die beiden Varianten des Algorithmus, die die Flink-Programmierschnittstellen für Java und Python nutzen, untereinander verglichen werden sondern auch eine bereits existierende Variante, die nativ in Python implementiert ist, in die Untersuchung mit einbezogen werden. Zum Testen der verteilten Algorithmen wird ein Cluster von Maschinen verwendet, während für die native Pythonanwendung eine einzelne Maschine verwendet wird, da sie nicht parallelisierbar ist. Als Testdaten werden Satellitendaten verwendet, die vom Landsat-System über mehrere Jahre hinweg aufgenommen wurden. Die Untersuchung soll zeigen, wie sich das Laufzeitverhalten der einzelnen Varianten ändert, wenn die Eingabedatenmenge vergrößert oder andere Parameter wie zum Beispiel die Anzahl der Teilkacheln verändert werden.
 \section{Evaluierungskriterien}
 %Einführung und Begründung von Evaluierungskriterien, Referenzierung von 2.2.5 (vergleichsmetriken).
-Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu können, müssen Vergleichsmetriken und -kriterien definiert werden. Als Hauptkriterien werden die zwei in Sektion~\ref{sec:Vergleichsmetriken} beschriebenen Kriterien Skalierbarkeit und Ausführungsgeschwindigkeit genutzt. Das Verhältnis des Preises zur Leistung der genutzten Hardware wird dabei außen vorgelassen, da der Fokus der Evaluierung auf den beiden genannten Kriterien liegen soll.
+Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu können, müssen zunächst Vergleichsmetriken und -kriterien definiert werden. Als Hauptkriterien werden die zwei in Sektion~\ref{sec:Vergleichsmetriken} beschriebenen Kriterien Skalierbarkeit und Ausführungsgeschwindigkeit genutzt. Das Verhältnis des Preises zur Leistung der genutzten Hardware wird dabei außen vorgelassen, da der Fokus der Evaluierung auf der Skalierbarkeit und der Ausführungsgeschwindigkeit liegt. 
+
+Insbesondere die Skalierbarkeit der genutzten Implementation eines Algorithmus zur Verarbeitung von Satellitenbildern ist von großer Bedeutung, da die zu verarbeitende Datenmenge mit jeder zu betrachtenden Szene um etwa 1500 Megabyte ansteigt (bei einer Nutzung von Bildmaterial, das von Landsat 8 aufgenommen wurde). Da bei einer durchschnittlichen Überflugfrequenz einer geographischen Region von 16 Tagen pro Jahr circa 22 Szenen von jeder dieser Regionen angefertigt werden, steigt die Datenmenge für jedes Jahr, das in die Analyse mit einbezogen werden soll, um circa 36 Gigabyte. Um eine Analyse des Vegetationsindex einer Region tätigen zu können, werden die Daten mehrerer Jahre verwendet, so dass die Eingabedatenmenge für den Algorithmus leicht mehr als 100 Gigabyte für jede Region betragen kann. Soll die Analyse auch ältere Daten des seit 1972 aktiven Landsat-Systems nutzen, vervielfacht sich die Eingabedatenmenge.
+
+Da gemäß der Definition der Ausführungsgeschwindigkeit in Sektion~\ref{sec:Vergleichsmetriken} als das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit, verlängert sich die Ausführungsgeschwindigkeit des Algorithmus, wenn die Datenmenge ansteigt und gleichzeitig die sonstigen Parameter unverändert bleiben. Da zu lange Laufzeiten des Algorithmus seine Einsatzfähigke
 
 Definition meiner Evaluierungskriterien:
 Skalierbarkeit, Ausführungsgeschwindigkeit
 
 \section{Versuchsbeschreibung}
 Beschreibung + Begründung für meine Versuchsbedingungen (z.B. welche Daten, welche Datenmengen, welche Hardware)
+
+Dieses besteht aus xxx Maschinen, die jeweils über \textcolor{red}{Maschinen beschreiben, Prozessor, RAM etc.} verfügen. Da die bereits existierende Implementation nicht 
+
 \section{Auswertung}
 Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen (inklusive Charts, Begründung und Erwartungen). Nutzung der Python-Impl. als Vergleichsimplementation
 

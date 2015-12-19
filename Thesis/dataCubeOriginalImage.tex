@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+%\usetikzlibrary{...}
+\begin{document}
+\begin{tikzpicture}[>=latex']
+	\draw[->] (xyz cs:x=0) -- (xyz cs:x=8) node[above] {$x$};
+	\draw[->] (xyz cs:y=0) -- (xyz cs:y=8) node[right] {$y$};
+	\draw[->] (xyz cs:z=0, x=0, y=0) -- (xyz cs:z=3, x=0, y=0) node[below] {$t$};
+	
+	%Third scene
+	\draw[fill=white] (xyz cs:z=-5, x=0, y=0) -- +(xyz cs:z= 0, x=6, y=0) -- +(xyz cs:z= 0, x=6, y=6) -- +(xyz cs:z= 0, x=0, y=6) -- +(xyz cs:z= 0, x=0, y=0) circle;
+	
+	%Second scene
+	\draw[fill=white] (xyz cs:z=-3, x=0, y=0) -- +(xyz cs:z= 0, x=6, y=0) -- +(xyz cs:z= 0, x=6, y=6) -- +(xyz cs:z= 0, x=0, y=6) -- +(xyz cs:z= 0, x=0, y=0) circle;
+	
+	%First scene
+	\draw[fill=white] (xyz cs:z=-1, x=0, y=0) -- +(xyz cs:z= 0, x=6, y=0) -- +(xyz cs:z= 0, x=6, y=6) -- +(xyz cs:z= 0, x=0, y=6) -- +(xyz cs:z= 0, x=0, y=0) circle;
+	
+\end{tikzpicture}
+
+\end{document}

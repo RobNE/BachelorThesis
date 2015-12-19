@@ -101,6 +101,7 @@
 \newlabel{sec:Vergleichsmetriken}{{2.2.5}{13}}
 \citation{Basak2007}
 \citation{Zhu2012}
+\gincltex@bb{DataCubeOriginalImage.tex}{0}{0}{270.79575}{278.91002}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{15}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -108,35 +109,45 @@
 \newlabel{cha:AlgorithmForSatellitePictureAnalysis}{{3}{15}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}}
 \newlabel{sec:DescriptionOfTheAlgorithm}{{3.1}{15}}
-\gincltex@bb{DataCubeImage.tex}{0}{0}{270.79575}{278.91002}
+\gincltex@bb{DataCubeSlicedImage.tex}{0}{0}{270.79575}{278.91002}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Szenen derselben geographischen Region mit identischer Breite x und H\IeC {\"o}he y sowie unterschiedlichem Aufnahmedatum t.\relax }}{16}}
+\newlabel{fig:dataCubeOriginal}{{3.1}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Die in Teilszenen gleicher Gr\IeC {\"o}\IeC {\ss }e geschnitten Szenen \(s_i\) aus Abbildung~\ref  {fig:dataCubeOriginal}. Die Tupel geben die Position der Teilszenen innerhalb der Szene an und werden als Gruppenschl\IeC {\"u}ssel zum Gruppieren der Teilszenen verwendet.\relax }}{17}}
+\newlabel{fig:dataCubeSliced}{{3.2}{17}}
 \citation{Drucker97}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Allgemeiner Algorithmus zur Approximierung von Pixelzeitreihen\relax }}{16}}
-\newlabel{alg:generalAlgorithm}{{1}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Szenen derselben geographischen Region mit identischer Breite x und H\IeC {\"o}he y sowie unterschiedlichem Aufnahmedatum t. Jede Szene ist dabei bereits in Teilszenen gleicher Gr\IeC {\"o}\IeC {\ss }e geschnitten. Die Tupel geben dabei die Position der Teilszenen innerhalb der Szene an und werden zum Gruppieren der Teilszenen verwendet.\relax }}{17}}
-\newlabel{fig:dataCube}{{3.1}{17}}
+\newlabel{alg:groupOriginalScenes}{{2}{18}}
+\newlabel{alg:processGroups}{{5}{18}}
+\newlabel{alg:cutAllTilesOfAGroup}{{6}{18}}
+\newlabel{alg:groupSubscenes}{{11}{18}}
+\newlabel{alg:sortSubscenes}{{14}{18}}
+\newlabel{alg:approxVegetationIndex}{{15}{18}}
+\newlabel{alg:createPixelTimeSeries}{{16}{18}}
+\newlabel{alg:approxPixelTimeSeries}{{16}{18}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Allgemeiner Algorithmus zur Approximierung von Pixelzeitreihen\relax }}{18}}
+\newlabel{alg:generalAlgorithm}{{1}{18}}
 \citation{Levenberg1978}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{18}}
-\newlabel{sec:ImplementationFlinkDescription}{{3.2}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Komplexit\IeC {\"a}tsanalyse}{19}}
-\newlabel{sec:ComplexityAnalysis}{{3.2.1}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus\relax }}{20}}
-\newlabel{fig:dataFlowAlgorithm}{{3.2}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{21}}
-\newlabel{sec:DifferencesJavaPyFlink}{{3.2.2}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{21}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{19}}
+\newlabel{sec:ImplementationFlinkDescription}{{3.2}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Komplexit\IeC {\"a}tsanalyse}{20}}
+\newlabel{sec:ComplexityAnalysis}{{3.2.1}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{20}}
+\newlabel{sec:DifferencesJavaPyFlink}{{3.2.2}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus\relax }}{21}}
+\newlabel{fig:dataFlowAlgorithm}{{3.3}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{22}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{23}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{22}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{22}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{22}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{24}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{25}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \@setckpt{inhalt}{
-\setcounter{page}{24}
+\setcounter{page}{26}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -158,7 +169,7 @@
 \setcounter{LT@chunks}{0}
 \setcounter{ContinuedFloat}{0}
 \setcounter{parentequation}{0}
-\setcounter{AlgoLine}{0}
+\setcounter{AlgoLine}{17}
 \setcounter{algocfline}{1}
 \setcounter{algocfproc}{1}
 \setcounter{algocf}{1}
