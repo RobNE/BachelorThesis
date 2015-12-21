@@ -265,6 +265,31 @@ Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Supp
 %Beschreibung Least Squares
 Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, das Anfang des 19. Jahrhunderts von Carl Friedrich Gauß sowie Adrien-Marie Legendre unabhängig voneinander entwickelt wurde. Das Ziel der Methode ist es für eine Menge an Datenpunkten eine Funktion zu finden, die diese maximal annähert. Diese Funktion ermöglicht es für jede exogene Variable die entsprechende endogene Variable zu approximieren. Um die Funktion maximal anzunähern, wird die Summe der quadrierten Abstände der beobachteten Werte der endogenen Variablen von der Kurve minimiert. Im Gegensatz zu anderen Schätzmethoden ist es nicht notwendig die Verteilung der Ausgangsdaten anzunehmen. Dies ermöglicht die Anwendung der Methode der kleinsten Quadrate auf viele verschiedene Problemstellungen. 
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[>=latex']
+		\begin{axis}[xmin=0, xmax=6*pi, ymin=-2, ymax=2, xlabel={Zeit}, ylabel={Beobachtungswerte},legend style={ 
+			at={(current bounding box.south-|current axis.south)},
+  			anchor=north,
+		},]
+			\addplot [only marks, mark=x] table {
+				0.4   0.3
+				1.1 0.5
+				2.5  1.2
+				3.4  0.1
+				4.9 -0.2
+				6 1.8
+				7.3  1.1
+				8.2  1.3   
+			};
+			\addlegendentry{$Gemessene Pixelwerte$}
+			\addplot[samples=500,domain=0:6*pi, color=red]{sin(deg(x))};
+			\addlegendentry{$Approximierte Sinusfunktion$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{figure}{Prognosemodell für den Vegetationsindex geographisch eindeutig bestimmter Pixel}
+\end{figure}
+
 Um die Methode der kleinsten Quadrate sinnvoll anwenden zu können müssen die Ursprungsdaten bestimmte Voraussetzungen erfüllen. Die abhängige Größe \(y\) muss dabei von einer oder mehreren Größen, in unserem Fall \(x\), abhängig sein. Diese Abhängigkeit wird durch die Funktion \(y(x) = f(x;\alpha_1,\dots,\alpha_m)\) ausgedrückt, wobei \(f\) von \(x\) sowie \(m\) Funktionsparametern \(\alpha_j\) abhängt. Die Abhängigkeitsfunktion muss dabei individuell gewählt oder mithilfe eines Modellierungsverfahrens bestimmt werden. Aufgrund der Verteilung der beobachteten Werte für den Vegetationsindex wird in diesem Fall eine trigonometrische Funktion als Ausgangsfunktion verwendet. Die Werte \(x_0, x_1,...,x_n\) entsprechen den Beobachtungszeitpunkten der ermittelten Werte \(y_0, y_1,...,y_n\) für den Vegetationsindex. Für alle \(y_0, y_1,...,y_n\) werden nun entsprechende \(\alpha_j\) ermittelt, die eine möglichst gute Approximierung der beobachteten Daten durch die Funktion \(f\) ermöglichen. Des weiteren muss \(n > m\) gelten, so dass mehr Beobachtungen als Funktionsparameter existieren. 
 
 Bei der Anwendung der Methode der kleinsten Quadrate wird versucht die Summe der quadrierten Abstände der beobachteten Werte \(y_0, y_1,...,y_n\) zu den durch \(f\) bestimmten Werten \(\hat{y}_0, \hat{y}_1,...,\hat{y}_n\) zu minimieren. Die quadrierten Abstände werden Residuen genannt. Die Minimierung ist ein Optimierungsproblem, dass abhängig von der gewählten Abhängigkeitsfunktion gelöst werden muss. Dabei wird in lineare und nicht-lineare Funktionen unterschieden. Da wir eine trigonometrische Funktion nutzen, muss die Minimierung für nicht-lineare Abhängigkeitsfunktionen angewandt werden. Diese erfolgt mithilfe des Levenberg-Marquadt-Algorithmus, der das Gauß-Newton-Verfahren zur Lösung nicht-linearer Optimierungsprobleme mit einer Regularisierungstechnik kombiniert \cite{Levenberg1978}. \textcolor{blue}{Vllt. auch nicht, ist x in sin(x) linear?} \\
@@ -384,7 +409,9 @@ Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der 
 
 \chapter{Evaluierung}
 Ziel der Untersuchungen in dieser Bachelorarbeit ist die Evaluierung der parallelisierten Implementationen des in Sektion~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus zur Analyse von Veränderungen des Vegetationsindex. Dabei sollen nicht nur die beiden Varianten des Algorithmus, die die Flink-Programmierschnittstellen für Java und Python nutzen, untereinander verglichen werden sondern auch eine bereits existierende Variante, die nativ in Python implementiert ist, in die Untersuchung mit einbezogen werden. Zum Testen der verteilten Algorithmen wird ein Cluster von Maschinen verwendet, während für die native Pythonanwendung eine einzelne Maschine verwendet wird, da sie nicht parallelisierbar ist. Als Testdaten werden Satellitendaten verwendet, die vom Landsat-System über mehrere Jahre hinweg aufgenommen wurden. Die Untersuchung soll zeigen, wie sich das Laufzeitverhalten der einzelnen Varianten ändert, wenn die Eingabedatenmenge vergrößert oder andere Parameter wie zum Beispiel die Anzahl der Teilkacheln verändert werden.
+
 \section{Evaluierungskriterien}
+\label{sec:evaluationCriteria}
 %Einführung und Begründung von Evaluierungskriterien, Referenzierung von 2.2.5 (vergleichsmetriken).
 Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu können, müssen zunächst Vergleichsmetriken und -kriterien definiert werden. Als Hauptkriterien werden die zwei in Sektion~\ref{sec:Vergleichsmetriken} beschriebenen Kriterien Skalierbarkeit und Ausführungsgeschwindigkeit genutzt. Das Verhältnis des Preises zur Leistung der genutzten Hardware wird dabei außen vorgelassen, da der Fokus der Evaluierung auf der Skalierbarkeit und der Ausführungsgeschwindigkeit liegt. 
 
@@ -396,9 +423,19 @@ Definition meiner Evaluierungskriterien:
 Skalierbarkeit, Ausführungsgeschwindigkeit
 
 \section{Versuchsbeschreibung}
-Beschreibung + Begründung für meine Versuchsbedingungen (z.B. welche Daten, welche Datenmengen, welche Hardware)
+%Beschreibung + Begründung für meine Versuchsbedingungen (z.B. welche Daten, welche Datenmengen, welche Hardware)
+Um die drei Implementationsvarianten des Algorithmus anhand der in Sektion~\ref{sec:evaluationCriteria} erläuterten Evaluationskriterien beurteilen zu können, müssen alle Varianten mithilfe identischer Testdatenmengen ausgeführt werden. Dabei werden alle Varianten mit mehreren Testdatensätzen ausgeführt, um den Einfluss der Größe der Eingabedaten auf die Kriterien zu evaluieren. Dabei sind insbesondere anwendungstypische Datenmengen zu verwenden, die die Szenen von einem bis zu mehreren Jahren umfassen können. Die Vergrößerung der Eingabedaten ermöglicht auch die Bestimmung der Skalierbarkeit der jeweiligen Implementationsvariante.
+Zusätzlich wird die Anzahl der Teilkacheln verändert. Auf diese Weise soll die optimale Anzahl an Teilkacheln für die verschiedenen Implementationen ermittelt werden. Dies spielt vermutlich insbesondere bei den parallelisiert implementierten Flink-Varianten des Algorithmus eine wichtige Rolle, da die Anzahl der Teilkacheln an einigen Stellen des Algorithmus den Grad der Parallelisierbarkeit bestimmt. Bei der dritten Variante, der auf einer einzelnen Maschine ausgeführten Python-Implementation, dürfte dieser Parameter keine Auswirkung haben, da keine nebenläufige Berechnungen genutzt werden. Bei allen Versuchen gilt, dass eine möglichst große Vergleichbarkeit der Tests und somit auch der Testergebnisse gewährleistet werden muss. Nur so können die Ergebnisse der Tests für die Skalierbarkeit und die Ausführungsgeschwindigkeit jeder Variante verglichen werden.
 
-Dieses besteht aus xxx Maschinen, die jeweils über \textcolor{red}{Maschinen beschreiben, Prozessor, RAM etc.} verfügen. Da die bereits existierende Implementation nicht 
+Zum Testen des ersten Faktors "'Größe der Eingabedatenmenge"' werden 4 Beispieldatensätze unterschiedlicher Dateigröße verwendet, die alle aus Szenen jeweils einer geographischen Region bestehen. Auf diese Weise lässt sich ein Grad der Skalierbarkeit für jede einzelne Variante ermitteln, indem die jeweilige Ausführungsgeschwindigkeit ins Verhältnis zur jeweiligen Eingabedatenmenge gesetzt wird. Aufgrund der Verwendung derselben Daten für alle Varianten lässt sich auch der Grad der Skalierbarkeit untereinander vergleichen. 
+
+Darauf aufbauend wird der Faktor "'Anzahl der Teilkacheln"' getestet, indem für alle Implementationsvarianten bei identischen Eingabedatenmenge verschiedene Werte für die Anzahl der Teilkacheln angenommen wird. Dieser muss \(1 \leq \mathbin{\#}Teilkacheln_{Szene\ s} \leq \mathbin{\#} Pixel_{Szene\ s} \) betragen. 
+
+Um zu ermitteln, ob die Faktoren "'Größe der Eingabedatenmenge"' und "'Anzahl der Teilkacheln"' unabhängig voneinander sind, wird zusätzlich noch eine dritte Versuchsreihen durchgeführt. Bei dieser werden beide Parameter gleichzeitig verändert, so dass eine mögliche Abhängigkeit nachgewiesen werden kann.
+
+Um aussagefähige Ergebniswerte bei allen Versuchen zu erhalten, wird jeder Test 3 mal auf identische Weise durchgeführt. Zur Auswertung der Versuche werden dann die aus den 3 Testläufen gewonnen Daten gemittelt, um Messfehler und zufällige Störfaktoren auszuschließen. 
+
+%Bei allen Versuchen wir die Hardware Dieses besteht aus xxx Maschinen, die jeweils über \textcolor{red}{Maschinen beschreiben, Prozessor, RAM etc.} verfügen. Da die bereits existierende Implementation nicht 
 
 \section{Auswertung}
 Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen (inklusive Charts, Begründung und Erwartungen). Nutzung der Python-Impl. als Vergleichsimplementation
