@@ -18,5 +18,5 @@
 \contentsline {chapter}{\numberline {4}Evaluierung}{23}
 \contentsline {section}{\numberline {4.1}Evaluierungskriterien}{23}
 \contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{24}
-\contentsline {section}{\numberline {4.3}Auswertung}{24}
-\contentsline {chapter}{\numberline {5}Fazit}{25}
+\contentsline {section}{\numberline {4.3}Auswertung}{25}
+\contentsline {chapter}{\numberline {5}Fazit}{26}

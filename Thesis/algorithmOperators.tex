@@ -1,0 +1,65 @@
+\begin{tikzpicture}[>=latex']
+        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=1cm,minimum height=1cm},
+        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=1cm,minimum height=1cm},
+        input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+        minimum width=1cm,
+        align=center,
+        minimum height=1cm
+    },
+        }
+        \node [rblock]  (start) [preaction={fill, green}] {Eingabedaten};
+        %Sort the scenes due to the acquisition date
+        \node [block, below =1.4cm of start, label={[name=l] GroupBy$_{AcquisitionDate}$}, draw] (groupSceneInner)  [preaction={fill, CornflowerBlue}] {Gruppierung gemäß Aufnahmezeitpunkt};
+        \node [fit=(groupSceneInner) (l), draw] (groupSceneOuter) {};
+        %Slice the tiles so that only the relevant part is retained
+        \node [block, below =1.4cm of groupSceneOuter, label={[name=l] GroupReduce}, draw] (sliceSceneInner) [preaction={fill, CornflowerBlue}] {Zuschneiden des relevanten geographischen Bereichs};
+        \node [fit=(sliceSceneInner) (l), draw] (sliceSceneOuter) {};
+        %Slice the tile in smaller slicedTiles
+        \node [block, below =1.4cm of sliceSceneOuter, label={[name=l] FlatMap}, draw] (sliceTileInner) [preaction={fill, CornflowerBlue}] {Zerschneiden der Kachel in kleinere Bereiche};
+        \node [fit=(sliceTileInner) (l), draw] (sliceTileOuter) {};
+        %Group the slicedTiles due to their position
+        \node [block, below =1.4cm of sliceTileOuter, label={[name=l] GroupBy$_{GeographicalPosition}$}, draw] [preaction={fill, CornflowerBlue}] (groupSlicedTilesInner) {Gruppierung der Teilkacheln gemäß ihrer geographischen Position};
+        \node [fit=(groupSlicedTilesInner) (l), draw] (groupSlicedTilesOuter) {};
+        %Sort the slicedTiles due to their AquisitionDate
+        \node [block, below = 1.4cm of groupSlicedTilesOuter, label={[name=l] SortGroup$_{AcquisitionDate}$}, draw] [preaction={fill, CornflowerBlue}] (sortSlicedTilesInner) {Sortierung der Gruppen von Teilkacheln nach ihrem Aufnahmezeitpunkt};
+        \node [fit=(sortSlicedTilesInner) (l), draw] (sortSlicedTilesOuter) {};
+        %Approximate the missing data
+        \node [block, below = 1.4cm of sortSlicedTilesOuter, label={[name=l] reduceGroup}, draw] (approximateDataInner) [preaction={fill, CornflowerBlue}] {Approximierung der fehlenden Daten};
+        \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
+        %Predict the future data
+        \node [block, below = 1.4cm of approximateDataOuter, label={[name=l] reduceGroup}, draw] (predictDataInner) [preaction={fill, CornflowerBlue}] {Prognose der zukünftigen Werte};
+        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
+        %Sink the data
+        \node [rblock, below = 0.7cm of predictDataOuter, draw] (end) [preaction={fill, green}]  {Ausgabedaten};
+
+        \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
+        \node [coordinate,above left =1cm and 1cm of start] (left) {};
+
+%% paths
+ \draw[solid] (start) --node[midway,right](){(1)} (start) ;
+ \draw[solid] (groupSceneOuter) --node[midway,right](){(2)} (groupSceneOuter) ;
+ \draw[solid] (sliceSceneOuter) --node[midway,right](){(3)} (sliceSceneOuter) ;
+ \draw[solid] (sliceTileOuter) --node[midway,right](){(4)} (sliceTileOuter) ;
+ \draw[solid] (groupSlicedTilesOuter) --node[midway,right](){(5)} (groupSlicedTilesOuter) ;
+ \draw[solid] (sortSlicedTilesOuter) --node[midway,right](){(6)} (sortSlicedTilesOuter) ;
+ \draw[solid] (approximateDataOuter) --node[midway,right](){(7)} (approximateDataOuter) ;
+ \draw[solid] (predictDataOuter) --node[midway,right](){(8)} (predictDataOuter) ;
+ \draw[solid] (end) --node[midway,right](){(9)} (end) ;
+ 
+ 
+ 
+ \path[draw,->] (start) edge (groupSceneOuter)
+       
+                    (groupSceneOuter) edge (sliceSceneOuter)
+                    (sliceSceneOuter) edge (sliceTileOuter)
+                    (sliceTileOuter) edge (groupSlicedTilesOuter)
+                    (groupSlicedTilesOuter) edge (sortSlicedTilesOuter)
+                    (sortSlicedTilesOuter) edge (approximateDataOuter)
+                    (approximateDataOuter) edge (predictDataOuter)
+                    (predictDataOuter) edge (end)
+                    ;
+\end{tikzpicture}

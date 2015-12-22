@@ -181,7 +181,7 @@ Python ist eine höhere, interpretierte Programmiersprache, die seit 1989 existi
 
 Ein Schwachpunkt von Python im Bezug auf die schnelle Verarbeitung großer Datenmengen ist die nicht auf automatisierte Parallelisierung ausgelegte Architektur. Daraus resultiert eine unzureichende Skalierbarkeit der Datenverarbeitung, sobald Daten, deren Größe die Arbeitsspeichergröße der ausführenden Maschine übersteigt, verarbeitet werden müssen. Dies ist insbesondere im Zuge der in Abschnitt~\ref{sec:GrosseDatenmengen} aufgezeigten Entwicklung hin zu größeren zu verarbeitenden Datenmengen relevant. Entwicklungen, die eine bessere Parallelisierung und damit einhergehend eine bessere Skalierbarkeit von Python Projekten zum Ziel haben, sind jedoch meist nicht universal anwendbar oder bieten nicht den Funktionsumfang von Big-Data Systemen \cite{ParallelPythonWebsite, DispyWebsite}. Die Funktionalität dieser Entwicklungen wird dabei durch Module bereitgestellt, da sie nicht als Grundfunktion in Python existiert sondern projektweise hinzugefügt werden muss. Dies erhöht den zu leistenden Anpassungs- und Entwicklungsaufwand im Vergleich zu anderen Systemen, die mit Rücksicht auf diese Anwendungsfälle konzipiert wurden.
 
-Trotzdem nutzen viele Anwender, die Big-Data Anwendungen entwickeln, Python \cite{Millman2011}. Einerseits ist die Sprache ein seit vielen Jahren bewährtes Werkzeug, das durch Nutzung von Bibliotheken wie SciPy und NumPy effizient implementierbare Algorithmen ermöglicht, ohne dass alle genutzten Funktionen selbst programmiert werden müssen. Weitere Gründe für das Festhalten an Python sind zum Beispiel die Möglichkeit zur Einbindung von Fortran und die bei Nutzung neuerer Systeme notwendige Reimplementation bereits existierender Lösungen. Die Kosten-Nutzen-Relation bei einer Nutzung anderer Systeme wie zum Beispiel Apache Flink muss aufgrund des nötigen Entwicklungsaufwands projektabhängig und individuell aufgestellt werden. 
+Trotzdem nutzen viele Anwender, die Big-Data Anwendungen entwickeln, Python \cite{Millman2011}. Einerseits ist die Sprache ein seit vielen Jahren bewährtes Werkzeug \cite{Beazley2000, Oliphant2007}, das durch Nutzung von Bibliotheken wie SciPy und NumPy effizient implementierbare Algorithmen ermöglicht, ohne dass alle genutzten Funktionen selbst programmiert werden müssen. Weitere Gründe für das Festhalten an Python sind zum Beispiel die Möglichkeit zur Einbindung von Fortran und die bei Nutzung neuerer Systeme notwendige Reimplementation bereits existierender Lösungen. Die Kosten-Nutzen-Relation bei einer Nutzung anderer Systeme wie zum Beispiel Apache Flink muss aufgrund des nötigen Entwicklungsaufwands projektabhängig und individuell aufgestellt werden. 
 
 \subsection{Vergleichsmetriken}
 \label{sec:Vergleichsmetriken}
@@ -225,7 +225,7 @@ Jede Kachel dieses Datenwürfels muss nun in Zeile~\ref{alg:cutAllTilesOfAGroup}
 \label{fig:dataCubeSliced}
 \end{figure}
 
-Um die Veränderung des Vegetationsindex jedes Pixels analysieren zu können muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe gebildet werden. In dieser ist jedem Vegetationswert \(v_t\) genau ein fester Zeitpunkt \(t\) zugeordnet, zu dem der Wert durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Wert \(t\) ein Wert \(v_t\) zugeordnet, da entweder keine Szene \(s_t\) analysiert wurde oder der Pixel in der Szene \(s_t\) keinen validen Wert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse eine Funktion approximiert, die die Werte für alle \(t\) bestmöglich annähert.
+Um die Veränderung des Vegetationsindex jedes Pixels analysieren zu können, muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe gebildet werden. In dieser ist jedem Vegetationswert \(v_t\) genau ein fester Zeitpunkt \(t\) zugeordnet, zu dem der Wert durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Wert \(t\) ein Wert \(v_t\) zugeordnet, da entweder keine Szene \(s_t\) analysiert wurde oder der Pixel in der Szene \(s_t\) keinen validen Wert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse eine Funktion approximiert, die die Werte für alle \(t\) bestmöglich annähert.
 Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um in Zeile~\ref{alg:approxPixelTimeSeries} auf dieselbe Weise zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Für beide Regressionsanalysen werden die Regressionsverfahren SVR und OLS eingesetzt, die nachfolgend erklärt werden. \\
 
 %Insert Pseudocode
@@ -260,7 +260,7 @@ Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutz
 \end{algorithm}
 
 %Beschreibung SVR
-Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. Dabei wird für einen Trainingsdatensatz der Form \(\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}\), wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, eine Funktion \(f(x)\) gesucht, für die gilt, dass ihre Abweichung \(w_i\) von allen betrachteten Beobachtungswerten \(y_i\) mit \(1 \leq i \leq n\) maximal \(\epsilon\) beträgt. Es werden also nur Beobachtungswerte in das Modell mit einbezogen, die den durch \(\epsilon\) definierten Abstand zwischen \(y_i\) und \(x_i\) nicht überschreiten. Darüber hinaus gilt, dass die kumulierten Beträge der Abweichungen \(\{w_1,...,w_i,...,w_n\}\) mit \(w_i < \epsilon\) so klein wie möglich sein sollten, um eine optimale Approximierung zu erreichen. \\
+Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. Dabei wird für einen Trainingsdatensatz der Form \(\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}\), wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, eine Funktion \(f(x)\) gesucht. Für \(f(x) \) muss gelten, dass die Abweichungen \(w_i < \epsilon \ \forall \{i | 1 \leq i \leq n\}\) sind. Es werden also nur Beobachtungswerte in das Modell mit einbezogen, die den durch \(\epsilon\) definierten Abstand zwischen \(y_i\) und \(x_i\) nicht überschreiten. Darüber hinaus muss \(\min_{\forall w_i \leq \epsilon} \sum_{i=1}^{n} w_i \)gelten, um eine optimale Approximierung durch \(f(x)\) zu erreichen. \\
 
 %Beschreibung Least Squares
 Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, das Anfang des 19. Jahrhunderts von Carl Friedrich Gauß sowie Adrien-Marie Legendre unabhängig voneinander entwickelt wurde. Das Ziel der Methode ist es für eine Menge an Datenpunkten eine Funktion zu finden, die diese maximal annähert. Diese Funktion ermöglicht es für jede exogene Variable die entsprechende endogene Variable zu approximieren. Um die Funktion maximal anzunähern, wird die Summe der quadrierten Abstände der beobachteten Werte der endogenen Variablen von der Kurve minimiert. Im Gegensatz zu anderen Schätzmethoden ist es nicht notwendig die Verteilung der Ausgangsdaten anzunehmen. Dies ermöglicht die Anwendung der Methode der kleinsten Quadrate auf viele verschiedene Problemstellungen. 
@@ -330,75 +330,11 @@ Im Rahmen dieser Arbeit wird der in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} 
 Grundlage für beide Implementation ist der vom Geographischen Institut der Humboldt-Universität zu Berlin umgesetzte Algorithmus, der in Python implementiert ist. Aufgrund der mangelnden Skalierbarkeit von Python wird eine verteilt agierende Variante des Algorithmus unter Nutzung von Flink implementiert. Die Umsetzung in Flink ist die mangelnde Skalierbarkeit von Python. Ziel der Arbeit ist der Vergleich der Laufzeit der verschiedenen Implementationen und die Beantwortung der Fragestellung, ob die Nutzung von Apache Flink zu einer Laufzeitverbesserung im Gegensatz zur bereits existierenden Implementation führt.
 
 Wie bereits in Kapitel~\ref{sec:ApacheFlink} beschrieben sind Flink-Programme Datenströme, die aus Datenquellen, Datentransformationen und Datenausgaben bestehen. Insofern kann nicht einfach das bestehende Programm übernommen werden sondern muss neu konzipiert werden. Der Datenfluss, den das Flink-Programm beschreibt, ist in Abbildung~\ref{fig:dataFlowAlgorithm} abgebildet. In Schritt 1 des Datenflusses stellt eine Datenquelle die zu analysierenden Satellitenbilder im .bsq Format mit zugehörigen .hdr Dateien, die Metadaten bezüglich der Szene beinhalten, zur Verfügung. Da diese im Normalfall aus kompletten Szenen bestehen, müssen die Daten vor der Anwendung des in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus in kleinere rechteckige Teile, sogenannte Kacheln, zerteilt werden. Darüber hinaus können die Szenen möglicherweise auch Daten zu geographischen Gebieten beinhalten, die nicht Teil des zu analysierende Gebiets sind. Um die Daten für die spätere Analyse aufzubereiten werden die Szenen in einem ersten Verarbeitungsschritt gemäß ihrem jeweiligen Aufnahmedatum gruppiert \textcolor{red}{Das kann ich vermutlich überspringen!}. Diese Gruppierung erfolgt durch die Anwendung der \textit{GroupBy}-Transformation, die alle Kacheln anhand des Schlüsselwertes "'Aufnahmezeitpunkt"' transformiert und in Gruppen zusammenfasst. Aus allen so gruppierten Szenen werden dann mithilfe einer \textit{groupReduce}-Funktion Kacheln zurecht geschnitten, die nur noch die für den durch den Nutzer bestimmten geographischen Bereich relevanten Teilszenen beinhalten. Nachdem die Ausgangsszenen auf den relevanten geographischen Bereich reduziert wurden, werden die Kacheln mithilfe des \textit{Flatmap}-Operators erneut in kleinere Teilkacheln zerschnitten. Dies geschieht, um die Teilkacheln unabhängig voneinander pixelweise analysieren zu können. Die Kantenlängen der ungeschnittenen Kacheln müssen dabei ein ganzzahliges Vielfaches der Kantenlängen der Teilkacheln betragen, damit alle Pixel in genau einer Teilkachel enthalten sind. Dies bedeutet im Umkehrschluss, dass die Kantenlängen der ungeschnittenen Kacheln mindestens einen ganzzahligen Teiler besitzen müssen.  Nachdem die Teilkacheln korrekt erzeugt wurden, werden sie wiederum gemäß ihrem "'Aufnahmedatum"' gruppiert. Anschließend wird der \textit{Sort}-Operator genutzt, um die einzelnen Gruppen nach dem "'Aufnahmedatum"' zu sortieren. Dies ist notwendig, um die zeitliche Abfolge der Beobachtungen sicherzustellen, die bei der Analyse der Daten vorausgesetzt wird. 
-Nachdem die Kacheln auf diese Weise für die Approximierung fehlender Werte vorbereitet wurden, kann die Analyse durchgeführt werden. Im Rahmen der Analyse werden die Approximierung fehlender sowie die Ermittlung der Erwartungswerte zukünftiger Ausprägungen des Vegetationsindex durchgeführt. Dies geschieht für jede Gruppe von Teilkacheln einzeln, so dass die Berechnungen auf verschiedenen TaskManagern durchgeführt werden können. Dazu werden sowohl bei der Nutzung der Java- als auch bei der Nutzung der Python-Programmierschnittstelle von Flink externe Bibliotheken genutzt, die die in Abschnitt~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Verfahren Support Vector Regression und Methode der kleinsten Quadrate implementieren. Die Unterschiede bei der Nutzung der jeweiligen Bibliotheken werden in Sektion~\ref{sec:DifferencesJavaPyFlink} aufgezeigt. Um die Verfahren anwenden zu können, werden zunächst aus jeder Gruppe von Teilkacheln derselben geographischen Position die Vegetationsindexwerte aller Pixel anhand ihrer geographischen Position in Pixelzeitreihen eingefügt. Folglich bilden alle Vegetationsindexwerte, deren zugehörige Pixel dieselbe Koordinate teilen, eine Liste, die nach dem jeweiligen Aufnahmezeitpunkt sortiert ist. Jede Pixelzeitreihe wird nun als Trainingsdatensatz für die Support Vector Regression genutzt. \textcolor{blue}{Werden die nicht aufgeteilt ca. 70/30 in Training und Testdaten?}. Anhand der Trainingsdaten wird dann eine gemäß der Definition in ~\ref{sec:DescriptionOfTheAlgorithm} optimale Approximierungsfunktion \(f \) berechnet. 
+Nachdem die Kacheln auf diese Weise für die Approximierung fehlender Werte vorbereitet wurden, kann die Analyse durchgeführt werden. Im Rahmen der Analyse werden die Approximierung fehlender sowie die Ermittlung der Erwartungswerte zukünftiger Ausprägungen des Vegetationsindex durchgeführt. Dies geschieht für jede Gruppe von Teilkacheln einzeln, so dass die Berechnungen auf verschiedenen TaskManagern durchgeführt werden können. Dazu werden sowohl bei der Nutzung der Java- als auch bei der Nutzung der Python-Programmierschnittstelle von Flink externe Bibliotheken genutzt, die die in Abschnitt~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Verfahren Support Vector Regression und Methode der kleinsten Quadrate implementieren. Die Unterschiede bei der Nutzung der jeweiligen Bibliotheken werden in Sektion~\ref{sec:DifferencesJavaPyFlink} aufgezeigt. Um die Verfahren anwenden zu können, werden zunächst aus jeder Gruppe von Teilkacheln derselben geographischen Position die Vegetationsindexwerte aller Pixel anhand ihrer geographischen Position in Pixelzeitreihen eingefügt. Folglich bilden alle Vegetationsindexwerte, deren zugehörige Pixel dieselbe Koordinate teilen, eine Liste, die nach dem jeweiligen Aufnahmezeitpunkt sortiert ist. Jede Pixelzeitreihe wird nun als Trainingsdatensatz für die Support Vector Regression genutzt. \textcolor{blue}{Werden die nicht aufgeteilt ca. 70/30 in Training und Testdaten?}. Anhand der Trainingsdaten wird dann eine gemäß der Definition in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} optimale Approximierungsfunktion \(f \) berechnet. 
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[>=latex']
-        \tikzset{block/.style= {draw, rectangle, align=center,minimum width=1cm,minimum height=1cm},
-        rblock/.style={draw, shape=rectangle,rounded corners=1.5em,align=center,minimum width=1cm,minimum height=1cm},
-        input/.style={ % requires library shapes.geometric
-        draw,
-        trapezium,
-        trapezium left angle=60,
-        trapezium right angle=120,
-        minimum width=1cm,
-        align=center,
-        minimum height=1cm
-    },
-        }
-        \node [rblock]  (start) [preaction={fill, green}] {Eingabedaten};
-        %Sort the scenes due to the acquisition date
-        \node [block, below =1.4cm of start, label={[name=l] GroupBy$_{AcquisitionDate}$}, draw] (groupSceneInner)  [preaction={fill, CornflowerBlue}] {Gruppierung gemäß Aufnahmezeitpunkt};
-        \node [fit=(groupSceneInner) (l), draw] (groupSceneOuter) {};
-        %Slice the tiles so that only the relevant part is retained
-        \node [block, below =1.4cm of groupSceneOuter, label={[name=l] GroupReduce}, draw] (sliceSceneInner) [preaction={fill, CornflowerBlue}] {Zuschneiden des relevanten geographischen Bereichs};
-        \node [fit=(sliceSceneInner) (l), draw] (sliceSceneOuter) {};
-        %Slice the tile in smaller slicedTiles
-        \node [block, below =1.4cm of sliceSceneOuter, label={[name=l] FlatMap}, draw] (sliceTileInner) [preaction={fill, CornflowerBlue}] {Zerschneiden der Kachel in kleinere Bereiche};
-        \node [fit=(sliceTileInner) (l), draw] (sliceTileOuter) {};
-        %Group the slicedTiles due to their position
-        \node [block, below =1.4cm of sliceTileOuter, label={[name=l] GroupBy$_{GeographicalPosition}$}, draw] [preaction={fill, CornflowerBlue}] (groupSlicedTilesInner) {Gruppierung der Teilkacheln gemäß ihrer geographischen Position};
-        \node [fit=(groupSlicedTilesInner) (l), draw] (groupSlicedTilesOuter) {};
-        %Sort the slicedTiles due to their AquisitionDate
-        \node [block, below = 1.4cm of groupSlicedTilesOuter, label={[name=l] SortGroup$_{AcquisitionDate}$}, draw] [preaction={fill, CornflowerBlue}] (sortSlicedTilesInner) {Sortierung der Gruppen von Teilkacheln nach ihrem Aufnahmezeitpunkt};
-        \node [fit=(sortSlicedTilesInner) (l), draw] (sortSlicedTilesOuter) {};
-        %Approximate the missing data
-        \node [block, below = 1.4cm of sortSlicedTilesOuter, label={[name=l] reduceGroup}, draw] (approximateDataInner) [preaction={fill, CornflowerBlue}] {Approximierung der fehlenden Daten};
-        \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
-        %Predict the future data
-        \node [block, below = 1.4cm of approximateDataOuter, label={[name=l] reduceGroup}, draw] (predictDataInner) [preaction={fill, CornflowerBlue}] {Prognose der zukünftigen Werte};
-        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
-        %Sink the data
-        \node [rblock, below = 0.7cm of predictDataOuter, draw] (end) [preaction={fill, green}]  {Ausgabedaten};
-
-        \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
-        \node [coordinate,above left =1cm and 1cm of start] (left) {};
-
-%% paths
- \draw[solid] (start) --node[midway,right](){(1)} (start) ;
- \draw[solid] (groupSceneOuter) --node[midway,right](){(2)} (groupSceneOuter) ;
- \draw[solid] (sliceSceneOuter) --node[midway,right](){(3)} (sliceSceneOuter) ;
- \draw[solid] (sliceTileOuter) --node[midway,right](){(4)} (sliceTileOuter) ;
- \draw[solid] (groupSlicedTilesOuter) --node[midway,right](){(5)} (groupSlicedTilesOuter) ;
- \draw[solid] (sortSlicedTilesOuter) --node[midway,right](){(6)} (sortSlicedTilesOuter) ;
- \draw[solid] (approximateDataOuter) --node[midway,right](){(7)} (approximateDataOuter) ;
- \draw[solid] (predictDataOuter) --node[midway,right](){(8)} (predictDataOuter) ;
- \draw[solid] (end) --node[midway,right](){(9)} (end) ;
- 
- 
- 
- \path[draw,->] (start) edge (groupSceneOuter)
-       
-                    (groupSceneOuter) edge (sliceSceneOuter)
-                    (sliceSceneOuter) edge (sliceTileOuter)
-                    (sliceTileOuter) edge (groupSlicedTilesOuter)
-                    (groupSlicedTilesOuter) edge (sortSlicedTilesOuter)
-                    (sortSlicedTilesOuter) edge (approximateDataOuter)
-                    (approximateDataOuter) edge (predictDataOuter)
-                    (predictDataOuter) edge (end)
-                    ;
-\end{tikzpicture}
+\includestandalone[width=10cm]{algorithmOperators}
 \caption{Visualisierung des Datenstroms des Analysealgorithmus} 
 \label{fig:dataFlowAlgorithm}
 \end{figure}
@@ -417,9 +353,9 @@ Kompl.A. für den Algorithmus
 \subsection{Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}
 \label{sec:DifferencesJavaPyFlink}
 %Muss enthalten: Python kann C Code, Python ist nicht typsicher -> Annotations, 
-Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die Nutzung der jeweiligen Programmierschnittstellen, die für Java und Python zur Verfügung stehen. Aufgrund der Verschiedenheit von Java und Python sind die Implementationen in ihrer inneren Struktur nicht äquivalent, auch wenn die Ergebnisse identisch sind. Dies liegt zum einen daran, dass Python andere Werkzeuge \textcolor{red}{Strukturen? Richtiges Wort finden} zur Verfügung stellt als Java. Zum anderen unterscheidet sich jedoch auch der Funktionsumfang der beiden Schnittstellen teilweise. Diese Unterschiede müssen bei der Implementation berücksichtigt werden. 
+Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die Nutzung der jeweiligen Programmierschnittstellen, die für Java und Python zur Verfügung stehen. Aufgrund der Verschiedenheit von Java und Python sind die Implementationen nicht identisch, auch wenn sie identische Ergebnisse produzieren. Dies liegt zum einen daran, dass die Spracheigenschaften von Python, die in Kapitel~\ref{sec:Python} beschrieben wurden, und Java unterschiedlich sind. Zum anderen unterscheidet sich auch der Funktionsumfang der beiden Schnittstellen. \textcolor{red}{Ist das so?}. Diese Unterschiede müssen bei der Implementation berücksichtigt werden. 
 
-Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Teile der Implementation in C statt in Python zu implementieren. Diese werden vom Python-Interpreter erkannt und direkt in C ausgeführt, was die Verarbeitungsgeschwindigkeit dieses Teils des Algorithmus steigern kann. Dementsprechend sind einige Teile der für die Regression genutzten Python-Bibliotheken NumPy und SciPy in C geschrieben und lediglich in Python eingebettet. 
+Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Teile der Implementation in C statt in Python zu implementieren. Diese werden vom Python-Interpreter erkannt und direkt in C ausgeführt, was die Verarbeitungsgeschwindigkeit dieses Teils des Algorithmus steigern kann. Dementsprechend sind einige Teile der für die Regression genutzten Python-Bibliotheken NumPy und SciPy in C geschrieben und lediglich in Python eingebettet. Diese werden dann von C
 
 Java hingegen profitiert von der umfangreicheren Flink-Schnittstelle, die mehr Operatoren umfasst als die Python-Schnittstelle. Insbesondere das Fehlen des \textit{SortBy}-Operators \textcolor{red}{Fehlt der wirklich?} erfordert eine leichte Veränderung des Datenstroms~\ref{fig:dataFlowAlgorithm}. \textcolor{blue}{Veränderung beschreiben}
 
@@ -441,24 +377,44 @@ Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu könne
 
 Insbesondere die Skalierbarkeit der genutzten Implementation eines Algorithmus zur Verarbeitung von Satellitenbildern ist von großer Bedeutung, da die zu verarbeitende Datenmenge mit jeder zu betrachtenden Szene um etwa 1500 Megabyte ansteigt (bei einer Nutzung von Bildmaterial, das von Landsat 8 aufgenommen wurde). Da bei einer durchschnittlichen Überflugfrequenz einer geographischen Region von 16 Tagen pro Jahr circa 22 Szenen von jeder dieser Regionen angefertigt werden, steigt die Datenmenge für jedes Jahr, das in die Analyse mit einbezogen werden soll, um circa 36 Gigabyte. Um eine Analyse des Vegetationsindex einer Region tätigen zu können, werden die Daten mehrerer Jahre verwendet, so dass die Eingabedatenmenge für den Algorithmus leicht mehr als 100 Gigabyte für jede Region betragen kann. Soll die Analyse auch ältere Daten des seit 1972 aktiven Landsat-Systems nutzen, vervielfacht sich die Eingabedatenmenge.
 
-Da gemäß der Definition der Ausführungsgeschwindigkeit in Sektion~\ref{sec:Vergleichsmetriken} als das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit, verlängert sich die Ausführungsgeschwindigkeit des Algorithmus, wenn die Datenmenge ansteigt und gleichzeitig die sonstigen Parameter unverändert bleiben. Da zu lange Laufzeiten des Algorithmus seine Einsatzfähigke
-
-Definition meiner Evaluierungskriterien:
-Skalierbarkeit, Ausführungsgeschwindigkeit
+Die Ausführungsgeschwindigkeit ist wie in Sektion~\ref{sec:Vergleichsmetriken} beschrieben als das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit definiert. Daraus folgt, dass sich die Ausführungsgeschwindigkeit des Algorithmus verlängert, wenn die Datenmenge ansteigt und gleichzeitig die sonstigen Parameter, wie beispielsweise die genutzte Hardware, unverändert bleiben. Zu lange Laufzeiten des Algorithmus sind jedoch bei der Nutzung zur Analyse von vielen geographischen Regionen von Nachteil. Um lange Laufzeiten zu vermeiden, muss also entweder der Algorithmus optimiert, die genutzte Rechenkapazität erhöht oder die Eingabedatenmenge verkleinert beziehungsweise klein gehalten werden. Im Rahmen der durchgeführten Tests wird lediglich die letzte dieser Möglichkeiten betrachtet. Aufgrund der vorgegebenen zur Verfügung gestellten Hardware wird eine Variation dieser nicht berücksichtigt. Eine optimierte Version des Algorithmus ist ein möglicher weiterer Schritt, der auf den in dieser Bachelorarbeit erarbeiteten Resultaten aufbaut. 
 
 \section{Versuchsbeschreibung}
 %Beschreibung + Begründung für meine Versuchsbedingungen (z.B. welche Daten, welche Datenmengen, welche Hardware)
-Um die drei Implementationsvarianten des Algorithmus anhand der in Sektion~\ref{sec:evaluationCriteria} erläuterten Evaluationskriterien beurteilen zu können, müssen alle Varianten mithilfe identischer Testdatenmengen ausgeführt werden. Dabei werden alle Varianten mit mehreren Testdatensätzen ausgeführt, um den Einfluss der Größe der Eingabedaten auf die Kriterien zu evaluieren. Dabei sind insbesondere anwendungstypische Datenmengen zu verwenden, die die Szenen von einem bis zu mehreren Jahren umfassen können. Die Vergrößerung der Eingabedaten ermöglicht auch die Bestimmung der Skalierbarkeit der jeweiligen Implementationsvariante.
-Zusätzlich wird die Anzahl der Teilkacheln verändert. Auf diese Weise soll die optimale Anzahl an Teilkacheln für die verschiedenen Implementationen ermittelt werden. Dies spielt vermutlich insbesondere bei den parallelisiert implementierten Flink-Varianten des Algorithmus eine wichtige Rolle, da die Anzahl der Teilkacheln an einigen Stellen des Algorithmus den Grad der Parallelisierbarkeit bestimmt. Bei der dritten Variante, der auf einer einzelnen Maschine ausgeführten Python-Implementation, dürfte dieser Parameter keine Auswirkung haben, da keine nebenläufige Berechnungen genutzt werden. Bei allen Versuchen gilt, dass eine möglichst große Vergleichbarkeit der Tests und somit auch der Testergebnisse gewährleistet werden muss. Nur so können die Ergebnisse der Tests für die Skalierbarkeit und die Ausführungsgeschwindigkeit jeder Variante verglichen werden.
+Um die drei Implementationsvarianten des Algorithmus anhand der in Sektion~\ref{sec:evaluationCriteria} erläuterten Evaluationskriterien beurteilen zu können, müssen alle Varianten mithilfe identischer Testdatenmengen ausgeführt werden. Dabei werden alle Varianten mit mehreren Testdatensätzen ausgeführt, um den Einfluss der Größe der Eingabedaten auf die Kriterien zu evaluieren. Dabei sind insbesondere anwendungstypische Datenmengen zu verwenden, die die Szenen von einem bis zu mehreren Jahren umfassen können. Die Vergrößerung der Eingabedatenmenge ermöglicht auch die Bestimmung der Skalierbarkeit der jeweiligen Implementationsvariante.
+Zusätzlich wird die Anzahl der Teilkacheln verändert. 
 
-Zum Testen des ersten Faktors "'Größe der Eingabedatenmenge"' werden 4 Beispieldatensätze unterschiedlicher Dateigröße verwendet, die alle aus Szenen jeweils einer geographischen Region bestehen. Auf diese Weise lässt sich ein Grad der Skalierbarkeit für jede einzelne Variante ermitteln, indem die jeweilige Ausführungsgeschwindigkeit ins Verhältnis zur jeweiligen Eingabedatenmenge gesetzt wird. Aufgrund der Verwendung derselben Daten für alle Varianten lässt sich auch der Grad der Skalierbarkeit untereinander vergleichen. 
+Im Rahmen der Tests, die zur Evaluierung der Skalierbarkeit und der Ausführungsgeschwindigkeit durchgeführt werden, wird jede Implementationsvariante 3 verschiedene Eingabedatenmengen unterschiedlicher Größe verarbeiten. Zusätzlich wird die Anzahl der Teilkacheln variiert, um zu ermitteln, ob dies einen relevanten Einfluss auf die Ausführungsgeschwindigkeit hat. Die in Tabelle~\ref{tab:descriptionTestSetting} beschriebenen Testkonfigurationen werden einen Umfang von 22 Szenen, 66 Szenen beziehungsweise 220 Szenen haben. Dies entspricht einem Zeitraum von circa 1, 3 und 10 Jahren, so dass sowohl Analysen über kurze als auch über lange Zeiträume untersucht werden. Das ist notwendig, um die Skalierbarkeit beziehungsweise die Auswirkung der Größe der Eingabedatenmenge auf die Ausführungsgeschwindigkeit zu untersuchen.
 
-Darauf aufbauend wird der Faktor "'Anzahl der Teilkacheln"' getestet, indem für alle Implementationsvarianten bei identischen Eingabedatenmenge verschiedene Werte für die Anzahl der Teilkacheln angenommen wird. Dieser muss \(1 \leq \mathbin{\#}Teilkacheln_{Szene\ s} \leq \mathbin{\#} Pixel_{Szene\ s} \) betragen. 
+Die Größe des Zielbereichs wird für alle Versuche fest definiert, so dass die Ergebnisse vergleichbar sind. Bei der Anzahl der Teilkacheln werden hingegen mehrere Werte untersucht, wobei dieser im Intervall \(1 \leq \mathbin{\#}Teilkacheln_{Szene\ s} \leq \mathbin{\#} Pixel_{Szene\ s} \) liegen muss. Auf diese Weise soll die optimale Anzahl an Teilkacheln für die verschiedenen Implementationen ermittelt werden. Dies spielt vermutlich insbesondere bei den parallelisiert implementierten Flink-Varianten des Algorithmus eine wichtige Rolle, da die Anzahl der Teilkacheln an einigen Stellen des Algorithmus den Grad der Parallelisierbarkeit bestimmt. Bei der dritten Variante, der auf einer einzelnen Maschine ausgeführten Python-Implementation, dürfte dieser Parameter keine Auswirkung haben, da keine nebenläufige Berechnungen genutzt werden. Bei allen Versuchen gilt, dass eine möglichst große Vergleichbarkeit der Tests und somit auch der Testergebnisse gewährleistet werden muss. Nur so können die Ergebnisse der Tests für die Skalierbarkeit und die Ausführungsgeschwindigkeit jeder Variante verglichen werden. Insgesamt ergeben sich also sechs Testkonfigurationen, die durch jede der drei Implementationsvarianten verarbeitet werden. Dabei wird jeder Test mehrfach \textcolor{red}{Später genau spezifizieren} durchgeführt und als endgültiges Resultat ein Durchschnittswert der Messungen verwendet, so dass der Einfluss von Messfehlern und zufälligen Störfaktoren auf die Ergebnisse verringert werden kann. 
 
-Um zu ermitteln, ob die Faktoren "'Größe der Eingabedatenmenge"' und "'Anzahl der Teilkacheln"' unabhängig voneinander sind, wird zusätzlich noch eine dritte Versuchsreihen durchgeführt. Bei dieser werden beide Parameter gleichzeitig verändert, so dass eine mögliche Abhängigkeit nachgewiesen werden kann.
+\begin{table}[position specifier]
+          \centering
+          \begin{tabular}{| p{3cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm} |}
+          	\hline
+                  Versuch & Anzahl der Szenen & Eingabedaten- menge in GB & Größe des Zielbereichs in Pixeln & Größe der Teilkacheln in Pixel \\
+                  \hline
+                  Versuch \#1 & 22 & xxx & xxx1 & xxx1 \\
+                  \hline
+                  Versuch \#2 & 22 & xxx & xxx1 & xxx2 \\
+                  \hline
+                  Versuch \#3 & 66 & xxx & xxx1 & xxx1 \\
+                  \hline
+                  Versuch \#4 & 66 & xxx & xxx1 & xxx2 \\
+                  \hline
+                  Versuch \#5 & 220 & xxx & xxx1 & xxx1 \\
+                  \hline
+                  Versuch \#6 & 220 & xxx & xxx1 & xxx2 \\
+                  \hline
 
-Um aussagefähige Ergebniswerte bei allen Versuchen zu erhalten, wird jeder Test 3 mal auf identische Weise durchgeführt. Zur Auswertung der Versuche werden dann die aus den 3 Testläufen gewonnen Daten gemittelt, um Messfehler und zufällige Störfaktoren auszuschließen. 
+          \end{tabular}
+          \caption{Beschreibung der für die Evaluation genutzten Testkonfigurationen}
+          \label{tab:descriptionTestSetting}
+\end{table}
 
+Um zu ermitteln, ob die Faktoren "'Größe der Eingabedatenmenge"' und "'Anzahl der Teilkacheln"' unabhängig voneinander sind, wird zusätzlich noch eine dritte Versuchsreihen durchgeführt. Bei dieser werden beide Parameter gleichzeitig verändert, so dass eine mögliche Abhängigkeit nachgewiesen werden kann. \textcolor{red}{Eventuell lasse ich das weg. Hab ja jetzt schon x Durchläufe von insgesamt 18 Tests.}
+
+Beschreibung der Hardware
 %Bei allen Versuchen wir die Hardware Dieses besteht aus xxx Maschinen, die jeweils über \textcolor{red}{Maschinen beschreiben, Prozessor, RAM etc.} verfügen. Da die bereits existierende Implementation nicht 
 
 \section{Auswertung}

@@ -46,6 +46,12 @@ Chaitanya Baru, Milind Bhandarkar, Raghunath Nambiar, Meikel Poess, and Tilmann
 \newblock Setting the direction for big data benchmark standards.
 \newblock {\em Lecture Notes in Computer Science}, page 197‚Äì208, 2013.
 
+\bibitem[Bea00]{Beazley2000}
+David~M Beazley.
+\newblock Scientific computing with python.
+\newblock In {\em Astronomical Data Analysis Software and Systems IX}, volume
+  216, page~49, 2000.
+
 \bibitem[BEH{\etalchar{+}}10]{Battre2010}
 Dominic Battr{\'e}, Stephan Ewen, Fabian Hueske, Odej Kao, Volker Markl, and
   Daniel Warneke.
@@ -238,6 +244,11 @@ B.L. Markham, J.C. Storey, D.L. Williams, and J.R. Irons.
 \newblock Landsat sensor performance: history and current status.
 \newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
   42(12):2691‚2694, Dec 2004.
+
+\bibitem[Oli07]{Oliphant2007}
+Travis~E Oliphant.
+\newblock Python for scientific computing.
+\newblock {\em Computing in Science \& Engineering}, 9(3):10--20, 2007.
 
 \bibitem[Pad97]{Padge1997}
 Fabian Padge.

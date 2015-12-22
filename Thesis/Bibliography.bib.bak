@@ -163,6 +163,18 @@
   Timestamp                = {2015.09.11}
 }
 
+@InProceedings{Beazley2000,
+  Title                    = {Scientific computing with Python},
+  Author                   = {Beazley, David M},
+  Booktitle                = {Astronomical Data Analysis Software and Systems IX},
+  Year                     = {2000},
+  Pages                    = {49},
+  Volume                   = {216},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.12.22}
+}
+
 @Article{Behm2011,
   Title                    = {Asterix: towards a scalable, semistructured data platform for evolving-world models},
   Author                   = {Behm, Alexander and Borkar, Vinayak R and Carey, Michael J and Grover, Raman and Li, Chen and Onose, Nicola and Vernica, Rares and Deutsch, Alin and Papakonstantinou, Yannis and Tsotras, Vassilis J},
@@ -730,6 +742,30 @@
 
   Owner                    = {rellerkmann},
   Timestamp                = {2015.11.18}
+}
+
+@Article{Oliphant2007,
+  Title                    = {Python for scientific computing},
+  Author                   = {Oliphant, Travis E},
+  Journal                  = {Computing in Science \& Engineering},
+  Year                     = {2007},
+  Number                   = {3},
+  Pages                    = {10--20},
+  Volume                   = {9},
+
+  Owner                    = {rellerkmann},
+  Publisher                = {AIP Publishing},
+  Timestamp                = {2015.12.22}
+}
+
+@MastersThesis{Padge1997,
+  Title                    = {Fusion von LANDSAT-TM und SPOT-HRV Daten zur Ableitung einer Satellitenbildkarte von Rostock und die exemplarische Nutzung der Daten zur Flächennutzungsklassifizierung},
+  Author                   = {Fabian Padge},
+  School                   = {Universität Hamburg},
+  Year                     = {1997},
+
+  Owner                    = {rellerkmann},
+  Timestamp                = {2015.12.07}
 }
 
 @Misc{DispyWebsite,

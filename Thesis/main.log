@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  21 DEC 2015 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  22 DEC 2015 23:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1533,7 +1533,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 263--264
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18]
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
@@ -1541,23 +1541,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--321
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-Overfull \hbox (15.29881pt too wide) in paragraph at lines 331--332
+Overfull \hbox (15.29881pt too wide) in paragraph at lines 330--331
 []\T1/cmr/m/n/10 Grundlage für bei-de Im-ple-men-ta-ti-on ist der vom Geo-gra-p
 hi-schen In-sti-tut der Humboldt-Universität
  []
 
-[20]
+[20] (./algorithmOperators.tex)
+File: algorithmOperators.tex Graphic file (type tex)
 
-LaTeX Warning: Float too large for page by 7.15215pt on input line 405.
-
-
-Overfull \hbox (26.2311pt too wide) in paragraph at lines 418--418
+Overfull \hbox (26.2311pt too wide) in paragraph at lines 353--353
 []\T1/cmr/bx/n/12 Unterschiede zwi-schen der Nut-zung der Java-Programmierschni
 ttstelle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--432
+Underfull \hbox (badness 10000) in paragraph at lines 364--367
 
  []
 
@@ -1565,58 +1563,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 429--432
 Kapitel 4.
 [23
 
-] [24]
-Kapitel 5.
-) [25
-
-] (./main.bbl [26
-
-
-] [27] [28]) [29] [30
-
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 395--395
+[]|\T1/cmr/m/n/10 Anzahl der
+ []
+
+
+Overfull \hbox (6.27351pt too wide) in paragraph at lines 395--395
+[]|\T1/cmr/m/n/10 Eingabedaten-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--395
+[]|\T1/cmr/m/n/10 Gröÿe des
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--395
+\T1/cmr/m/n/10 Ziel-be-reichs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
+[]|\T1/cmr/m/n/10 Gröÿe der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
+\T1/cmr/m/n/10 Teil-ka-cheln
+ []
+
+[24] [25]
+Kapitel 5.
+) [26
+
+] (./main.bbl [27
+
+
+] [28] [29]) [30]
 \openout2 = `statement.aux'.
 
  (./statement.tex) [31
 
-] (./main.aux (./title.aux) (./inhalt.aux) (./statement.aux)) ) 
+
+] (./main.aux
+(./title.aux) (./inhalt.aux) (./statement.aux)) ) 
 Here is how much of TeX's memory you used:
- 31008 strings out of 493117
- 733937 string characters out of 6135434
- 1144858 words of memory out of 5000000
- 33802 multiletter control sequences out of 15000+600000
+ 31016 strings out of 493117
+ 734116 string characters out of 6135434
+ 1144788 words of memory out of 5000000
+ 33807 multiletter control sequences out of 15000+600000
  22730 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,19n,104p,2641b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texl
-ive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texliv
-e/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
-ype1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/public/cm-super/sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/cm-super/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
-lic/cm-super/sfti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
-c/cm-super/sftt1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
-cm-super/sfxc1200.pfb>
-Output written on main.pdf (34 pages, 951122 bytes).
+{/usr/local/texlive/2014/texmf
+-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-d
+ist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/c
+m-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-
+super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-su
+per/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/
+sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sf
+sl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti
+1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt10
+00.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200
+.pfb>
+Output written on main.pdf (34 pages, 970654 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
+ 230 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
