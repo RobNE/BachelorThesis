@@ -18,7 +18,7 @@ badTimeFlag = (105,173)
 badTimeYDOY = ('2002-116','2003-295')
 
 class dataset:
-    root = r'd:/work/AR/'
+    root = r'/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/'
     def __init__(self):
         # read meta data        
         meta = np.loadtxt(self.root+'meta.txt', skiprows=1, unpack=True)

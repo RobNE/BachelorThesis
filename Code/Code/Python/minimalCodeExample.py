@@ -1,7 +1,7 @@
 # training data
 import numpy
-x = numpy.array([[0.], [1.], [2.], [3.]])
-y = numpy.array([1.,2.,4.,9.])
+x = numpy.array([[0.], [1.], [2.], [3.], [4.], [5.]])
+y = numpy.array([1.,2.,4.,9., 7., 5.])
 
 # SVR example
 # (see also http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html)
@@ -15,7 +15,7 @@ print('predicted:', svr.predict(x))
 # least squares fit example
 # (see also http://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.optimize.curve_fit.html)
 import scipy
-deff(x, m, n):returnm*x+n
+#def(x, m, n):return m*x+n
 fitpars, covmat = scipy.optimize.curve_fit(f, x.flatten(), y)
 print('\nlinear-fit:')
 print('observed:', y)
