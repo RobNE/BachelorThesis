@@ -11,10 +11,10 @@
 \contentsline {subsection}{\numberline {2.2.5}Vergleichsmetriken}{13}
 \contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{15}
 \contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}
-\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{20}
-\contentsline {subsection}{\numberline {3.2.1}Komplexit\IeC {\"a}tsanalyse}{21}
-\contentsline {subsection}{\numberline {3.2.2}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{21}
-\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{21}
+\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{19}
+\contentsline {subsection}{\numberline {3.2.1}Komplexit\IeC {\"a}tsanalyse}{20}
+\contentsline {subsection}{\numberline {3.2.2}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{20}
+\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{22}
 \contentsline {chapter}{\numberline {4}Evaluierung}{23}
 \contentsline {section}{\numberline {4.1}Evaluierungskriterien}{23}
 \contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{24}

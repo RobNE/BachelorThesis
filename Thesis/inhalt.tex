@@ -189,10 +189,10 @@ Trotzdem nutzen viele Anwender, die Big-Data Anwendungen entwickeln, Python \cit
 Um die Leistungsfähigkeit der verschiedener Systeme beziehungsweise Programmiersprachen vergleichen zu können, müssen Vergleichsmetriken definiert werden. Diese umfassen verschiedene Leistungskriterien, hinsichtlich derer die Systeme verglichen werden. Kriterien sind zum Beispiel die Datenverarbeitungsgeschwindigkeit, die Skalierbarkeit sowie das Verhältnis vom Preis zur Performance einer Anwendung. Einerseits kann eine offene Messung ohne Bezugswerte vorgenommen werden, die alle gemessenen Systeme untereinander vergleicht. Andererseits können Systeme hinsichtlich eines Referenzsystems evaluiert werden. Um die zu vergleichenden Kriterien mehrerer Varianten einer Anwendung auf verschiedener Systemen mit einem Referenzsystem vergleichen zu können, muss für jedes dieser Kriterien ein Referenzwert des Referenzsystems existieren. Dieser fungiert als Vergleichswert für alle Werte, die für die zu vergleichenden Anwendungsvarianten hinsichtlich dieses Kriteriums gemessen werden. Anhand der Unterschiedlichkeit von Mess- und Bezugswert kann das zu evaluierende System mit dem Bezugssystem verglichen werden. Hauptkriterium für traditionelle Datenbanksysteme ist die Datenverarbeitungsgeschwindigkeit, die als Durchsatzmetrik in Form von Arbeit pro Zeit definiert ist \cite{Gray1992}. Für diese Evaluation werden standardisierte Benchmarks verwendet, etwa TPC-H. Für Big-Data Anwendungen existiert darüber hinaus ein weiteres wichtiges Leistungskriterium, die Skalierbarkeit des Systems. Bis zum aktuellen Zeitpunkt hat sich allerdings noch kein standardisierter Benchmark für Big-Data Systeme etabliert. Jedoch werden bereits seit mehreren Jahren die Entwicklung solcher Benchmarks vorangetrieben \cite{Chen2014}. Ein Big-Data Benchmark muss dabei die Kriterien Datenverarbeitungsgeschwindigkeit, Skalierbarkeit sowie Preis/Performance evaluieren und auf sämtlichen Big-Data Systemen ausführbar sein \cite{Baru2013}.
 
 %Kriterium Skalierbarkeit
-Aufgrund des in Sektion~\ref{sec:BigData} beschriebenen Notwendigkeiten für parallele Datenverarbeitung vergrößern sich auch die zu verarbeitenden Datenmengen kontinuierlich. Deshalb ist die Skalierbarkeit des datenverarbeitenden Systems für Big-Data Anwendungen besonders wichtig, damit das Datenverarbeitungssystem flexibel auf die zu verarbeitende Datenmenge angepasst werden kann. Aufgrund ihrer parallelisierten Architektur, die aus mehreren miteinander verbunden Maschinen besteht, sind weitere Maschinen teilweise sehr einfach integrierbar. Sie müssen häufig lediglich an die bestehende Netzwerkinfrastruktur des Systems angeschlossen werden. Bei sequentiell arbeitenden Datenverarbeitungssystemen ist die Skalierbarkeit des Systems erschwert, da lediglich einzelne, geeignete Teilprozesse eines sequentiellen Programms manuell parallelisiert werden können. Darüber hinaus muss auch der Umgang mit Ausfällen der genutzten Hardware betrachtet werden. Im Idealfall wird der Ausfall von Netzwerkknoten wie bereits beim Map-Reduce System automatisiert isoliert und die Neuberechnung von Teilergebnissen auf ein notwendiges Minimum reduziert. Dieses Minimum entspricht dabei der Anzahl der notwendigen Neuberechnungen, die benötigt werden, um die Korrektheit der Ergebnisse zu garantieren. Das Ersetzen von fehlerhafter Hardware ist bei sequentiell arbeitenden Programmen meist nicht möglich, ohne die Anwendung abzubrechen. \textcolor{red}{Ist das richtig?}
+Aufgrund des in Sektion~\ref{sec:BigData} beschriebenen Notwendigkeiten für parallele Datenverarbeitung vergrößern sich auch die zu verarbeitenden Datenmengen kontinuierlich. Deshalb ist die \textbf{Skalierbarkeit} des datenverarbeitenden Systems für Big-Data Anwendungen besonders wichtig, damit das Datenverarbeitungssystem flexibel auf die zu verarbeitende Datenmenge angepasst werden kann. Aufgrund ihrer parallelisierten Architektur, die aus mehreren miteinander verbunden Maschinen besteht, sind weitere Maschinen teilweise sehr einfach integrierbar. Sie müssen häufig lediglich an die bestehende Netzwerkinfrastruktur des Systems angeschlossen werden. Bei sequentiell arbeitenden Datenverarbeitungssystemen ist die Skalierbarkeit des Systems erschwert, da lediglich einzelne, geeignete Teilprozesse eines sequentiellen Programms manuell parallelisiert werden können. Darüber hinaus muss auch der Umgang mit Ausfällen der genutzten Hardware betrachtet werden. Im Idealfall wird der Ausfall von Netzwerkknoten wie bereits beim Map-Reduce System automatisiert isoliert und die Neuberechnung von Teilergebnissen auf ein notwendiges Minimum reduziert. Dieses Minimum entspricht dabei der Anzahl der notwendigen Neuberechnungen, die benötigt werden, um die Korrektheit der Ergebnisse zu garantieren. Das Ersetzen von fehlerhafter Hardware ist bei sequentiell arbeitenden Programmen meist nicht möglich, ohne die Anwendung abzubrechen. \textcolor{red}{Ist das richtig?}
 
 %Kriterium Ausführungsgeschwindigkeit
-Die Skalierbarkeit hat auch unmittelbare Folgen für die weiteren Bewertungskriterien, insbesondere für die absolute Datenverarbeitungsgeschwindigkeit einer Anwendung. Aufgrund der Definition der Datenverarbeitungsgeschwindigkeit durch das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit sinkt sie bei einer Erweiterung der Rechenkapazitäten, wenn die Anwendung skaliert. Denn dementsprechend steigt die geleistete Berechnungsarbeit pro Zeiteinheit, was gleichbedeutend zu einer Beschleunigung der Datenverarbeitung ist. Die absolute Ausführungszeit einer Anwendung ist dabei das Produkt der Datenmenge und der Datenverarbeitungsgeschwindigkeit. Wächst die zu verarbeitende Datenmenge an, steigt demzufolge auch der nötige Verarbeitungsaufwand. Unter der Annahme einer identischen Datenverarbeitungsgeschwindigkeit steigt in diesem Fall auch die Ausführungsgeschwindigkeit. Aufgrund der im Allgemeinen wachsenden zu verarbeitenden Datenmengen muss die zur Verfügung stehende Rechenleistung erhöht werden, um die Datenverarbeitungsgeschwindigkeit und damit die Ausführungszeit einer datenverarbeitenden Anwendung zu verringern. Die Skalierbarkeit eines Big-Data Systems ist also essentiell für eine Datenverarbeitung mit gleicher Ausführungszeit bei wachsenden Datenmengen.
+Die Skalierbarkeit hat auch unmittelbare Folgen für die weiteren Bewertungskriterien, insbesondere für die \textbf{Datenverarbeitungsgeschwindigkeit} einer Anwendung. Aufgrund der Definition der Datenverarbeitungsgeschwindigkeit durch das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit sinkt sie bei einer Erweiterung der Rechenkapazitäten, wenn die Anwendung skaliert. Denn dementsprechend steigt die geleistete Berechnungsarbeit pro Zeiteinheit, was gleichbedeutend zu einer Beschleunigung der Datenverarbeitung ist. Die absolute Ausführungszeit einer Anwendung ist dabei das Produkt der Datenmenge und der Datenverarbeitungsgeschwindigkeit. Wächst die zu verarbeitende Datenmenge an, steigt demzufolge auch der nötige Verarbeitungsaufwand. Unter der Annahme einer identischen Datenverarbeitungsgeschwindigkeit steigt in diesem Fall auch die Ausführungsgeschwindigkeit. Aufgrund der im Allgemeinen wachsenden zu verarbeitenden Datenmengen muss die zur Verfügung stehende Rechenleistung erhöht werden, um die Datenverarbeitungsgeschwindigkeit und damit die Ausführungszeit einer datenverarbeitenden Anwendung zu verringern. Die Skalierbarkeit eines Big-Data Systems ist also essentiell für eine Datenverarbeitung mit gleicher Ausführungszeit bei wachsenden Datenmengen.
 
 %Kriterium Preis/Performance
 Obgleich die beiden genannten Kriterien die Leistungsfähigkeit eines Big-Data Systems definieren, muss zusätzlich der Preis des Systems im Verhältnis zur erzielten Datenverarbeitungsgeschwindigkeit betrachtet werden. Denn andernfalls wäre ein Leistungsvergleich von verschiedenen Datenverarbeitungssystemen nicht machbar, da etwaige Nachteile eines Systems durch zusätzliche oder bessere und somit teuerere Hardware ausgeglichen beziehungsweise verschleiert werden könnten. Aufgrund der Nutzung von Clustern von handelsüblicher Maschinen in verteilten Systemen sind diese meist günstiger als einzelne Maschinen die eine gleichwertige Rechenleistung aufweisen.
@@ -204,63 +204,77 @@ Obgleich die beiden genannten Kriterien die Leistungsfähigkeit eines Big-Data S
 \section[Beschreibung des Algorithmus]{Beschreibung des Algorithmus zur Analyse von Pixelzeitreihen}
 \label{sec:DescriptionOfTheAlgorithm}
 %Einleitung: Kurze, grobe Beschreibung des Algorithmus, kurze Wiederholung relevante Geographische Grundlagen.
-Das Ziel des in dieser Bachelorarbeit implementierten und evaluierten Algorithmus ist die Erkennung einer unerwarteten Veränderung der bewaldeten Fläche einer geographischen Region. Der Grad der Bewaldung wird dabei durch einen Vegetationsindex dargestellt. Um eine Veränderung des Vegetationsindexes zu messen, werden die durch Landsat Satelliten aufgezeichneten Szenen der Zielregion hinsichtlich des jeweiligen Vegetationsindexes untersucht. Auf Basis dieser Analyse können dann zukünftige Werte prognostiziert werden und etwaige Abweichungen der zukünftig tatsächlich gemessenen Werte automatisiert ermittelt werden. Die zu diesem Zweck eingesetzte Analyse ist eine kombinierte Anwendung von \textit{Support Vector Regression} (SVR) \cite{Basak2007} und der Methode der kleinsten Quadrate. Diese werden im Rahmen des \textit{Continuous Monitoring of Forest Disturbance Algorithm} (CMFDA) \cite{Zhu2012} genutzt. %Der \textit{Continuous Monitoring of Forest Disturbance Algorithm} wurde 2012 von Zhu et al. vorgestellt \cite{Zhu2012}. Er wurde entwickelt, um die Veränderung von Waldbeständen geographischer Regionen kontinuierlich zu überwachen und atypische Veränderungen zu entdecken. 
+Das Ziel des in dieser Bachelorarbeit implementierten und evaluierten Algorithmus ist die Erkennung einer unerwarteten Veränderung der bewaldeten Fläche einer geographischen Region. Der Grad der Bewaldung wird dabei durch einen Vegetationsindex dargestellt. Um eine Veränderung dieses Indexes zu messen, werden die durch Landsat Satelliten aufgezeichneten Szenen der Zielregion dahingehend analysiert. Auf Basis dieser Analyse der in der Vergangenheit gemessenen Werte können dann zukünftige Indexwerte prognostiziert werden und etwaige Abweichungen des zukünftig tatsächlich gemessenen Vegetationsindexes automatisiert ermittelt werden. Die zu diesem Zweck eingesetzte Analyse ist eine kombinierte Anwendung von \textit{Support Vector Regression} (SVR) \cite{Basak2007} und der Methode der kleinsten Quadrate. Diese werden im Rahmen des \textit{Continuous Monitoring of Forest Disturbance Algorithm} (CMFDA) \cite{Zhu2012} genutzt. %Der \textit{Continuous Monitoring of Forest Disturbance Algorithm} wurde 2012 von Zhu et al. vorgestellt \cite{Zhu2012}. Er wurde entwickelt, um die Veränderung von Waldbeständen geographischer Regionen kontinuierlich zu überwachen und atypische Veränderungen zu entdecken. 
 
 %Beschreibung Vorbereitung: DataCubeCreation als Ausgangspunkt!, Schneiden der Szene in SlicedTiles, Gruppieren und sortieren.
-Der in Algorithmus~\ref{alg:generalAlgorithm} angegebene Algorithmus zur Analyse der Veränderung des Vegetationsindexes benötigt eine Menge von Szenen, die mindestens einen Teil der Zielregion beinhalten, als Eingabe. Diese werden in Zeile~\ref{alg:groupOriginalScenes} zunächst gemäß ihres Aufnahmedatums gruppiert. Mithilfe der Schleife in Zeile~\ref{alg:cutAllTilesOfAGroup} wird aus jeder der gruppierten Szenen dann die exakte Zielregion ausgeschnitten. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine originale Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird dann als Kachel bezeichnet. Um die Eigenschaften und Ordnung der Kacheln zu verdeutlichen, wird ein Würfel mit den Dimensionen Breite der Szene, Höhe der Szene und dem Aufnahmezeitraum der Szenen modelliert. Dieser besteht aus den einzelnen sortierten Szenen, so wie in Abbildung~\ref{fig:dataCubeOriginal} abgebildet. Die x- und die y-Dimension des Würfels entsprechen genau der Breite und der Höhe der Zielregion, während die z-Dimension den Aufnahmezeitraum t beschreibt.
+Die in Algorithmus~\ref{alg:generalAlgorithm} beschriebene Vorgehensweise beschreibt die Analyse der Veränderung des Vegetationsindexes einer geographischen Region. Dieser Algorithmus benötigt eine Menge von Landsat-Szenen sowie die Koordinaten der Zielregion als Eingabe. Die genutzten Szenen beinhalteten dabei immer nur ein Spektralband. Die Szenen werden in Zeile~\ref{alg:groupOriginalScenes} zunächst gemäß ihres Aufnahmedatums gruppiert. Mithilfe der Schleife in Zeile~\ref{alg:cutAllTilesOfAGroup} wird aus jeder Szene die exakte Zielregion ausgeschnitten. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine ursprüngliche Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird als Kachel $k_{t, pos}$ bezeichnet und wird durch ihre geographische Position $pos$ und den Aufnahmezeitpunkt $t$ charakterisiert. Um die Eigenschaften und Ordnung der Kacheln zu verdeutlichen, wird ein Würfel mit den Dimensionen Breite der Szene, Höhe der Szene und dem Aufnahmezeitpunkt der Szenen modelliert. Dieser besteht aus den einzelnen sortierten Szenen, so wie in Abbildung~\ref{fig:dataCubeSliced} abgebildet. 
+
+Jede Kachel muss wie in Zeile~\ref{alg:sliceAllTiles} beschrieben in eine individuell festgelegte Anzahl von kleineren Kacheln, sogenannten Teilkacheln $tk_{t, pos}$, zerschnitten werden. Dabei werden zunächst aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet. Dies impliziert, dass die Breite und die Höhe der Zielregion einen gemeinsamen Teiler besitzen müssen. Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Nachdem alle Kacheln in Teilkacheln geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie ihres Spektralbands gruppiert. Die geographische Position ist in Abbildung~\ref{fig:dataCubeSliced} anhand der Tupel der Teilkacheln markiert. Durch die Gruppierung der Teilkacheln in Zeile~\ref{alg:groupSubscenes} entstehen 
+
+\begin{equation} \label{eq:numberOfSubsceneGroups}
+\text{ Anzahl von Teilkachelgruppen} = n \times b
+\end{equation}
+
+ verschiedene Gruppen von Teilkacheln mit $n$ = \{Anzahl der Teilkacheln\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Im in Abbildung~\ref{fig:dataCubeSliced} gezeigten Beispiel werden drei Szenen eines Bandes $b$ in jeweils 36 Teilkacheln unterteilt. Daraus ergeben sich gemäß der Formel~\ref{eq:numberOfSubsceneGroups} 36 Gruppen von Teilkacheln. Dabei sind alle Teilkacheln einer Gruppe durch das identische Positionstupel gekennzeichnet.
+
+Jede dieser Gruppen wird dann in Zeile~\ref{alg:sortSubscenes} nach dem jeweiligen Aufnahmedatum der einzelnen Teilkacheln der Gruppe sortiert. 
 
 \begin{figure}[H]
 \centering
-\includestandalone[width=12cm]{DataCubeOriginalImage}
-\caption{Beispielhafte Szenen derselben geographischen Region mit identischer Breite x und Höhe y sowie unterschiedlichem Aufnahmedatum t.} 
-\label{fig:dataCubeOriginal}
-\end{figure}
-
-Jede Kachel dieses Datenwürfels muss nun in Zeile~\ref{alg:cutAllTilesOfAGroup} in eine individuell festgelegte Anzahl an Teilkacheln zerschnitten werden. Dabei werden zunächst aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet. Dies impliziert, dass die Breite und die Höhe der Zielregion einen gemeinsamen Teiler besitzen müssen. Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Generell gilt, dass alle Teilkacheln über identische Abmessungen verfügen müssen. Nachdem alle Kacheln in Teilkacheln geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie des betrachteten Spektralbandes gruppiert. Die geographische Position ist in Abbildung~\ref{fig:dataCubeSliced} anhand der Tupel der Teilkacheln markiert. Durch die Gruppierung der Teilkacheln in Zeile~\ref{alg:groupSubscenes} entstehen \(n \times b \) verschiedene Gruppen mit $n$ = \{Anzahl der Teilkacheln\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Jede dieser Gruppen wird dann in Zeile~\ref{alg:sortSubscenes} nach dem jeweiligen Aufnahmedatum der einzelnen Teilkacheln der Gruppe sortiert. 
-
-\begin{figure}[H]
-\centering
-\includestandalone[width=12cm]{DataCubeSlicedImage}
+\includestandalone[width=9cm]{DataCubeSlicedImage}
 \caption{Die in Teilszenen gleicher Größe geschnitten Szenen \(s_i\) aus Abbildung~\ref{fig:dataCubeOriginal}. Die Tupel geben die Position der Teilszenen innerhalb der Szene an und werden als Gruppenschlüssel zum Gruppieren der Teilszenen verwendet.} 
 \label{fig:dataCubeSliced}
 \end{figure}
 
-Um die Veränderung des Vegetationsindex jedes Pixels analysieren zu können, muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe gebildet werden. In dieser ist jedem Vegetationswert \(v_t\) genau ein fester Zeitpunkt \(t\) zugeordnet, zu dem der Wert durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Wert \(t\) ein Wert \(v_t\) zugeordnet, da entweder keine Szene \(s_t\) analysiert wurde oder der Pixel in der Szene \(s_t\) keinen validen Wert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse eine Funktion approximiert, die die Werte für alle \(t\) bestmöglich annähert.
-Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um in Zeile~\ref{alg:approxPixelTimeSeries} auf dieselbe Weise zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Für beide Regressionsanalysen werden die Regressionsverfahren SVR und OLS eingesetzt, die nachfolgend erklärt werden. \\
+Um die Veränderung des Vegetationsindex jedes Pixels analysieren zu können, muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel und für jedes Band eine Pixelzeitreihe gebildet werden. In dieser ist jedem Vegetationswert \(v_t\) genau ein fester Zeitpunkt \(t\) zugeordnet, zu dem der Wert durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Wert \(t\) ein Wert \(v_t\) zugeordnet, da entweder keine Szene \(s_t\) analysiert wurde oder der Pixel in der Szene \(s_t\) keinen validen Wert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse eine Funktion approximiert, die die Werte für alle \(t\) bestmöglich annähert.
+Die Gesamtheit der ursprünglichen und der approximierten Werte wird dann genutzt, um in Zeile~\ref{alg:predictPixelTimeSeries} auf dieselbe Weise zukünftige Werte des Vegetationsindex für jeden Pixel zu prognostizieren. Für beide Regressionsanalysen werden die Regressionsverfahren SVR und OLS eingesetzt, die nachfolgend erklärt werden. \\
 
-%Insert Pseudocode
 \begin{algorithm}[H]
-	\LinesNumbered
-	\KwIn{Set von Satellitenbildern im bsq-Dateiformat und zugehörigen Header Dateien \(S\), Koordinaten der Zielbereichsbegrenzungen \(c_1\) und \(c_2\), Grad der Zerschneidung der Szenen \(m_x, m_y\)}
-	\KwData{\(S\) := \(n\) Szenen \(s_i\) mit \(0 \leq i \leq n\). \(c_1\) und \(c_2\) := Tupel aus Breiten- und Längengrad. \(m_x, m_y\) als Integer, des weiteren gilt (vorerst) \(m_x = m_y\)}
- 	\KwResult{Noch festzulegen}
-	
- 	Initialisierung des Clusters\;
- 	\ForEach{Szene \(s_i\) in \(S\)}{ \label{alg:groupOriginalScenes}
-		Gruppierung von \(s_i\) gemäß dem Aufnahmezeitpunkt\;
-		}
-	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt}\)}{ \label{alg:processGroups}
-		\ForEach{Szene \(s_i\) in \(g\)} { \label{alg:cutAllTilesOfAGroup}
-			Kachel \(Tile_i\) = Schnittmenge des Zielbereichs und des von \(s_i\) abgebildeten geographischen Bereichs\;
-			Zerschneidung von \(Tile_i\) in \(m_x * m_y\) quadratische Teilkacheln \(Teilkachel_{i_{m_x,m_y}}\)\;
-			}
-		}
-	\ForEach{\(Teilkachel_{i_{m_x,m_y}}\)}{ \label{alg:groupSubscenes}
-		Gruppierung von \(Teilkachel_{i_{m_x,m_y}}\) gemäß dem Aufnahmedatum und dem Spektralband\;
-	}
-	Sortierung der Gruppen nach Aufnahmedatum\; \label{alg:sortSubscenes}
-	\tcp{Approximierung der fehlenden Vegetationsindexwerte}\
-	\ForEach{Gruppe g in \(Gruppen_{Aufnahmezeitpunkt, Band}\)}{ \label{alg:approxVegetationIndex}
-		Transformation der einzelnen Teilkacheln in Pixelzeitreihen \label{alg:createPixelTimeSeries}
-		Approximierung der fehlenden Werte für jede Pixelzeitreihe \label{alg:approxPixelTimeSeries}
-		Schätzung für zukünftige Werte jeder Pixelzeitreihe
-	}
-\caption{Allgemeiner Algorithmus zur Approximierung von Pixelzeitreihen}
+\small
+\caption{Analyse der Vegetationsveränderung einer geographischen Region}
 \label{alg:generalAlgorithm}
+\begin{algorithmic}[1]
+\Function{ApproximateVegetationIndex}{ $S, G$}
+	\State \textbf{input:} Landsat-Szenen $S$, Zielregion $G$
+	\State \textbf{output:} Vegetationsindex $V$ für jeden untersuchten Pixel $P$ in $G$
+	\For{$s \in S$}
+        		\State $S_t \leftarrow s_t $ \label{alg:groupOriginalScenes}
+	\EndFor
+	\ForAll{$S_t $}
+		\For{$s_t \in S_t$}
+			\State $k_{t, pos} \leftarrow matching\ Region (s_t, G)$ \label{alg:cutAllTilesOfAGroup}
+			\State $Teilkachel\ tk_{t, pos} \leftarrow zerschneide\ Kachel (k_{t, pos})$ \label{alg:sliceAllTiles}
+			\State $TK_{pos, band} \leftarrow tk_{t, pos}$ \label{alg:groupSubscenes}
+		\EndFor
+	\EndFor
+	\ForAll{$TK_{pos, band}$}
+		\State $TK_{pos, band} \leftarrow sortiere\ TK_{pos, band}$ \label{alg:sortSubscenes}
+		\State {$Pixelzeitreihe\ pts_{P} \leftarrow TK_{pos, band}$} \label{alg:createPixelTimeSeries}
+	\EndFor
+	\ForAll{$pts_{P}$}
+		\State {$pts_{P} \leftarrow approximiere\ fehlende\ V(pts_{P})$} \label{alg:approxPixelTimeSeries}
+		\State {$pts_{P} \leftarrow prognostiziere\ V (pts_{P})$} \label{alg:predictPixelTimeSeries}
+	\EndFor
+\EndFunction
+
+\end{algorithmic}
 \end{algorithm}
 
+
 %Beschreibung SVR
-Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. Dabei wird für einen Trainingsdatensatz der Form \(\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}\), wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, eine Funktion \(f(x)\) gesucht. Für \(f(x) \) muss gelten, dass die Abweichungen \(w_i < \epsilon \ \forall \{i | 1 \leq i \leq n\}\) sind. Es werden also nur Beobachtungswerte in das Modell mit einbezogen, die den durch \(\epsilon\) definierten Abstand zwischen \(y_i\) und \(x_i\) nicht überschreiten. Darüber hinaus muss \(\min_{\forall w_i \leq \epsilon} \sum_{i=1}^{n} w_i \)gelten, um eine optimale Approximierung durch \(f(x)\) zu erreichen. \\
+Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Support Vector Machines}, auch Stützvektormaschinen genannt, aufbaut \cite{Drucker97}. Support Vector Machines bezeichnen ein mathematisches Verfahren zur Mustererkennung, das seine Ursprünge im maschinellen Lernen hat. 
+
+\begin{equation} \label{eq:svrFormula}
+\{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}
+\end{equation}
+
+Dabei wird für einen Trainingsdatensatz gemäß der Formel~\ref{eq:svrFormula}, wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, für jeden Beobachtungswert \(y_i \) ein Wert \( \hat{y}_i \) bestimmt. Die Distanz \( \epsilon \) zwischen \( y_i \) und \( \hat{y}_i \) wird durch \( \epsilon_i = | y_i - \hat{y}_i | \) berechnet. Um die Güte der Regression anzupassen, kann eine maximale Distanz $\bar{\epsilon}$ definiert werden. Bei der Annäherung der Funktion \(f(x) \) anhand der Beobachtungswerte $y$ werden nur Beobachtungswerte $y_i$ mit $\epsilon_i \leq \bar{\epsilon}\ \forall i$ berücksichtigt. Dadurch wird eine übermäßige Verzerrung der Regressionsfunktion durch statistische Ausreißer verhindert.
+
+\begin{equation} \label{eq:minimizeW}
+\min_{\omega} | \omega = \sum_{i=0}^{n} \epsilon_i\
+\end{equation}
+
+Um eine optimale Annäherung der Funktion \(f(x) \) und somit der approximierten Werte an die tatsächlichen Werte zu erhalten, muss \( f(x) \) so gewählt werden, dass die Summe der Abweichungen gemäß Formel~\ref{eq:minimizeW} minimal ist. \\
 
 %Beschreibung Least Squares
 Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, das Anfang des 19. Jahrhunderts von Carl Friedrich Gauß sowie Adrien-Marie Legendre unabhängig voneinander entwickelt wurde. Das Ziel der Methode ist es für eine Menge an Datenpunkten eine Funktion zu finden, die diese maximal annähert. Diese Funktion ermöglicht es für jede exogene Variable die entsprechende endogene Variable zu approximieren. Um die Funktion maximal anzunähern, wird die Summe der quadrierten Abstände der beobachteten Werte der endogenen Variablen von der Kurve minimiert. Im Gegensatz zu anderen Schätzmethoden ist es nicht notwendig die Verteilung der Ausgangsdaten anzunehmen. Dies ermöglicht die Anwendung der Methode der kleinsten Quadrate auf viele verschiedene Problemstellungen. 
@@ -297,7 +311,6 @@ Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, 
 			\addlegendentry{$Approximierte\ Pixelwerte$}
 			
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(0.4, 0.3)(0.4, 0.39)};
-			\addlegendentry{$Distanz\ \epsilon$}
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(1.1, 0.5)(1.1, 0.89)};
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(2.5, 1.2)(2.5, 0.59)};
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(3.4, 0.1)(3.4, -0.26)};
@@ -305,7 +318,7 @@ Die Methode der kleinsten Quadrate ist ein Standardverfahren in der Mathematik, 
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(6, 1.8)(6, -0.28)};
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(7.3, 1.1)(7.3, 0.85)};
 			\addplot[thin, samples=20, smooth,domain=0:6,magenta, name path=epsilon] coordinates {(8.2, 1.3)(8.2, 0.94)};
-
+			\addlegendentry{$Distanz\ \epsilon$}
 			
 			\addplot[samples=500,domain=0:6*pi, color=green]{sin(deg(x))};
 			\addlegendentry{$Approximierte\ Sinusfunktion$}
