@@ -30,11 +30,8 @@
         %Approximate the missing data
         \node [block, below = 1.4cm of sortSlicedTilesOuter, label={[name=l] reduceGroup}, draw] (approximateDataInner) [preaction={fill, CornflowerBlue}] {Approximierung der fehlenden Daten};
         \node [fit=(approximateDataInner) (l), draw] (approximateDataOuter) {};
-        %Predict the future data
-        \node [block, below = 1.4cm of approximateDataOuter, label={[name=l] reduceGroup}, draw] (predictDataInner) [preaction={fill, CornflowerBlue}] {Prognose der zukünftigen Werte};
-        \node [fit=(predictDataInner) (l), draw] (predictDataOuter) {};
         %Sink the data
-        \node [rblock, below = 0.7cm of predictDataOuter, draw] (end) [preaction={fill, green}]  {Ausgabedaten};
+        \node [rblock, below = 0.7cm of approximateDataOuter, draw] (end) [preaction={fill, green}]  {Ausgabedaten};
 
         \node [coordinate, below right =1cm and 1cm of start] (right) {};  %% Coordinate on right and middle
         \node [coordinate,above left =1cm and 1cm of start] (left) {};
@@ -47,8 +44,7 @@
  \draw[solid] (groupSlicedTilesOuter) --node[midway,right](){(5)} (groupSlicedTilesOuter) ;
  \draw[solid] (sortSlicedTilesOuter) --node[midway,right](){(6)} (sortSlicedTilesOuter) ;
  \draw[solid] (approximateDataOuter) --node[midway,right](){(7)} (approximateDataOuter) ;
- \draw[solid] (predictDataOuter) --node[midway,right](){(8)} (predictDataOuter) ;
- \draw[solid] (end) --node[midway,right](){(9)} (end) ;
+ \draw[solid] (end) --node[midway,right](){(8)} (end) ;
  
  
  
@@ -59,7 +55,6 @@
                     (sliceTileOuter) edge (groupSlicedTilesOuter)
                     (groupSlicedTilesOuter) edge (sortSlicedTilesOuter)
                     (sortSlicedTilesOuter) edge (approximateDataOuter)
-                    (approximateDataOuter) edge (predictDataOuter)
-                    (predictDataOuter) edge (end)
+                    (approximateDataOuter) edge (end)
                     ;
 \end{tikzpicture}

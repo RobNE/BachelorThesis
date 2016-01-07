@@ -109,47 +109,56 @@
 \newlabel{sec:DescriptionOfTheAlgorithm}{{3.1}{15}}
 \gincltex@bb{DataCubeSlicedImage.tex}{0}{0}{270.79575}{278.91002}
 \newlabel{eq:numberOfSubsceneGroups}{{3.1}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Die in Teilszenen gleicher Gr\IeC {\"o}\IeC {\ss }e geschnitten Szenen \(s_i\) aus Abbildung~\ref  {fig:dataCubeOriginal}. Die Tupel geben die Position der Teilszenen innerhalb der Szene an und werden als Gruppenschl\IeC {\"u}ssel zum Gruppieren der Teilszenen verwendet.\relax }}{16}}
+\newlabel{eq:numberOfSubsceneGroups}{{3.2}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Kacheln gleicher Gr\IeC {\"o}\IeC {\ss }e, ausgeschnitten aus Szenen $s_t \in S$. Die Tupel geben die Position $pos\_tk$ der Teilszenen innerhalb der Kachel an und werden als Gruppenschl\IeC {\"u}ssel zum Gruppieren der Teilszenen verwendet.\relax }}{16}}
 \newlabel{fig:dataCubeSliced}{{3.1}{16}}
+\newlabel{eq:pixelTimeSeries}{{3.3}{16}}
 \citation{Drucker97}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Analyse der Vegetationsver\IeC {\"a}nderung einer geographischen Region\relax }}{17}}
 \newlabel{alg:generalAlgorithm}{{1}{17}}
 \newlabel{alg:groupOriginalScenes}{{5}{17}}
+\newlabel{alg:dataCubeCreation}{{7}{17}}
 \newlabel{alg:cutAllTilesOfAGroup}{{9}{17}}
-\newlabel{alg:sliceAllTiles}{{10}{17}}
-\newlabel{alg:groupSubscenes}{{11}{17}}
-\newlabel{alg:sortSubscenes}{{15}{17}}
-\newlabel{alg:createPixelTimeSeries}{{16}{17}}
-\newlabel{alg:approxPixelTimeSeries}{{19}{17}}
-\newlabel{alg:predictPixelTimeSeries}{{20}{17}}
-\newlabel{eq:svrFormula}{{3.2}{17}}
-\newlabel{eq:minimizeW}{{3.3}{17}}
+\newlabel{alg:groupTiles}{{10}{17}}
+\newlabel{alg:flatMapOperator}{{13}{17}}
+\newlabel{alg:sliceAllTiles}{{14}{17}}
+\newlabel{alg:groupSubscenes}{{15}{17}}
+\newlabel{alg:sortSubscenes}{{18}{17}}
+\newlabel{alg:createPixelTimeSeriesLoopStart}{{19}{17}}
+\newlabel{alg:createPixelTimeSeries}{{21}{17}}
+\newlabel{alg:createPixelTimeSeriesLoopEnd}{{23}{17}}
+\newlabel{alg:approxPixelTimeSeries}{{25}{17}}
+\newlabel{eq:svrFormula}{{3.4}{18}}
+\newlabel{eq:minimizeW}{{3.5}{18}}
 \citation{Levenberg1978}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphische Darstellung der Berechnung der Distanz $\epsilon $ zwischen gemessenen und approximierten Werten\relax }}{18}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{19}}
-\newlabel{sec:ImplementationFlinkDescription}{{3.2}{19}}
-\gincltex@bb{algorithmOperators.tex}{0}{0}{353.12804}{580.97208}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Komplexit\IeC {\"a}tsanalyse}{20}}
-\newlabel{sec:ComplexityAnalysis}{{3.2.1}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{20}}
-\newlabel{sec:DifferencesJavaPyFlink}{{3.2.2}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus\relax }}{21}}
-\newlabel{fig:dataFlowAlgorithm}{{3.3}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{22}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphische Darstellung der Berechnung der Distanz $\epsilon $ zwischen gemessenen und approximierten Werten\relax }}{19}}
+\newlabel{eq:olsExogene}{{3.6}{20}}
+\newlabel{eq:olsEndogene}{{3.7}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Komplexit\IeC {\"a}tsanalyse}{20}}
+\newlabel{sec:ComplexityAnalysis}{{3.1.1}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{20}}
+\newlabel{sec:ImplementationFlinkDescription}{{3.2}{20}}
+\gincltex@bb{algorithmOperators.tex}{0}{0}{353.12804}{509.02351}
+\newlabel{eq:conditionXEqualsY}{{3.8}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus\relax }}{22}}
+\newlabel{fig:dataFlowAlgorithm}{{3.3}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen der Nutzung der Java-Programmierschnittstelle und der Python-Programmierschnittstelle}{22}}
+\newlabel{sec:DifferencesJavaPyFlink}{{3.2.1}{22}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Umsetzung des Algorithmus in Python}{23}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{24}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{23}}
-\newlabel{sec:evaluationCriteria}{{4.1}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{24}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{25}}
-\newlabel{tab:descriptionTestSetting}{{4.1}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{25}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{24}}
+\newlabel{sec:evaluationCriteria}{{4.1}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{26}}
+\newlabel{tab:descriptionTestSetting}{{4.1}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{26}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{27}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{inhalt}{
-\setcounter{page}{27}
+\setcounter{page}{28}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -171,7 +180,7 @@
 \setcounter{LT@chunks}{0}
 \setcounter{ContinuedFloat}{0}
 \setcounter{parentequation}{0}
-\setcounter{ALG@line}{22}
+\setcounter{ALG@line}{28}
 \setcounter{ALG@rem}{0}
 \setcounter{ALG@nested}{0}
 \setcounter{ALG@Lnr}{2}
