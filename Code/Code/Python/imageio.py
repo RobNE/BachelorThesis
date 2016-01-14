@@ -2,7 +2,7 @@ def read_cube(filename):
     import gdal
     print 'Reading ',filename,'...'
     driver = gdal.GetDriverByName('MEM')
-    dataset = driver.CreateCopy('', gdal.Open(filename))
+    dataset = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack.vrt"))
     cube = dataset.ReadAsArray()
     print '...done'
     return cube
