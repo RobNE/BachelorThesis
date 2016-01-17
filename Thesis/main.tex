@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{ngerman,graphicx,epstopdf,float,latexsym,textcomp,longtable,verbatim,dsfont, color, tikz, url, csquotes,caption,mathtools,amsfonts, array, algpseudocode, algorithm, standalone, pgfplots, pgfplotstable}
+\usepackage{ngerman,graphicx,epstopdf,float,latexsym,textcomp,longtable,verbatim,dsfont, color, tikz, url, csquotes,caption,mathtools,amsfonts, array, algpseudocode, algorithm, standalone, pgfplots, pgfplotstable, eqparbox}
 \usetikzlibrary{arrows,positioning,shapes.geometric, fit, automata, backgrounds, fillbetween}
 
 \setlength{\oddsidemargin}{1cm}
@@ -34,6 +34,15 @@
 {\begin{sloppypar}
   \noindent\hrulefill\, ENDE   \,\hrulefill
   \end{sloppypar}\vspace{5mm}
+}
+
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\eqparbox{COMMENT}{\# #1}%
+}
+\newcommand\LONGCOMMENT[1]{%
+  \hfill\#\ \begin{minipage}[t]{\eqboxwidth{COMMENT}}#1\strut\end{minipage}%
 }
 
 % der Betreuer soll den Abschnitt unter der Frage #1 durchlesen und
@@ -88,12 +97,6 @@
 \newcommand{\ibm}{IBM\raisebox{1ex}{\tiny\textregistered} }
 \newcommand{\dbZ}{DB2\raisebox{1ex}{\tiny\textregistered} }
 
-% Titel der Arbeit
-\newcommand{\titel}{Tolle Teile Tauchen Tief}
-%
-% Beginn
-%
-%%%%%%%%%
 \begin{document}
 
 \include{title}
