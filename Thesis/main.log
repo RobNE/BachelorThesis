@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  17 JAN 2016 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  18 JAN 2016 23:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1340,11 +1340,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
- (./main.aux (./title.aux) (./inhalt.aux
-
-LaTeX Warning: Label `eq:numberOfSubsceneGroups' multiply defined.
-
-) (./statement.aux))
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
@@ -1362,8 +1358,7 @@ LaTeX Font Info:    ... okay on input line 100.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 100.
 
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 100.
@@ -1446,29 +1441,245 @@ re/husiegel.pdf>]) [2
 
  (./inhalt.tex
 Kapitel 1.
+
+LaTeX Warning: Citation `EMC2014' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `Dean2004' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `Dean2008' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `York2000' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `Alam2015' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `Baker2010' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `EMC2014' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `HadoopWebsite' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Citation `FlinkWebsite' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Citation `Dean2008' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Citation `Jacobs2009' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Citation `GeoMultiSensWebsite' on page 1 undefined on input line
+ 7.
+
 [1
 
 
 ] [2]
 Kapitel 2.
+
+LaTeX Warning: Citation `DIN18716' on page 3 undefined on input line 20.
+
+
+LaTeX Warning: Citation `Markham2004' on page 3 undefined on input line 24.
+
 [3
 
-] [4] [5]
+]
+
+LaTeX Warning: Citation `Chaudhary2011' on page 4 undefined on input line 26.
+
+
+LaTeX Warning: Citation `Zhu2012' on page 4 undefined on input line 28.
+
+
+LaTeX Warning: Citation `Zhu2012' on page 4 undefined on input line 28.
+
+
+LaTeX Warning: Citation `Masek2008' on page 4 undefined on input line 28.
+
+
+LaTeX Warning: Citation `Irons2012' on page 4 undefined on input line 32.
+
+[4]
+
+LaTeX Warning: Citation `Padge1997' on page 5 undefined on input line 46.
+
+
+LaTeX Warning: Citation `Markham2004' on page 5 undefined on input line 51.
+
+
+LaTeX Warning: Citation `EMC2014' on page 5 undefined on input line 57.
+
+
+LaTeX Warning: Reference `sec:BigData' on page 5 undefined on input line 57.
+
+
+LaTeX Warning: Citation `Dean2004' on page 5 undefined on input line 57.
+
+
+LaTeX Warning: Reference `sec:GrosseDatenmengen' on page 5 undefined on input l
+ine 57.
+
+
+LaTeX Warning: Citation `FlinkWebsite' on page 5 undefined on input line 57.
+
+
+LaTeX Warning: Reference `sec:ApacheFlink' on page 5 undefined on input line 57
+.
+
+
+LaTeX Warning: Reference `sec:Python' on page 5 undefined on input line 57.
+
+
+LaTeX Warning: Reference `sec:Vergleichsmetriken' on page 5 undefined on input 
+line 57.
+
+[5]
+
+LaTeX Warning: Citation `EMC2014' on page 6 undefined on input line 62.
+
+
+LaTeX Warning: Citation `Laney2001' on page 6 undefined on input line 64.
+
+
+LaTeX Warning: Citation `Zikopoulos2012' on page 6 undefined on input line 64.
+
+
+LaTeX Warning: Citation `York2000' on page 6 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Alam2015' on page 6 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Baker2010' on page 6 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Dean2008' on page 6 undefined on input line 67.
+
+
 Overfull \hbox (11.0909pt too wide) in paragraph at lines 69--70
 []\T1/cmr/bx/n/10 Variety. \T1/cmr/m/n/10 Ge-sam-mel-te Da-ten wei-sen viel-fäl
 -ti-ge Da-ten-struk-tu-ren auf. Es wer-den nicht-strukturierte,
  []
 
-[6] [7]
-<picture/map_reduce_system_example.png, id=57, 924.45375pt x 663.47874pt>
+[6]
+
+LaTeX Warning: Citation `Bell1971' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Wulf1972' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Seitz1985' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Borodin1985' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Trew2012' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Hwang2013' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Amdahl1967' on page 7 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Dean2004' on page 7 undefined on input line 84.
+
+
+LaTeX Warning: Citation `Ghemawat2003' on page 7 undefined on input line 84.
+
+[7]
+
+LaTeX Warning: Reference `graphicMapReduceSystem' on page 8 undefined on input 
+line 88.
+
+<picture/map_reduce_system_example.png, id=56, 924.45375pt x 663.47874pt>
 File: picture/map_reduce_system_example.png Graphic file (type png)
 
 <use picture/map_reduce_system_example.png>
 Package pdftex.def Info: picture/map_reduce_system_example.png used on input li
 ne 92.
 (pdftex.def)             Requested size: 384.10959pt x 275.67262pt.
- [8 <./picture/map_reduce_system_example.png>] [9] <picture/flink_operators.png
-, id=66, 831.105pt x 133.2177pt>
+
+
+LaTeX Warning: Citation `Bethge2009' on page 8 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Bethge2009' on page 8 undefined on input line 93.
+
+
+LaTeX Warning: Reference `graphicMapReduceSystem' on page 8 undefined on input 
+line 97.
+
+[8 <./picture/map_reduce_system_example.png>]
+
+LaTeX Warning: Reference `graphicMapReduceSystem' on page 9 undefined on input 
+line 99.
+
+
+LaTeX Warning: Citation `HadoopWebsite' on page 9 undefined on input line 107.
+
+
+LaTeX Warning: Citation `Zaharia2010' on page 9 undefined on input line 107.
+
+
+LaTeX Warning: Citation `FlinkWebsite' on page 9 undefined on input line 107.
+
+
+LaTeX Warning: Citation `SparkWebsite' on page 9 undefined on input line 110.
+
+
+LaTeX Warning: Citation `Zaharia2010' on page 9 undefined on input line 110.
+
+
+LaTeX Warning: Citation `StormWebsite' on page 9 undefined on input line 110.
+
+
+LaTeX Warning: Citation `Jones2013' on page 9 undefined on input line 110.
+
+
+LaTeX Warning: Citation `AsterixWebsite' on page 9 undefined on input line 110.
+
+
+
+LaTeX Warning: Citation `Alsubaiee2012' on page 9 undefined on input line 110.
+
+
+LaTeX Warning: Citation `Borthakur2013' on page 9 undefined on input line 112.
+
+[9]
+
+LaTeX Warning: Citation `BraunWebsite' on page 10 undefined on input line 124.
+
+
+LaTeX Warning: Citation `Battre2010' on page 10 undefined on input line 124.
+
+
+LaTeX Warning: Citation `Alexandrov2014' on page 10 undefined on input line 124
+.
+
+
+LaTeX Warning: Citation `ApacheFlinkBlogEntry' on page 10 undefined on input li
+ne 124.
+
+
+LaTeX Warning: Reference `graphicFlinkOperators' on page 10 undefined on input 
+line 130.
+
+
+LaTeX Warning: Reference `tab:flinkOperatorsDefinition' on page 10 undefined on
+ input line 130.
+
+<picture/flink_operators.png, id=65, 831.105pt x 133.2177pt>
 File: picture/flink_operators.png Graphic file (type png)
 
 <use picture/flink_operators.png>
@@ -1476,10 +1687,26 @@ Package pdftex.def Info: picture/flink_operators.png used on input line 136.
 (pdftex.def)             Requested size: 384.10959pt x 61.56952pt.
 
 
+LaTeX Warning: Citation `Hueske2012' on page 10 undefined on input line 137.
+
+
+LaTeX Warning: Citation `Hueske2012' on page 10 undefined on input line 137.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+LaTeX Warning: Citation `Hueske2012' on page 10 undefined on input line 159.
+
+
+LaTeX Warning: Citation `Hueske2012' on page 10 undefined on input line 159.
+
+
+LaTeX Warning: Reference `graphicJobExecution' on page 10 undefined on input li
+ne 164.
+
 [10]
-<picture/flink_job_and_execution_graph.png, id=71, 864.22874pt x 544.0325pt>
+<picture/flink_job_and_execution_graph.png, id=70, 864.22874pt x 544.0325pt>
 File: picture/flink_job_and_execution_graph.png Graphic file (type png)
 
 <use picture/flink_job_and_execution_graph.png>
@@ -1488,80 +1715,270 @@ t line 168.
 (pdftex.def)             Requested size: 384.10959pt x 241.79901pt.
 
 
+LaTeX Warning: Citation `FlinkJobWebsite' on page 11 undefined on input line 16
+9.
+
+
+LaTeX Warning: Citation `FlinkJobWebsite' on page 11 undefined on input line 16
+9.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./picture/flink_operators.png>] [12 <./picture/flink_job_and_execution_gra
-ph.png>] [13] [14]
+
+LaTeX Warning: Reference `graphicJobExecution' on page 11 undefined on input li
+ne 176.
+
+[11 <./picture/flink_operators.png>]
+
+LaTeX Warning: Citation `Martelli2006' on page 12 undefined on input line 180.
+
+[12 <./picture/flink_job_and_execution_graph.png>]
+
+LaTeX Warning: Reference `sec:GrosseDatenmengen' on page 13 undefined on input 
+line 182.
+
+
+LaTeX Warning: Citation `ParallelPythonWebsite' on page 13 undefined on input l
+ine 182.
+
+
+LaTeX Warning: Citation `DispyWebsite' on page 13 undefined on input line 182.
+
+
+LaTeX Warning: Citation `Millman2011' on page 13 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Beazley2000' on page 13 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Oliphant2007' on page 13 undefined on input line 184.
+
+
+LaTeX Warning: Citation `Gray1992' on page 13 undefined on input line 189.
+
+
+LaTeX Warning: Citation `Chen2014' on page 13 undefined on input line 189.
+
+
+LaTeX Warning: Citation `Baru2013' on page 13 undefined on input line 189.
+
+
+LaTeX Warning: Reference `sec:BigData' on page 13 undefined on input line 192.
+
+[13] [14]
 Kapitel 3.
+
+LaTeX Warning: Citation `Basak2007' on page 15 undefined on input line 207.
+
+
+LaTeX Warning: Reference `subsec:svr' on page 15 undefined on input line 207.
+
+
+LaTeX Warning: Citation `Zhu2012' on page 15 undefined on input line 207.
+
+
+LaTeX Warning: Citation `Zhu2012' on page 15 undefined on input line 207.
+
+
+LaTeX Warning: Reference `alg:generalAlgorithm' on page 15 undefined on input l
+ine 210.
+
+
+LaTeX Warning: Reference `alg:groupOriginalScenes' on page 15 undefined on inpu
+t line 210.
+
+
+LaTeX Warning: Reference `alg:cutAllTilesOfAGroup' on page 15 undefined on inpu
+t line 210.
+
+
+LaTeX Warning: Reference `alg:groupTiles' on page 15 undefined on input line 21
+0.
+
+
+LaTeX Warning: Reference `fig:dataCubeSliced' on page 15 undefined on input lin
+e 210.
+
+
+LaTeX Warning: Reference `alg:sliceAllTiles' on page 15 undefined on input line
+ 212.
+
 [15
 
-] (./DataCubeSlicedImage.tex)
+]
+
+LaTeX Warning: Reference `fig:dataCubeSliced' on page 16 undefined on input lin
+e 218.
+
+
+LaTeX Warning: Reference `alg:groupSubscenes' on page 16 undefined on input lin
+e 218.
+
+
+LaTeX Warning: Reference `fig:dataCubeSliced' on page 16 undefined on input lin
+e 224.
+
+
+LaTeX Warning: Reference `eq:numberOfSubsceneGroups' on page 16 undefined on in
+put line 224.
+
+
+LaTeX Warning: Reference `alg:sortSubscenes' on page 16 undefined on input line
+ 226.
+
+(./DataCubeSlicedImage.tex)
 File: DataCubeSlicedImage.tex Graphic file (type tex)
+ [16]
+
+LaTeX Warning: Reference `alg:createPixelTimeSeries' on page 17 undefined on in
+put line 239.
+
+
+LaTeX Warning: Reference `eq:pixelTimeSeries' on page 17 undefined on input lin
+e 239.
+
+
+LaTeX Warning: Reference `alg:approxPixelTimeSeries' on page 17 undefined on in
+put line 239.
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
-[16]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
- []
+LaTeX Warning: Citation `Drucker97' on page 18 undefined on input line 287.
 
-[18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
 
- []
+LaTeX Warning: Reference `eq:svrFormula' on page 18 undefined on input line 293
+.
 
-[20] [21] (./algorithmOperators.tex)
+
+LaTeX Warning: Reference `eq:minimizeW' on page 18 undefined on input line 299.
+
+
+[18]
+
+LaTeX Warning: Reference `sec:DescriptionOfTheAlgorithm' on page 19 undefined o
+n input line 364.
+
+
+LaTeX Warning: Reference `sec:ApacheFlink' on page 19 undefined on input line 3
+64.
+
+
+Underfull \vbox (badness 6575) has occurred while \output is active []
+
+ [19]
+
+LaTeX Warning: Reference `sec:ApacheFlink' on page 20 undefined on input line 3
+67.
+
+
+LaTeX Warning: Reference `fig:dataFlowAlgorithm' on page 20 undefined on input 
+line 367.
+
+
+LaTeX Warning: Reference `alg:dataCubeCreation' on page 20 undefined on input l
+ine 367.
+
+
+LaTeX Warning: Reference `alg:generalAlgorithm' on page 20 undefined on input l
+ine 367.
+
+
+LaTeX Warning: Reference `eq:conditionXEqualsY' on page 20 undefined on input l
+ine 368.
+
+
+LaTeX Warning: Reference `eq:conditionXEqualsY' on page 20 undefined on input l
+ine 368.
+
+
+LaTeX Warning: Reference `alg:flatMapOperator' on page 20 undefined on input li
+ne 368.
+
+
+LaTeX Warning: Reference `alg:generalAlgorithm' on page 20 undefined on input l
+ine 368.
+
+
+LaTeX Warning: Reference `alg:createPixelTimeSeriesLoopStart' on page 20 undefi
+ned on input line 375.
+
+
+LaTeX Warning: Reference `alg:createPixelTimeSeriesLoopEnd' on page 20 undefine
+d on input line 375.
+
+
+LaTeX Warning: Reference `sec:DescriptionOfTheAlgorithm' on page 20 undefined o
+n input line 376.
+
+[20]
+
+LaTeX Warning: Reference `sec:Differences' on page 21 undefined on input line 3
+78.
+
+(./algorithmOperators.tex)
 File: algorithmOperators.tex Graphic file (type tex)
 
-Overfull \hbox (26.2311pt too wide) in paragraph at lines 411--411
-[]\T1/cmr/bx/n/12 Unterschiede zwi-schen der Nut-zung der Java-Programmierschni
-ttstelle
+
+LaTeX Warning: Reference `fig:dataFlowAlgorithm' on page 21 undefined on input 
+line 397.
+
+
+LaTeX Warning: Reference `sec:Python' on page 21 undefined on input line 397.
+
+
+Underfull \vbox (badness 6332) has occurred while \output is active []
+
+ [21]
+
+LaTeX Warning: Reference `sec:Python' on page 22 undefined on input line 401.
+
+
+LaTeX Warning: Reference `sec:DescriptionOfTheAlgorithm' on page 22 undefined o
+n input line 401.
+
+
+LaTeX Warning: Reference `sec:Python' on page 22 undefined on input line 403.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--407
+
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 421--424
-
- []
-
-[23]
+[22] [23]
 Kapitel 4.
+
+LaTeX Warning: Reference `sec:DescriptionOfTheAlgorithm' on page 24 undefined o
+n input line 411.
+
+
+LaTeX Warning: Reference `sec:Vergleichsmetriken' on page 24 undefined on input
+ line 416.
+
+
+LaTeX Warning: Reference `sec:Vergleichsmetriken' on page 24 undefined on input
+ line 421.
+
 [24
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-[]|\T1/cmr/m/n/10 Anzahl der
- []
+
+LaTeX Warning: Reference `sec:evaluationCriteria' on page 25 undefined on input
+ line 425.
 
 
-Overfull \hbox (6.27351pt too wide) in paragraph at lines 457--457
-[]|\T1/cmr/m/n/10 Eingabedaten-
- []
+LaTeX Warning: Reference `tab:descriptionTestSetting' on page 25 undefined on i
+nput line 429.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-[]|\T1/cmr/m/n/10 Gröÿe des
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--457
-\T1/cmr/m/n/10 Ziel-be-reichs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
-[]|\T1/cmr/m/n/10 Anzahl der
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-[26]
+[25] [26]
 Kapitel 5.
 ) [27
 
@@ -1582,17 +1999,20 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ] (./main.aux (./title.aux)
 (./inhalt.aux) (./statement.aux))
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 30297 strings out of 493117
- 724320 string characters out of 6135434
- 1109550 words of memory out of 5000000
- 33067 multiletter control sequences out of 15000+600000
+ 30286 strings out of 493117
+ 724179 string characters out of 6135434
+ 1105936 words of memory out of 5000000
+ 33062 multiletter control sequences out of 15000+600000
  28880 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,19n,104p,2154b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,19n,104p,2264b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1627,7 +2047,7 @@ lic/cm-super/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
 c/cm-super/sfti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
 cm-super/sftt1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm
 -super/sfxc1200.pfb>
-Output written on main.pdf (36 pages, 1090095 bytes).
+Output written on main.pdf (36 pages, 1085007 bytes).
 PDF statistics:
  268 PDF objects out of 1000 (max. 8388607)
  188 compressed objects within 2 object streams
