@@ -5,26 +5,28 @@ from collections import OrderedDict
 import copy
 
 driver = gdal.GetDriverByName('MEM')
+bands = []
 dataset1 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack1.vrt"))
 cube1 = dataset1.ReadAsArray()
-geotransform = dataset1.GetGeoTransform()
-if not geotransform is None:
-    print geotransform
+bands.append(cube1)
+dataset2 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack2.vrt"))
+cube2 = dataset2.ReadAsArray()
+bands.append(cube2)
 
-numberOfDatasets = 1
+numberOfDatasets = len(bands)
 
 print ("Cube read successfully")
-print ("This is the shape:"),cube1.shape
-print ("This is the shape of the band:", cube1[0].shape)
+print ("This is the shape of a band:"),cube1.shape
+print ("This is the shape of the first scene:", cube1[0].shape)
 
-blockSize = 200
+blockSize = 50
 offSet = 2000
 
 #Build the empty pixelTimeSeries
 
 listOfBandTimeSeries = []
 
-for band in xrange (0, cube1.shape[0]):
+for band in bands:
     allPixelTimeSeries = {}
     for row in xrange (offSet, offSet + blockSize):#cube.shape[1]):
         for col in range (offSet, offSet + blockSize):#cube.shape[2]):
@@ -63,36 +65,35 @@ print ("The analysis starts")
 
 for band in xrange (0, numberOfDatasets):
     allPixelTimeSeries = listOfBandTimeSeries[band]
-    for scene in xrange (0, cube1.shape[0]):
-        for row in xrange(offSet, offSet + blockSize):
-            for col in xrange(offSet, offSet + blockSize):
-                #print ("This is the pos x, y:",(row, col))
-                currentPixelTimeSeries = allPixelTimeSeries[(row, col)]
-                #print ("The current time series:", currentPixelTimeSeries)
-                yValues = []
-                tempXValues = copy.deepcopy(xValues)
-                for key, value in currentPixelTimeSeries.iteritems():
-                    print ("This is the key:", key)
-                    if (value < 16000 and value > -9999):
-                        yValues.append(value)
-                        print("A valid value appeared")
-                    else:
-                        tempXValues[key][0] = -1
-                for index in xrange(len(tempXValues)-1, -1, -1):
-                    if (tempXValues[index][0] == -1):
-                        print("Delete date")
-                        del tempXValues[index]
-                #print("The yValues:",yValues)
-                #print("The tempXValues:",tempXValues)
+    for row in xrange(offSet, offSet + blockSize):
+        for col in xrange(offSet, offSet + blockSize):
+            #print ("This is the pos x, y:",(row, col))
+            currentPixelTimeSeries = allPixelTimeSeries[(row, col)]
+            #print ("The current time series:", currentPixelTimeSeries)
+            yValues = []
+            tempXValues = copy.deepcopy(xValues)
+            for key, value in currentPixelTimeSeries.iteritems():
+                #print ("This is the key:", key)
+                if (value < 16000 and value > -9999):
+                    yValues.append(value)
+                    #print("A valid value appeared")
+                else:
+                    tempXValues[key][0] = -1
+            for index in xrange(len(tempXValues)-1, -1, -1):
+                if (tempXValues[index][0] == -1):
+                    #print("Delete date")
+                    del tempXValues[index]
+            #print("The yValues:",yValues)
+            #print("The tempXValues:",tempXValues)
                 
-                if (len(tempXValues) > 0 and len(yValues) > 0):
-                    svr = svm.SVR()
-                    svr.fit(tempXValues, yValues)
-                    print('svr-fit:')
-                    print('observed:', yValues)
-                    print('predicted:', svr.predict(tempXValues))
-                #else:
-                    #print("No sufficient number of values for a proper analysis")
+            if (len(tempXValues) > 0 and len(yValues) > 0):
+                svr = svm.SVR()
+                svr.fit(tempXValues, yValues)
+                #print('svr-fit:')
+                #print('observed:', yValues)
+                #print('predicted:', svr.predict(tempXValues))
+            #else:
+                #print("No sufficient number of values for a proper analysis")
 
 
 

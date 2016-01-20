@@ -272,7 +272,7 @@ Um die Veränderung des Vegetationsindex jedes betrachteten Pixels analysieren z
 			\EndFor
 		\EndFor \label{alg:createPixelTimeSeriesLoopEnd}
 		\LineComment{Approximiere alle Pixelzeitreihen der Teilkachelgruppe}
-		\ForAll{$pts_{P\_}$}
+		\ForAll{$pts_{P}$}
 			\State {$pts_{P} \leftarrow approximiere\ fehlende\ V_{p, t} \forall p \in P \in pts{P}$} \label{alg:approxPixelTimeSeries}
 		\EndFor
 	\EndFor
@@ -354,9 +354,117 @@ Da die Güte der Approximierung durch bereits durchgeführte Experimente bereits
 
 \subsection{Komplexitätsanalyse}
 \label{sec:ComplexityAnalysis}
-Kurze Einleitung, Beschreibung meiner Kompl.A. (Big O Notation kurz erläutern)
+%Kurze Einleitung, Beschreibung meiner Kompl.A. (Big O Notation kurz erläutern)
+Da potenziell hunderte Satellitenbilder von möglicherweise großen Zielbereichen mithilfe des Algorithmus analysiert werden sollen, muss die Abhängigkeit der Algorithmen von der Eingabedatenmenge und den Eingabeparametern bestimmt werden. Um dies zu ermöglichen wird eine Komplexitätsanalyse der Laufzeit des Schneide- sowie des Analysealgorithmus der Flink-Implementationen durchgeführt. Ebenso wird die Zeitkomplexität des Python-Programms bestimmt. Bei allen getätigten Komplexitätsanalysen soll der schlechtestmögliche Fall betrachtet werden, so dass eine untere Grenze für die Laufzeit des jeweiligen Algorithmus ermittelt wird, die mithilfe von Landau-Symbolen angegeben wird. Die Komplexität wird anhand der gegeben Pseudocodes der Algorithmen veranschaulicht. Der Kommentar am Ende einer Zeile beinhaltet dabei die jeweilige Zeitkomplexität. 
 
-Kompl.A. für den Algorithmus
+Der in Algorithmus~\ref{alg:cutAlgorithm} angegebene Schneidealgorithmus der beiden Flink-Varianten zerteilt eine Kachel $k_{t, b} \in K_{b}$ in $n_{TK}$ Teilkacheln $tk_{t, pos\_tk, b} \in TK_{pos\_tk, b}$. Da der Eingabeparameter des Programms nicht die Anzahl der Teilkacheln $n_tk$ sondern die Kantenlänge $dim_{TK}$ angibt, muss $n_{tk}$ berechnet werden. Dabei wird in den Zeilen~\ref{alg:calcNR} und \ref{alg:calcNS} jeweils die Anzahl der Teilkacheln pro Reihe beziehungsweise Spalte von Teilkacheln ermittelt, was in konstanter Zeit möglich ist. Diese beiden Werte erlauben es in den darauf folgenden Zeilen~\ref{alg:iterR} und \ref{alg:iterS} über alle Teilkacheln der Kachel zu iterieren, deren Objektattribute zu ermitteln und letztlich die entsprechen Teilkachelobjekte zu konstruieren. Aufgrund der Abhängigkeit der Schleifendurchläufe von der Anzahl der Teilkacheln pro Reihe und Spalte wird eine Komplexität von $\mathcal{O}(nr_{tk} * ns_{tk})$ angenommen. Der in Zeile~\ref{alg:setAttributes} beginnende Block besteht aus Zuweisungen, die eine Komplexität von $\mathcal{O}(1)$ besitzen. Lediglich die Schleife in Zeile~\ref{alg:computeS16} besitzt eine Zeitkomplexität von $dim_{tk}$. Da der innere Block der Schleife aufgrund von Kopieroperationen auf Arrays, die eine Komplexität von $\mathcal{O}(n)$ aufweisen und mit $n = dim_{tk}$ ausgeführt werden, eine Komplexität von $\mathcal{O}(dim_{tk})$ besitzt, gilt für die Schleife folglich eine Komplexität von $\mathcal{O}(dim_{tk}^2)$. Daraus ergibt sich nach der Verkettung dieser Komplexität mit der Komplexität der Schleifen in den Zeilen~\ref{alg:iterR} und \ref{alg:iterS} eine Gesamtkomplexität für den Schneidealgorithmus von 
+
+\begin{equation} \label{eq:complexityCut}
+\mathcal{O}(nr_{tk} * ns_{tk} * dim_{tk}^2) = \mathcal{O}(n_{tk} * dim_{tk}^2)
+\end{equation}
+
+wenn $nr_{tk} = ns_{tk}$ gilt. $nr_{tk} = ns_{tk}$ folgt aus der im vorigen Abschnitt beschrieben Vorgabe, dass sowohl die Kacheln als auch die Teilkacheln quadratisch sein müssen. Da der Algorithmus für jede Kachel ausgeführt wird, hat die Anzahl der Kacheln keine Bedeutung bezüglich der Komplexität, für die Bestimmung der Komplexität des gesamten Programms wird diese jedoch eine Rolle spielen.
+
+\begin{algorithm}[H]
+\small
+\caption{Algorithmus zum Zerschneiden einer Kachel $k_{t, b}$ in $n_{TK}$ Teilkacheln $tk_{t, pos\_tk, b}$}
+\label{alg:cutAlgorithm}
+\begin{algorithmic}[1]
+\Function{CutTileIntoSubtiles}{$S, G$}
+	\State \textbf{input:} Kachel $k_{t, b} \in K_{b}$, Teilkachelkantenlänge $dim_{tk}$ 
+	\State \textbf{output:} $n_{tk}$ Teilkacheln $tk_{t, pos\_tk, b} \in TK_{pos\_tk, b}$
+	\LineComment{Gruppiere alle Szenen gemäß dem Aufnahmezeitpunkt}
+	\State Berechne $nr_{tk}$ als Anzahl der Teilkacheln pro Reihe $r \in R$ von $k_{t, b}$ \Comment{1} \label{alg:calcNR}
+	\State Berechne $ns_{tk}$ als Anzahl der Teilkacheln pro Spalte $s \in S$ von $k_{t, b}$ \Comment{1} \label{alg:calcNR}
+	\LineComment{Iteriere über alle Teilkacheln der Kachel}
+	\ForAll{$r_k \in R$} \Comment{$nr_{tk}$} \label{alg:iterR}
+        		\ForAll{$s_k \in S$} \Comment{$ns_{tk}$} \label{alg:iterS}
+			\State $pos_{tk} \leftarrow (r, s)$ \Comment{1} \label{alg:setAttributes}
+			\State $tk = tk_{t, pos\_tk, b}$ \Comment{1}
+        			\State $Attr_{tk} \leftarrow Attr_{k}$ \Comment{1}
+			\LineComment{Selektion der relevanten Vegetationsindexwerte}
+			\ForAll{$r_{tk} < dim_{tk}$ } \Comment{$dim_{tk}$}  \label{alg:computeS16}
+				\State $values_{tk} \leftarrow values_k$ des Zielbereichs \Comment{$dim_{tk}$}
+			\EndFor
+		\EndFor
+		\State{Konstruktion des Teilkachelobjekts $tk_{t, pos\_tk, b}$ mit Attributen $Attr_{tk}$, $pos_{tk}$, $values_{tk}$} \Comment{1}
+	\EndFor
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+Kompl.A. für flinkApprox
+
+Im Gegensatz zu den Flink-Varianten besteht das Python-Programm lediglich aus einem Algorithmus zum konstruieren und approximieren von Pixelzeitreihen. Dieser ist in Algorithmus~\ref{alg:python} angegeben. Der Algorithmus ist dabei in drei Phasen $ph_1, ph_2$ und $ph_3$ eingeteilt, die hintereinander ausgeführt werden. Die erste Phase dient lediglich dazu die Pixelzeitreihendatenstruktur in Form von verketteten Listen bzw. Sets zu konstruieren. Da für jeden Pixel $px_{x, y, b}$ eine Pixelzeitreihe in konstanter Zeit konstruiert wird, gilt  
+
+\begin{equation} \label{eq:complexityPython1}
+f(ph_1) \in \mathcal{O}(n_B * n_x * n_y).
+\end{equation}
+
+
+In der zweiten Phase werden die Pixelzeitreihen mit den entsprechenden Vegetationsindexwerten $v_{pos\_px, t, b}$ in konstanter Zeit befüllt. Dies geschieht nicht nur für jeden Pixel eines Bandes sondern für jeden Pixel $px_{x, y, b, t}$ einer jeden Szene $s_{t, b} \in S_b \forall b \ in B$. Somit beträgt die Komplexität für Phase 2 
+ 
+\begin{equation} \label{eq:complexityPython2}
+f(ph_2) \in \mathcal{O}(n_B * n_s * n_x * n_y).
+\end{equation}
+ 
+In der dritten Phase werden schließlich die konstruierten und befüllten Pixelzeitreihen mittels der Support Vektor Regression analysiert. Dazu wird zunächst mithilfe der drei Schleifen in den Zeilen~\ref{alg:iterB} bis \ref{alg:iterY} über alle Pixelzeitreihen iteriert. In Zeile~\ref{alg:iterPTS} werden alle nicht validen Werte aus der Pixelzeitreihe entfernt, da sie sonst die Analyse verfälschen könnten. Da das Entfernen der Werte eine Zeitkomplexität von $\mathcal{O}(n)$ aufweist, wird stattdessen ein neues Array aus validen Werten konstruiert, da für die Anfügen-Operation $\mathcal{O}(1)$ gilt. Somit gilt für diese Schleife eine Gesamtkomplexität von $\mathcal{O}(n_s)$, da die Anzahl der Werte in der Pixelzeitreihe maximal der Anzahl der Szenen entspricht. Im Gegensatz dazu verfügt die Regressionsfunktion in Zeile~\ref{alg:regression} über eine Komplexität von $n_s * n_s^3$. \textcolor{red}{Bei Analyse der Java Kompl. erklären}. Demzufolge ergibt sich nach der Verkettung der Komplexitäten der Zeilen~\ref{alg:iterB} bis \ref{alg:regression} eine Komplexität für Phase 3 von 
+
+\begin{equation} \label{eq:complexityPython3}
+f(ph_3) \in \mathcal{O}(n_b * n_x * n_y * (n_s + n_s * n_s^3)) = \mathcal{O}(n_b * n_x * n_y * n_s^4)).
+\end{equation}
+
+\begin{equation} \label{eq:complexityPython4}
+f(ph_1) \in \mathnormal{o}(f(ph_2)) \in \mathnormal{o}(f(ph_3))
+\end{equation}
+
+Da sich aus den Komplexitäten,die in den Gleichungen~\ref{eq:complexityPython1}, \ref{eq:complexityPython2} und \ref{eq:complexityPython3} angegeben sind, gemäß Gleichung~\ref{eq:complexityPython4} ergibt, dass $f(ph_3$) die größte Komplexität besitzt, reicht diese aus, um die Komplexität des gesamten Python-Programms zu beschreiben.
+
+\begin{algorithm}[H]
+\small
+\caption{Python-Algorithmus zur Konstruktion und Approximierung von Pixelzeitreihen $PTS_{pos, b}$}
+\label{alg:python}
+\begin{algorithmic}[1]
+\Function{CutTileIntoSubtiles}{$S, G$}
+	\State \textbf{input:} $n_B$ Gruppen von Szenen $s_{t, b} \in S_{b} | b \in B$, $dim_K$
+	\State \textbf{output:} To be specified
+	%\State 
+	%\ForAll{$b \in B$} \Comment{$n_B$}
+        	%	\ForAll{$x \in dim_K$} \Comment{$dim_K$} \label{alg:iterS}
+	%		\ForAll{$y \in dim_K$} \Comment{$dim_K$} \label{alg:iterS}
+	%			\State $pos\_px \leftarrow x, y$  \Comment{1}
+	%			\State Konstruiere Pixelzeitreihe $pts_{pos\_px, b}$  \Comment{1}
+	%		\EndFor
+	%	\EndFor
+	%\EndFor
+	%\ForAll{$b \in B$} \Comment{$n_B$}
+	%	\ForAll{$s_{t, b} \in S_b$} \Comment{$n_S$}
+        	%		\ForAll{$x \in dim_K$} \Comment{$dim_K$} \label{alg:iterS}
+	%			\ForAll{$y \in dim_K$} \Comment{$dim_K$} \label{alg:iterS}
+	%				\State $pos \leftarrow x, y$  \Comment{1}
+	%				\State Füge Wert $v_{pos\_px, t, b}$ in $pts_{pos\_px, b}$ ein  \Comment{1}
+	%			\EndFor
+	%		\EndFor
+	%	\EndFor
+	%\EndFor
+	\LineComment{Iteriere über jede Pixelzeitreihe}
+	\ForAll{$b \in B$} \Comment{$n_B$} \label{alg:iterB}
+        		\ForAll{$x \in dim_K$} \Comment{$dim_K$} \label{alg:iterX}
+			\ForAll{$y \in dim_K$} \Comment{$dim_K$} \label{alg:iterY}
+				\State $pos \leftarrow x, y$  \Comment{1}
+				\LineComment{Konstruiere valide Arrays zur Berechnung der Analyse}
+				\ForAll{$v_{pos\_px, t, b}$ in $pts_{pos\_px, b}$} \Comment{$n_S$} \label{alg:iterPTS}
+					\State Entferne ungültige Werte $v_{pos\_px, t, b}$ aus $pts_{pos\_px, b}$ ein  \Comment{1}
+				\EndFor
+				\State Führe die Regressionsanalyse für $pts_{pos\_px, b}$ aus \Comment{$n_s * n_s^3$} \label{alg:regression}
+			\EndFor
+		\EndFor
+	\EndFor
+		
+		\State{Konstruktion des Teilkachelobjekts $tk_{t, pos\_tk, b}$ mit Attributen $Attr_{tk}$, $pos_{tk}$, $values_{tk}$} \Comment{1}
+	\EndFunction
+\end{algorithmic}
+\end{algorithm}
 
 \section{Umsetzung des Algorithmus mit Apache Flink}
 \label{sec:ImplementationFlinkDescription}
@@ -398,11 +506,13 @@ Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die N
 
 Ein bedeutender Unterschied zwischen der Java- und der Python-Programmierschnittstelle ist die unterschiedliche Art des effizienten Speicherns von Objekten. Flink Java-Objekte werden mithilfe eingebauter Serialisierer beziehungsweise durch die Nutzung von Kryo in Byte Arrays umgewandelt, um die angelegten Objekte effizient im Speicher zu halten. Für Python-Objekte müssen hingegen für jedes Objekt eigene Serialisierer implementiert werden, die die Python-Objekte in Java-Objekte umwandeln. Dieser werden von Flink dann entsprechend serialisiert. Entgegen der Spracheigenschaft von Python, die eine dynamische Typisierung von Variablen vorsieht, müssen bei der Serialisierung alle Attribute der Objekte statisch typisiert sein. Auf diese Weise wird den Attributen eine Typinformation beigefügt, die es Flink erlaubt den Datentyp des Attributes zu erkennen. Basierend auf dieser Typinformation weist Flink bei der Speicherung der Daten jedem Attribut Speicherplatz in der dem Datentyp entsprechenden Größe zu. Da von der Python-Schnittstelle zur Zeit lediglich die Datentypen Integer, Float, Boolean, String sowie Byte Arrays unterstützt werden, müssen andere Datentypen vor der Serialisierung in akzeptierte Typen umgewandelt werden. Des weiteren muss für jeden Serialisierer auch ein Deserialisierer vorhanden sein, der die Java-Objekte wieder in Python-Objekte transformiert.
 
-Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Teile der Implementation in C statt in Python zu implementieren. Diese werden vom Python-Interpreter erkannt und direkt in C ausgeführt, was die Verarbeitungsgeschwindigkeit dieses Teils des Algorithmus steigern kann. Dementsprechend sind einige Teile der für die Regression genutzten Python-Bibliotheken NumPy und SciPy in C geschrieben und lediglich in Python eingebettet. Damit ermöglicht Python die Nutzung von Algorithmen, die möglicherweise schneller ausgeführt werden können als die entsprechenden Java-Implementationen. Dies ist nicht zwangsweise der Fall, da Java Just-in-time- Kompilierung unterstützt, das während der Ausführung der Java-Implementation Optimierungspotenzial durch Caching und ähnliche Techniken erkennt und entsprechend nutzt. Es soll Ziel der Untersuchungen dieser Bachelorarbeit sein, welche Variante bei der Anwendung des in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus schneller ausgeführt wird.
+Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Programmteile direkt in C auszuführen, was die Verarbeitungsgeschwindigkeit der betreffenden Teile des Algorithmus steigern kann. Dementsprechend wird unter anderem für die Regression die Python-Bibliothek NumPy genutzt, die in C geschrieben und lediglich in Python eingebettet ist. Es ist jedoch nicht sicher, ob dies ausreicht, um den Algorithmus schneller auszuführen als die entsprechenden Java-Implementation, da diese die Just-in-time- Kompilierung unterstützt, die während der Ausführung eines Java-Programms Optimierungspotenzial durch Caching und ähnliche Techniken erkennt und entsprechend nutzt. Es soll Ziel der Untersuchungen dieser Bachelorarbeit sein, welche Variante bei der Anwendung des in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus schneller ausgeführt wird.
 
-Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der Java- bzw. der Python-Programmierschnittstelle wird eine weitere Implementierung in Python betrachtet. Die Implementation besitzt dabei die in Sektion~\ref{sec:Python} beschriebenen Vor- und Nachteile eines Python-Programms. Zwar lässt sich der Analysealgorithmus mithilfe von effizient umgesetzten Bibliotheken so umsetzen, dass die Berechnungszeit auf sequentiell arbeitenden Maschinen gut ist. Jedoch lässt sich das Programm nicht automatisiert parallelisieren, so dass der Algorithmus bei zunehmenden Datenmengen nur schlecht skaliert. 
-Aufgrund der Charakteristika der Problemstellung, die eine Aggregation von Satellitenbildern fordert, wobei die Anzahl der Szenen sich fortlaufend erhöht und auch die Größe der Zielregion variabel ist, ist die mangelnde Parallelisierbarkeit problematisch. Vermutlich ist die Laufzeit des Algorithmus akzeptabel, solange die Eingabedatengröße die Größe des verfügbaren Hauptspeichers nicht überschreitet. Ist dies jedoch der Fall, verringert sich die Verarbeitungsgeschwindigkeit des Algorithmus, da die Eingabedaten direkt von einem langsameren Speicher als dem Hauptspeicher wie zum Beispiel einer Festplatte gelesen werden müssen. 
-\newline
+Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der Java- bzw. der Python-Programmierschnittstelle wird eine weitere Implementierung in Python betrachtet. Ähnlich wie die PyFlink-Variante besitzt diese die in Sektion~\ref{sec:Python} beschriebenen Vor- und Nachteile eines Python-Programms. Aufgrund der mangelnden Parallelisierbarkeit dieser Implementationsvariante nutzt sie auch eine reduzierte Version des Algorithmus. Aus den eingelesenen Szenen werden für jedes Spektralband $b_i \in B $ lediglich die Kacheln $k_{t, b} \in K_{b}$ ausgeschnitten, die den Zielbereich abbilden. Eine weitere Unterteilung in Teilkacheln erfolgt nicht, da diese bei einer sequentiellen Verarbeitung des Programms keinen Nutzen hätten. Zusätzlich würde die Schneidefunktion die Verarbeitungszeit des Algorithmus erhöhen, so dass sie sich letztendlich nachteilig auswirken würde. Da also der gesamte Zielbereich aus $n_B$ Kachelgruppen $K_b$ besteht, wird der Analysealgorithmus auf diese angewendet.
+
+%Jedoch lässt sich das Programm nicht automatisiert parallelisieren, so dass der Algorithmus bei zunehmenden Datenmengen nur schlecht skaliert. 
+
+%Aufgrund der Charakteristika der Problemstellung, die eine Aggregation von Satellitenbildern fordert, wobei die Anzahl der Szenen sich fortlaufend erhöht und auch die Größe der Zielregion variabel ist, ist die mangelnde Parallelisierbarkeit problematisch. Vermutlich ist die Laufzeit des Algorithmus akzeptabel, solange die Eingabedatengröße die Größe des verfügbaren Hauptspeichers nicht überschreitet. Ist dies jedoch der Fall, verringert sich die Verarbeitungsgeschwindigkeit des Algorithmus, da die Eingabedaten direkt von einem langsameren Speicher als dem Hauptspeicher wie zum Beispiel einer Festplatte gelesen werden müssen. 
 %Bei der Analyse von Satellitenbildern sind die Merkmale Datengröße und Datenkomplexität sowie die schnelle Verarbeitung der Daten von Bedeutung. Abhängig von der Anzahl der genutzten Bilder sind die zu verarbeitenden Datenmengen sehr groß. Ein Bild besitzt im Regelfall abhängig vom Satellitenmodell, das die Aufnahme gemacht hat, eine Größe von 750 Megabyte bis zu 1,5 Gigabyte. Um eine Entwicklung zu untersuchen werden jedoch viele dieser Bilder in die Untersuchung mit einbezogen, so dass die zu verarbeitende Datenmenge kontinuierlich ansteigt. Dieser kontinuierliche Anstieg entsteht dadurch, dass aktuell mehrere Satelliten mit der Fernerkundung der Erde fortfahren und so in kurzen Intervallen neue Bilder zur Verfügung stehen, die im Rahmen der Analyse verwendet werden sollen. \textcolor{green}{Quelle}.
 
 %----------------------------------------------------------------------------------
@@ -428,10 +538,20 @@ Testsystem beschreiben
 
 Der komplette Datensatz, auf den die Implementationsvarianten angewendet werden, ist circa 242 Gigabyte groß und beinhaltet 373 Szenen. Dieser besteht aus Satellitenbildern, die von Landsat-Satelliten aufgenommen wurden und eine geographische Region in Brasilien abbilden. Die Nord-Süd-Ausdehnung der Region beträgt circa 1 Längengrad, also in etwa 211 Kilometer, die Ost-West-Ausdehnung circa 2 Breitengrade beziehungsweise circa 235 Kilometer. Insgesamt beinhaltet eine Szene aus dem Testdatensatz also eine Fläche von annähernd 50000 Quadratkilometern. Diese werden durch circa 8000 Pixel in der Breite und circa 7200 Pixel in der Länge dargestellt, wobei ein Pixel eine quadratische Fläche von 30 Metern Kantenlänge abbildet. Die Zeitstempel der Szenen reichen von Juni 1984 bis Dezember 2013. Alle Szenen enthalten jeweils die Daten der Spektralbänder 1, 2, 3, 4, 5 und 7.
 
-Im Rahmen der Tests, die zur Evaluierung der Skalierbarkeit und der Ausführungsgeschwindigkeit durchgeführt werden, erhält jede Implementationsvariante den gesamten Testdatensatz als Eingabedatenmenge. Die in Tabelle~\ref{tab:descriptionTestSetting} beschriebenen Testkonfigurationen zeigen die weiteren Parameter Kachelkantenlänge $dim_K$  und Teilkachelkantenlänge $dim_{TK}$. Durch die Variation von $dim_K$ kann die Größe des zu analysierenden Zielbereichs variiert werden. $dim_{TK}$ bestimmt die Anzahl der Teilkacheln $n_{TK}$ und in der Folge den möglichen Grad der Parallelisierbarkeit. Da $dim_{TK} \leq dim_K$, muss $n_{TK}$ im Intervall $1 \leq n_{TK} \leq dim_K$ liegen. 
+Im Rahmen der Tests, die zur Evaluierung der Skalierbarkeit und der Ausführungsgeschwindigkeit durchgeführt werden, erhält jede Implementationsvariante den gesamten Testdatensatz als Eingabedatenmenge. Die in Tabelle~\ref{tab:descriptionTestSetting} beschriebenen Testkonfigurationen zeigen die weiteren Parameter Kachelkantenlänge $dim_K$  und Teilkachelkantenlänge $dim_{TK}$ für die parallelisierten Implementationsvarianten. Durch die Variation von $dim_K$ kann die Größe des zu analysierenden Zielbereichs verändert werden. $dim_{TK}$ bestimmt bei festem $dim_K$ die Anzahl der Teilkacheln $n_{TK}$ entsprechend der Formel~\ref{eq:numberOfSubtiles} und in der Folge den möglichen Grad der Parallelisierbarkeit. Da $dim_{TK} \leq dim_K$, muss $n_{TK}$ im Intervall $1 \leq n_{TK} \leq dim_K$ liegen. 
 
-Aufgrund der oben genannten Limitierung der Referenzhardware auf 144 TaskManager sollten mindestens 144 parallel ausgeführte Operationen angestrebt werden. Ist der Grad der Parallelisierbarkeit niedriger gewählt, bleiben möglicherweise Rechenkapazitäten ungenutzt. Da die Anzahl der parallelisierbaren Instanzen der GroupReduce-Funktion zur Konstruktion der Pixelzeitreihen und der Approximierung dieser über die Anzahl der Teilkacheln festgelegt wird, sollte die Teilkachelkantenlänge $dim_{TK}$ passend gewählt werden.
+Aufgrund der oben genannten Limitierung der Referenzhardware auf 144 TaskManager sollten mindestens 144 parallel ausgeführte Operationen angestrebt werden. Ist der Grad der Parallelisierbarkeit niedriger gewählt, bleiben möglicherweise Rechenkapazitäten ungenutzt. Da die Anzahl der parallelisierbaren Instanzen der GroupReduce-Funktion zur Konstruktion der Pixelzeitreihen und der zugehörigen Approximierung über die Anzahl der Teilkacheln $n_{TK}$ festgelegt wird, sollte die Teilkachelkantenlänge $dim_{TK}$ passend gewählt werden.
 
+\begin{equation} \label{eq:numberOfSubtiles}
+n_{TK} = {dim_{K}^2} / {dim_{TK}^2}
+\end{equation}
+
+
+\textcolor{red}{Auf KomplAna verweisen}
+
+Für die nicht parallelisierte Implementation wird lediglich die Kachelkantenlänge $dim_K$ als Parameter zugelassen, da wie in Abschnitt~\ref{sec:Differences} beschrieben, auf die Zerteilung der Kacheln verzichtet wurde. \textcolor{red}{Auf KomplAna verweisen}
+
+Aufgrund des unterschiedlichen Funktionsumfangs und der damit einhergehenden ebenfalls unterschiedlichen Eingabeparameter sind streng genommen nur die PyFlink- und die Java-Flink-Varianten vergleichbar. Um einen Vergleich der Evaluationen der parallelisierten Implementationen und der Python-Variante zu ermöglichen, wurden auch die parallelisierten Varianten mit größeren Werten für $dim_K$ getestet. Im Gegensatz zu den in Tabelle~\ref{tab:descriptionTestSetting} aufgeführten Versuchen wurde jedoch jeweils eine theoretisch geeignete Subkachelkantenlänge gewählt. Aufgrund der 
 
 
 \begin{table}[position specifier]
