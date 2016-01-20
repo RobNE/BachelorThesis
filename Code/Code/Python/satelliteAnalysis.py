@@ -12,6 +12,9 @@ bands.append(cube1)
 dataset2 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack2.vrt"))
 cube2 = dataset2.ReadAsArray()
 bands.append(cube2)
+dataset3 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack3.vrt"))
+cube3 = dataset3.ReadAsArray()
+bands.append(cube3)
 
 numberOfDatasets = len(bands)
 
@@ -35,7 +38,7 @@ for band in bands:
             allPixelTimeSeries[pixelCoordinate] = pixelTimeSeries
     listOfBandTimeSeries.append(allPixelTimeSeries)
 
-xValues = [[] for i in range(cube1.shape[0])]
+xValues = [[i] for i in range(cube1.shape[0])]
 print("The empty timeSeries Creation is finished")
 print("Fill the timeSeries")
 
@@ -43,7 +46,6 @@ for band in xrange (0, numberOfDatasets):
     allPixelTimeSeries = listOfBandTimeSeries[band]
     for sceneIndex in xrange (0, cube1.shape[0]):
         scene = cube1[sceneIndex]
-        xValues[sceneIndex].append(sceneIndex)
         print ("The length of the scene (aka the count of rows):", len(scene))
         print ("The length of the scene content (aka the count of cols):", len(scene[sceneIndex]))
         for row in xrange(offSet, offSet + blockSize):
@@ -57,11 +59,13 @@ for band in xrange (0, numberOfDatasets):
                 currentPixelTimeSeries[sceneIndex] = pixelValue
 
 #print allPixelTimeSeries
-print ("The number of scenes:", len(listOfBandTimeSeries))
-print ("The number of pixelTimeSeriesPerScene:",len(listOfBandTimeSeries[1]))
+print ("The number of bands:", len(listOfBandTimeSeries))
+print ("The number of pixelTimeSeriesPerBand:",len(listOfBandTimeSeries[1]))
 print ("The xValues:",xValues)
 
 print ("The analysis starts")
+
+outputFile = open("pyPixelTimeSeriesSVR", "w")
 
 for band in xrange (0, numberOfDatasets):
     allPixelTimeSeries = listOfBandTimeSeries[band]
@@ -85,17 +89,23 @@ for band in xrange (0, numberOfDatasets):
                     del tempXValues[index]
             #print("The yValues:",yValues)
             #print("The tempXValues:",tempXValues)
-                
+            
+            coefficientsAsString = None
             if (len(tempXValues) > 0 and len(yValues) > 0):
-                svr = svm.SVR()
+                svr = svm.SVR(C=1, epsilon=0.1)
                 svr.fit(tempXValues, yValues)
+                coefficients = svr.dual_coef_
+                #print ("The coeffs:",coefficients)
+                coefficientsAsString = str(coefficients).strip('[]')
                 #print('svr-fit:')
                 #print('observed:', yValues)
                 #print('predicted:', svr.predict(tempXValues))
             #else:
                 #print("No sufficient number of values for a proper analysis")
+            result = (row, col, band, coefficientsAsString)
+            outputFile.write(str(result) + "\n")
 
-
+outputFile.close()
 
 print ("The analysis ended")
 

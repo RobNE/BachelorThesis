@@ -363,7 +363,7 @@ Der in Algorithmus~\ref{alg:cutAlgorithm} angegebene Schneidealgorithmus der bei
 \mathcal{O}(nr_{tk} * ns_{tk} * dim_{tk}^2) = \mathcal{O}(n_{tk} * dim_{tk}^2)
 \end{equation}
 
-wenn $nr_{tk} = ns_{tk}$ gilt. $nr_{tk} = ns_{tk}$ folgt aus der im vorigen Abschnitt beschrieben Vorgabe, dass sowohl die Kacheln als auch die Teilkacheln quadratisch sein müssen. Da der Algorithmus für jede Kachel ausgeführt wird, hat die Anzahl der Kacheln keine Bedeutung bezüglich der Komplexität, für die Bestimmung der Komplexität des gesamten Programms wird diese jedoch eine Rolle spielen.
+wenn $nr_{tk} = ns_{tk}$ gilt. $nr_{tk} = ns_{tk}$ folgt aus der im vorigen Abschnitt beschrieben Vorgabe, dass sowohl die Kacheln als auch die Teilkacheln quadratisch sein müssen. 
 
 \begin{algorithm}[H]
 \small
@@ -375,7 +375,7 @@ wenn $nr_{tk} = ns_{tk}$ gilt. $nr_{tk} = ns_{tk}$ folgt aus der im vorigen Absc
 	\State \textbf{output:} $n_{tk}$ Teilkacheln $tk_{t, pos\_tk, b} \in TK_{pos\_tk, b}$
 	\LineComment{Gruppiere alle Szenen gemäß dem Aufnahmezeitpunkt}
 	\State Berechne $nr_{tk}$ als Anzahl der Teilkacheln pro Reihe $r \in R$ von $k_{t, b}$ \Comment{1} \label{alg:calcNR}
-	\State Berechne $ns_{tk}$ als Anzahl der Teilkacheln pro Spalte $s \in S$ von $k_{t, b}$ \Comment{1} \label{alg:calcNR}
+	\State Berechne $ns_{tk}$ als Anzahl der Teilkacheln pro Spalte $s \in S$ von $k_{t, b}$ \Comment{1} \label{alg:calcNS}
 	\LineComment{Iteriere über alle Teilkacheln der Kachel}
 	\ForAll{$r_k \in R$} \Comment{$nr_{tk}$} \label{alg:iterR}
         		\ForAll{$s_k \in S$} \Comment{$ns_{tk}$} \label{alg:iterS}
@@ -393,7 +393,11 @@ wenn $nr_{tk} = ns_{tk}$ gilt. $nr_{tk} = ns_{tk}$ folgt aus der im vorigen Absc
 \end{algorithmic}
 \end{algorithm}
 
-Kompl.A. für flinkApprox
+Nachdem die Kacheln in Teilkacheln geschnitten wurden, werden diese in Gruppen zusammengefasst und nach Aufnahmezeitpunkt sortiert. Das Gruppieren von $n_{tk}$ Teilkacheln ist in $\mathcal{O}(n_{tk})$ möglich, für das Sortieren nutzt Flink eine Quicksort-Implementation. Obwohl die Komplexität von Quicksort $\mathcal{O}(n^2)$ beträgt, kann stattdessen von $\mathcal{O}(n*(log(n)))$ ausgegangen werden, da Flink einen Heapsort-Algorithmus verwendet, wenn die Nutzung des QuickSort-Algorithmus zu viele Rekursionen verursacht. 
+
+Nachdem die Teilkacheln gruppiert und sortiert vorliegen, können sie mithilfe des in Algorithmus~\ref{alg:regressionFlink} angegebenen Algorithmus zu Zeitreihen transformiert und dann analysiert werden.
+
+
 
 Im Gegensatz zu den Flink-Varianten besteht das Python-Programm lediglich aus einem Algorithmus zum konstruieren und approximieren von Pixelzeitreihen. Dieser ist in Algorithmus~\ref{alg:python} angegeben. Der Algorithmus ist dabei in drei Phasen $ph_1, ph_2$ und $ph_3$ eingeteilt, die hintereinander ausgeführt werden. Die erste Phase dient lediglich dazu die Pixelzeitreihendatenstruktur in Form von verketteten Listen bzw. Sets zu konstruieren. Da für jeden Pixel $px_{x, y, b}$ eine Pixelzeitreihe in konstanter Zeit konstruiert wird, gilt  
 
@@ -418,7 +422,7 @@ f(ph_3) \in \mathcal{O}(n_b * n_x * n_y * (n_s + n_s * n_s^3)) = \mathcal{O}(n_b
 f(ph_1) \in \mathnormal{o}(f(ph_2)) \in \mathnormal{o}(f(ph_3))
 \end{equation}
 
-Da sich aus den Komplexitäten,die in den Gleichungen~\ref{eq:complexityPython1}, \ref{eq:complexityPython2} und \ref{eq:complexityPython3} angegeben sind, gemäß Gleichung~\ref{eq:complexityPython4} ergibt, dass $f(ph_3$) die größte Komplexität besitzt, reicht diese aus, um die Komplexität des gesamten Python-Programms zu beschreiben.
+Da sich aus den Komplexitäten,die durch die Gleichungen~\ref{eq:complexityPython1}, \ref{eq:complexityPython2} und \ref{eq:complexityPython3} angegeben sind, gemäß Gleichung~\ref{eq:complexityPython4} ergibt, dass $f(ph_3$) die größte Komplexität besitzt, reicht diese aus, um die Komplexität des gesamten Python-Programms zu beschreiben.
 
 \begin{algorithm}[H]
 \small
