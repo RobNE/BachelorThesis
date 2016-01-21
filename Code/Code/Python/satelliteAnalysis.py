@@ -9,12 +9,12 @@ bands = []
 dataset1 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack1.vrt"))
 cube1 = dataset1.ReadAsArray()
 bands.append(cube1)
-dataset2 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack2.vrt"))
-cube2 = dataset2.ReadAsArray()
-bands.append(cube2)
-dataset3 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack3.vrt"))
-cube3 = dataset3.ReadAsArray()
-bands.append(cube3)
+#dataset2 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack2.vrt"))
+#cube2 = dataset2.ReadAsArray()
+#bands.append(cube2)
+#dataset3 = driver.CreateCopy('', gdal.Open("/Users/rellerkmann/Desktop/Bachelorarbeit/Bachelorarbeit/BachelorThesis/Code/Data/gms_sample/stack3.vrt"))
+#cube3 = dataset3.ReadAsArray()
+#bands.append(cube3)
 
 numberOfDatasets = len(bands)
 
@@ -46,8 +46,8 @@ for band in xrange (0, numberOfDatasets):
     allPixelTimeSeries = listOfBandTimeSeries[band]
     for sceneIndex in xrange (0, cube1.shape[0]):
         scene = cube1[sceneIndex]
-        print ("The length of the scene (aka the count of rows):", len(scene))
-        print ("The length of the scene content (aka the count of cols):", len(scene[sceneIndex]))
+        #print ("The length of the scene (aka the count of rows):", len(scene))
+        #print ("The length of the scene content (aka the count of cols):", len(scene[sceneIndex]))
         for row in xrange(offSet, offSet + blockSize):
             #print ("This is the row:",scene[row])
             for col in xrange(offSet, offSet + blockSize):
