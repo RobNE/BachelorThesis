@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  21 JAN 2016 05:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  24 JAN 2016 01:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1251,6 +1251,11 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count159
+\c@subtable=\count160
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
@@ -1325,7 +1330,7 @@ fillbetween.code.tex
 s/tikzlibraryintersections.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryinterse
 ctions.code.tex
-\pgf@intersect@solutions=\count159
+\pgf@intersect@solutions=\count161
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrary
 decorations.softclip.code.tex
@@ -1333,25 +1338,50 @@ decorations.softclip.code.tex
 illbetween.code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_pgflibraryintersections.code.tex
-\pgf@intersect@solutions=\count160
+\pgf@intersect@solutions=\count162
 ))
 Package pgfplots: loading complementary 'name path' implementation for your pgf
  version...
 )
-\c@theorem=\count161
-\c@lemma=\count162
-\c@definition=\count163
-\c@beispiel=\count164
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfplotscompatib/ti
+kzlibrarydateplot.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
+ts.dateplot.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.
+tex
+File: pgfcalendar.code.tex 2007/07/23 v3.0.0 (rcs-revision 1.11)
+\pgfcalendarcurrentjulian=\count163
+))))
+\c@theorem=\count164
+\c@lemma=\count165
+\c@definition=\count166
+\c@beispiel=\count167
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
  (./main.aux (./title.aux) (./inhalt.aux
 
-LaTeX Warning: Label `eq:numberOfSubsceneGroups' multiply defined.
-
-
 LaTeX Warning: Label `alg:iterY1' multiply defined.
+
+
+LaTeX Warning: Label `tab:descriptionTestSetting' multiply defined.
+
+
+LaTeX Warning: Label `fig:diagrammDimtk' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:diagrammDimtk' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
 
 ) (./statement.aux))
 \openout1 = `main.aux'.
@@ -1379,16 +1409,16 @@ LaTeX Font Info:    ... okay on input line 101.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count165
+\scratchcounter=\count168
 \scratchdimen=\dimen206
 \scratchbox=\box73
-\nofMPsegments=\count166
-\nofMParguments=\count167
+\nofMPsegments=\count169
+\nofMParguments=\count170
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count168
+\MPscratchCnt=\count171
 \MPscratchDim=\dimen207
-\MPnumerator=\count169
-\makeMPintoPDFobject=\count170
+\MPnumerator=\count172
+\makeMPintoPDFobject=\count173
 \everyMPtoPDFconversion=\toks49
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
@@ -1474,34 +1504,36 @@ File: picture/map_reduce_system_example.png Graphic file (type png)
 
 <use picture/map_reduce_system_example.png>
 Package pdftex.def Info: picture/map_reduce_system_example.png used on input li
-ne 92.
+ne 93.
 (pdftex.def)             Requested size: 384.10959pt x 275.67262pt.
  [8 <./picture/map_reduce_system_example.png>] [9] <picture/flink_operators.png
 , id=66, 831.105pt x 133.2177pt>
 File: picture/flink_operators.png Graphic file (type png)
 
 <use picture/flink_operators.png>
-Package pdftex.def Info: picture/flink_operators.png used on input line 136.
+Package pdftex.def Info: picture/flink_operators.png used on input line 137.
 (pdftex.def)             Requested size: 384.10959pt x 61.56952pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10]
-<picture/flink_job_and_execution_graph.png, id=71, 864.22874pt x 544.0325pt>
+ [10 <./picture/flink_operators.png>]
+<picture/flink_job_and_execution_graph.png, id=72, 864.22874pt x 544.0325pt>
 File: picture/flink_job_and_execution_graph.png Graphic file (type png)
 
 <use picture/flink_job_and_execution_graph.png>
 Package pdftex.def Info: picture/flink_job_and_execution_graph.png used on inpu
-t line 168.
+t line 169.
 (pdftex.def)             Requested size: 384.10959pt x 241.79901pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./picture/flink_operators.png>] [12 <./picture/flink_job_and_execution_gra
-ph.png>] [13] [14]
+[11] [12 <./picture/flink_job_and_execution_graph.png>] [13] [14]
 Kapitel 3.
+
+LaTeX Warning: Reference `tab:notation' on page 15 undefined on input line 211.
+
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [15
 
 ] (./DataCubeSlicedImage.tex)
@@ -1510,7 +1542,7 @@ File: DataCubeSlicedImage.tex Graphic file (type tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+Underfull \hbox (badness 10000) in paragraph at lines 271--274
 
  []
 
@@ -1519,49 +1551,93 @@ Underfull \vbox (badness 1509) has occurred while \output is active []
 
  [18]
 [19]
-Overfull \hbox (1.38411pt too wide) in paragraph at lines 396--397
-\T1/cmr/m/n/10 den, da Flink einen Heapsort-Algorithmus ver-wen-det, wenn die N
-ut-zung des QuickSort-Algorithmus
- []
-
-
-Underfull \vbox (badness 1721) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
 
-LaTeX Warning: Reference `normalizeY' on page 21 undefined on input line 410.
+LaTeX Warning: Reference `normalizeY' on page 21 undefined on input line 446.
+
+[21]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+Underfull \vbox (badness 2142) has occurred while \output is active []
+
+ [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+[25] (./algorithmOperators.tex)
+File: algorithmOperators.tex Graphic file (type tex)
 
 
-Overfull \hbox (17.3817pt too wide) in paragraph at lines 412--413
-\OML/cmm/m/it/10 n[]amples[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 be-trägt. Da in u
-n-se-rem Fall $\OML/cmm/m/it/10 n[]eatures \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 n
-[]amples \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 n[]k$\T1/cmr/m/n/10 , gilt $\OMS/cm
-sy/m/n/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]eatures \OMS/cmsy/m/n/10 ^^C \O
-ML/cmm/m/it/10 n[]amples[]\OT1/cmr/m/n/10 ) =
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[26] [27] [28]
+Kapitel 4.
+[29
+
+] [30]
+
+LaTeX Warning: Reference `sec:complexityAnalysis' on page 31 undefined on input
+ line 660.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
+Overfull \hbox (28.76114pt too wide) in paragraph at lines 726--727
+ [][] 
  []
 
-[21] [22] [23] [24] (./algorithmOperators.tex)
-File: algorithmOperators.tex Graphic file (type tex)
- [25] [26]
-Kapitel 4.
-[27
 
-] [28] [29]
+Package pgfplots Warning: Axis range for axis x is approximately empty; enlargi
+ng it (it is [1.0000000000:1.0000000000]) on input line 742.
+
+ [warning /pgfplots/warning/approx empty range enlarged]
+
+Overfull \hbox (36.89195pt too wide) in paragraph at lines 743--744
+ [][] 
+ []
+
+[32]
+
+Package pgfplots Warning: the current plot has no coordinates (or all have been
+ filtered away) on input line 785.
+
+ [warning /pgfplots/warning/plot without coordinates]
+
+Package pgfplots Warning: Axis range for axis x is approximately empty; enlargi
+ng it (it is [3.0000000000:3.0000000000]) on input line 790.
+
+ [warning /pgfplots/warning/approx empty range enlarged]
+
+Overfull \hbox (39.39134pt too wide) in paragraph at lines 791--792
+ [][] 
+ []
+
+
+Overfull \hbox (28.76114pt too wide) in paragraph at lines 807--808
+ [][] 
+ []
+
+[33] [34]
 Kapitel 5.
-) [30
+) [35
 
 ] (./main.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 36.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [31
+) [36
 
 
-] [32] [33]) [34]
+] [37] [38]) [39] [40
+
+]
 \openout2 = `statement.aux'.
 
- (./statement.tex) [35
-
+ (./statement.tex) [41
 
 ] (./main.aux (./title.aux)
 (./inhalt.aux) (./statement.aux))
@@ -1573,13 +1649,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 30569 strings out of 493117
- 727532 string characters out of 6135434
- 1109091 words of memory out of 5000000
- 33332 multiletter control sequences out of 15000+600000
+ 30844 strings out of 493117
+ 734408 string characters out of 6135434
+ 1118044 words of memory out of 5000000
+ 33592 multiletter control sequences out of 15000+600000
  28880 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,19n,104p,2264b,2241s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,19n,104p,2345b,2243s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1617,10 +1693,10 @@ super/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-su
 per/sfti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-supe
 r/sftt1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/
 sfxc1200.pfb>
-Output written on main.pdf (38 pages, 1151623 bytes).
+Output written on main.pdf (44 pages, 1168221 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
+ 309 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

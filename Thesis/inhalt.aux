@@ -15,13 +15,11 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \citation{DIN18716}
-\citation{Markham2004}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Grundlagen}{3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Grundlagen der Satellitenbildanalyse}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Fernerkundung mithilfe des Landsat-Satellitensystems}{3}}
-\citation{Chaudhary2011}
 \citation{Zhu2012}
 \citation{Zhu2012}
 \citation{Masek2008}
@@ -78,10 +76,10 @@
 \citation{Hueske2012}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Apache Flink}{10}}
 \newlabel{sec:ApacheFlink}{{2.2.3}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Funktionen zweiter Ordnung: (a) Map, (b) Reduce, (c) Cross, (d) Match und (e) CoGroup \cite  {Hueske2012}\relax }}{10}}
+\newlabel{graphicFlinkOperators}{{2.2}{10}}
 \citation{FlinkJobWebsite}
 \citation{FlinkJobWebsite}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Funktionen zweiter Ordnung: (a) Map, (b) Reduce, (c) Cross, (d) Match und (e) CoGroup \cite  {Hueske2012}\relax }}{11}}
-\newlabel{graphicFlinkOperators}{{2.2}{11}}
 \@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Formale Definition der Operatoren Map, Reduce, Cross, Match und CoGroup mit den Eingabedatenmengen \(\mathnormal  {R}\) = \([r_1,...,r_i,...,r_N]\), \(\mathnormal  {S}\) = \([s_1,...,s_i,...,s_N]\) und \(\mathnormal  {f}\) als UDF f\IeC {\"u}r die jeweilige Transformation. \cite  {Hueske2012}\relax }}{11}}
 \newlabel{tab:flinkOperatorsDefinition}{{2.1}{11}}
 \citation{Martelli2006}
@@ -97,6 +95,7 @@
 \citation{Gray1992}
 \citation{Chen2014}
 \citation{Baru2013}
+\citation{Amdahl1967}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Vergleichsmetriken}{13}}
 \newlabel{sec:Vergleichsmetriken}{{2.2.5}{13}}
 \citation{Basak2007}
@@ -109,11 +108,12 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}}
 \newlabel{sec:DescriptionOfTheAlgorithm}{{3.1}{15}}
 \gincltex@bb{DataCubeSlicedImage.tex}{0}{0}{270.79575}{278.91002}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{16}}
+\newlabel{tab:descriptionTestSetting}{{3.1}{16}}
 \newlabel{eq:numberOfSubsceneGroups}{{3.1}{16}}
-\newlabel{eq:numberOfSubsceneGroups}{{3.2}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Kacheln $k_{t, b} \in K$ mit gleicher Kantenl\IeC {\"a}nge $dim_k$, ausgeschnitten aus Szenen $s_t \in S$. Die Tupel geben die Position $pos\_tk$ der Teilkacheln $tk_{t, pos\_tk, b}$ der Kachel an und werden als Gruppenschl\IeC {\"u}ssel zum Gruppieren der Teilszenen verwendet.\relax }}{17}}
 \newlabel{fig:dataCubeSliced}{{3.1}{17}}
-\newlabel{eq:pixelTimeSeries}{{3.3}{17}}
+\newlabel{eq:pixelTimeSeries}{{3.2}{17}}
 \citation{Drucker97}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Analyse der Vegetationsver\IeC {\"a}nderung einer geographischen Region\relax }}{18}}
 \newlabel{alg:generalAlgorithm}{{1}{18}}
@@ -131,72 +131,89 @@
 \newlabel{alg:approxPixelTimeSeries}{{31}{18}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Support Vektor Regression}{18}}
 \newlabel{subsec:svr}{{3.1.1}{18}}
-\newlabel{eq:svrFormula}{{3.4}{18}}
-\newlabel{eq:minimizeW}{{3.5}{19}}
+\newlabel{eq:svrFormula}{{3.3}{18}}
+\newlabel{eq:minimizeW}{{3.4}{19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphische Darstellung der Berechnung der Distanz $\epsilon $ zwischen gemessenen und approximierten Werten\relax }}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse}{19}}
-\newlabel{sec:ComplexityAnalysis}{{3.1.2}{19}}
-\newlabel{eq:complexityCut}{{3.6}{20}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Algorithmus zum Zerschneiden einer Kachel $k_{t, b}$ in $n_{TK}$ Teilkacheln $tk_{t, pos\_tk, b}$\relax }}{20}}
-\newlabel{alg:cutAlgorithm}{{2}{20}}
-\newlabel{alg:calcNR}{{5}{20}}
-\newlabel{alg:calcNS}{{6}{20}}
-\newlabel{alg:iterR}{{8}{20}}
-\newlabel{alg:iterS}{{9}{20}}
-\newlabel{alg:setAttributes}{{10}{20}}
-\newlabel{alg:computeS16}{{14}{20}}
-\newlabel{eq:complexityJavaRegression1}{{3.7}{21}}
-\newlabel{eq:complexityJavaRegression2}{{3.8}{21}}
-\newlabel{eq:complexityJavaRegression3}{{3.9}{21}}
-\newlabel{eq:complexityJavaRegressionComb}{{3.10}{22}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Algorithmus zum Konstruieren und Analysieren von Pixelzeitreihen $pts_{pos\_tk}$ einer Gruppe von Teilkacheln $TK_{pos\_tk, b}$\relax }}{22}}
-\newlabel{alg:regressionAlgorithm}{{3}{22}}
-\newlabel{alg:constructPTS}{{5}{22}}
-\newlabel{alg:iterY1}{{6}{22}}
-\newlabel{alg:iterTK}{{11}{22}}
-\newlabel{alg:iterX1}{{12}{22}}
-\newlabel{alg:iterY1}{{13}{22}}
-\newlabel{alg:endIterTK}{{14}{22}}
-\newlabel{alg:iterPTSJava}{{19}{22}}
-\newlabel{alg:defineSVR}{{20}{22}}
-\newlabel{alg:normalizeY}{{21}{22}}
-\newlabel{alg:constructSVR}{{22}{22}}
-\newlabel{alg:executeRegression}{{23}{22}}
-\newlabel{eq:complexityFlinkComb}{{3.11}{22}}
-\newlabel{eq:complexityPython1}{{3.12}{23}}
-\newlabel{eq:complexityPython2}{{3.13}{23}}
-\newlabel{eq:complexityPython3}{{3.14}{23}}
-\newlabel{eq:complexityPython4}{{3.15}{23}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Python-Algorithmus zur Konstruktion und Approximierung von Pixelzeitreihen $PTS_{pos, b}$\relax }}{23}}
-\newlabel{alg:python}{{4}{23}}
-\newlabel{alg:iterB}{{5}{23}}
-\newlabel{alg:iterX}{{6}{23}}
-\newlabel{alg:iterY}{{7}{23}}
-\newlabel{alg:iterPTS}{{10}{23}}
-\newlabel{alg:regression}{{13}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{24}}
-\newlabel{sec:ImplementationFlinkDescription}{{3.2}{24}}
-\newlabel{eq:conditionXEqualsY}{{3.16}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse der parallelisierten Implementationen}{19}}
+\newlabel{sec:ComplexityAnalysisFlink}{{3.1.2}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Flink-Implementationen}{20}}
+\newlabel{eq:complexityCut}{{3.5}{20}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Algorithmus zum Zerschneiden einer Kachel $k_{t, b}$ in $n_{TK}$ Teilkacheln $tk_{t, pos\_tk, b}$\relax }}{21}}
+\newlabel{alg:cutAlgorithm}{{2}{21}}
+\newlabel{alg:calcNR}{{5}{21}}
+\newlabel{alg:calcNS}{{6}{21}}
+\newlabel{alg:iterR}{{8}{21}}
+\newlabel{alg:iterS}{{9}{21}}
+\newlabel{alg:setAttributes}{{10}{21}}
+\newlabel{alg:computeS16}{{14}{21}}
+\newlabel{eq:complexityJavaRegression1}{{3.6}{21}}
+\newlabel{eq:complexityJavaRegression2}{{3.7}{21}}
+\newlabel{eq:complexityJavaRegression3}{{3.8}{22}}
+\newlabel{eq:complexityJavaRegressionComb}{{3.9}{22}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Algorithmus zum Konstruieren und Analysieren von Pixelzeitreihen $pts_{pos\_tk}$ einer Gruppe von Teilkacheln $TK_{pos\_tk, b}$\relax }}{23}}
+\newlabel{alg:regressionAlgorithm}{{3}{23}}
+\newlabel{alg:constructPTS}{{5}{23}}
+\newlabel{alg:iterY1}{{6}{23}}
+\newlabel{alg:iterTK}{{11}{23}}
+\newlabel{alg:iterX1}{{12}{23}}
+\newlabel{alg:iterY1}{{13}{23}}
+\newlabel{alg:endIterTK}{{14}{23}}
+\newlabel{alg:iterPTSJava}{{19}{23}}
+\newlabel{alg:defineSVR}{{20}{23}}
+\newlabel{alg:normalizeY}{{21}{23}}
+\newlabel{alg:constructSVR}{{22}{23}}
+\newlabel{alg:executeRegression}{{23}{23}}
+\newlabel{eq:complexityFlinkComb}{{3.10}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Python-Implementation}{23}}
+\newlabel{eq:complexityPython1}{{3.11}{24}}
+\newlabel{eq:complexityPython2}{{3.12}{24}}
+\newlabel{eq:complexityPython3}{{3.13}{24}}
+\newlabel{eq:complexityPython4}{{3.14}{24}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Python-Algorithmus zur Konstruktion und Approximierung von Pixelzeitreihen $PTS_{pos, b}$\relax }}{25}}
+\newlabel{alg:python}{{4}{25}}
+\newlabel{alg:iterB}{{5}{25}}
+\newlabel{alg:iterX}{{6}{25}}
+\newlabel{alg:iterY}{{7}{25}}
+\newlabel{alg:iterPTS}{{10}{25}}
+\newlabel{alg:regression}{{13}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{25}}
+\newlabel{sec:ImplementationFlinkDescription}{{3.2}{25}}
 \gincltex@bb{algorithmOperators.tex}{0}{0}{353.12804}{509.02351}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus in Flink\relax }}{25}}
-\newlabel{fig:dataFlowAlgorithm}{{3.3}{25}}
+\newlabel{eq:conditionXEqualsY}{{3.15}{26}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{26}}
 \newlabel{sec:Differences}{{3.2.1}{26}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus in Flink\relax }}{27}}
+\newlabel{fig:dataFlowAlgorithm}{{3.3}{27}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{29}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{27}}
-\newlabel{sec:evaluationCriteria}{{4.1}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{28}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{29}}
-\newlabel{tab:descriptionTestSetting}{{4.1}{29}}
-\newlabel{eq:numberOfSubtiles}{{4.1}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{29}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluierungskriterien}{29}}
+\newlabel{sec:evaluationCriteria}{{4.1}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{30}}
+\newlabel{eq:numberOfSubtiles}{{4.1}{31}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{32}}
+\newlabel{tab:descriptionTestSetting}{{4.1}{32}}
+\newlabel{fig:diagrammDimtk}{{4.1a}{32}}
+\newlabel{sub@fig:diagrammDimtk}{{a}{32}}
+\newlabel{fig:sub2}{{4.1b}{32}}
+\newlabel{sub@fig:sub2}{{b}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A figure with two subfigures\relax }}{32}}
+\newlabel{fig:test}{{4.1}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{33}}
+\newlabel{fig:diagrammDimtk}{{4.2a}{34}}
+\newlabel{sub@fig:diagrammDimtk}{{a}{34}}
+\newlabel{fig:sub2}{{4.2b}{34}}
+\newlabel{sub@fig:sub2}{{b}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A figure with two subfigures\relax }}{34}}
+\newlabel{fig:test}{{4.2}{34}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{35}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{inhalt}{
-\setcounter{page}{31}
+\setcounter{page}{36}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -207,7 +224,7 @@
 \setcounter{part}{0}
 \setcounter{chapter}{5}
 \setcounter{section}{0}
-\setcounter{subsection}{0}
+\setcounter{subsection}{3}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -227,6 +244,8 @@
 \setcounter{ALG@tmpcounter}{0}
 \setcounter{algorithm}{4}
 \setcounter{currfiledepth}{0}
+\setcounter{subfigure}{2}
+\setcounter{subtable}{0}
 \setcounter{theorem}{0}
 \setcounter{lemma}{0}
 \setcounter{definition}{0}

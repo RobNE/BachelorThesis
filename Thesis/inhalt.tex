@@ -1,9 +1,9 @@
 \pagenumbering{arabic}
 \chapter{Einleitung}
-In den vergangenen Jahren war ein massiver Zunahme des generierten Datenaufkommens zu beobachten \cite{EMC2014}. Viele Projekte, Unternehmen und Institutionen haben Zugriff auf eine gewaltige Menge an Daten. Diese wächst immer schneller an. 2004 analysierte Google circa 100 Terabyte pro Tag \cite{Dean2004}. Bis zum Jahr 2008 war die täglich zu analysierende Datenmenge bereits auf 20 Petabyte angewachsen \cite{Dean2008}. Das Sloan Digital Sky Survey, das ein Viertel des Himmels astronomisch erkundet, hat seit 1998 insgesamt 116 Terabyte an astronomischen Daten gesammelt \cite{York2000, Alam2015}. Jede Nacht kommen circa 250 Gigabyte neu hinzu \textcolor{blue}{Quelle: Herr Prof. Freytags VL, dort angegebene Quelle ist offline. Wie angeben?}. Ein weiteres Beispiel ist das 1000 Genomes Project \cite{Baker2010}, das zwischen 2008 und 2013 insgesamt 464 Terabyte Daten zum menschlichen Genom sammelte. Insgesamt werden die Datenmengen weiter stark zunehmen, für das Jahr 2020 wird eine weltweites Datenaufkommen von 44 Zettabyte prognostiziert \cite{EMC2014}. 
+In den vergangenen Jahren war ein massiver Zunahme des generierten Datenaufkommens zu beobachten \cite{EMC2014}. Viele Projekte, Unternehmen und Institutionen haben Zugriff auf eine gewaltige Menge an Daten. Diese wächst immer schneller an. 2004 analysierte Google circa 100 Terabyte pro Tag \cite{Dean2004}. Bis zum Jahr 2008 war die täglich zu analysierende Datenmenge bereits auf 20 Petabyte angewachsen \cite{Dean2008}. Das Sloan Digital Sky Survey, das ein Viertel des Himmels astronomisch erkundet, hat seit 1998 insgesamt 116 Terabyte an astronomischen Daten gesammelt \cite{York2000, Alam2015}. Jede Nacht kommen circa 250 Gigabyte neu hinzu. Ein weiteres Beispiel ist das 1000 Genomes Project \cite{Baker2010}, das zwischen 2008 und 2013 insgesamt 464 Terabyte Daten zum menschlichen Genom sammelte. Insgesamt werden die Datenmengen weiter stark zunehmen, für das Jahr 2020 wird eine weltweites Datenaufkommen von 44 Zettabyte prognostiziert \cite{EMC2014}. 
 Diese Entwicklung offenbart diverse neue Herausforderungen bei der Speicherung, Verarbeitung und Analyse von Daten. Dabei spielt die möglichst schnelle Verarbeitung von stetig generierten Daten eine große Rolle. Diese muss im Gegensatz zur Verarbeitung bereits gespeicherter Daten abhängig vom aktuellen Datenaufkommen skalieren. Aktuelle Datenverarbeitungssysteme wie Apache Hadoop \cite{HadoopWebsite} und Apache Flink \cite{FlinkWebsite} bieten diese Möglichkeit der Datenflussanalyse und ermöglichen eine flexible Analyse der Daten. Kern dieser Systeme ist eine Implementierung des Map-Reduce Paradigmas \cite{Dean2008} sowie die Nutzung von \textit{User Defined Functions}. Diese ermöglichen eine parallele Abarbeitung von Arbeitsschritten in einem direkten, azyklischen Graphen. Der DAG wird zuvor aus dem vom User bereitgestellten Quellcode erzeugt. Die durch diese Architektur erreichbare, massiv parallelisierbare Ausführung der Datenanalyse ermöglicht die Nutzung von Clustern. Somit wird eine skalierbare Infrastruktur genutzt, die wiederum eine skalierte Nutzung der Datenverarbeitungssysteme ermöglicht. Diese Systeme können auch die weiterhin wichtige Nutzung und Analyse von bereits konsistent gespeicherten Daten unter Nutzung des parallelen Verarbeitungsansatzes durchführen. Dies ist insbesondere deshalb notwendig, da traditionelle Datenbanksysteme große Datenmengen nicht immer in akzeptabler Form und Verarbeitungszeit verarbeiten können \cite{Jacobs2009}.
 \newline
-Das Hauptproblem bei der Verarbeitung von großen Datenmengen auf einzelnen Maschinen entsteht, wenn die zu verarbeitende Datenmenge die Hauptspeichergröße übersteigt. In diesem Fall müssen die nicht in den Hauptspeicher speicherbaren Daten zur Verarbeitungszeit nachgeladen werden, was die Verarbeitungszeit aufgrund der unterschiedlichen Beschaffenheit der verschiedenen Speicherebenen extrem verlängert. Um diese "Speicherklippe" zu umgehen, werden zunehmend parallelisierbare Ansätze der Datenverarbeitung verfolgt.
+Das Hauptproblem bei der Verarbeitung von großen Datenmengen auf einzelnen Maschinen entsteht, wenn die zu verarbeitende Datenmenge die Hauptspeichergröße übersteigt. In diesem Fall müssen die nicht in den Hauptspeicher speicherbaren Daten zur Verarbeitungszeit nachgeladen werden, was die Verarbeitungszeit aufgrund der unterschiedlichen Beschaffenheit der verschiedenen Speicherebenen extrem verlängert. Um diese '"Speicherklippe"' zu umgehen, werden zunehmend parallelisierbare Ansätze der Datenverarbeitung verfolgt.
 Im Rahmen dieser Bachelorarbeit sollen demzufolge ein traditioneller und ein massiv parallelisierbarer Ansatz bei der Verarbeitung von großen Datenmengen untersucht werden. So soll eine Abschätzung der Leistungsfähigkeit, Vorteile und Nachteile beider Ansätze ermittelt werden. Der Vergleich beider Ansätze wird am Beispiel eines Algorithmus zur Approximierung von Pixelzeitreihen durchgeführt. Dieser wird im Rahmen des Projekts GeoMultiSens\cite{GeoMultiSensWebsite} zur Analyse der Veränderung der Flora in einer geographischen Region genutzt. Dabei werden durch Landsat-Satelliten Satellitenaufnahmen bereitgestellt, die nach der Aufbereitung durch vorgestellte Algorithmen ausschnittweise untersucht werden. Nach der Analyse werden anschließend mithilfe des Algorithmus auf Basis der approximierten Werte Prognosen zur weiteren Entwicklung der Flora der untersuchten Region gestellt. Dabei werden bei einer Analyse mehrere Szenenausschnitte derselben geographischen Region analysiert. Dabei müssen große Datenmengen verarbeitet werden, so dass sich die Nutzung eines aktuellen Datenverarbeitungssystems anbietet. Bei dieser Bachelorarbeit wird als Vertreter der massiv parallelisierbaren Datenverarbeitungssysteme Apache Flink genutzt.
 \newline
 Es werden drei unterschiedliche Implementierungen des Algorithmus untersucht, die sich hinsichtlich der eingesetzten Technologien und Programmiersprachen unterscheiden. Die zugrunde liegende Methodik, die der Algorithmus implementiert, ist bei allen untersuchten Varianten identisch. Als Basis wird die bereits implementierte und in der Praxis genutzte Python-Implementation genutzt. Sie sollte somit die untere Schranke der Leistungsmessungen darstellen. Die zweite und dritte Variante werden in Flink implementiert. Diese beiden Varianten unterscheiden sich bezüglich der genutzten Programmiersprache. \textcolor{blue}{Zur Implementierung der zweiten Variante wird Java-Schnittstelle von Flink genutzt, zur Umsetzung von Variante drei die Python-Schnittstelle.} Schließlich werden alle drei Varianten unter identischen Bedingungen getestet. Dies bedeutet, dass sowohl die Testumgebung als auch die Testdaten identisch sein sollen. Dabei sollen alle Varianten sowohl auf einer leistungsfähigen Einzelmaschine als auch mit einem Cluster von Maschinen getestet werden. Ausgehend von den Untersuchungen und den ermittelten Ergebnissen soll nachfolgend eine Bewertung der drei Implementierungsvarianten des Algorithmus vorgenommen werden. Dabei sollen insbesondere die Größe der Ausgangsdatenmenge, die genutzte Hardware sowie die Größe der untersuchten Bildausschnitte in Bezug zu den Ergebnissen gesetzt werden.
@@ -19,17 +19,17 @@ Die Basis für die Satellitenbildanalyse mittels Apache Flink bilden zum einen K
 
 Als Fernerkundung wird \textcquote{DIN18716}{die Gesamtheit der Verfahren zur Gewinnung von Informationen über die Erdoberfläche oder anderer nicht direkt zugänglicher Objekte durch Messung und Interpretation der von ihr ausgehenden (Energie-) Felder} verstanden. Fernerkundungssatelliten verfügen über verschiedene Aufnahmesysteme, die durch multispektrale Messungen von emittierter elektromagnetischer Strahlung eine berührungsfreie Beobachtung der Erdoberfläche ermöglichen. Bei der multispektralen Messung werden von Sensoren registrierte spektrale Signaturen einzelnen Bereichen des elektromagnetischen Spektrums zugeordnet. Das Resultat sind mehrere spektrumsspezifische, simultan aufgenommene Satellitenbilder, die nur das aufgefangene Licht eines spezifischen Spektralbereichs, auch Spektralband genannt, zeigen. Die Art und Qualität der Aufnahmesensoren ist dabei abhängig vom Typ des Satelliten. 
 
-Die Ausgangsdaten für die Untersuchungen in dieser Bachelorarbeit wurden von Satelliten des Landsat-Satellitensystems aufgenommen. Der erste Landsat-Satellit Landsat 1 wurde 1972 gestartet. Seitdem wurden die Sensoren und die Satelliten kontinuierlich weiterentwickelt. Aktuell sind Landsat 7 und, im Rahmen der Landsat Data Continuity Mission, Landsat 8 im Einsatz. Landsat 8 nutzt in der aktuellen Generation zwei verschiedene Instrumente zur Fernerkundung. Den Operational Land Imager (OLI) und die Thermal Infrared Sensors (TIRS). 
+Die Ausgangsdaten für die Untersuchungen in dieser Bachelorarbeit wurden von Satelliten des Landsat-Satellitensystems aufgenommen. Der erste Landsat-Satellit Landsat 1 wurde 1972 gestartet. Seitdem wurden die Sensoren und die Satelliten kontinuierlich weiterentwickelt. Aktuell sind Landsat 7 und, im Rahmen der Landsat Data Continuity Mission, Landsat 8 im Einsatz. Die Satellitenbilder, die in dieser Bachelorarbeit als Ausgangsdaten für die Untersuchungen genutzt werden, sind von Landsat 5 aufgenommen worden, der 1984 gestartet wurde und bis Ende 2012 im Einsatz war. Er besaß zwei Instrumente zur Fernerkundung, den \textit{Thematic Mapper} und das \textit{Multispectral Scanner System}.
 
-Der OLI erfasst emittierte elektromagnetische Strahlung im Spektralbereich von 0,433 µm bis 1,390 µm unterteilt in acht Spektralkanäle sowie einen panchromatischen Kanal. Es werden mehr als 7000 Detektoren pro Spektralband genutzt, um eine bessere Bildqualität zu bieten als frühere Systeme \cite{Markham2004}. Neben den klassischen Farbspektren Blau, Grün und Rot nutzt Landsat-8 ein weiteres Band, das speziell für die Fernerkundung von Küsten genutzt wird. Außerdem verfügt Landsat 8 über drei Infrarotbänder, die nahes und mittleres Infrarotlicht registrieren, sowie ein weiteres Infrarotband, das auf die Beobachtung von Cirruswolken spezialisiert ist. Der panchromatische Kanal registriert elektromagnetische Strahlung mit Wellenlängen von 0,500 µm bis 0,680 µm. Dieser Spektralbereich entspricht etwa dem des menschlichen Auges. Aufgrund des, im Vergleich zu den einzelnen Farbfrequenzbändern, breiten abgedeckten Spektralbereichs ist eine höhere Auflösung der Bilder möglich.
+Der Thematic Mapper ist ein optomechanisches Instrument  erfasst emittierte elektromagnetische Strahlung im Spektralbereich von 0,45 µm bis 2,35 µm unterteilt in 6 Spektralkanäle sowie einen Infrarot-Kanal, der Licht mit Wellenlängen zwischen 10,41 und 2,5 µm erfasst. Mit Ausnahme des Infrarot-Kanals, der eine Auflösung von 120x120 Metern pro Pixel besitzt, lösen alle Bänder mit 30x30 Metern pro Pixel auf. Mit beiden Instrumenten deckt Landsat 5 damit die Bereiche des für das menschliche Auge sichtbaren Lichts sowie des nahen und des mittleren Infrarotlichts ab.
 
-Die Thermal Infrared Sensors (TIRS) \cite{Chaudhary2011} umfassen zwei Thermalkanäle. Diese erfassen im Gegensatz zu den Multispektralkanälen elektromagnetische Emissionen mit Wellenlängen zwischen 10,30 µm und 12,50 µm, also langwellige Infrarotstrahlung. Dies ist insbesondere für die Beobachtung von Wolken nützlich. Die Kantenlänge der einzelnen Pixel beträgt 100 Meter. Diese kann nachträglich auf 30 Meter angeglichen werden, um eine bessere Kompatibilität mit den Aufnahmen der Multispektralbänder zu gewährleisten.
+Ergänzt wurde der Thematic Mapper durch das Multispectral Scanner System. Ebenfalls ein optomechanisches System, dass vier weitere Spektralbänder besaß, die von der Erde reflektierte Lichtemissionen im Wellenlängenbereich von 0,5 µm - 1,1 µm registrierten. Diese hatten eine Auflösung von circa 68x83 Metern, die üblicherweise auf eine Auflösung circa 60x60 Meter abgebildet wurden.  
 
-Um mithilfe der durch die Spektralbänder registrierten Werte die Vegetation eines geographischen Bereichs bestimmen zu können, wird ein Vegetationsindex berechnet. Ein bekannter Vegetationsindex ist der \textit{Normalized Difference Vegetation Index}. Dieser bestimmt den Grad der Vegetation durch die Analyse der Werte des roten sichtbaren Spektralbereichs von 600-700 µm sowie des nahen Infrarotbereichs zwischen 700 und 1300 µm. Dabei wird ausgenutzt, dass Chlorophyll Licht im infrarotnahen Spektrum reflektiert. Durch die Messung dieses Bereichs lässt sich die Menge an Chlorophyll und somit ein dem entsprechender Grad an Vegetation ermitteln. Eine Schwäche des Normalized Difference Vegetation Index ist die fehlende Unterscheidbarkeit von wenig bewachsenen Flächen und Flächen mit krankhaften Pflanzen, die weniger Chlorophyll aufweisen. Aufgrund dieser Ungenauigkeit des NDVI werden zur Identifizierung von Waldflächen nach \cite{Zhu2012} zusätzlich zu den Daten der Spektralbänder 3, 4 und 7 auch die Daten der Bänder 1, 2 und 5 genutzt. Die Kombination der Informationen dieser Bänder ermöglicht eine genauere Bestimmung von Waldflächen durch die Berücksichtigung von Oberflächenreflektionen. Dies ist notwendig, um saisonale Unterschiede in die Analyse mit einzubeziehen \cite{Zhu2012, Masek2008}.
+Um mithilfe der durch die Spektralbänder registrierten Werte die Vegetation eines geographischen Bereichs bestimmen zu können, wird ein Vegetationsindex berechnet. Ein bekannter Vegetationsindex ist der \textit{Normalized Difference Vegetation Index}. Dieser bestimmt den Grad der Vegetation durch die Analyse der Werte des roten sichtbaren Spektralbereichs von 600-700 µm sowie des nahen Infrarotbereichs zwischen 700 und 1300 µm. Dabei wird ausgenutzt, dass Chlorophyll Licht im infrarotnahen Spektrum reflektiert. Durch die Messung dieses Bereichs lässt sich die Menge an Chlorophyll und somit ein dem entsprechender Grad an Vegetation ermitteln. Eine Schwäche des Normalized Difference Vegetation Index ist die fehlende Unterscheidbarkeit von wenig bewachsenen Flächen und Flächen mit krankhaften Pflanzen, die weniger Chlorophyll aufweisen. Aufgrund dieser Ungenauigkeit des NDVI werden zur Identifizierung von Waldflächen nach \cite{Zhu2012} Daten mehrerer Spektralbänder genutzt. Die Kombination der Informationen dieser Bänder ermöglicht eine genauere Bestimmung von Waldflächen durch die Berücksichtigung von Oberflächenreflektionen. Dies ist notwendig, um saisonale Unterschiede in die Analyse mit einzubeziehen \cite{Zhu2012, Masek2008}.
 
-Landsat 8 sendet pro Tag 400 Aufnahmen der Erdoberfläche, auch Szenen genannt, an die Bodenstation. Eine Aufnahme zeigt dabei eine geographische Region der Erde mit einer Ost-West-Ausdehnung von 185 Kilometer. Dies entspricht 100 nautischen Meilen. Die Nord-Süd-Ausdehnung einer Szene beträgt circa 174 Kilometer. Benachbarte Szenen überlappen sich dabei, so dass einige geographische Bereiche auf mehreren Szenen zu finden sind.
+Landsat 5 sendet pro Tag 400 Aufnahmen der Erdoberfläche, auch Szenen genannt, an die Bodenstation. Eine Aufnahme zeigt dabei eine geographische Region der Erde mit einer Ost-West-Ausdehnung von 185 Kilometer. Dies entspricht 100 nautischen Meilen. Die Nord-Süd-Ausdehnung einer Szene beträgt circa 172 Kilometer für Bilder Thematic Mappers, das Multispectral Scanner System nimmt quadratische Szenen mit 185 Kilometer Kantenlänge auf. Benachbarte Szenen überlappen sich dabei, so dass einige geographische Bereiche auf mehreren Szenen zu finden sind.
 
-Durchschnittlich wird jede Region der Erde alle 16 Tage von Landsat 8 überflogen, so dass jährlich mindestens circa 22 Aufnahmen eines geographischen Bereichs gemacht werden \cite{Irons2012}. Hinzu kommen die von Landsat 7 angefertigten Aufnahmen.
+Durchschnittlich wird jede Region der Erde alle 16 Tage von Landsat 5 überflogen, so dass jährlich mindestens circa 22 Aufnahmen eines geographischen Bereichs gemacht werden \cite{Irons2012}. 
 
 Die von Landsat-Satelliten aufgezeichneten und übermittelten Bilder müssen zwecks diverser Korrekturen und Normalisierungen vor der Durchführung von Analysen aufbereitet werden.
 
@@ -70,7 +70,8 @@ Zunehmend sind dabei einzelne, große Datenmengen von Bedeutung. Beispiele dafü
 
 \textbf{Velocity.} Anwendungsfälle, die eine echtzeitnahe Verarbeitung von großen Datenmengen fordern, werden immer zahlreicher. Diese Verarbeitungsgeschwindigkeit ist aber nur umzusetzen, wenn die Datenverarbeitungssysteme mithilfe parallelisierter Architekturen auf eben solche ausgelegt sind, da die Daten teilweise sehr schnell verfügbar sein müssen. Ein Beispiel sind autonom steuernde Fahrzeuge, die nur bei sofortiger und schneller Auswertung von Sensordaten angemessen auf durch Sensoren ermittelte Hindernisse reagieren können. Hinzu kommen Anwendungsszenarien, bei denen zusätzlich ein hoher Datendurchsatz erforderlich ist. 
 
-\textbf{Veracity.} Gesammelten Daten sind weder garantiert korrekt noch garantiert komplett. Durch falsche Modellannahmen oder hohe Latenzen einiger Datenquellen kann es zu weiteren Unsicherheiten bezüglich der Validität der Daten kommen. Big Data sind folglich immer möglicherweise fehlerbehaftet. Analysesysteme müssen auf diesen Umstand insofern reagieren, dass nicht valide Daten automatisiert erkannt und aus der Analyse ausgenommen werden. \textcolor{blue}{Beispiel}
+\textbf{Veracity.} Gesammelten Daten sind weder garantiert korrekt noch garantiert komplett. Durch falsche Modellannahmen oder hohe Latenzen einiger Datenquellen kann es zu weiteren Unsicherheiten bezüglich der Validität der Daten kommen. Big Data sind folglich immer möglicherweise fehlerbehaftet. Analysesysteme müssen auf diesen Umstand insofern reagieren, dass nicht valide Daten automatisiert erkannt und aus der Analyse ausgenommen werden.
+
 Aufgrund dieser Eigenschaften mussten in den letzten Jahren immer wieder neue Konzepte und Systeme entwickelt werden, um Big Data verarbeiten zu können. 
 
 \subsection{Systeme zur massiv parallelen Datenverarbeitung}
@@ -78,7 +79,7 @@ Aufgrund dieser Eigenschaften mussten in den letzten Jahren immer wieder neue Ko
 In Anbetracht des steigenden Bedarfs an Techniken, mit deren Hilfe Big Data verarbeitet werden können, wurden die Entwicklung neuer und die Weiterentwicklung bestehender Technologien und Konzepte im Bereich Big Data innerhalb der letzten Jahre vorangetrieben. Dazu zählen insbesondere massiv parallelisierbare Rechnerstrukturen in Verbindung mit neuartigen Datenverarbeitungssystemen, die diese Konzepte und Technologien verwenden um Big Data verarbeiten zu können. 
 
 %Einleitung - Parallelität
-Die Entwicklung paralleler Rechnerstrukturen begann in den 1970er Jahren im Rahmen der Konstruktion von Computern mit mehreren kleinen Prozessoren (\textit{Computer with multiple mini-processors}) \cite{Bell1971, Wulf1972}. Die Entwicklung nutzbarer parallel arbeitender Computer begann in den 1980er Jahren \cite{Seitz1985}. Gleichzeitig wurden parallelisierte Algorithmen konzipiert und umgesetzt \cite{Borodin1985}. Seitdem schritt die Weiterentwicklung parallelisierter Architekturen und Konzepte mit steigendem Tempo fort \cite{Trew2012}. Während früher einzelne Maschinen mit parallel geschalteten Komponenten zur Bearbeitung aufwändiger Datenverarbeitungsaufgaben eingesetzt wurden, werden aktuell vermehrt Computercluster eingesetzt. Diese bestehen aus mehreren Maschinen, die mithilfe eines losen Netzwerks verbunden sind und so einen virtuellen Supercomputer darstellen \cite{Hwang2013}. Aufgrund der Beschaffenheit der Computercluster lässt sich die Anzahl an zusammengeschlossenen Maschinen flexibel definieren. Auf diese Weise kann die Rechenleistung eines solchen Netzwerks kontinuierlich an die Anforderungen angepasst werden. Dies schafft optimale Voraussetzungen für die Verarbeitung von Big Data, da parallelisierte Strukturen einfacher erweitert werden können. So lässt sich die Kapazität des Clusters an den Umfang der zu analysierenden Daten anpassen. Einschränkend müssen aber auch die Grenzen von parallelisierten Verarbeitungsstrukturen berücksichtigt werden. Laut Amdahls Gesetz kann die Beschleunigung der Ausführungsgeschwindigkeit von Programmen durch eine parallele Ausführung maximal linear zur Anzahl der Prozessorkerne ansteigen \cite{Amdahl1967}. Dies resultiert aus Programmteilen, die zwangsweise sequentiell durchgeführt werden müssen. Jedes Programm besitzt solche Programmteile, etwa Speicherallokationen oder der sequentielle bzw. synchrone Zugriff von Threads auf geteilte Ressourcen. \textcolor{blue}{Gustafsons Gesetz notwendig?}  
+Die Entwicklung paralleler Rechnerstrukturen begann in den 1970er Jahren im Rahmen der Konstruktion von Computern mit mehreren kleinen Prozessoren (\textit{Computer with multiple mini-processors}) \cite{Bell1971, Wulf1972}. Die Entwicklung nutzbarer parallel arbeitender Computer begann in den 1980er Jahren \cite{Seitz1985}. Gleichzeitig wurden parallelisierte Algorithmen konzipiert und umgesetzt \cite{Borodin1985}. Seitdem schritt die Weiterentwicklung parallelisierter Architekturen und Konzepte mit steigendem Tempo fort \cite{Trew2012}. Während früher einzelne Maschinen mit parallel geschalteten Komponenten zur Bearbeitung aufwändiger Datenverarbeitungsaufgaben eingesetzt wurden, werden aktuell vermehrt Computercluster eingesetzt. Diese bestehen aus mehreren Maschinen, die mithilfe eines losen Netzwerks verbunden sind und so einen virtuellen Supercomputer darstellen \cite{Hwang2013}. Aufgrund der Beschaffenheit der Computercluster lässt sich die Anzahl an zusammengeschlossenen Maschinen flexibel definieren. Auf diese Weise kann die Rechenleistung eines solchen Netzwerks kontinuierlich an die Anforderungen angepasst werden. Dies schafft optimale Voraussetzungen für die Verarbeitung von Big Data, da parallelisierte Strukturen einfacher erweitert werden können. So lässt sich die Kapazität des Clusters an den Umfang der zu analysierenden Daten anpassen. Einschränkend müssen aber auch die Grenzen von parallelisierten Verarbeitungsstrukturen berücksichtigt werden. Laut Amdahls Gesetz kann die Beschleunigung der Ausführungsgeschwindigkeit von Programmen durch eine parallele Ausführung maximal linear zur Anzahl der Prozessorkerne ansteigen \cite{Amdahl1967}. Dies resultiert aus Programmteilen, die zwangsweise sequentiell durchgeführt werden müssen. Jedes Programm besitzt solche Programmteile, etwa Speicherallokationen oder der sequentielle bzw. synchrone Zugriff von Threads auf geteilte Ressourcen, so dass Amdahls Gesetz für alle Programme gilt.
 
 %Map Reduce
 Für eine effiziente Nutzung physischer paralleler Strukturen müssen parallelisierbare Algorithmen verwendet werden. Ein prägendes System, das die Implementierung solcher Algorithmen ermöglicht, ist das 2004 veröffentlichte Map-Reduce System \cite{Dean2004}. Inspiriert durch ein ähnliches Konzept aus der funktionalen Programmierung ermöglicht es die nebenläufige Berechnung von großen Datenmengen. Darüber hinaus bietet es eine selbstständige Korrektur von bei Ausfällen von Netzwerkknoten verlorenen Daten. Dabei nutzt es ein verteiltes Dateisystem, wie beispielsweise das Google File System \cite{Ghemawat2003}, das auf einem Computercluster ausgeführt wird.
@@ -96,7 +97,7 @@ Bei der in Abbildung~\ref{graphicMapReduceSystem} abgebildeten modellhaften Ausf
 
 Weiterhin ist auf Abbildung~\ref{graphicMapReduceSystem} in Schritt 3 zu erkennen, dass jeder Worker, der eine Map-Aufgabe ausführt, eine Teilmenge der zu verarbeitenden Gesamtdatenmenge als Eingabe erhält. Die Daten müssen dazu in Form von Schlüssel-Wert Paaren gespeichert sein. Diese werden dann gemäß der vom Nutzer spezifizierten UDF verarbeitet. Als Ausgabe werden keine, ein oder mehrere Schlüssel-Wert Paare durch die map-Funktion produziert und im lokalen Festspeicher der jeweiligen Worker gespeichert. Aufgrund der Aufteilung der Gesamtdatenmenge in kleinere, von einander unabhängig prozessierbare Mengen, kann die Map-Phase parallelisiert ablaufen. Dabei werden auf jedem Worker des Clusters verschiedene Teilmengen der Eingabedaten verarbeitet. 
 
-Nach Beendigung der Map-Phase folgt die Shuffle-Phase, auch Repartitionsphase genannt. Diese ist in Abbildung~\ref{graphicMapReduceSystem} als Schritt 4 gekennzeichnet. Während dieser werden die durch die Map-Funktion produzierten Schlüssel-Wert Paare gemäß ihrer Schlüssel vorerst partiell gruppiert. Wenn der Speicherbedarf für alle Schlüssel-Wert Paare einer Gruppe größer ist als der verfügbare Speicher auf einem Worker werden mehrere partielle Gruppen mit demselben Schlüsselwert gebildet. Jede partielle Gruppe wird anschließend in Schritt 5 auf verfügbare Worker übertragen und dort zu einer globalen Gruppe zusammen gefügt. \textcolor{red}{Ist wirklich Phase 5 die Shuffle Phase? Ich lese meine Quelle so, dass Phase 5 die Verteilung der repartionierten Gruppen an die Worker ist. Quelle: http://www2.informatik.hu-berlin.de/~bethge/public/MapReduce/document.pdf}
+Nach Beendigung der Map-Phase folgt die Shuffle-Phase, auch Repartitionsphase genannt. Diese ist in Abbildung~\ref{graphicMapReduceSystem} als Schritt 4 gekennzeichnet. Während dieser werden die durch die Map-Funktion produzierten Schlüssel-Wert Paare gemäß ihrer Schlüssel vorerst partiell gruppiert. Wenn der Speicherbedarf für alle Schlüssel-Wert Paare einer Gruppe größer ist als der verfügbare Speicher auf einem Worker werden mehrere partielle Gruppen mit demselben Schlüsselwert gebildet. Jede partielle Gruppe wird anschließend in Schritt 5 auf verfügbare Worker übertragen und dort zu einer globalen Gruppe zusammen gefügt.
 
 Die in Schritt 6 dargestellte reduce-Funktion wird dann auf jede in der Shuffle-Phase erzeugte globale Gruppe von Schlüssel-Wert Paaren angewendet. Die spezifizierte UDF wird auf die Werte aller Schlüssel-Wert Paare einer Gruppe angewendet. Als Ausgabe wird entweder keine, ein oder mehrere Schlüssel-Wert Paare produziert. 
 
@@ -189,7 +190,8 @@ Trotzdem nutzen viele Anwender, die Big-Data Anwendungen entwickeln, Python \cit
 Um die Leistungsfähigkeit der verschiedener Systeme beziehungsweise Programmiersprachen vergleichen zu können, müssen Vergleichsmetriken definiert werden. Diese umfassen verschiedene Leistungskriterien, hinsichtlich derer die Systeme verglichen werden. Kriterien sind zum Beispiel die Datenverarbeitungsgeschwindigkeit, die Skalierbarkeit sowie das Verhältnis vom Preis zur Performance einer Anwendung. Einerseits kann eine offene Messung ohne Bezugswerte vorgenommen werden, die alle gemessenen Systeme untereinander vergleicht. Andererseits können Systeme hinsichtlich eines Referenzsystems evaluiert werden. Um die zu vergleichenden Kriterien mehrerer Varianten einer Anwendung auf verschiedener Systemen mit einem Referenzsystem vergleichen zu können, muss für jedes dieser Kriterien ein Referenzwert des Referenzsystems existieren. Dieser fungiert als Vergleichswert für alle Werte, die für die zu vergleichenden Anwendungsvarianten hinsichtlich dieses Kriteriums gemessen werden. Anhand der Unterschiedlichkeit von Mess- und Bezugswert kann das zu evaluierende System mit dem Bezugssystem verglichen werden. Hauptkriterium für traditionelle Datenbanksysteme ist die Datenverarbeitungsgeschwindigkeit, die als Durchsatzmetrik in Form von Arbeit pro Zeit definiert ist \cite{Gray1992}. Für diese Evaluation werden standardisierte Benchmarks verwendet, etwa TPC-H. Für Big-Data Anwendungen existiert darüber hinaus ein weiteres wichtiges Leistungskriterium, die Skalierbarkeit des Systems. Bis zum aktuellen Zeitpunkt hat sich allerdings noch kein standardisierter Benchmark für Big-Data Systeme etabliert. Jedoch werden bereits seit mehreren Jahren die Entwicklung solcher Benchmarks vorangetrieben \cite{Chen2014}. Ein Big-Data Benchmark muss dabei die Kriterien Datenverarbeitungsgeschwindigkeit, Skalierbarkeit sowie Preis/Performance evaluieren und auf sämtlichen Big-Data Systemen ausführbar sein \cite{Baru2013}.
 
 %Kriterium Skalierbarkeit
-Aufgrund des in Sektion~\ref{sec:BigData} beschriebenen Notwendigkeiten für parallele Datenverarbeitung vergrößern sich auch die zu verarbeitenden Datenmengen kontinuierlich. Deshalb ist die \textbf{Skalierbarkeit} des datenverarbeitenden Systems für Big-Data Anwendungen besonders wichtig, damit das Datenverarbeitungssystem flexibel auf die zu verarbeitende Datenmenge angepasst werden kann. Aufgrund ihrer parallelisierten Architektur, die aus mehreren miteinander verbunden Maschinen besteht, sind weitere Maschinen teilweise sehr einfach integrierbar. Sie müssen häufig lediglich an die bestehende Netzwerkinfrastruktur des Systems angeschlossen werden. Bei sequentiell arbeitenden Datenverarbeitungssystemen ist die Skalierbarkeit des Systems erschwert, da lediglich einzelne, geeignete Teilprozesse eines sequentiellen Programms manuell parallelisiert werden können. Darüber hinaus muss auch der Umgang mit Ausfällen der genutzten Hardware betrachtet werden. Im Idealfall wird der Ausfall von Netzwerkknoten wie bereits beim Map-Reduce System automatisiert isoliert und die Neuberechnung von Teilergebnissen auf ein notwendiges Minimum reduziert. Dieses Minimum entspricht dabei der Anzahl der notwendigen Neuberechnungen, die benötigt werden, um die Korrektheit der Ergebnisse zu garantieren. Das Ersetzen von fehlerhafter Hardware ist bei sequentiell arbeitenden Programmen meist nicht möglich, ohne die Anwendung abzubrechen. \textcolor{red}{Ist das richtig?}
+Aufgrund des in Sektion~\ref{sec:BigData} beschriebenen Notwendigkeiten für parallele Datenverarbeitung vergrößern sich auch die zu verarbeitenden Datenmengen kontinuierlich. Deshalb ist die \textbf{Skalierbarkeit} des datenverarbeitenden Systems für Big-Data Anwendungen besonders wichtig. Ein Datenverarbeitungssystem gilt dann als skalierbar, wenn es flexibel auf die zu verarbeitende Datenmenge angepasst werden kann. Dies muss sowohl für die Software- als auch für die Hardwarekomponenten eines Systems gelten. Bei Clustern sind aufgrund ihrer parallelisierten Architektur, die aus mehreren miteinander verbunden Maschinen besteht, weitere Maschinen teilweise sehr einfach integrierbar. Sie müssen häufig lediglich an die bestehende Netzwerkinfrastruktur des Systems angeschlossen werden. Auch die Systeme, die wie das Map-Reduce-System auf eine parallelisierte Ausführung spezialisiert sind, ermöglichen es einen Grad der Parallelität auszuwählen, so dass die erweiterten Kapazitäten eines Clusters genutzt werden können. Dabei ist wie bei jeder parallelisierten Architektur Amdahls Gesetz zu beachten, dass eine maximal linear mit der Anzahl der Prozessorkerne ansteigende Beschleunigung der Programmausführung möglich ist \cite{Amdahl1967}. Des weiteren steigt mit der Vergrößerung des Grades der Parallelität zwar die nutzbare Rechenleistung, gleichzeitig entstehen aber auch längere Kommunikationszeiten zwischen den einzelnen Maschinen des genutzten Clusters.
+Im Gegensatz zu parallelisierten Architekturen ist bei sequentiell arbeitenden Datenverarbeitungssystemen die Skalierbarkeit erschwert, da lediglich einzelne, geeignete Teilprozesse eines sequentiellen Programms manuell parallelisiert werden können. Darüber hinaus muss auch der Umgang mit Ausfällen der genutzten Hardware betrachtet werden. Im Idealfall wird der Ausfall von Netzwerkknoten wie bereits beim Map-Reduce System beschrieben automatisiert isoliert und die Neuberechnung von Teilergebnissen auf ein notwendiges Minimum reduziert. Dieses Minimum entspricht dabei der Anzahl der notwendigen Neuberechnungen, die benötigt werden, um die Korrektheit der Ergebnisse zu garantieren. Das Ersetzen von fehlerhafter Hardware ist bei sequentiell arbeitenden Programmen meist nicht möglich, ohne die Anwendung abzubrechen. 
 
 %Kriterium Ausführungsgeschwindigkeit
 Die Skalierbarkeit hat auch unmittelbare Folgen für die weiteren Bewertungskriterien, insbesondere für die \textbf{Datenverarbeitungsgeschwindigkeit} einer Anwendung. Aufgrund der Definition der Datenverarbeitungsgeschwindigkeit durch das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit sinkt sie bei einer Erweiterung der Rechenkapazitäten, wenn die Anwendung skaliert. Denn dementsprechend steigt die geleistete Berechnungsarbeit pro Zeiteinheit, was gleichbedeutend zu einer Beschleunigung der Datenverarbeitung ist. Die absolute Ausführungszeit einer Anwendung ist dabei das Produkt der Datenmenge und der Datenverarbeitungsgeschwindigkeit. Wächst die zu verarbeitende Datenmenge an, steigt demzufolge auch der nötige Verarbeitungsaufwand. Unter der Annahme einer identischen Datenverarbeitungsgeschwindigkeit steigt in diesem Fall auch die Ausführungsgeschwindigkeit. Aufgrund der im Allgemeinen wachsenden zu verarbeitenden Datenmengen muss die zur Verfügung stehende Rechenleistung erhöht werden, um die Datenverarbeitungsgeschwindigkeit und damit die Ausführungszeit einer datenverarbeitenden Anwendung zu verringern. Die Skalierbarkeit eines Big-Data Systems ist also essentiell für eine Datenverarbeitung mit gleicher Ausführungszeit bei wachsenden Datenmengen.
@@ -206,37 +208,69 @@ Obgleich die beiden genannten Kriterien die Leistungsfähigkeit eines Big-Data S
 %Einleitung: Kurze, grobe Beschreibung des Algorithmus, kurze Wiederholung relevante Geographische Grundlagen.
 Das Ziel des in dieser Bachelorarbeit implementierten und evaluierten Algorithmus ist die Erkennung einer unerwarteten Veränderung der bewaldeten Fläche einer geographischen Region. Der Grad der Bewaldung wird dabei durch einen Vegetationsindex dargestellt. Um eine Veränderung dieses Indexes zu messen, werden die durch Landsat Satelliten aufgezeichneten Szenen der Zielregion dahingehend analysiert. Auf Basis dieser Analyse der in der Vergangenheit gemessenen Werte können dann zukünftige Indexwerte prognostiziert werden und etwaige Abweichungen des zukünftig tatsächlich gemessenen Vegetationsindexes automatisiert ermittelt werden. Die zu diesem Zweck eingesetzte Analyse ist eine Anwendung der \textit{Support Vector Regression} (SVR) \cite{Basak2007}, die in Abschnitt~\ref{subsec:svr} beschrieben wird. Die Ergebnisse der Analyse werden dann im Rahmen des \textit{Continuous Monitoring of Forest Disturbance Algorithm} (CMFDA) \cite{Zhu2012} genutzt. Dieser wurde 2012 von Zhu et al. vorgestellt \cite{Zhu2012} und wurde entwickelt, um die Veränderung von Waldbeständen geographischer Regionen kontinuierlich zu überwachen und atypische Veränderungen zu entdecken. 
 
+In Tabelle~\ref{tab:notation} ist die Bedeutung der genutzten Notationen erläutert.
+
+\begin{table}[h]
+          \centering
+          \begin{tabular}{| p{2cm} | p{8cm} |}
+          	\hline
+                  Notation & Bedeutung \\
+                  \hline
+                  $B$ & Menge der relevanten Spektralbänder $b$ \\
+                  \hline
+                  $cv_{pos\_px, b}$ & Koeffizientenvektor der Pixelzeitreihe  $pts_{pos\_px, b}$ \\
+                  \hline
+                  $dim$ & Kantenlänge in Pixeln \\
+                  \hline
+                  $G$ & Geographischer Zielbereich der Analyse  \\
+                  \hline
+                  $k_{t, b}$ & Kachel des Zielbereichs $G$ von Spektralband $b \in B$ zum Aufnahmezeitpunkt $t \in T$  \\
+                  \hline
+                  $K_{b}$ & Menge aller Kacheln $k_{t, b} \in K_b$ mit identischem Spektralband $b$ \\
+                  \hline
+                  $pts_{pos\_px, b}$ & Pixelzeitreihe des Pixels an Position $pos\_px$ des Bandes $b$ \\
+                  \hline
+                  $S$ & Menge der Szenen $s_t \in S$ der Eingabedatenmenge \\
+                  \hline
+		$T$ & Menge der Aufnahmezeitpunkte $t \in T$ \\
+                  \hline
+                  $tk_{t, pos\_tk, b}$ & Teilkachel mit dem Aufnahmezeitpunkt $t$, der Teilkachelposition $pos_{tk}$ und dem Band $b$ \\
+                  \hline
+                  $TK_{pos\_tk, b}$ & Menge aller Teilkachel mit der Teilkachelposition $pos_{tk}$ und dem Band $b$ \\
+                  \hline
+		$v_{t, pos\_px, b}$ & Pixelwert für den Pixel an Position $pos\_px$ des Bandes $b$ zum Aufnahmezeitpunkt $t$ \\
+                  \hline
+
+          \end{tabular}
+          \caption{Beschreibung der für die Evaluation genutzten Testkonfigurationen}
+          \label{tab:descriptionTestSetting}
+\end{table}
+
 %Beschreibung Vorbereitung: DataCubeCreation als Ausgangspunkt!, Schneiden der Szene in SlicedTiles, Gruppieren und sortieren.
-Die in Algorithmus~\ref{alg:generalAlgorithm} beschriebene Vorgehensweise zeigt die Analyse der Veränderung des Vegetationsindexes der Pixel einer geographischen Region. Dieser Algorithmus benötigt eine Menge von Landsat-Szenen $S$ sowie die Koordinaten der Zielregion als Eingabe. Die genutzten Szenen beinhalteten dabei möglicherweise Daten von mehreren Spektralbändern. Die Szenen werden in Zeile~\ref{alg:groupOriginalScenes} zunächst gemäß ihres Aufnahmedatums $t \in T$ gruppiert. Mithilfe der Schleife in Zeile~\ref{alg:cutAllTilesOfAGroup} wird aus jeder Szene $s_t \in S$ die exakte Zielregion $G$ ausgeschnitten. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine ursprüngliche Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird als Kachel $k_{t, b}$ bezeichnet und wird durch ihr Spektralband $b \in B$ und den Aufnahmezeitpunkt $t$ charakterisiert. In Zeile~\ref{alg:groupTiles} werden anschließend alle Kacheln anhand ihrer Bänder gruppiert, so dass gilt $k_{t, b} \in K_{b} \forall k$. Um die Eigenschaften und Ordnung der Kacheln zu verdeutlichen, wird ein Würfel mit den Dimensionen Breite der Kachel, Höhe der Kachel und dem Aufnahmezeitpunkt der Kacheln modelliert. Dieser besteht aus den einzelnen nach $t$ sortierten Szenen $s_t$, so wie in Abbildung~\ref{fig:dataCubeSliced} abgebildet. 
+Der Algorithmus~\ref{alg:generalAlgorithm} beschreibt die Analyse der Veränderung des Vegetationsindexes der Pixel einer geographischen Region. Dieser Algorithmus benötigt eine Menge von Landsat-Szenen $S$ sowie die Koordinaten der Zielregion als Eingabe. Die genutzten Szenen beinhalteten dabei möglicherweise Daten von mehreren Spektralbändern. Die Szenen werden in Zeile~\ref{alg:groupOriginalScenes} zunächst gemäß ihres Aufnahmedatums $t \in T$ gruppiert. Mithilfe der Schleife in Zeile~\ref{alg:cutAllTilesOfAGroup} wird aus jeder Szene $s_t \in S$ die exakte Zielregion $G$ ausgeschnitten. Dieser Schritt ist notwendig, da etwaige Zielregionen zumeist kleiner sind als eine ursprüngliche Landsat-Szene oder nur ein Teil der Zielregion tatsächlich in der Ausgangsszene abgebildet ist. Der ausgeschnittene Bereich wird als Kachel $k_{t, b}$ bezeichnet und wird durch ihr Spektralband $b \in B$ und den Aufnahmezeitpunkt $t$ charakterisiert. In Zeile~\ref{alg:groupTiles} werden anschließend alle Kacheln anhand ihrer Bänder gruppiert, so dass für alle Kacheln $k_{t, b} \in K_{b}$ gilt. Um die Eigenschaften und Ordnung der Kacheln zu verdeutlichen, wird ein Würfel mit den Dimensionen Breite der Kachel, Höhe der Kachel und dem Aufnahmezeitpunkt der Kacheln modelliert. Dieser besteht aus den einzelnen nach $t$ sortierten Szenen $s_t$, so wie in Abbildung~\ref{fig:dataCubeSliced} abgebildet. 
 
-Jede Kachel $k_{t, b} \in K_{b}$ muss wie in Zeile~\ref{alg:sliceAllTiles} beschrieben in eine individuell festgelegte Anzahl von kleineren Kacheln, sogenannten Teilkacheln $tk_{t, pos\_tk, b}$, zerschnitten werden. Dabei werden zunächst aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet. Dies impliziert, dass die Dimensionen der Kacheln $k \in K$ so definiert werden müssen, dass eine restlose Aufteilung in Teilkacheln möglich ist. Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Nachdem alle Kacheln $k_{t, b} \in K$ in Teilkacheln $tk_{t, pos\_tk, b}$ geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie ihres Spektralbands gruppiert, so dass 
-
+Jede Kachel $k_{t, b} \in K_{b}$ muss wie in Zeile~\ref{alg:sliceAllTiles} beschrieben in eine individuell festgelegte Anzahl von kleineren Kacheln, sogenannte Teilkacheln $tk_{t, pos\_tk, b}$, zerschnitten werden. Dabei werden zunächst aus Gründen der Vereinfachung nur quadratische Teilkacheln betrachtet. Dies impliziert, dass die Dimensionen der Kacheln $k \in K$ so definiert werden müssen, dass eine restlose Aufteilung in Teilkacheln möglich ist. Theoretisch ist aber auch die Nutzung von allgemein rechteckigen Teilkacheln möglich. Nachdem alle Kacheln $k_{t, b} \in K$ in Teilkacheln $tk_{t, pos\_tk, b}$ geschnitten wurden, werden diese gemäß ihrer geographischen Position sowie ihres Spektralbands gruppiert, so dass die Gleichung~\ref{eq:numberOfSubsceneGroups} gilt.
+%
 \begin{equation} \label{eq:numberOfSubsceneGroups}
 tk_{t, pos\_tk, b} \in TK_{pos\_tk, b}\ \forall\ tk_{t, pos\_tk, b}
 \end{equation}
-
- gilt. Die geographische Position ist in Abbildung~\ref{fig:dataCubeSliced} anhand der Tupel der Teilkacheln markiert, das als Wert für das Attribut $pos\_tk$ fungiert. Durch die Gruppierung aller Teilkacheln in Zeile~\ref{alg:groupSubscenes} entstehen 
-
-\begin{equation} \label{eq:numberOfSubsceneGroups}
-\text{ Anzahl von Teilkachelgruppen} = n \times b
-\end{equation}
-
- verschiedene Gruppen von Teilkacheln mit $n$ = \{Anzahl der Teilkacheln pro Kachel\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Im in Abbildung~\ref{fig:dataCubeSliced} gezeigten Beispiel werden drei Kacheln eines Bandes $b$ in jeweils 36 Teilkacheln unterteilt. Da $b=1$ ergeben sich gemäß der Formel~\ref{eq:numberOfSubsceneGroups} 36 Gruppen von Teilkacheln. Dabei sind alle Teilkacheln einer Gruppe $TK_{pos\_tk, b}$ durch das identische Positionstupel gekennzeichnet.
+%
+Die geographische Position ist in Abbildung~\ref{fig:dataCubeSliced} anhand der Tupel der Teilkacheln markiert, das als Wert für das Attribut $pos\_tk$ fungiert. Durch die Gruppierung aller Teilkacheln in Zeile~\ref{alg:groupSubscenes} entstehen $n \times b$  verschiedene Gruppen von Teilkacheln für $n$ = \{Anzahl der Teilkacheln pro Kachel\} und $b$ = \{Anzahl der betrachteten Spektralbänder\}. Im in Abbildung~\ref{fig:dataCubeSliced} gezeigten Beispiel werden drei Kacheln eines Bandes $b$ in jeweils 36 Teilkacheln unterteilt. Da $b=1$ ergeben sich gemäß der Formel~\ref{eq:numberOfSubsceneGroups} 36 Gruppen von Teilkacheln. Dabei sind alle Teilkacheln einer Gruppe $TK_{pos\_tk, b}$ durch das identische Positionstupel gekennzeichnet.
 
 Jede dieser Gruppen wird dann in Zeile~\ref{alg:sortSubscenes} nach dem jeweiligen Aufnahmedatum $t$ der einzelnen Teilkacheln $tk_{t, pos\_tk, b \in TK_{pos\_tk, b}}$ sortiert. 
-
+%
 \begin{figure}[H]
 \centering
 \includestandalone[width=9cm]{DataCubeSlicedImage}
 \caption{Beispielhafte Kacheln $k_{t, b} \in K$ mit gleicher Kantenlänge $dim_k$, ausgeschnitten aus Szenen $s_t \in S$. Die Tupel geben die Position $pos\_tk$ der Teilkacheln $tk_{t, pos\_tk, b}$ der Kachel an und werden als Gruppenschlüssel zum Gruppieren der Teilszenen verwendet.} 
 \label{fig:dataCubeSliced}
 \end{figure}
-
+%
 \begin{equation} \label{eq:pixelTimeSeries}
-pts_{pos\_px, b} = \{P_{t_1, pos\_px, b}, ..., P_{t_i, pos\_px, b}, ... , P_{t_n, pos\_px, b}\} | t_1, ..., t_i, ..., t_n \in T, b\in B
+pts_{pos\_px, b} = <px_{t_1, pos\_px, b}, ..., px_{t_i, pos\_px, b}, ... , px_{t_n, pos\_px, b}> | t_1, ..., t_i, ..., t_n \in T, b\in B
 \end{equation}
-
-Um die Veränderung des Vegetationsindex jedes betrachteten Pixels analysieren zu können, muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe $pts_{pos\_px, b}$ gebildet werden, die gemäß Definition ~\ref{eq:pixelTimeSeries} strukturiert sind. Da die Gruppen der Teilkacheln $TK_{pos\_tk, b}$ nur die Pixelwerte eines Spektralbandes enthalten, gilt für alle Pixelzeitreihen implizit, dass sie nur die Pixelwerte eines Spektralbandes enthalten. Folglich muss bei der Konstruktion der Pixelzeitreihen keine weitere Unterscheidung nach diesem Kriterium erfolgen. In jeder Pixelzeitreihe $pts_{pos\_px, b} \in TK_{pos\_tk, b}$ ist jedem bekannten Vegetationswert $v_{t, pos\_px, b}$ genau ein fester Zeitpunkt $t \in T$ zugeordnet, zu dem die Ausprägung des Werts durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Zeitpunkt $t$ für alle Positionen $pos\_px$ eines Bandes $b$ ein Wert $v_{t, pos\_px, b}$ zugeordnet, da die Eingabedaten entweder keine Szene $s_t$  enthalten oder der Pixel an der Stelle $pos\_px$ für das betrachtete Spektralband $b$ keinen validen Vegetationsindexwert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Sollte der Wert für $v_{t, pos\_px, b}$ nicht verfügbar sein, wird der Aufnahmezeitpunkt $t$ aus der entsprechenden Pixelzeitreihe entfernt. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse ein Koeffizientenvektor $cv_{pos\_px, b}$  für jede Pixelzeitreihe $pts_{pos\_px, b}$ approximiert. Dieser wird durch die Werte $v_{t, pos\_px, b} \forall t \in T$ der entsprechenden Pixelzeitreihe bestmöglich annähert. Für die Regressionsanalyse wird das Regressionsverfahren Support Vektor Regression eingesetzt, das nachfolgend erklärt wird. \\
+%
+Um die Veränderung des Vegetationsindex jedes betrachteten Pixels analysieren zu können, muss in Zeile~\ref{alg:createPixelTimeSeries} zunächst für jeden Pixel eine Pixelzeitreihe $pts_{pos\_px, b}$ gebildet werden, die wie in Gleichung~\ref{eq:pixelTimeSeries} definiert strukturiert sind. Da die Gruppen der Teilkacheln $TK_{pos\_tk, b}$ nur die Pixelwerte eines Spektralbandes enthalten, gilt für alle Pixelzeitreihen implizit, dass sie nur die Pixelwerte eines Spektralbandes enthalten. Folglich muss bei der Konstruktion der Pixelzeitreihen keine weitere Unterscheidung nach diesem Kriterium erfolgen. In jeder Pixelzeitreihe $pts_{pos\_px, b} \in TK_{pos\_tk, b}$ ist jedem bekannten Vegetationswert $v_{t, pos\_px, b}$ genau ein fester Zeitpunkt $t \in T$ zugeordnet, zu dem die Ausprägung des Werts durch die Auswertung des Pixelwerts des Satellitenbildes bekannt ist. Allerdings ist nicht jedem Zeitpunkt $t$ für alle Positionen $pos\_px$ eines Bandes $b$ ein Wert $v_{t, pos\_px, b}$ zugeordnet, da die Eingabedaten entweder keine Szene $s_t$  enthalten oder der Pixel an der Stelle $pos\_px$ für das betrachtete Spektralband $b$ keinen validen Vegetationsindexwert enthält. Dies kann aufgrund externer Störfaktoren wie Wolken, Wolkenschatten oder Schnee zum Zeitpunkt der Aufnahme der Fall sein. Sollte der Wert für $v_{t, pos\_px, b}$ nicht verfügbar sein, wird der Aufnahmezeitpunkt $t$ aus der entsprechenden Pixelzeitreihe entfernt. Auf Basis der vorhandenen Werte wird dann in Zeile~\ref{alg:approxPixelTimeSeries} mittels einer Regressionsanalyse ein Koeffizientenvektor $cv_{pos\_px, b}$  für jede Pixelzeitreihe $pts_{pos\_px, b}$ approximiert. Dieser wird durch die Werte $v_{t, pos\_px, b} \forall t \in T$ der entsprechenden Pixelzeitreihe bestmöglich annähert. Für die Regressionsanalyse wird das Regressionsverfahren Support Vektor Regression eingesetzt, das nachfolgend erklärt wird. \\
 
 \begin{algorithm}[H]
 \small
@@ -290,7 +324,7 @@ Die Support Vector Regression ist ein Regressionsverfahren, das auf \textit{Supp
 \{{(x_1, y_1)},...,{(x_n, y_n)}\} \subset \chi \times \mathbb{R}
 \end{equation}
 
-Dabei wird für einen Trainingsdatensatz gemäß der Formel~\ref{eq:svrFormula}, wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, für jeden Beobachtungswert \(y_i \) ein Wert \( \hat{y}_i \) bestimmt. Die Distanz \( \epsilon \) zwischen \( y_i \) und \( \hat{y}_i \) wird durch \( \epsilon_i = | y_i - \hat{y}_i | \) berechnet. Um die Güte der Regression anzupassen, kann eine maximale Distanz $\bar{\epsilon}$ definiert werden. Bei der Annäherung der Funktion \(f(x) \) anhand der Beobachtungswerte $y$ werden nur Beobachtungswerte $y_i$ mit $\epsilon_i \leq \bar{\epsilon}\ \forall i$ berücksichtigt. Dadurch wird eine übermäßige Verzerrung der Regressionsfunktion durch statistische Ausreißer verhindert.
+Dabei wird für einen Trainingsdatensatz gemäß der Formel~\ref{eq:svrFormula}, wobei \(\chi\) die räumliche Dimension der Eingabedaten angibt, für jeden Beobachtungswert \(y_i \) ein Wert \( \hat{y}_i \) bestimmt. Die Distanz \( \epsilon \) zwischen \( y_i \) und \( \hat{y}_i \) wird durch \( \epsilon_i = | y_i - \hat{y}_i | \) berechnet. Um die Güte der Regression anzupassen, kann eine maximale Distanz $\bar{\epsilon}$ definiert werden. Bei der Annäherung der Funktion \(f(x) \) anhand der Beobachtungswerte $y$ werden nur jene Werte $y_i$ mit $\epsilon_i \leq \bar{\epsilon}\ \forall i$ berücksichtigt. Dadurch wird eine übermäßige Verzerrung der Regressionsfunktion durch statistische Ausreißer verhindert.
 
 \begin{equation} \label{eq:minimizeW}
 \min_{\omega} | \omega = \sum_{i=0}^{n} \epsilon_i\
@@ -346,21 +380,23 @@ Um eine optimale Annäherung der Funktion \(f(x) \) und somit der approximierten
 	\caption{Graphische Darstellung der Berechnung der Distanz $\epsilon$ zwischen gemessenen und approximierten Werten}
 \end{figure}
 
-Im Rahmen dieser Bachelorarbeit wird die SVR-Methode auf die einzelnen Pixelzeitreihen $pts_{pos\_px, b}$ angewendet. Dadurch werden für alle $px_{t, pos\_px, b} \in pts_{pos\_px, b}$, für die kein Pixelvegetationsindexwert $v_{t, pos\_px, b}$ vorliegt, Werte auf Basis der vorhandenen Daten approximiert. Außerdem werden alle Werte, die die maximale Distanz $\bar{\epsilon}$ überschreiten, aus der Pixelzeitreihe gelöscht, da es sich höchstwahrscheinlich um nicht korrekte Werte handelt. Diese würden wenn sie weiterhin in der Pixelzeitreihe verbleiben würden, die Güte der Analyse verschlechtern, da diese alle Beobachtungswerte betrachtet und bei der Bildung der Approximierungsfunktion berücksichtigt.
+Im Rahmen dieser Bachelorarbeit wird die SVR-Methode auf die einzelnen Pixelzeitreihen $pts_{pos\_px, b}$ angewendet. Dadurch wird auf Basis aller $P_{t, pos\_px, b} \in pts_{pos\_px, b}$, für die ein Pixelvegetationsindexwert $v_{t, pos\_px, b}$ vorliegt, ein Koeffizientenvektor berechnet, mit dessen Hilfe fehlenden Werte der Reihe approximiert werden können. Außerdem werden alle Werte, die die maximale Distanz $\bar{\epsilon}$ überschreiten, aus der Pixelzeitreihe gelöscht, da es sich höchstwahrscheinlich um nicht korrekte Werte handelt. Diese würden wenn sie weiterhin in der Pixelzeitreihe verbleiben würden, die Güte der Analyse verschlechtern, da diese alle Beobachtungswerte betrachtet und bei der Bildung der Approximierungsfunktion berücksichtigt.
 
 Da die Güte der Approximierung durch bereits durchgeführte Experimente bereits bekannt und zufriedenstellend ist, kann auf einen Testdatensatz verzichtet werden.
 
-\subsection{Komplexitätsanalyse}
-\label{sec:ComplexityAnalysis}
+\subsection{Komplexitätsanalyse der parallelisierten Implementationen}
+\label{sec:ComplexityAnalysisFlink}
 %Kurze Einleitung, Beschreibung meiner Kompl.A. (Big O Notation kurz erläutern)
-Da potenziell hunderte Satellitenbilder von möglicherweise großen Zielbereichen mithilfe des Algorithmus analysiert werden sollen, muss die Abhängigkeit der Algorithmen von der Eingabedatenmenge und den Eingabeparametern bestimmt werden. Um dies zu ermöglichen wird eine Komplexitätsanalyse der Laufzeit des Schneide- sowie des Analysealgorithmus der Flink-Implementationen durchgeführt. Ebenso wird die Zeitkomplexität des Python-Programms bestimmt. Bei allen getätigten Komplexitätsanalysen soll der schlechtestmögliche Fall betrachtet werden, so dass eine untere Grenze für die Laufzeit des jeweiligen Algorithmus ermittelt wird, die mithilfe von Landau-Symbolen angegeben wird. Die Komplexität wird anhand der gegeben Pseudocodes der Algorithmen veranschaulicht. Der Kommentar am Ende einer Zeile beschreibt dabei die jeweilige Zeitkomplexität der Zeile. 
+Da potenziell hunderte Satellitenbilder von möglicherweise großen Zielbereichen mithilfe des Algorithmus analysiert werden sollen, muss die Abhängigkeit der Algorithmen von der Eingabedatenmenge und den Eingabeparametern bestimmt werden. Um dies zu ermöglichen wird eine Komplexitätsanalyse der Laufzeit des Schneide- sowie des Analysealgorithmus der Flink-Implementationen durchgeführt. Ebenso wird die Zeitkomplexität des Python-Programms bestimmt. Bei allen getätigten Komplexitätsanalysen soll der schlechtestmögliche Fall betrachtet werden, so dass eine obere Grenze für die Laufzeit des jeweiligen Algorithmus ermittelt wird, die mithilfe von Landau-Symbolen angegeben wird. Die Komplexität wird anhand der gegeben Pseudocodes der Algorithmen veranschaulicht. Der Kommentar am Ende einer Zeile beschreibt dabei die jeweilige Zeitkomplexität der Zeile. 
 
 Da bereits vorhandene Schnittstellen verwendet wurden, um das Einlesen und Konstruieren der Kacheln der Daten zu implementieren werden nur die selbst umgesetzten Analysealgorithmen auf ihre Komplexität hin analysiert.
 
-Der in Algorithmus~\ref{alg:cutAlgorithm} angegebene Schneidealgorithmus wird von den beiden Flink-Varianten genutzt. Er zerteilt eine Kachel $k_{t, b} \in K_{b}$ in $n_{tk}$ Teilkacheln $tk_{t, pos\_tk, b} \in TK_{pos\_tk, b}$. Da der Eingabeparameter des Programms nicht die Anzahl der Teilkacheln $n_tk$ sondern die Kantenlänge $dim_{tk}$ angibt, muss $n_{tk}$ berechnet werden. Dabei wird in den Zeilen~\ref{alg:calcNR} und \ref{alg:calcNS} jeweils die Anzahl der Teilkacheln pro Reihe beziehungsweise Spalte von Teilkacheln ermittelt, was in konstanter Zeit möglich ist. Diese beiden Werte erlauben es in den darauf folgenden Zeilen~\ref{alg:iterR} und \ref{alg:iterS} über alle Teilkacheln $tk_{t, pos\_tk, b} \in k_{t, b}$ zu iterieren, deren Objektattribute zu ermitteln und letztlich die entsprechen Teilkachelobjekte zu konstruieren. Aufgrund der Abhängigkeit der Schleifendurchläufe von der Anzahl der Teilkacheln pro Reihe und Spalte, wird eine Komplexität von $\mathcal{O}(nr_{tk} * ns_{tk})$ angenommen. Der in Zeile~\ref{alg:setAttributes} beginnende Block besteht aus Zuweisungen, die eine Komplexität von $\mathcal{O}(1)$ besitzen. Lediglich die Schleife in Zeile~\ref{alg:computeS16} besitzt eine Zeitkomplexität von $dim_{tk}$. Da der innere Block der Schleife aufgrund von Kopieroperationen auf Arrays, die eine Komplexität von $\mathcal{O}(n)$ aufweisen und mit $n = dim_{tk}$ ausgeführt werden, eine Komplexität von $\mathcal{O}(dim_{tk})$ besitzt, gilt für die Schleife folglich eine Komplexität von $\mathcal{O}(dim_{tk}^2)$. Daraus ergibt sich nach der Verkettung dieser Komplexität mit der Komplexität der Schleifen in den Zeilen~\ref{alg:iterR} und \ref{alg:iterS} eine Gesamtkomplexität für den Schneidealgorithmus von 
+\subsubsection{Komplexitätsanalyse der Flink-Implementationen}
+
+Der in Algorithmus~\ref{alg:cutAlgorithm} angegebene Schneidealgorithmus wird von den beiden Flink-Varianten genutzt. Er zerteilt eine Kachel $k_{t, b} \in K_{b}$ in $n_{tk}$ Teilkacheln $tk_{pos\_tk, b}$. Da der Eingabeparameter des Programms nicht die Anzahl der Teilkacheln $n_{tk}$ sondern die Kantenlänge $dim_{tk}$ angibt, muss $n_{tk}$ berechnet werden. Dabei wird in den Zeilen~\ref{alg:calcNR} und \ref{alg:calcNS} jeweils die Anzahl der Teilkacheln pro Reihe beziehungsweise Spalte von Teilkacheln ermittelt, was in konstanter Zeit möglich ist. Diese beiden Werte erlauben es in den darauf folgenden Zeilen~\ref{alg:iterR} und \ref{alg:iterS} über alle Teilkacheln $tk_{t, pos\_tk, b} \in k_{t, b}$ zu iterieren, deren Objektattribute zu ermitteln und letztlich die entsprechen Teilkachelobjekte zu konstruieren. Aufgrund der Abhängigkeit der Schleifendurchläufe von der Anzahl der Teilkacheln pro Reihe und Spalte, wird eine Komplexität von $\mathcal{O}(n_{tk})$ angenommen, da aufgrund der Annahme von quadratischen Kacheln und Teilkacheln $nr_{tk} = ns_{tk}$ gilt. Der in Zeile~\ref{alg:setAttributes} beginnende Block besteht aus Zuweisungen, die eine Komplexität von $\mathcal{O}(1)$ besitzen. Lediglich die Schleife in Zeile~\ref{alg:computeS16} besitzt eine Zeitkomplexität von $dim_{tk}$. Da der innere Block der Schleife lediglich die Zuweisungen der Indexwerte enthält, die in konstanter Zeit ausführbar sind, gilt für die Schleife folglich eine Komplexität von $\mathcal{O}(dim_{tk})$. Daraus ergibt sich nach der Verkettung dieser Komplexität mit der Komplexität der Schleifen in den Zeilen~\ref{alg:iterR} und \ref{alg:iterS} eine Gesamtkomplexität für den Schneidealgorithmus von 
 
 \begin{equation} \label{eq:complexityCut}
-\mathcal{O}(nr_{tk} * ns_{tk} * dim_{tk}^2) = \mathcal{O}(n_{tk} * dim_{tk}^2)
+\mathcal{O}(nr_{tk} * ns_{tk} * dim_{tk}) = \mathcal{O}(n_{tk} * dim_{tk})
 \end{equation}
 
 Da die Kachel genau die zwei Dimensionen Breite und Höhe besitzt, gilt immer $nr_{tk} * ns_{tk} = n_{tk}$. 
@@ -393,9 +429,9 @@ Da die Kachel genau die zwei Dimensionen Breite und Höhe besitzt, gilt immer $n
 \end{algorithmic}
 \end{algorithm}
 
-Nach dem Schneiden der einzelnen Kacheln in $n_{tk}$ Teilkacheln, werden diese in Gruppen zusammengefasst und nach Aufnahmezeitpunkt sortiert. Das Gruppieren von $n_{s}$ Teilkacheln $tk_{t, pos\_tk, b}$ ist in $\mathcal{O}(n_{tk})$ möglich, für das Sortieren nutzt Flink eine Quicksort-Implementation. Obwohl die Komplexität von Quicksort $\mathcal{O}(n^2)$ beträgt, kann stattdessen von $\mathcal{O}(n*(log(n)))$ ausgegangen werden, da Flink einen Heapsort-Algorithmus verwendet, wenn die Nutzung des QuickSort-Algorithmus zu viele Rekursionen verursacht. 
+Nach dem Schneiden der $n_s$ Kacheln in $n_{tk}$ Teilkacheln pro Kachel, werden diese in Gruppen zusammengefasst und nach Aufnahmezeitpunkt sortiert. Das Gruppieren von $n_{s}$ Teilkacheln $tk_{t, pos\_tk, b}$ in $n_{tk}$ Teilkachegruppen $TK_{pos\_tk, b}$ ist in $\mathcal{O}(n_{s})$ möglich. Für das Sortieren der Kacheln nutzt Flink eine Quicksort-Implementation. Obwohl die Worst-Case Komplexität von Quicksort $\mathcal{O}(n^2)$ beträgt, kann stattdessen von $\mathcal{O}(n*(log(n)))$ ausgegangen werden, da Flink stattdessen einen Heapsort-Algorithmus verwendet, wenn die Nutzung des QuickSort-Algorithmus zu viele Rekursionen verursacht. 
 
-Wenn die Teilkacheln gruppiert und sortiert vorliegen, können sie mithilfe des in Algorithmus~\ref{alg:regressionAlgorithm} angegebenen Algorithmus zu Pixelzeitreihen transformiert und dann analysiert werden. In der geschachtelten Schleife in Zeile~\ref{alg:constructPTS} wird zunächst für jede Pixelzeitreihe $pts_{pos\_px, b}$ eine Hashmap erzeugt, die den Aufnahmezeitpunkt $t$ als Schlüssel und den Vegetationsindexwert $v_{t, pos\_px, b}$ als Wert nutzt. Darüber hinaus existiert eine Hashmap $h$, die für jede Pixelposition $pos\_px$ die Hashmap der entsprechenden Pixelzeitreihe $pts_{pos\_px, b}$ speichert. Es werden Hashmaps genutzt, da sowohl der Lese- als auch der Schreibzugriff auf ein Schlüssel-Wert-Paar, bei einer geeigneten Größe der Hashmap, eine Komplexität von $\mathcal{O}(1)$ aufweist. Da zur Erzeugung aller Hashmaps über alle Pixelpositionen der Teilkacheln iteriert werden muss, ergibt sich die in Gleichung~\ref{eq:complexityJavaRegression1} angegebene Komplexität für die erste geschachtelte Schleife. 
+Wenn die Teilkacheln gruppiert und sortiert vorliegen, können sie mithilfe des in Algorithmus~\ref{alg:regressionAlgorithm} angegebenen Algorithmus zu Pixelzeitreihen transformiert und dann analysiert werden. In der geschachtelten Schleife in Zeile~\ref{alg:constructPTS} wird zunächst für jede Pixelzeitreihe $pts_{pos\_px, b} \in TK_{pos\_tk, b}$ eine Hashmap erzeugt, die den Aufnahmezeitpunkt $t$ als Schlüssel und den Vegetationsindexwert $v_{t, pos\_px, b}$ als Wert nutzt. Darüber hinaus existiert eine Hashmap $h$, die für jede Pixelposition $pos\_px$ die Hashmap der entsprechenden Pixelzeitreihe $pts_{pos\_px, b}$ speichert. Es werden Hashmaps genutzt, da sowohl der Lese- als auch der Schreibzugriff auf ein Schlüssel-Wert-Paar, bei einer geeigneten Größe der Hashmap, eine Komplexität von $\mathcal{O}(1)$ aufweist. Da zur Erzeugung aller Hashmaps über alle Pixelpositionen der Teilkacheln iteriert werden muss, ergibt sich die in Gleichung~\ref{eq:complexityJavaRegression1} angegebene Komplexität für die erste geschachtelte Schleife. 
 
 \begin{equation} \label{eq:complexityJavaRegression1}
 f_1 \in \mathcal{O}(dim_{tk} * dim_{tk}) = \mathcal{O}(dim_{tk}^2)
@@ -409,13 +445,13 @@ f_2 \in \mathcal{O}(n_{s} * dim_{tk}^2)
 
 Die in Zeile~\ref{alg:iterPTSJava} beginnende Schleife durchläuft alle Pixelzeitreihen $pts_{pos\_px, b} \in h$ der Teilkachelgruppe $TK_{pos\_tk, b}$. Um die SVR-Analyse auf die Pixelzeitreihe $pts_{pos\_px, b}$ anwenden zu können, muss zunächst ein SVR-Problem $svr_{pos\_{px}, b}$ definiert werden. Dazu werden in Zeile~\ref{alg:defineSVR} zunächst für jeden Pixelwert $v_{t, pos\_px, b} \in pts_{pos\_px, b}$ alle Werte $t$ und $v_{t, pos\_px, b}$ in die zwei Arrays \textit{features} beziehungsweise \textit{samples} gespeichert. Da hierfür jedes Schlüssel-Wert-Paar der Pixelzeitreihe ausgelesen werden muss, ist die Komplexität in $\mathcal{O}(n_tk)$. In der darauf folgenden Zeile~\ref{normalizeY} werden alle Werte des Arrays \textit{samples } in den Wertebereich $[-1, 1]$ projiziert. Da die Länge des Arrays $n_T$ beträgt, besitzt auch diese Operation eine Komplexität von $\mathcal{O}(n_tk)$. Nachdem alle Daten für die SVR-Analyse aufbereitet wurden, kann nun in Zeile~\ref{alg:constructSVR} das SVR-Problem konstruiert werden. Dazu müssen die Werte der Arrays \textit{features} und \textit{samples} in das SVR-Problem eingelesen werden. Demzufolge weist auch dieser Teil des Algorithmus eine Komplexität von $\mathcal{O}(n_tk)$ auf.
 
-Dass sowohl die Qualität als auch der Aufwand einer SVR maßgeblich von der Anzahl der Stützvektoren abhängen, schlägt sich in der Zeitkomplexität der SVR nieder, die $\mathcal{O}(n_features * n_samples^3)$ beträgt. Da in unserem Fall $n_features = n_samples = n_tk$, gilt $\mathcal{O}(n_features * n_samples^3) = \mathcal{O}(n_{s}^4)$. Die theoretische Laufzeit der genutzten Analyse steigt also polynomial mit der Anzahl der betrachteten Werte  $v_{t, pos\_px, b} \in pts_{pos\_px, b}$. Da die polynomiale Komplexität die größte Komplexitätsklasse innerhalb des Schleifenkörpers ist, besitzt die Schleife die Komplexität $f_3$, die in Gleichung~\ref{eq:complexityJavaRegression3} beschriebene Komplexität.
+Dass sowohl die Qualität als auch der Aufwand einer SVR maßgeblich von der Anzahl der Stützvektoren abhängen, schlägt sich in der Zeitkomplexität der SVR nieder, die $\mathcal{O}(n_{features} * n_{samples}^3)$ beträgt. Da in unserem Fall $n_{features} = n_{samples} = n_{tk}$, gilt $\mathcal{O}(n_{features} * n_{samples}^3) = \mathcal{O}(n_{s}^4)$. Die theoretische Laufzeit der genutzten Analyse steigt also polynomielle mit der Anzahl der betrachteten Werte  $v_{t, pos\_px, b} \in pts_{pos\_px, b}$. Da die polynomiale Komplexität die größte Komplexitätsklasse innerhalb des Schleifenkörpers ist, besitzt die Schleife die Komplexität $f_3$, die in Gleichung~\ref{eq:complexityJavaRegression3} beschriebene Komplexität.
 
 \begin{equation} \label{eq:complexityJavaRegression3}
 f_3 \in \mathcal{O}(dim_{s}^2 * n_{s}^4)
 \end{equation}
 
-Da $f_1, f_2$ und $f_3$ nacheinander ausgeführt werden, müssen die Komplexitäten durch die Gleichung~\ref{eq:complexityJavaRegressionComb} miteinander verkettet werden, um die Gesamtkomplexität des Algorithmus~\ref{alg:regressionAlgorithm} zu bestimmten. Darüber hinaus wird dieser für jede Teilkachelgruppe durchgeführt, so dass $\mathcal{O}(dim_{tk}^2 * n_{s}^4 * n_{tk})$ gilt
+Da $f_1, f_2$ und $f_3$ nacheinander ausgeführt werden, müssen die Komplexitäten durch die Gleichung~\ref{eq:complexityJavaRegressionComb} miteinander verkettet werden, um die Gesamtkomplexität des Algorithmus~\ref{alg:regressionAlgorithm} zu bestimmten. Darüber hinaus wird dieser für jede Teilkachelgruppe durchgeführt, so dass $\mathcal{O}(dim_{tk}^2 * n_{s}^4 * n_{tk})$ gilt.
 
 \begin{equation} \label{eq:complexityJavaRegressionComb}
 f_1 = f_2 \in f_3 = \mathcal{O}(dim_{s}^2 * n_{s}^4)
@@ -461,32 +497,32 @@ Nachdem die einzelenen Komplexitäten für den in Flink implementierten Algorith
 \mathcal{O}(n*(log(n))) \in \mathcal{O}(n_s * dim_{tk}^2) \in \mathcal{O}(dim_{tk}^2 * n_s^4)
 \end{equation}
 
-Im Gegensatz zu den Flink-Varianten besteht das Python-Programm lediglich aus einem Algorithmus zum konstruieren und approximieren von Pixelzeitreihen. Dieser ist in Algorithmus~\ref{alg:python} angegeben. Der Algorithmus ist dabei in drei Phasen $ph_1, ph_2$ und $ph_3$ eingeteilt, die hintereinander ausgeführt werden. Die erste Phase dient lediglich dazu die Pixelzeitreihendatenstruktur in Form von verketteten Listen bzw. Sets zu konstruieren. Da für jeden Pixel $px_{x, y, b}$ eine Pixelzeitreihe in konstanter Zeit konstruiert wird, gilt  
-
+\subsubsection{Komplexitätsanalyse der Python-Implementation}
+Im Gegensatz zu den Flink-Varianten besteht das Python-Programm lediglich aus einem Algorithmus zum konstruieren und approximieren von Pixelzeitreihen der Pixel eines Zielbereichs aus $n_s$ Szenen $s_{t, b} \in S_b$. Dieser ist in Algorithmus~\ref{alg:python} angegeben. Der Zielbereich wird durch Kacheln $k_{t, b} \in K_{b}$ mit der Kantenlänge $dim_k$ beschrieben. Im Gegensatz zu den beiden anderen Varianten müssen die Kacheln nicht quadratisch sein, es wird aber aus Gründen der Vergleichbarkeit angenommen. Der Algorithmus ist dabei in drei Phasen $p_1, p_2$ und $p_3$ eingeteilt, die hintereinander ausgeführt werden. Die erste Phase dient lediglich dazu die Pixelzeitreihendatenstruktur in Form von verketteten Listen bzw. Sets zu konstruieren. Da für jeden Pixel der zu analysierenden $px_{pos\_px, b} \in K_{b}$ eine Pixelzeitreihe $pts_{pos_px, b}$ in konstanter Zeit konstruiert wird, gilt  
+%
 \begin{equation} \label{eq:complexityPython1}
-f(ph_1) \in \mathcal{O}(n_B * n_x * n_y).
+f(p_1) \in \mathcal{O}(n_b * dim_k^2).
 \end{equation}
-
-
-In der zweiten Phase werden die Pixelzeitreihen mit den entsprechenden Vegetationsindexwerten $v_{pos\_px, t, b}$ in konstanter Zeit befüllt. Dies geschieht nicht nur für jeden Pixel eines Bandes sondern für jeden Pixel $px_{x, y, b, t}$ einer jeden Szene $s_{t, b} \in S_b \forall b \ in B$. Somit beträgt die Komplexität für Phase 2 
+%
+In der zweiten Phase werden die Pixelzeitreihen mit den entsprechenden Vegetationsindexwerten $v_{t, pos\_px, b}$ in konstanter Zeit befüllt. Dies geschieht für jeden Pixel einer jeden Kachel $k_{t, b} \in K_b \forall b\ in B$. Somit beträgt die Komplexität für Phase 2 
  
 \begin{equation} \label{eq:complexityPython2}
-f(ph_2) \in \mathcal{O}(n_B * n_s * n_x * n_y).
+f(p_2) \in \mathcal{O}(n_b * n_s * dim_k^2).
 \end{equation}
  
-In der dritten Phase werden schließlich die konstruierten und befüllten Pixelzeitreihen mittels der Support Vektor Regression analysiert. Dazu wird zunächst mithilfe der drei Schleifen in den Zeilen~\ref{alg:iterB} bis \ref{alg:iterY} über alle Pixelzeitreihen iteriert. In Zeile~\ref{alg:iterPTS} werden alle nicht validen Werte aus der Pixelzeitreihe entfernt, da sie sonst die Analyse verfälschen könnten. Da das Entfernen der Werte eine Zeitkomplexität von $\mathcal{O}(n)$ aufweist, wird stattdessen ein neues Array aus validen Werten konstruiert, da für die Anfügen-Operation $\mathcal{O}(1)$ gilt. Somit gilt für diese Schleife eine Gesamtkomplexität von $\mathcal{O}(n_s)$, da die Anzahl der Werte in der Pixelzeitreihe maximal der Anzahl der Szenen entspricht. Im Gegensatz dazu verfügt die Regressionsfunktion in Zeile~\ref{alg:regression} über eine Komplexität von $n_s * n_s^3$. \textcolor{red}{Bei Analyse der Java Kompl. erklären}. Demzufolge ergibt sich nach der Verkettung der Komplexitäten der Zeilen~\ref{alg:iterB} bis \ref{alg:regression} eine Komplexität für Phase 3 von 
+In der dritten Phase werden schließlich die konstruierten und befüllten Pixelzeitreihen mittels der Support Vektor Regression analysiert. Dazu wird zunächst mithilfe der drei Schleifen in den Zeilen~\ref{alg:iterB} bis \ref{alg:iterY} über alle Pixelzeitreihen iteriert. In Zeile~\ref{alg:iterPTS} werden alle nicht validen Werte aus der Pixelzeitreihe entfernt, da sie sonst die Analyse verfälschen könnten. Da das Entfernen der Werte eine Zeitkomplexität von $\mathcal{O}(n)$ aufweist, wird stattdessen ein neues Array aus validen Werten konstruiert, da für die Anfügen-Operation $\mathcal{O}(1)$ gilt. Somit gilt für diese Schleife eine Gesamtkomplexität von $\mathcal{O}(n_s)$, da die Anzahl der Werte in der Pixelzeitreihe maximal der Anzahl der Szenen entspricht. Im Gegensatz dazu verfügt die Regressionsfunktion in Zeile~\ref{alg:regression} über eine Komplexität von $n_s * n_s^3$. Demzufolge ergibt sich nach der Verkettung der Komplexitäten der Zeilen~\ref{alg:iterB} bis \ref{alg:regression} eine Komplexität für Phase 3 von 
 
 \begin{equation} \label{eq:complexityPython3}
-f(ph_3) \in \mathcal{O}(n_b * n_x * n_y * (n_s + n_s * n_s^3)) = \mathcal{O}(n_b * n_x * n_y * n_s^4)).
+f(p_3) \in \mathcal{O}(n_b * dim_k^2 * (n_s + n_s * n_s^3)) = \mathcal{O}(n_b * dim_k^2 * n_s^4)).
 \end{equation}
 
 \begin{equation} \label{eq:complexityPython4}
 f(ph_1) \in \mathnormal{o}(f(ph_2)) \in \mathnormal{o}(f(ph_3))
 \end{equation}
 
-Da sich aus den Komplexitäten,die durch die Gleichungen~\ref{eq:complexityPython1}, \ref{eq:complexityPython2} und \ref{eq:complexityPython3} angegeben sind, gemäß Gleichung~\ref{eq:complexityPython4} ergibt, dass $f(ph_3$) die größte Komplexität besitzt, reicht diese aus, um die Komplexität des gesamten Python-Programms zu beschreiben.
+Da sich aus den Komplexitäten,die durch die Gleichungen~\ref{eq:complexityPython1}, \ref{eq:complexityPython2} und \ref{eq:complexityPython3} angegeben sind, gemäß Gleichung~\ref{eq:complexityPython4} ergibt, dass $f(p_3$) die größte Komplexität besitzt, reicht diese aus, um die Komplexität des gesamten Python-Programms zu beschreiben.
 
-Beim Vergleich der Komplexitäten der Flink- und der Python-Versionen des Programms, fällt auf, dass  $\mathcal{O}(n_b * n_x * n_y * n_s^4) = \mathcal{O}(n_b * dim_{K}^2 * n_s^4)$, die theoretische Laufzeit aller drei Implementationsvarianten ist also identisch ist.
+Beim Vergleich der Komplexitäten der Flink- und der Python-Versionen des Programms, fällt auf, dass  $\mathcal{O}(n_b * dim_k^2 * n_s^4) = \mathcal{O}(n_b * dim_k^2 * n_s^4)$, die theoretische Laufzeit aller drei Implementationsvarianten ist also identisch ist.
 
 \begin{algorithm}[H]
 \small
@@ -495,7 +531,7 @@ Beim Vergleich der Komplexitäten der Flink- und der Python-Versionen des Progra
 \begin{algorithmic}[1]
 \Function{CutTileIntoSubtiles}{$S, G$}
 	\State \textbf{input:} $n_B$ Gruppen von Szenen $s_{t, b} \in S_{b} | b \in B$, $dim_K$
-	\State \textbf{output:} To be specified
+	\State \textbf{output:} Koeffizientenvektoren $cv_{pos\_px, b} \forall pts_{pos\_tk, b} \in TK_{pos\_tk, b}$
 	%\State 
 	%\ForAll{$b \in B$} \Comment{$n_B$}
         	%	\ForAll{$x \in dim_K$} \Comment{$dim_K$} \label{alg:iterS}
@@ -547,7 +583,7 @@ Nachdem die Ausgangsszenen auf den relevanten geographischen Bereich reduziert w
 \text{Kantenlänge}_{Kachel} \bmod \text{Kantenlänge}_{Teilkachel} = 0
 \end{equation}
  
-Nachdem die Teilkacheln $tk_{t, pos\_tk, b}$ korrekt erzeugt wurden, werden sie wiederum gemäß ihrem Zeitstempel $t$ in Teilkachelgruppen $TK_{pos\_tk, b}$ gruppiert. Anschließend wird der \textit{Sort}-Operator genutzt, um alle Teilkacheln in den Teilkachelgruppen jeweils nach dem Aufnahmedatum $t$ der enthaltenen Teilkacheln zu sortieren. Dies ist notwendig, um die korrekte zeitliche Abfolge der Beobachtungen sicherzustellen, die bei der Analyse der Daten vorausgesetzt wird. Die Gruppierung und Sortierung entsprechen den Arbeitsschritten 5 und 6.
+Nachdem die Teilkacheln $tk_{t, pos\_tk, b}$ erzeugt wurden, werden sie wiederum gemäß ihrem Zeitstempel $t$ in Teilkachelgruppen $TK_{pos\_tk, b}$ gruppiert. Anschließend wird der \textit{Sort}-Operator genutzt, um alle Teilkacheln in den Teilkachelgruppen jeweils nach dem Aufnahmedatum $t$ der enthaltenen Teilkacheln zu sortieren. Dies ist notwendig, um die korrekte zeitliche Abfolge der Beobachtungen sicherzustellen, die bei der Analyse der Daten vorausgesetzt wird. Die Gruppierung und Sortierung entsprechen den Arbeitsschritten 5 und 6.
 Nachdem die Teilkacheln auf diese Weise vorbereitet wurden, können die Pixelzeitreihen $pts_{pos\_tk}$, wie in den Zeilen~\ref{alg:createPixelTimeSeriesLoopStart} bis~\ref{alg:createPixelTimeSeriesLoopEnd} beschrieben, konstruiert werden. 
 Diese erfolgt zusammen mit der Analyse durch die Anwendung des GroupReduce-Operators auf alle nach $t$ sortierten Gruppen von Teilkacheln $TK_{pos\_tk, b}$ wie in Schritt 7 beschrieben. Nachdem innerhalb der GroupReduce-Funktion die Pixelzeitreihen für die verarbeitete Teilkachelgruppe konstruiert wurden, wird die Analyse auf diese angewendet. Dazu wird wie in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschrieben ein SVR-Modell konstruiert und gelöst, so dass die Vegetationsindexwerte $V_{pos\_px, t}$ ensprechend approximiert werden. 
 
@@ -570,11 +606,13 @@ Nach der Durchführung der Analyseoperationen werden die Analyseergebnisse in Fo
 \subsection{Unterschiede zwischen den drei Implementationsvarianten}
 \label{sec:Differences}
 %Muss enthalten: Python kann C Code, Python ist nicht typsicher -> Annotations, 
-Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die Nutzung der jeweiligen Programmierschnittstellen, die für Java und Python zur Verfügung stehen. In beiden Varianten wird dabei der Datenstrom aus Abbildung~\ref{fig:dataFlowAlgorithm} umgesetzt. Aufgrund der Verschiedenheit der Sprachen Java und Python sowie der zugehörigen Schnittstellen sind die Implementationen nicht identisch, auch wenn sie prinzipiell denselben Algorithmus implementieren. Dies liegt hauptsächlich daran, dass die Spracheigenschaften von Python, die in Kapitel~\ref{sec:Python} beschrieben wurden, und Java unterschiedlich sind. Zusätzlich unterscheidet sich auch der Funktionsumfang der beiden Schnittstellen, was auch durch die unterschiedlichen Spracheigenschaften bedingt ist. Diese Unterschiede müssen bei der Implementation berücksichtigt werden. 
+Die Implementation des Algorithmus als Apache Flink-Programm erfolgt über die Nutzung der jeweiligen Programmierschnittstellen, die für Java und Python zur Verfügung stehen. In beiden Varianten wird dabei der Datenstrom aus Abbildung~\ref{fig:dataFlowAlgorithm} umgesetzt. Aufgrund der Verschiedenheit der Sprachen Java und Python sowie der zugehörigen Schnittstellen sind die Implementationen nicht identisch, auch wenn sie prinzipiell denselben Algorithmus implementieren. Zusätzlich unterscheidet sich auch der Funktionsumfang der beiden Schnittstellen, was teilweise durch die unterschiedlichen Spracheigenschaften bedingt ist. Diese Unterschiede müssen bei der Implementation berücksichtigt werden. 
 
 Ein bedeutender Unterschied zwischen der Java- und der Python-Programmierschnittstelle ist die unterschiedliche Art des effizienten Speicherns von Objekten. Flink Java-Objekte werden mithilfe eingebauter Serialisierer beziehungsweise durch die Nutzung von Kryo in Byte Arrays umgewandelt, um die angelegten Objekte effizient im Speicher halten zu können. Für Python-Objekte müssen hingegen für jedes Objekt eigene Serialisierer implementiert werden, die die Python-Objekte in Java-Objekte umwandeln. Diese werden von Flink dann entsprechend serialisiert. Entgegen der Spracheigenschaft von Python, die eine dynamische Typisierung von Variablen vorsieht, müssen bei der Serialisierung alle Attribute der Objekte statisch typisiert sein. Auf diese Weise wird den Attributen eine Typinformation beigefügt, die es Flink erlaubt den Datentyp des Attributes zu erkennen. Basierend auf dieser Typinformation weist Flink bei der Speicherung der Daten jedem Attribut Speicherplatz in der dem Datentyp entsprechenden Größe zu. Da von der Python-Schnittstelle zur Zeit lediglich die Datentypen Integer, Float, Boolean, String sowie Byte Arrays unterstützt werden, müssen andere Datentypen vor der Serialisierung in akzeptierte Typen umgewandelt werden. Des weiteren muss für jeden Serialisierer auch ein Deserialisierer vorhanden sein, der die Java-Objekte wieder in Python-Objekte transformiert. 
 
 Wie bereits in Sektion~\ref{sec:Python} erwähnt, verfügt Python über die Möglichkeit Programmteile direkt in C auszuführen, was die Verarbeitungsgeschwindigkeit der betreffenden Abschnitte des Algorithmus steigern kann. Dementsprechend wird unter anderem für das Einlesen der Daten und die Regression die Python-Bibliotheken NumPy, GDAL und scikit-learn genutzt, die teilweise in C geschrieben und lediglich in Python eingebettet ist. Es ist jedoch nicht sicher, ob dies ausreicht, um den Algorithmus schneller auszuführen als die entsprechenden Java-Implementation, da diese die Just-in-time- Kompilierung unterstützt, die während der Ausführung des Java-Programms Optimierungspotenzial durch Caching und ähnliche Techniken erkennt und entsprechend nutzt. Es soll Ziel der Untersuchungen dieser Bachelorarbeit sein, welche Variante bei der Anwendung des in Kapitel~\ref{sec:DescriptionOfTheAlgorithm} beschriebenen Algorithmus schneller ausgeführt wird.
+
+Ein weiterer Unterschied besteht zwischen der Ausgabe der Java-Flink- und der PyFlink-Variante. Während Flink eine Java-Programmierschnittstelle zur Verfügung stellt, die es erlaubt die Ergebnisse der parallelisiert ausgeführten Transformationen in eine Datei zu schreiben, ist dies für die Python-Schnittstelle nicht möglich. Dementsprechend werden die Ergebnisse der PyFlink-Variante in $n$ Textdateien geschrieben, wobei $n$ dem Grad der Parallelisierung des Programms entspricht.
 
 Zusätzlich zu den Implementationen des Algorithmus in Apache Flink mittels der Java- bzw. der Python-Programmierschnittstelle wird eine weitere Implementierung in reinem Python betrachtet. Ähnlich wie die PyFlink-Variante besitzt diese die in Sektion~\ref{sec:Python} beschriebenen Vor- und Nachteile eines Python-Programms. Sie nutzt außerdem dieselbe Bibliothek für die Durchführung der Regression. Aufgrund der mangelnden Parallelisierbarkeit dieser Implementationsvariante nutzt sie auch eine veränderte Version des Algorithmus. Aus den eingelesenen Szenen wird für jedes Spektralband $b_i \in B $ lediglich auf den durch die Kacheln $k_{t, b} \in K_{b}$ definierten Zielbereich $G$ zugegriffen. Eine weitere Unterteilung in Teilkacheln erfolgt nicht, da diese bei einer sequentiellen Verarbeitung des Programms keinen Nutzen hätte. Zusätzlich würde die Schneidefunktion die Verarbeitungszeit des Algorithmus erhöhen, so dass sie sich letztendlich nachteilig auswirken würde. Da also der gesamte Zielbereich aus $n_B$ Kachelgruppen $K_b$ besteht, wird der Analysealgorithmus auf diese angewendet. 
 
@@ -591,46 +629,53 @@ Ziel der Untersuchungen in dieser Bachelorarbeit ist die Evaluierung der paralle
 \section{Evaluierungskriterien}
 \label{sec:evaluationCriteria}
 %Einführung und Begründung von Evaluierungskriterien, Referenzierung von 2.2.5 (vergleichsmetriken).
-Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu können, müssen zunächst Vergleichsmetriken und -kriterien definiert werden. Als Hauptkriterien werden die zwei in Sektion~\ref{sec:Vergleichsmetriken} beschriebenen Kriterien Skalierbarkeit und Ausführungsgeschwindigkeit genutzt. Das Verhältnis des Preises zur Leistung der genutzten Hardware wird außen vorgelassen. 
+Um die drei verschiedenen Implementationen des Algorithmus vergleichen zu können, müssen zunächst Vergleichsmetriken und -kriterien definiert werden. Als Hauptkriterien werden die zwei in Sektion~\ref{sec:Vergleichsmetriken} beschriebenen Kriterien \textbf{Skalierbarkeit} und \textbf{Ausführungsgeschwindigkeit} genutzt. Das Verhältnis des Preises zur Leistung der genutzten Hardware wird außen vorgelassen. 
 
-Insbesondere die Skalierbarkeit der genutzten Implementation eines Algorithmus zur Verarbeitung von Satellitenbildern ist von großer Bedeutung, da die zu verarbeitende Datenmenge mit jeder zu betrachtenden Szene um etwa 660 Megabyte ansteigt (bei einer Nutzung von Bildmaterial, das von Landsat 4 bzw. 5 aufgenommen wurde). Beim neueren Landsat 8 Satelliten kann eine Szene aufgrund von höherer Aufnahmequalität sogar eine Größe von bis zu 1,5GB besitzen. Da bei einer durchschnittlichen Überflugfrequenz einer geographischen Region von 16 Tagen durch Landsat 5 pro Jahr circa 22 Szenen pro Satellit von jeder dieser Regionen angefertigt werden, steigt die Datenmenge für jedes Jahr, das in die Analyse mit einbezogen werden soll, um circa 14,5 Gigabyte. Um eine Analyse des Vegetationsindex einer Region tätigen zu können, werden die Daten mehrerer Jahre verwendet, so dass die Eingabedatenmenge für den Algorithmus ein Vielfaches der 14,5 Gigabyte für jede Region betragen kann. Soll die Analyse auch ältere Daten des seit 1972 aktiven Landsat-Systems nutzen, erhöht sich die Eingabedatenmenge zusätzlich. Des weiteren ist es auch möglich, Aufnahmen mehrerer benachbarter Zielregionen zu aggregieren und so Szenen zu generieren, die das Vielfache der ursprünglichen 660 MB pro Szene aufweisen. Dies wäre notwendig, um größere geographische Regionen zu untersuchen.
+Insbesondere die Skalierbarkeit der genutzten Implementation eines Algorithmus zur Verarbeitung von Satellitenbildern ist von großer Bedeutung, da die zu verarbeitende Datenmenge mit jeder zu betrachtenden Szene um etwa 660 Megabyte ansteigt (bei einer Nutzung von Bildmaterial, das von Landsat 4 bzw. 5 aufgenommen wurde). Beim neueren Landsat 8 Satelliten kann eine Szene aufgrund von höherer Aufnahmequalität sogar eine Größe von bis zu 1,5GB besitzen. Da bei einer durchschnittlichen Überflugfrequenz einer geographischen Region von 16 Tagen durch Landsat 5 pro Jahr circa 22 Szenen pro Satellit von jeder dieser Regionen angefertigt werden, steigt die Datenmenge für jedes Jahr, das in die Analyse mit einbezogen werden soll, um circa 14,5 Gigabyte. Um eine Analyse des Vegetationsindex einer Region tätigen zu können, werden die Daten mehrerer Jahre verwendet, so dass die Eingabedatenmenge für den Algorithmus ein Vielfaches der 14,5 Gigabyte für jede Region betragen kann. Soll die Analyse auch ältere Daten des seit 1972 aktiven Landsat-Systems nutzen, erhöht sich die Eingabedatenmenge zusätzlich. Des weiteren ist es auch möglich, Aufnahmen mehrerer benachbarter Zielregionen zu aggregieren und so Szenen zu generieren, die das Vielfache der ursprünglichen 660 MB pro Szene aufweisen. Dies wäre notwendig, um größere geographische Regionen zu untersuchen. 
+Bei den Untersuchungen der Skalierbarkeit werden sowohl verschiedene Datenmengen als auch verschiedene Grade der Parallelisierung (für die betreffenden Varianten) betrachtet, um eine Abschätzung der Skalierbarkeit der drei Implementationsvarianten vornehmen zu können.
 
-\textcolor{red}{Erwähnen: Ergebnis KomplxAnalyse}
-Die Ausführungsgeschwindigkeit ist, wie in Sektion~\ref{sec:Vergleichsmetriken} beschrieben, als das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit definiert. Da diese bei identischtischen Parametern, zum Beispiel identischer genutzter Hardware, unverändert bleiben sollte, folgt daraus, dass sich die Ausführungszeit des Algorithmus verlängert, wenn die Datenmenge ansteigt. Zu lange Laufzeiten des Algorithmus sind jedoch bei der Nutzung zur Analyse von vielen geographischen Regionen von Nachteil. Deshalb sollen im Rahmen der nachfolgend beschriebenen Untersuchungen ermittelt werden, wie sich die Laufzeit verringern lässt, indem die Dimension der Kacheln sowie die Anzahl der Teilkacheln variiert wird.
+Die Ausführungsgeschwindigkeit ist, wie in Sektion~\ref{sec:Vergleichsmetriken} beschrieben, als das Verhältnis von geleisteter Berechnungsarbeit pro Zeiteinheit definiert. Da diese bei identischen Parametern, zum Beispiel identischer genutzter Hardware, unverändert bleiben sollte, folgt daraus, dass sich die Ausführungszeit des Algorithmus verlängert, wenn die Datenmenge ansteigt. Zu lange Laufzeiten des Algorithmus sind jedoch bei der Nutzung zur Analyse von vielen geographischen Regionen von Nachteil. Deshalb sollen im Rahmen der nachfolgend beschriebenen Untersuchungen ermittelt werden, wie sich die Laufzeit verringern lässt, indem die Dimension der Kacheln sowie die Anzahl der Teilkacheln variiert wird. 
 
 \section{Versuchsbeschreibung und -erwartungen}
 %Beschreibung + Begründung für meine Versuchsbedingungen (z.B. welche Daten, welche Datenmengen, welche Hardware, welche Parameter)
-Um die drei Implementationsvarianten des Algorithmus anhand der in Sektion~\ref{sec:evaluationCriteria} erläuterten Evaluationskriterien beurteilen zu können, müssen alle Varianten auf dieselbe Testdatenmenge angewendet werden. Um zu verhindern, dass ein Ergebnis nicht repräsentativ ist, da ein Versuch aufgrund von externen Einflüssen eine veränderte Laufzeit hat, werden von jeder Versuchskonfiguration drei Durchgänge ausgeführt und ein Durchschnittswert ermittelt. Nach jedem Durchlauf wird das Cluster neu gestartet, um eventuelle Laufzeitbeschleunigungen durch Caching zu verhindern und vergleichbare Rahmenbedingungen zu schaffen. Die Logdateien aller Versuchsdurchgänge sowie eine Datei mit den gesammelten Ergebnissen liegen der Arbeit auf CD bei.
+Um die drei Implementationsvarianten des Algorithmus anhand der in Sektion~\ref{sec:evaluationCriteria} erläuterten Evaluationskriterien beurteilen zu können, müssen alle Varianten auf dieselbe Testdatenmenge angewendet werden. Um zu verhindern, dass ein Ergebnis nicht repräsentativ ist, weil ein Versuch aufgrund von externen Einflüssen eine veränderte Laufzeit hat, werden von jeder Versuchskonfiguration drei Durchgänge ausgeführt und ein Durchschnittswert für alle erhobenen Messwerte ermittelt. Nach jedem Durchlauf wird das Cluster neu gestartet, um eventuelle Laufzeitbeschleunigungen durch Caching oder eine größere Menge übrig gebliebener temporärer Dateien zu verhindern und vergleichbare Rahmenbedingungen zu schaffen. Die Logdateien aller Versuchsdurchgänge sowie eine Datei mit den gesammelten Ergebnissen liegen der Arbeit auf CD bei.
 
-Da die beiden Flink-Implementationen parallelisiert durchgeführt werden sollen, wurde ein Cluster mit 12 Maschinen für die Evaluierungen dieser Varianten genutzt. Jede der Maschinen verfügt über 24 CPU-Kerne mit einer Taktfrequenz von 1200 Mhz sowie 128 GB Arbeitsspeicher. Auf jeder Maschine im Cluster werden 12 TaskSlots genutzt, so dass ingesamt 144 TaskManager zur Verfügung stehen. Die Anzahl der TaskManager ist identisch mit dem optimalen Grad der Parallelisierung. Dieser sollte so gewählt werden, dass keine Kapazitäten frei bleiben. Ist er jedoch zu groß wird unnötiger Netzwerkverkehr produziert, da für jeden parallelisiert ausgeführten Programmteil Daten zwischen den Maschinen ausgetauscht werden müssen. Als Betriebssystem wird Ubuntu 14.04 genutzt. Darüber hinaus werden Apache Flink 0.9, Hadoop 2.6.0, Python 2.7 und Java 7 genutzt, um die Programme auszuführen.
+%Hardware specs
+Da die beiden Flink-Implementationen parallelisiert durchgeführt werden sollen, wurde ein Cluster mit 12 Maschinen für die Evaluierungen dieser Varianten genutzt. Jede der Maschinen verfügt über 24 CPUs mit jeweils 6 Prozessorkernen, die mit einer Taktfrequenz von 2100 Mhz arbeiten. Außerdem besitzt jede Maschine 128 GB Arbeitsspeicher. Auf jeder Maschine im Cluster werden 12 Threads genutzt, so dass ingesamt 144 TaskSlots zur Verfügung stehen. Sowohl der Zugriff auf die Eingabedaten als auch die Speicherung der Ausgabedaten erfolgt von bzw. auf einem verteilten Dateisystem. Als Betriebssystem der Maschinen wird Ubuntu 14.04 genutzt. Darüber hinaus werden Apache Flink 0.9, Hadoop 2.6.0, Python 2.7 und Java 7 genutzt, um die Programme auszuführen.
 
-Die nicht parallelisierte Variante wird auf einer der Maschinen aus dem Cluster ausgeführt. Im Gegensatz zu den verteilten Implementierungen werden die Eingabedaten nicht aus einem verteilten Dateisystem sondern von der lokalen Festplatte der Maschine eingelesen.
+Die nicht parallelisierte Variante wird auf einer anderen Maschine ausgeführt. Diese besitzt dieselben technischen Spezifikationen wie die im Cluster genutzten Maschinen, verfügt aber über 256 GB Arbeitsspeicher. Im Gegensatz zu den verteilten Implementierungen werden die Eingabedaten nicht aus einem verteilten Dateisystem sondern von der lokalen Festplatte der Maschine eingelesen. Auch die Ausgabe der Daten erfolgt auf diese. Die eingesetzte Software ist ebenso wie bei der PyFlink-Variante Python 2.7 auf einem Ubuntu 14.04 Betriebssystem.
 
+%Datensatz Beschreibung
 Der komplette Datensatz, auf den die Implementationsvarianten angewendet werden, ist circa 242 Gigabyte groß und beinhaltet 373 Szenen. Dieser besteht aus Satellitenbildern, die von Landsat-Satelliten aufgenommen wurden und eine geographische Region in Brasilien abbilden. Die Nord-Süd-Ausdehnung der Region beträgt circa 1 Längengrad, also in etwa 211 Kilometer, die Ost-West-Ausdehnung circa 2 Breitengrade beziehungsweise circa 235 Kilometer. Insgesamt beinhaltet eine Szene aus dem Testdatensatz also eine Fläche von annähernd 50000 Quadratkilometern. Diese werden durch circa 8000 Pixel in der Breite und circa 7200 Pixel in der Länge dargestellt, wobei ein Pixel eine quadratische Fläche von 30 Metern Kantenlänge abbildet. Die Zeitstempel der Szenen reichen von Juni 1984 bis Dezember 2013. Alle Szenen enthalten jeweils die Daten der Spektralbänder 1, 2, 3, 4, 5 und 7.
 
-Im Rahmen der Tests, die zur Evaluierung der Skalierbarkeit und der Ausführungsgeschwindigkeit durchgeführt werden, erhält jede Implementationsvariante den gesamten Testdatensatz als Eingabedatenmenge. Die in Tabelle~\ref{tab:descriptionTestSetting} beschriebenen Testkonfigurationen zeigen die weiteren Parameter Kachelkantenlänge $dim_K$  und Teilkachelkantenlänge $dim_{TK}$, die nur für die parallelisierten Implementationsvarianten relevant ist. Durch die Variation von $dim_K$ kann die Größe des zu analysierenden Zielbereichs verändert werden. $dim_{TK}$ bestimmt bei festem $dim_K$ die Anzahl der Teilkacheln $n_{TK}$ entsprechend der Formel~\ref{eq:numberOfSubtiles} und in der Folge den möglichen Grad der Parallelisierbarkeit. Da $dim_{TK} \leq dim_K$, muss $n_{TK}$ im Intervall $1 \leq n_{TK} \leq dim_K$ liegen. 
+Im Rahmen der Tests, die zur Evaluierung der Skalierbarkeit und der Ausführungsgeschwindigkeit durchgeführt werden, erhält jede Implementationsvariante mehrere Testdatensätze, die eine Teilmenge des gesamten Testdatensatz sind, als Eingabedatenmenge. Die in Tabelle~\ref{tab:descriptionTestSetting} beschriebenen Testkonfigurationen zeigen die weiteren Parameter Kachelkantenlänge $dim_k$  und Teilkachelkantenlänge $dim_{tk}$, die nur für die parallelisierten Implementationsvarianten relevant ist. Durch die Variation von $dim_k$ kann die Größe des zu analysierenden Zielbereichs verändert werden. $dim_{tk}$ bestimmt bei festem $dim_k$ die Anzahl der Teilkacheln pro Kachel $n_{tk}$ entsprechend der Formel~\ref{eq:numberOfSubtiles} und in der Folge den maximal möglichen, noch sinnvollen, Grad der Parallelisierbarkeit. Da $dim_{tk} \leq dim_k$, muss $n_{tk}$ im Intervall $1 \leq n_{tk} \leq dim_k$ liegen. 
 
 \begin{equation} \label{eq:numberOfSubtiles}
-n_{TK} = {dim_{K}^2} / {dim_{TK}^2}
+n_{tk} = {dim_{k}^2} / {dim_{tk}^2}
 \end{equation}
 
-Aufgrund der oben genannten Limitierung der Referenzhardware auf 144 TaskManager sollten mindestens 144 parallel ausgeführte Operationen angestrebt werden. Da die Anzahl der parallelisierbaren Instanzen der GroupReduce-Funktion zur Konstruktion der Pixelzeitreihen und der zugehörigen Approximierung über die Anzahl der Teilkacheln $n_{TK}$ festgelegt wird, sollte die Teilkachelkantenlänge $dim_{TK}$ passend gewählt werden. Obwohl die Größe der Teilkacheln bei der Bestimmung der Komplexität der Flink-Programme nicht relevant ist, wird sie in der Realität großen Einfluss auf die Laufzeit haben, da sie den Grad der Parallelität für den Schneide- und den Analysealgorithmus bestimmt.
+%Annahmen über Params
+Der Grad der Parallelisierung sollte so gewählt werden, dass keine Kapazitäten frei bleiben. Ist er jedoch zu groß wird unnötiger Netzwerkverkehr produziert, da für jeden parallelisiert ausgeführten Programmteil Daten zwischen den Maschinen ausgetauscht werden müssen. Aufgrund der oben genannten Limitierung der Referenzhardware auf 144 TaskSlots wurde 144 standardmäßig als Grad der Parallelisierung ausgewählt. Für einige Untersuchungen wurde dieser angepasst, um zu evaluieren, welchen Einfluss er auf die Ausführungsgeschwindigkeit bzw. die Skalierbarkeit hat. Da die Anzahl der parallelisierbaren Instanzen der GroupReduce-Funktion zur Konstruktion der Pixelzeitreihen und der zugehörigen Approximierung über die Anzahl der Teilkacheln $n_{tk}$ festgelegt wird, ist ein relevanter Einfluss zu erwarten. Obwohl die Größe der Teilkacheln bei der Bestimmung der Komplexität der Flink-Programme nicht relevant ist, wird erwartet, dass sie in der Realität einen großen Einfluss auf die Laufzeit haben wird, da sie den Grad der Parallelität für den Schneide- und den Analysealgorithmus bestimmt.
 
-Für die nicht parallelisierte Implementation wird lediglich die Kachelkantenlänge $dim_K$ als Parameter zugelassen, da wie in Abschnitt~\ref{sec:Differences} beschrieben, auf die Zerteilung der Kacheln verzichtet wurde.
+Für die nicht parallelisierte Implementation wird neben der Anzahl der Szenen der Eingabedatenmenge lediglich die Kachelkantenlänge $dim_k$ als Parameter zugelassen, da wie in Abschnitt~\ref{sec:Differences} beschrieben, auf die Zerteilung der Kacheln verzichtet wurde. Dabei wird erwartet, dass sich beide Parameter auf die Ausführungsgeschwindigkeit auswirken, so wie es die Komplexitätsanalyse in Abschnitt~\ref{sec:complexityAnalysis} bereits andeutet.
 
-Aufgrund des unterschiedlichen Funktionsumfangs und der damit einhergehenden ebenfalls unterschiedlichen Eingabeparameter sind streng genommen nur die PyFlink- und die Java-Flink-Varianten vergleichbar. Um einen Vergleich der Evaluationen der parallelisierten Implementationen und der Python-Variante zu ermöglichen, wurden auch die parallelisierten Varianten mit größeren Werten für $dim_K$ getestet. Im Gegensatz zu den in Tabelle~\ref{tab:descriptionTestSetting} aufgeführten Versuchen wurde jedoch jeweils eine theoretisch geeignete Subkachelkantenlänge gewählt. 
+Aufgrund des unterschiedlichen Funktionsumfangs und der damit einhergehenden ebenfalls unterschiedlichen Eingabeparameter sind streng genommen nur die PyFlink- und die Java-Flink-Varianten vergleichbar. Um einen Vergleich der Evaluationen der parallelisierten Implementationen und der Python-Variante zu ermöglichen, wurden auch die parallelisierten Varianten mit größeren Werten für $dim_k$ getestet. Im Gegensatz zu den in Tabelle~\ref{tab:descriptionTestSetting} aufgeführten Versuchen wurde jedoch jeweils eine theoretisch geeignete Subkachelkantenlänge gewählt und nicht mehrere verschiedene evaluiert.
+
+Die Erwartungen an die Evaluierung sind, dass die parallelisierten Varianten bei kleineren Kachelgrößen sowie einer geringen Anzahl von Szenen langsamer sind als die Python-Variante, da für die Initialisierung des Netzwerks und Flink Zeit benötigt wird, eine Parallelisierung aber aufgrund der geringen Problemgröße aber nutzlos oder aufgrund der Kommunikationskosten durch den Netzwerkverkehr möglicherweise sogar kontraproduktiv ist. Ab einer gewissen Problemgröße sollten aber sowohl die Java-Flink-, als auch die PyFlink-Variante schneller sein als die nicht-parallelisierte Implementation. Steigt die Problemgröße weiter an, wird erwartet, dass die Python-Variante nicht mehr genug Arbeitsspeicher zur Verfügung hat, um die nötige Datenmenge zu verarbeiten. Für den Grad der Parallelisierung wird erwartet, dass von 144 stark abweichende Werte eine Verschlechterung der Ausführungsgeschwindigkeit eines Programms verursachen.
+
+Es ist Ziel der Evaluierung diese Annahmen auf ihre Korrektheit zu überprüfen.
 
 \begin{table}[position specifier]
           \centering
           \begin{tabular}{| p{2cm} | p{3cm} | p{3cm} | p{3cm} |}
           	\hline
-                  Versuch & $dim_K$ in Pixeln & $dim_{TK}$ in Pixeln & $n_{TK}$ \\
+                  Versuch & $dim_k$ in Pixeln & $dim_{tk}$ in Pixeln & $n_{tk}$ \\
                   \hline
                   Versuch \#1 & 500 & 10 & 2500 \\
                   \hline
                   Versuch \#2 & 500 & 20 & 625 \\
                   \hline
-                  Versuch \#3 & 500 & 50 & 1000 \\
+                  Versuch \#3 & 500 & 50 & 100 \\
                   \hline
                   Versuch \#4 & 500 & 100 & 25 \\
                   \hline
@@ -646,10 +691,174 @@ Aufgrund des unterschiedlichen Funktionsumfangs und der damit einhergehenden ebe
           \label{tab:descriptionTestSetting}
 \end{table}
 
+%------------------
+
 \section{Auswertung}
+\subsection{Auswertung der Evaluierung der parallelisierten Varianten}
+Im folgenden Abschnitt werden die Versuche für die verschiedenen Implementationsvarianten ausgewertet und miteinander verglichen.  
 Beschreibung und Bewertung der Ergebnisse meiner Untersuchungen (inklusive Charts, Begründung und Erwartungen). Tabelle mit Versuchsnr. und  Laufzeit. Nutzung der Python-Impl. als Vergleichsimplementation
+Einleitung
+
+\begin{figure}
+\captionsetup[subfigure]{justification=centering}
+\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={10, 20, 50, 100, 250, 500}, ylabel=Laufzeit in Stunden, xlabel=$dim_{tk}$, xlabel near ticks, ylabel near ticks,
+  				]
+  			\addplot coordinates {
+    				(10, 2.3936)
+				(20, 0.7861)
+				(50, 0.6838)
+				(100, 1.0758)
+				(250, 2.4216)
+				(500, 5.9)
+  			};	
+			\addplot coordinates {
+    				(10, 0.3144)
+				(20, 0.3041)
+				(50, 0.3375)
+  			};	
+	
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der PyFlink und Java-Flink-Implementationen für $dim_k = 500$ und $dop = 144$ in Abhängigkeit von $dim_{tk}$}
+  		\label{fig:diagrammFlinkDimTK}
+	\end{subfigure}\hfill
+	\begin{subfigure}{.45\textwidth}
+  		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={50, 100, 144, 200}, ylabel=Laufzeit in Stunden, xlabel=$dop$, xlabel near ticks, ylabel near ticks,
+  			]
+  			\addplot coordinates {
+    				(144, 0.6838)
+  			};
+			\addplot coordinates {
+    				(144, 0.3375)
+  			};		
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der PyFlink und Java-Flink-Implementationen für $dim_k = 500$ und $dim_{tk} = 50$ in Abhängigkeit von $dop$}
+  		\label{fig:diagrammFlinkDop}
+	\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:diagrammFlink}
+\end{figure}
+
+Die Ergebnisse für die Flink-Varianten zeigen, dass sowohl die Kantenlänge der Kacheln $dim_{k}$ als auch die Kantenlänge $dim_{tk}$ einen großen Einfluss auf die Ausführungsgeschwindigkeit haben. Wie in Abbildung~\ref{fig:diagrammDimtk} zu sehen, bewegt sich die Laufzeit der verschiedenen Konfigurationen mit Kachelkantenlänge $dim_k = 500$ und identischer Anzahl der Szenen $n_s = 373$ für variable Teilkachelkantenlängen $dim_{tk}$ zwischen 18:52 Sekunden für die PyFlink-Variante mit $dim_{tk} = 10$ und \textcolor{red}{6-00-00} für die Java-Flink-Implementation mit $dim_{tk} = 500$. Dabei wirkt sich sowohl eine zu geringe als auch eine zu große Kantenlänge $dim_{tk}$ negativ auf die Laufzeit der Implementationen, speziell die der Java-Variante, aus. Am schnellsten ist der Algorithmus, wenn $dim_k$ so gewählt wird, dass die Anzahl der Teilkachelgruppen $n_{TK}$ in etwa dem angenommenen Grad der Parallelisierung entspricht, was der Erwartung entspricht. Erklären lässt sich die längere Laufzeit für sehr kleine $dim_{tk}$ mit dem höheren Aufwand für die Schneidefunktion sowie den erhöhten Aufwand für die Parallelisierung, weil mehr parallelisierbare Instanzen der Analysefunktion erzeugt werden. Ist $dim_{tk}$ dagegen so groß, dass $dop > n_{tk}$, werden weniger Analysen als möglich parallel durchgeführt. Da die zu analysierende Datenmenge pro Instanz der Analysefunktion mit sinkender Anzahl der Teilkachelgruppen $n_{TK}$ steigt, steigt deren Laufzeit und demzufolge auch die Gesamtlaufzeit des Programms. Des weiteren fällt auf, dass die PyFlink-Implementation für jede Testkonfiguration bedeutend schneller war als die äquivalente Java-Implementation. Allerdings waren die PyFlink-Programme im Vergleich extrem fehleranfällig, so dass es nicht möglich war Ergebnisse für $dim_{tk} > 100$ zu ermitteln. Jedoch stürzt die PyFlink-Variante häufig ab, so dass für Teilkachelkantenlängen $dim_{kt}$ bei $dim_k = 500$, $n_s = 373$ und $dop=144$ keine aussagekräftigen Ergebnisse für $dim_{tk} > 100$ ermittelt werden konnten. Es wird jedoch auf Basis der ermittelten Ergebnisse für $dim_{tk} \leq 100$ angenommen, dass die PyFlink-Implementation auch für diese Teilkachelkantenlänge eine geringere Laufzeit besitzt als die Java-Flink-Variante.
+\textcolor{red}{Erkenntnisse über dop ergänzen}
+
+\textcolor{red}{Erkenntnisse über $dim_k$ ergänzen}
+
+\textcolor{red}{Erkenntnisse über Verhältnis der Phasen ergänzen + Stacked diagramm}
+
+
+
+\textcolor{red}{Skalierbarkeit}
+\textcolor{red}{Fehleranfälligkeit}
+
+%----------------------
+\subsection{Auswertung der Evaluierung der Python-Variante}
+Bei der Durchführung der Evaluierungen für die Python-Implementation wurden die Anzahl der Szenen $n_s$ und die Kachelgröße, die den Zielbereich beschreibt, $dim_k$ variiert. Dabei fiel auf, dass für alle 6 betrachteten Spektralbänder auf der genutzten Maschine keine Ergebnisse für die gesamte Testdatenmenge ermittelt werden konnten. Deshalb wurde $n_s$ so gewählt, dass alle Bänder für die Analyse berücksichtig werden konnten. Ein großes Problem war aber auch bei der Erhöhung von $dim_k$ die Limitierung des verfügbaren Arbeitsspeichers auf 256 GB. Dies liegt darin begründet, dass der Python-Algorithmus die gesamte Datenmenge einliest und im Arbeitsspeicher hält während mit den Daten gearbeitet wird. Bei maximalem Wert $n_s = 373$ war bereits das Einlesen von mehr als zwei Bändern nicht mehr möglich, da nicht genügend Arbeitsspeicher zur Verfügung stand. Deshalb wurden die Auswirkungen der Kachelkantenlänge $dim_k$ mit 75 sowie 150 Szenen ermittelt.
+
+\begin{figure}
+\captionsetup[subfigure]{justification=centering}
+\centering
+	%Check Skalierbarkeit
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={20, 50, 100, 150}, ylabel=Laufzeit in Stunden, xlabel=$n_s$, xlabel near ticks, ylabel near ticks,
+  				]	
+			\addplot coordinates {
+    				(150, 0.65)
+  			};	
+	
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der Python-Implementationen für $dim_k = 200$ und variablen Wert $n_s$}
+  		\label{fig:diagrammPythonNS}
+	\end{subfigure}\hfill
+	%Check Skalierbarkeit Blockgröße
+	\begin{subfigure}{.45\textwidth}
+  		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={50, 100, 200, 400}, ylabel=Laufzeit in Stunden, xlabel=$dop$, xlabel near ticks, ylabel near ticks,
+  			]
+  			\addplot coordinates {
+    				(200, 0.65)
+				(400, 1.3208)
+  			};		
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der Python-Implementationen für $n_s = 150$ und variablen Wert $dim_k$}
+  		\label{fig:diagrammPythonDimK}
+	\end{subfigure}
+\caption{Graphische Darstellung der Skalierbarkeit der Python-Implementation.}
+\label{fig:diagrammsPython}
+\end{figure}
+
+
+\textcolor{red}{Erkenntnisse Laufzeit für verschiedene $dim_k$}
+\textcolor{red}{Erkenntnisse Skalierbarkeit für verschiedene $n_s$}
+
+%-------------------
+\subsection{Vergleich der parallelisierten und der nicht-parallelisierten Varianten}
+Vergleich Python + (bessere) Flink-Variante
+
+\begin{figure}
+\captionsetup[subfigure]{justification=centering}
+\centering
+	%Check Skalierbarkeit
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={20, 50, 100, 150, 373}, ylabel=Laufzeit in Stunden, xlabel=$n_s$, xlabel near ticks, ylabel near ticks,
+  				]
+  			\addplot coordinates {
+    				
+  			};	
+			\addplot coordinates {
+    				(150, 0.65)
+  			};	
+	
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der Python und der Python-Flink-Implementationen für $dim_k = 200$ in Abhängigkeit von $n_s$.}
+  		\label{fig:diagrammPythonFlinkNS}
+	\end{subfigure}\hfill
+	%Check Skalierbarkeit Blockgröße
+	\begin{subfigure}{.45\textwidth}
+  		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				ybar, ymin=0, ymax = 6, symbolic x coords={50, 100, 200, 400}, ylabel=Laufzeit in Stunden, xlabel=$dop$, xlabel near ticks, ylabel near ticks,
+  			]
+			\addplot coordinates {
+  			};
+  			\addplot coordinates {
+    				(200, 0.65)
+				(400, 1.3208)
+  			};		
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Durchschnittliche Laufzeit der Python und Python-Flink-Implementationen für $n_s = 150$ in Abhängigkeit von $dim_k$.}
+  		\label{fig:diagrammPythonFlinkDimK}
+	\end{subfigure}
+\caption{Vergleich der Laufzeiten der Python- und der PyFlink-Implementation bei Veränderung der Anzahl der Szenen $n_s$ oder der Kachelkantenlänge $dim_k$.}
+\label{fig:diagrammsPythonFlink}
+\end{figure}
+
+Fazit der Auswertung, was ist am besten für welchen Fall geeignet?
 
 \chapter{Fazit}
 Fazit und Ausblick
+Kurze Zusammenfassung
 z.b. Vergleich mit anderen Untersuchungen
 
