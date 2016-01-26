@@ -16,12 +16,12 @@
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Flink-Implementationen}{20}
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Python-Implementation}{23}
 \contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{25}
-\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{26}
+\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{27}
 \contentsline {chapter}{\numberline {4}Evaluierung}{29}
 \contentsline {section}{\numberline {4.1}Evaluierungskriterien}{29}
 \contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{30}
 \contentsline {section}{\numberline {4.3}Auswertung}{32}
 \contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{32}
 \contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{33}
-\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{33}
-\contentsline {chapter}{\numberline {5}Fazit}{35}
+\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{34}
+\contentsline {chapter}{\numberline {5}Fazit}{36}

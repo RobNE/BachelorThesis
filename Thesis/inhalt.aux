@@ -109,7 +109,7 @@
 \newlabel{sec:DescriptionOfTheAlgorithm}{{3.1}{15}}
 \gincltex@bb{DataCubeSlicedImage.tex}{0}{0}{270.79575}{278.91002}
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{16}}
-\newlabel{tab:descriptionTestSetting}{{3.1}{16}}
+\newlabel{tab:descriptionNotation}{{3.1}{16}}
 \newlabel{eq:numberOfSubsceneGroups}{{3.1}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Beispielhafte Kacheln $k_{t, b} \in K$ mit gleicher Kantenl\IeC {\"a}nge $dim_k$, ausgeschnitten aus Szenen $s_t \in S$. Die Tupel geben die Position $pos\_tk$ der Teilkacheln $tk_{t, pos\_tk, b}$ der Kachel an und werden als Gruppenschl\IeC {\"u}ssel zum Gruppieren der Teilszenen verwendet.\relax }}{17}}
 \newlabel{fig:dataCubeSliced}{{3.1}{17}}
@@ -165,25 +165,26 @@
 \newlabel{alg:executeRegression}{{23}{23}}
 \newlabel{eq:complexityFlinkComb}{{3.10}{23}}
 \@writefile{toc}{\contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Python-Implementation}{23}}
-\newlabel{eq:complexityPython1}{{3.11}{24}}
+\newlabel{subsec:complexityPython}{{3.1.2}{23}}
+\newlabel{eq:complexityPython1}{{3.11}{23}}
 \newlabel{eq:complexityPython2}{{3.12}{24}}
 \newlabel{eq:complexityPython3}{{3.13}{24}}
 \newlabel{eq:complexityPython4}{{3.14}{24}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Python-Algorithmus zur Konstruktion und Approximierung von Pixelzeitreihen $PTS_{pos, b}$\relax }}{25}}
-\newlabel{alg:python}{{4}{25}}
-\newlabel{alg:iterB}{{5}{25}}
-\newlabel{alg:iterX}{{6}{25}}
-\newlabel{alg:iterY}{{7}{25}}
-\newlabel{alg:iterPTS}{{10}{25}}
-\newlabel{alg:regression}{{13}{25}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Python-Algorithmus zur Konstruktion und Approximierung von Pixelzeitreihen $PTS_{pos, b}$\relax }}{24}}
+\newlabel{alg:python}{{4}{24}}
+\newlabel{alg:iterB}{{5}{24}}
+\newlabel{alg:iterX}{{6}{24}}
+\newlabel{alg:iterY}{{7}{24}}
+\newlabel{alg:iterPTS}{{10}{24}}
+\newlabel{alg:regression}{{13}{24}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{25}}
 \newlabel{sec:ImplementationFlinkDescription}{{3.2}{25}}
+\newlabel{eq:conditionXEqualsY}{{3.15}{25}}
 \gincltex@bb{algorithmOperators.tex}{0}{0}{353.12804}{509.02351}
-\newlabel{eq:conditionXEqualsY}{{3.15}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{26}}
-\newlabel{sec:Differences}{{3.2.1}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus in Flink\relax }}{27}}
-\newlabel{fig:dataFlowAlgorithm}{{3.3}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Visualisierung des Datenstroms des Analysealgorithmus in Flink\relax }}{26}}
+\newlabel{fig:dataFlowAlgorithm}{{3.3}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{27}}
+\newlabel{sec:Differences}{{3.2.1}{27}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluierung}{29}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -191,29 +192,33 @@
 \newlabel{sec:evaluationCriteria}{{4.1}{29}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{30}}
 \newlabel{eq:numberOfSubtiles}{{4.1}{31}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Beschreibung der f\IeC {\"u}r die Evaluation genutzten Testkonfigurationen\relax }}{32}}
-\newlabel{tab:descriptionTestSetting}{{4.1}{32}}
-\newlabel{fig:diagrammDimtk}{{4.1a}{32}}
-\newlabel{sub@fig:diagrammDimtk}{{a}{32}}
-\newlabel{fig:sub2}{{4.1b}{32}}
-\newlabel{sub@fig:sub2}{{b}{32}}
+\newlabel{fig:diagrammFlinkDimTK}{{4.1a}{32}}
+\newlabel{sub@fig:diagrammFlinkDimTK}{{a}{32}}
+\newlabel{fig:diagrammFlinkDop}{{4.1b}{32}}
+\newlabel{sub@fig:diagrammFlinkDop}{{b}{32}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A figure with two subfigures\relax }}{32}}
-\newlabel{fig:test}{{4.1}{32}}
+\newlabel{fig:diagrammFlink}{{4.1}{32}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Auswertung}{32}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{32}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{33}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{33}}
-\newlabel{fig:diagrammDimtk}{{4.2a}{34}}
-\newlabel{sub@fig:diagrammDimtk}{{a}{34}}
-\newlabel{fig:sub2}{{4.2b}{34}}
-\newlabel{sub@fig:sub2}{{b}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A figure with two subfigures\relax }}{34}}
-\newlabel{fig:test}{{4.2}{34}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{35}}
+\newlabel{fig:diagrammPythonDimK}{{4.2a}{34}}
+\newlabel{sub@fig:diagrammPythonDimK}{{a}{34}}
+\newlabel{fig:diagrammPythonPhases}{{4.2b}{34}}
+\newlabel{sub@fig:diagrammPythonPhases}{{b}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Graphische Darstellung der Skalierbarkeit der Python-Implementation.\relax }}{34}}
+\newlabel{fig:diagrammsPython}{{4.2}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{34}}
+\newlabel{fig:diagrammPythonFlinkNS}{{4.3a}{35}}
+\newlabel{sub@fig:diagrammPythonFlinkNS}{{a}{35}}
+\newlabel{fig:diagrammPythonFlinkDimK}{{4.3b}{35}}
+\newlabel{sub@fig:diagrammPythonFlinkDimK}{{b}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Vergleich der Laufzeiten der Python- und der PyFlink-Implementation bei Ver\IeC {\"a}nderung der Anzahl der Szenen $n_s$ oder der Kachelkantenl\IeC {\"a}nge $dim_k$.\relax }}{35}}
+\newlabel{fig:diagrammsPythonFlink}{{4.3}{35}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{36}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{inhalt}{
-\setcounter{page}{36}
+\setcounter{page}{37}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
