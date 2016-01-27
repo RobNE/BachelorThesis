@@ -12,16 +12,27 @@
 \contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{15}
 \contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}
 \contentsline {subsection}{\numberline {3.1.1}Support Vektor Regression}{18}
-\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse der parallelisierten Implementationen}{19}
+\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse der Algorithmen}{19}
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Flink-Implementationen}{20}
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Python-Implementation}{23}
 \contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{25}
 \contentsline {subsection}{\numberline {3.2.1}Unterschiede zwischen den drei Implementationsvarianten}{27}
 \contentsline {chapter}{\numberline {4}Evaluierung}{29}
 \contentsline {section}{\numberline {4.1}Evaluierungskriterien}{29}
+\contentsline {subsubsection}{Skalierbarkeit}{29}
+\contentsline {subsubsection}{Ausf\IeC {\"u}hrungsgeschwindigkeit}{30}
 \contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{30}
+\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{31}
+\contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{31}
+\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen auf die Verarbeitungsgeschwindigkeit}{31}
+\contentsline {subsubsection}{Auswirkung des Grades der Parallelisierung auf die Verarbeitungsgeschwindigkeit}{32}
 \contentsline {section}{\numberline {4.3}Auswertung}{32}
 \contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{32}
-\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{33}
-\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{34}
-\contentsline {chapter}{\numberline {5}Fazit}{36}
+\contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{32}
+\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{33}
+\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$ auf die Verarbeitungsgeschwindigkeit}{34}
+\contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{34}
+\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{35}
+\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{35}
+\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{36}
+\contentsline {chapter}{\numberline {5}Fazit}{38}
