@@ -31,8 +31,11 @@
 \contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{32}
 \contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{33}
 \contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$ auf die Verarbeitungsgeschwindigkeit}{34}
-\contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{34}
-\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{35}
-\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{35}
-\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{36}
-\contentsline {chapter}{\numberline {5}Fazit}{38}
+\contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{35}
+\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{35}
+\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{36}
+\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$}{37}
+\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$}{37}
+\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{38}
+\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{39}
+\contentsline {chapter}{\numberline {5}Fazit}{40}

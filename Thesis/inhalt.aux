@@ -194,6 +194,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{Ausf\IeC {\"u}hrungsgeschwindigkeit}{30}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Versuchsbeschreibung und -erwartungen}{30}}
 \newlabel{sec:testsDescription}{{4.2}{30}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Eigenschaften der f\IeC {\"u}r die Evaluationstests genutzten Hardware.\relax }}{30}}
+\newlabel{tab:hardwareSpecifications}{{4.1}{30}}
 \@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{31}}
 \@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{31}}
 \newlabel{eq:numberOfSubtiles}{{4.1}{31}}
@@ -209,36 +211,45 @@
 \newlabel{sub@fig:diagrammFlinkDimTK}{{a}{34}}
 \newlabel{fig:diagrammFlinkDimK}{{4.1b}{34}}
 \newlabel{sub@fig:diagrammFlinkDimK}{{b}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Laufzeit der Flink-Implementationen f\IeC {\"u}r variiende Teilkachelkantenl\IeC {\"a}ngen $dim_{tk}$ und variiende Kachelkantenl\IeC {\"a}ngen $dim_{k}$ mit $dop = 144$ und $n_s = 373$.\relax }}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Laufzeit der Flink-Implementationen f\IeC {\"u}r variiende Teilkachelkantenl\IeC {\"a}ngen $dim_{tk}$ und Kachelkantenl\IeC {\"a}ngen $dim_{k}$ mit $dop = 144$ und $n_s = 373$.\relax }}{34}}
 \newlabel{fig:diagrammFlink1}{{4.1}{34}}
 \@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$ auf die Verarbeitungsgeschwindigkeit}{34}}
-\@writefile{toc}{\contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{34}}
 \newlabel{fig:diagrammFlinkNS}{{4.2a}{35}}
 \newlabel{sub@fig:diagrammFlinkNS}{{a}{35}}
 \newlabel{fig:diagrammFlinkDop}{{4.2b}{35}}
 \newlabel{sub@fig:diagrammFlinkDop}{{b}{35}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Laufzeit der Flink-Implementationen f\IeC {\"u}r verschiedene Anzahlen von Szenen $n_s$ und variienden Grad der Parallelisierung $dop$ mit $dim_k = 500$ und $dim_{tk} = 20$.\relax }}{35}}
 \newlabel{fig:diagrammFlink2}{{4.2}{35}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{35}}
-\@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{35}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{36}}
-\newlabel{fig:diagrammPythonDimK}{{4.3a}{37}}
-\newlabel{sub@fig:diagrammPythonDimK}{{a}{37}}
-\newlabel{fig:diagrammPythonPhases}{{4.3b}{37}}
-\newlabel{sub@fig:diagrammPythonPhases}{{b}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Graphische Darstellung der Skalierbarkeit der Python-Implementation.\relax }}{37}}
+\@writefile{toc}{\contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{35}}
+\@writefile{toc}{\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{36}}
+\newlabel{fig:diagrammPyFlinkDimTKPhases}{{4.3a}{37}}
+\newlabel{sub@fig:diagrammPyFlinkDimTKPhases}{{a}{37}}
+\newlabel{fig:diagrammJavaFlinkDimTKPhases}{{4.3b}{37}}
+\newlabel{sub@fig:diagrammJavaFlinkDimTKPhases}{{b}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Graphische Darstellung der Skalierbarkeit der einzelnen Phasen der Flink-Implementation bei variablem Wert $dim_{tk}$\relax }}{37}}
 \newlabel{fig:diagrammsPython}{{4.3}{37}}
-\newlabel{fig:diagrammPythonFlinkNS}{{4.4a}{37}}
-\newlabel{sub@fig:diagrammPythonFlinkNS}{{a}{37}}
-\newlabel{fig:diagrammPythonFlinkDimK}{{4.4b}{37}}
-\newlabel{sub@fig:diagrammPythonFlinkDimK}{{b}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Vergleich der Laufzeiten der Python- und der PyFlink-Implementation bei Ver\IeC {\"a}nderung der Anzahl der Szenen $n_s$ oder der Kachelkantenl\IeC {\"a}nge $dim_k$.\relax }}{37}}
-\newlabel{fig:diagrammsPythonFlink}{{4.4}{37}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{38}}
+\@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$}{37}}
+\@writefile{toc}{\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$}{37}}
+\newlabel{fig:diagrammPythonDimK}{{4.4a}{38}}
+\newlabel{sub@fig:diagrammPythonDimK}{{a}{38}}
+\newlabel{fig:diagrammPythonPhases}{{4.4b}{38}}
+\newlabel{sub@fig:diagrammPythonPhases}{{b}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Graphische Darstellung der Skalierbarkeit der Python-Implementation.\relax }}{38}}
+\newlabel{fig:diagrammsPython}{{4.4}{38}}
+\@writefile{toc}{\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{38}}
+\newlabel{fig:diagrammPythonFlinkNS}{{4.5a}{39}}
+\newlabel{sub@fig:diagrammPythonFlinkNS}{{a}{39}}
+\newlabel{fig:diagrammPythonFlinkDimK}{{4.5b}{39}}
+\newlabel{sub@fig:diagrammPythonFlinkDimK}{{b}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Vergleich der Laufzeiten der Python-, der Java-Flink- und der Python-Flink-Implementationen bei Ver\IeC {\"a}nderung der Anzahl der Szenen $n_s$ oder der Kachelkantenl\IeC {\"a}nge $dim_k$.\relax }}{39}}
+\newlabel{fig:diagrammsPythonFlink}{{4.5}{39}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{39}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fazit}{40}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@setckpt{inhalt}{
-\setcounter{page}{39}
+\setcounter{page}{41}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
