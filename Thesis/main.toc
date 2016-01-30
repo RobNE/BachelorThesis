@@ -12,7 +12,7 @@
 \contentsline {chapter}{\numberline {3}Algorithmus zur Analyse von Pixelzeitreihen}{15}
 \contentsline {section}{\numberline {3.1}Beschreibung des Algorithmus}{15}
 \contentsline {subsection}{\numberline {3.1.1}Support Vektor Regression}{18}
-\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse der Algorithmen}{19}
+\contentsline {subsection}{\numberline {3.1.2}Komplexit\IeC {\"a}tsanalyse der Algorithmen}{20}
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Flink-Implementationen}{20}
 \contentsline {subsubsection}{Komplexit\IeC {\"a}tsanalyse der Python-Implementation}{23}
 \contentsline {section}{\numberline {3.2}Umsetzung des Algorithmus mit Apache Flink}{25}
@@ -26,16 +26,46 @@
 \contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{31}
 \contentsline {subsubsection}{Auswirkung der Anzahl der Szenen auf die Verarbeitungsgeschwindigkeit}{31}
 \contentsline {subsubsection}{Auswirkung des Grades der Parallelisierung auf die Verarbeitungsgeschwindigkeit}{32}
+\contentsline {subsubsection}{Vergleich der Stabilit\IeC {\"a}t der drei Implementationen}{32}
 \contentsline {section}{\numberline {4.3}Auswertung}{32}
-\contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{32}
-\contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{32}
-\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{33}
-\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$ auf die Verarbeitungsgeschwindigkeit}{34}
+\contentsline {subsection}{\numberline {4.3.1}Auswertung der Evaluierung der parallelisierten Varianten}{33}
+\contentsline {subsubsection}{Auswirkung der Teilkachelkantenl\IeC {\"a}nge $dim_{tk}$ auf die Verarbeitungsgeschwindigkeit}{33}
+\contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$ auf die Verarbeitungsgeschwindigkeit}{34}
+\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$ auf die Verarbeitungsgeschwindigkeit}{35}
 \contentsline {subsubsection}{Auswirkung des Grads der Parallelisierung $dop$ auf die Verarbeitungsgeschwindigkeit}{35}
-\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{35}
-\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{36}
+\contentsline {subsubsection}{Laufzeitentwicklung und Skalierbarkeit der einzelnen Phasen des Algorithmus}{35}
+\contentsline {subsection}{\numberline {4.3.2}Auswertung der Evaluierung der Python-Variante}{37}
 \contentsline {subsubsection}{Auswirkung der Kachelkantenl\IeC {\"a}nge $dim_k$}{37}
-\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$}{37}
-\contentsline {subsubsection}{Skalierbarkeit der einzelnen Phasen des Algorithmus}{38}
+\contentsline {subsubsection}{Auswirkung der Anzahl der Szenen $n_s$}{38}
+\contentsline {subsubsection}{Laufzeitverhalten der einzelnen Phasen des Algorithmus}{38}
 \contentsline {subsection}{\numberline {4.3.3}Vergleich der parallelisierten und der nicht-parallelisierten Varianten}{39}
-\contentsline {chapter}{\numberline {5}Fazit}{40}
+\contentsline {subsubsection}{Vergleich der Auswirkungen der Anzahl der Szenen $n_s$}{39}
+\contentsline {subsubsection}{Vergleich der Auswirkungen der Kachelkantenl\IeC {\"a}nge $dim_k$}{40}
+\contentsline {subsubsection}{Vergleich der Stabilit\IeC {\"a}t}{41}
+\contentsline {chapter}{\numberline {5}Fazit}{42}
+\contentsline {chapter}{\numberline {A}Testkonfigurationen der Evaluation des Algorithmus}{44}
+\contentsline {section}{\numberline {A.1}Konfigurationen der parallelisierten Varianten}{44}
+\contentsline {subsection}{\numberline {A.1.1}Konfigurationen f\IeC {\"u}r variable Werte $n_s$}{44}
+\contentsline {subsubsection}{Versuch 1}{44}
+\contentsline {subsubsection}{Versuch 2}{45}
+\contentsline {subsubsection}{Versuch 3}{45}
+\contentsline {subsubsection}{Versuch 4}{45}
+\contentsline {subsection}{\numberline {A.1.2}Konfiguration f\IeC {\"u}r variable $dim_k$}{46}
+\contentsline {subsection}{\numberline {A.1.3}Konfiguration f\IeC {\"u}r variable $dim_{tk}$}{46}
+\contentsline {subsection}{\numberline {A.1.4}Konfiguration f\IeC {\"u}r variable $dop$}{46}
+\contentsline {subsubsection}{Versuch 1}{46}
+\contentsline {subsubsection}{Versuch 2}{46}
+\contentsline {subsubsection}{Versuch 3}{46}
+\contentsline {subsubsection}{Versuch 4}{47}
+\contentsline {subsubsection}{Versuch 5}{47}
+\contentsline {subsubsection}{Versuch 6}{47}
+\contentsline {section}{\numberline {A.2}Konfigurationen der parallelisierten Varianten}{48}
+\contentsline {subsection}{\numberline {A.2.1}Konfigurationen f\IeC {\"u}r variable Werte $n_s$}{48}
+\contentsline {subsubsection}{Versuch 1}{48}
+\contentsline {subsubsection}{Versuch 2}{48}
+\contentsline {subsubsection}{Versuch 3}{48}
+\contentsline {subsubsection}{Versuch 4}{48}
+\contentsline {subsection}{\numberline {A.2.2}Konfigurationen f\IeC {\"u}r variable Werte $n_s$}{49}
+\contentsline {subsubsection}{Versuch 1}{49}
+\contentsline {subsubsection}{Versuch 2}{49}
+\contentsline {subsubsection}{Versuch 3}{49}

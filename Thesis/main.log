@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  28 JAN 2016 03:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.4.7)  30 JAN 2016 02:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1256,6 +1256,27 @@ Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subfigure=\count159
 \c@subtable=\count160
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
+\MT@toks=\toks48
+\MT@count=\count161
+LaTeX Info: Redefining \textls on input line 766.
+\MT@outer@kern=\dimen205
+LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
+\MT@listname@count=\count162
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
+\MT@outer@space=\skip62
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
+))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
@@ -1266,7 +1287,7 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
 code.tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
-\arrowsize=\dimen205
+\arrowsize=\dimen206
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypositioning.code.tex
@@ -1330,7 +1351,7 @@ fillbetween.code.tex
 s/tikzlibraryintersections.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/libraries/pgflibraryinterse
 ctions.code.tex
-\pgf@intersect@solutions=\count161
+\pgf@intersect@solutions=\count163
 ))
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrary
 decorations.softclip.code.tex
@@ -1338,7 +1359,7 @@ decorations.softclip.code.tex
 illbetween.code.tex)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
 soldpgfsupp_pgflibraryintersections.code.tex
-\pgf@intersect@solutions=\count162
+\pgf@intersect@solutions=\count164
 ))
 Package pgfplots: loading complementary 'name path' implementation for your pgf
  version...
@@ -1351,12 +1372,12 @@ ts.dateplot.code.tex
 (/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.
 tex
 File: pgfcalendar.code.tex 2007/07/23 v3.0.0 (rcs-revision 1.11)
-\pgfcalendarcurrentjulian=\count163
+\pgfcalendarcurrentjulian=\count165
 ))))
-\c@theorem=\count164
-\c@lemma=\count165
-\c@definition=\count166
-\c@beispiel=\count167
+\c@theorem=\count166
+\c@lemma=\count167
+\c@definition=\count168
+\c@beispiel=\count169
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1367,6 +1388,10 @@ LaTeX Warning: Label `alg:iterY1' multiply defined.
 
 
 LaTeX Warning: Label `fig:diagrammsPython' multiply defined.
+
+) (./appendix.aux
+
+LaTeX Warning: Label `tab:testFlinkNS3' multiply defined.
 
 ) (./statement.aux))
 \openout1 = `main.aux'.
@@ -1394,17 +1419,17 @@ LaTeX Font Info:    ... okay on input line 101.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count168
-\scratchdimen=\dimen206
+\scratchcounter=\count170
+\scratchdimen=\dimen207
 \scratchbox=\box73
-\nofMPsegments=\count169
-\nofMParguments=\count170
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count171
-\MPscratchDim=\dimen207
-\MPnumerator=\count172
-\makeMPintoPDFobject=\count173
-\everyMPtoPDFconversion=\toks49
+\nofMPsegments=\count171
+\nofMParguments=\count172
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count173
+\MPscratchDim=\dimen208
+\MPnumerator=\count174
+\makeMPintoPDFobject=\count175
+\everyMPtoPDFconversion=\toks50
 ) ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -1415,7 +1440,22 @@ ick labels; missing features). Consider writing \pgfplotsset{compat=1.10} into
 your preamble.
  on input line 101.
 
+LaTeX Info: Redefining \microtypecontext on input line 101.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
 \openout2 = `title.aux'.
+
 
 (./title.tex
 Overfull \hbox (159.48546pt too wide) in paragraph at lines 2--4
@@ -1438,10 +1478,16 @@ LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
 LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Overfull \hbox (38.51347pt too wide) in paragraph at lines 36--52
 []
@@ -1478,13 +1524,13 @@ Kapitel 2.
 [3
 
 ] [4] [5]
-Overfull \hbox (11.0909pt too wide) in paragraph at lines 69--70
-[]\T1/cmr/bx/n/10 Variety. \T1/cmr/m/n/10 Ge-sam-mel-te Da-ten wei-sen viel-fäl
--ti-ge Da-ten-struk-tu-ren auf. Es wer-den nicht-strukturierte,
+Overfull \hbox (2.4011pt too wide) in paragraph at lines 69--70
+[]\T1/cmr/bx/n/10 Variety. \T1/cmr/m/n/10 (-20) Ge-sam-mel-te Da-ten wei-sen vi
+el-fäl-ti-ge Da-ten-struk-tu-ren auf. Es wer-den nicht-strukturierte,
  []
 
 [6] [7]
-<picture/map_reduce_system_example.png, id=57, 924.45375pt x 663.47874pt>
+<picture/map_reduce_system_example.png, id=59, 924.45375pt x 663.47874pt>
 File: picture/map_reduce_system_example.png Graphic file (type png)
 
 <use picture/map_reduce_system_example.png>
@@ -1492,57 +1538,45 @@ Package pdftex.def Info: picture/map_reduce_system_example.png used on input li
 ne 93.
 (pdftex.def)             Requested size: 384.10959pt x 275.67262pt.
  [8 <./picture/map_reduce_system_example.png>] [9] <picture/flink_operators.png
-, id=66, 831.105pt x 133.2177pt>
+, id=68, 831.105pt x 133.2177pt>
 File: picture/flink_operators.png Graphic file (type png)
 
 <use picture/flink_operators.png>
 Package pdftex.def Info: picture/flink_operators.png used on input line 137.
 (pdftex.def)             Requested size: 384.10959pt x 61.56952pt.
  [10 <./picture/flink_operators.png>]
-<picture/flink_job_and_execution_graph.png, id=72, 864.22874pt x 544.0325pt>
+<picture/flink_job_and_execution_graph.png, id=74, 864.22874pt x 544.0325pt>
 File: picture/flink_job_and_execution_graph.png Graphic file (type png)
 
 <use picture/flink_job_and_execution_graph.png>
 Package pdftex.def Info: picture/flink_job_and_execution_graph.png used on inpu
 t line 169.
 (pdftex.def)             Requested size: 384.10959pt x 241.79901pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11] [12 <./picture/flink_job_and_execution_graph.png>] [13] [14]
+ [11 <./picture/flink_job_and_execution_graph.png>] [12] [13] [14]
 Kapitel 3.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15
-
-] (./DataCubeSlicedImage.tex)
-File: DataCubeSlicedImage.tex Graphic file (type tex)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [15
+
+]
+
+LaTeX Warning: Reference `tab:description' on page 16 undefined on input line 2
+48.
+
+(./DataCubeSlicedImage.tex)
+File: DataCubeSlicedImage.tex Graphic file (type tex)
  [16]
-Underfull \hbox (badness 10000) in paragraph at lines 271--274
+Underfull \hbox (badness 10000) in paragraph at lines 269--272
 
  []
 
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
-[19]
+[17] [18] [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-Overfull \hbox (12.69846pt too wide) in paragraph at lines 438--442
-\T1/cmr/m/n/10 Nachdem al-le be-nö-tig-ten Has-h-maps er-zeugt wur-den, wird in
- Zei-le 11[] über al-le Teil-ka-cheln $\OML/cmm/m/it/10 tk[] \OMS/cmsy/m/n/10 2
 
- []
-
-
-LaTeX Warning: Reference `normalizeY' on page 21 undefined on input line 446.
+LaTeX Warning: Reference `normalizeY' on page 21 undefined on input line 444.
 
 [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1554,99 +1588,107 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [24]
 [25] (./algorithmOperators.tex)
 File: algorithmOperators.tex Graphic file (type tex)
- [26] [27] [28]
+
+Underfull \vbox (badness 6332) has occurred while \output is active []
+
+ [26]
+[27] [28]
 Kapitel 4.
 [29
 
 ] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
 
  []
 
-[32] [33] [34] [35]
-Overfull \hbox (9.60576pt too wide) in paragraph at lines 860--862
-[]\T1/cmr/m/n/10 Die stark be-schleu-nig-te Aus-füh-rungs-ge-schwin-dig-keit de
-r Schneide- und Ana-ly-se-pha-se des PyFlink-
- []
+[32]
+Underfull \vbox (badness 1460) has occurred while \output is active []
 
-Missing character: There is no / in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no ( in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no / in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no ( in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no , in font nullfont!
-
+ [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+[35]
+Missing character: There is no / in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no , in font nullfont!
+
+Underfull \vbox (badness 4686) has occurred while \output is active []
 
  [36]
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 974.
-
 [37]
+Overfull \hbox (11.58139pt too wide) in paragraph at lines 980--981
+[]\T1/cmr/m/n/10 (-20) Es wird al-so auf Ba-sis der er-ho-be-nen Da-ten fest-ge
+-stellt, dass die Lauf-zeit der Python-Implementation
+ []
+
 Missing character: There is no / in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no g in font nullfont!
@@ -1718,28 +1760,101 @@ Missing character: There is no x in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no , in font nullfont!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2221) has occurred while \output is active []
 
  [38]
 [39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
+[41]
 Kapitel 5.
-) [40
+) [42
 
-] (./main.bbl
+] [43]
+\openout2 = `appendix.aux'.
+
+ (./appendix.tex
+Anhang A.
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 15--35
+ [][] 
+ []
+
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 43--63
+ [][] 
+ []
+
+
+Underfull \vbox (badness 3792) has occurred while \output is active []
+
+ [44
+
+
+
+]
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 71--91
+ [][] 
+ []
+
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 99--119
+ [][] 
+ []
+
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 134--154
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 162--182
+ [][] 
+ []
+
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 190--210
+ [][] 
+ []
+
+
+Overfull \hbox (33.84247pt too wide) in paragraph at lines 218--238
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1360) has occurred while \output is active []
+
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+[48]) [49] (./main.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 36.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [41
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [50
 
 
-] [42] [43]) [44]
+] [51]
+[52]) [53] [54
+
+]
 \openout2 = `statement.aux'.
 
- (./statement.tex) [45
+ (./statement.tex) [55
 
-
-] (./main.aux (./title.aux)
-(./inhalt.aux) (./statement.aux))
+] (./main.aux (./title.aux) (./inhalt.aux) (./appendix.aux) (./statement.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1748,54 +1863,56 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31008 strings out of 493117
- 737947 string characters out of 6135434
- 1119365 words of memory out of 5000000
- 33756 multiletter control sequences out of 15000+600000
- 28880 words of font info for 76 fonts, out of 8000000 for 9000
+ 32733 strings out of 493117
+ 768432 string characters out of 6135434
+ 1184827 words of memory out of 5000000
+ 35243 multiletter control sequences out of 15000+600000
+ 36213 words of font info for 180 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,23n,109p,2264b,2460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,23n,109p,2265b,2460s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-14/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/cm-super/sfcc0900.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/cm-super/sfrm0500.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2014/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/cm-super/sfrm0900.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/cm-super/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/cm-super/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/c
-m-super/sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-
-super/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-su
-per/sfti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-supe
-r/sftt1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/
-sfxc1200.pfb>
-Output written on main.pdf (48 pages, 1195100 bytes).
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2014/texmf-dist/fon
+ts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2014/texmf-dist/fonts
+/type1/public/cm-super/sfcc0900.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm0500.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/cm-super/sfrm0700.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm0800.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm0900.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
+c/cm-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
+cm-super/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm
+-super/sfrm1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm1728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-sup
+er/sfsl1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
+/sfti1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
+ftt1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfx
+c1200.pfb>
+Output written on main.pdf (58 pages, 1250478 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
+ 361 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 32289 words of extra memory for PDF output out of 35830 (max. 10000000)
 
